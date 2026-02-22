@@ -145,3 +145,58 @@ test("geotagArticles falls back to secondary model after 429", async () => {
   assert.equal(result[0].geotagStatus, "live");
   assert.equal(result[0].geotag.country, "DEU");
 });
+
+test("geotagArticles enforces maxApiBatches guard to control spend", async () => {
+  const articles = [
+    sampleArticle({ id: "b1", title: "Event in London" }),
+    sampleArticle({ id: "b2", title: "Event in Tokyo" })
+  ];
+
+  let callCount = 0;
+  const httpClient = {
+    async post() {
+      callCount += 1;
+      return {
+        data: {
+          candidates: [
+            {
+              content: {
+                parts: [
+                  {
+                    text: JSON.stringify({
+                      results: [
+                        {
+                          id: "b1",
+                          country: "GBR",
+                          city: "London",
+                          category: "World",
+                          confidence: 0.9,
+                          keywords: []
+                        }
+                      ]
+                    })
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      };
+    }
+  };
+
+  const result = await geotagArticles(articles, {
+    mode: "live",
+    model: "gemini-test",
+    geminiApiKey: "test-key",
+    httpClient,
+    batchSize: 1,
+    maxApiBatches: 1,
+    maxRetries: 1
+  });
+
+  assert.equal(callCount, 1);
+  assert.equal(result.length, 2);
+  assert.equal(result[0].geotagStatus, "live");
+  assert.equal(result[1].geotagStatus, "mock");
+});

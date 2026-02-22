@@ -4,9 +4,9 @@ A phased implementation of a personal RSS news aggregator that runs on GitHub Ac
 
 ## Current Build Status
 
-- Completed phases: 0, 1, 2, 3, 4, 5, 6
+- Completed phases: 0, 1, 2, 3, 4, 5, 6, 7
 - In progress: none
-- Next phase: 7 (Hardening, QA, final polish)
+- Next phase: maintenance and iterative improvements
 
 ## Security Rules
 
@@ -42,13 +42,21 @@ By default this runs Phase 1-5. Geotag behavior:
 2. `GEOTAG_MODE=mock`: always mock geotagging.
 3. `GEOTAG_MODE=live`: forces Gemini API geotagging (requires key).
 4. Default model: `gemini-2.5-flash-lite` with fallbacks to `gemini-2.0-flash-lite,gemini-2.0-flash`.
+5. Cost guard: `GEOTAG_MAX_API_BATCHES=1` (default) limits live Gemini requests per run.
+
+6. Run final QA gate:
+
+```bash
+npm run qa
+```
 
 ## GitHub Secret Wiring
 
 The workflow already maps the secret into runtime env:
 1. `/Users/jaybharti/Documents/RSS Feed/.github/workflows/curate.yml` sets:
    1. `GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}`
-   2. `GEOTAG_MODE: auto`
+   2. `GEOTAG_MODE` configurable via repo variable (defaults to `auto`)
+   3. `GEOTAG_MAX_API_BATCHES` configurable via repo variable (defaults to `1`)
 2. `/Users/jaybharti/Documents/RSS Feed/src/config.js` reads `process.env.GEMINI_API_KEY`.
 3. `/Users/jaybharti/Documents/RSS Feed/src/geotagger.js` switches to live Gemini when key exists; otherwise it uses mock geotagging.
 
@@ -88,12 +96,14 @@ Gemini troubleshooting:
 - `assets/map.js`: Leaflet map + marker clustering + country click filtering.
 - `assets/world.geo.json`: world country boundaries used for map highlighting/filtering.
 
-## Planned Next Modules
+## Implemented Modules (Phase 7)
 
-- QA and hardening updates (Phase 7).
+- `scripts/qa-check.mjs`: automated schema/quality/performance sanity checks for generated artifacts.
+- `.github/workflows/curate.yml`: workflow now runs `npm run qa` after pipeline and before artifact commit.
+- Geotag hardening in `src/geotagger.js`: structured API diagnostics, fallback model chain, and max live-request guard.
 
 ## Notes For Next Agent
 
 1. Read `PHASED_IMPLEMENTATION_PLAN.md` and `AGENT_PROGRESS_LOG.md` before coding.
-2. Continue from Phase 7 using current output shape from `runPhaseOneToFive()`.
+2. Continue from maintenance tasks using current output shape from `runPhaseOneToFive()`.
 3. Use `PHASE_SIGNOFF.md` for signed-off scope and exact next-start checklist.

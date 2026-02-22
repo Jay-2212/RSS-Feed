@@ -14,7 +14,9 @@ jobs:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-2.5-flash-lite' }}
       GEMINI_FALLBACK_MODELS: ${{ vars.GEMINI_FALLBACK_MODELS || 'gemini-2.0-flash-lite,gemini-2.0-flash' }}
-      GEOTAG_MODE: auto
+      GEOTAG_MODE: ${{ vars.GEOTAG_MODE || 'auto' }}
+      GEOTAG_BATCH_SIZE: ${{ vars.GEOTAG_BATCH_SIZE || '40' }}
+      GEOTAG_MAX_API_BATCHES: ${{ vars.GEOTAG_MAX_API_BATCHES || '1' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -38,6 +40,9 @@ jobs:
 
       - name: Run pipeline (Phase 1-5)
         run: npm run run:pipeline
+
+      - name: Run QA checks
+        run: npm run qa
 
       - name: Commit generated artifacts
         run: |

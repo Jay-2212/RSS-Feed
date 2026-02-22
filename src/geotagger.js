@@ -10,7 +10,8 @@ const DEFAULTS = {
   maxRetries: 4,
   retryBaseDelayMs: 2_000,
   retryMaxDelayMs: 30_000,
-  batchSize: 40
+  batchSize: 40,
+  maxApiBatches: 1
 };
 
 const VALID_CATEGORIES = new Set(["World", "National", "Trending", "WorthReading"]);
@@ -537,34 +538,42 @@ export async function geotagArticles(articles, rawOptions = {}) {
   const combined = [];
   const modelUsageCounts = {};
 
-  for (const batch of chunks) {
+  for (const [batchIndex, batch] of chunks.entries()) {
     const prompt = buildGeotagPrompt(batch);
     let parsedResults = [];
     let modelUsedForBatch = null;
 
-    try {
-      const response = await callGeminiWithModelFallback(prompt, options, logger);
-      modelUsedForBatch = response.modelUsed;
-      parsedResults = parseGeminiResponsePayload(response.data);
-      if (modelUsedForBatch) {
-        modelUsageCounts[modelUsedForBatch] = (modelUsageCounts[modelUsedForBatch] ?? 0) + 1;
-      }
-      if (parsedResults.length === 0) {
-        logger.warn("Gemini response parsed but returned no usable geotag rows", {
-          modelUsed: modelUsedForBatch,
-          batchSize: batch.length
+    if (batchIndex < options.maxApiBatches) {
+      try {
+        const response = await callGeminiWithModelFallback(prompt, options, logger);
+        modelUsedForBatch = response.modelUsed;
+        parsedResults = parseGeminiResponsePayload(response.data);
+        if (modelUsedForBatch) {
+          modelUsageCounts[modelUsedForBatch] = (modelUsageCounts[modelUsedForBatch] ?? 0) + 1;
+        }
+        if (parsedResults.length === 0) {
+          logger.warn("Gemini response parsed but returned no usable geotag rows", {
+            modelUsed: modelUsedForBatch,
+            batchSize: batch.length
+          });
+        }
+      } catch (error) {
+        const details = extractApiErrorDetails(error);
+        logger.warn("Gemini geotag batch failed; using fallback for batch", {
+          status: details.status,
+          apiStatus: details.apiStatus,
+          message: details.message,
+          quotaViolations: details.quotaViolations,
+          batchSize: batch.length,
+          configuredModel: options.model,
+          fallbackModels: options.fallbackModels
         });
       }
-    } catch (error) {
-      const details = extractApiErrorDetails(error);
-      logger.warn("Gemini geotag batch failed; using fallback for batch", {
-        status: details.status,
-        apiStatus: details.apiStatus,
-        message: details.message,
-        quotaViolations: details.quotaViolations,
+    } else {
+      logger.warn("Skipping Gemini batch due API cost guard", {
+        batchIndex,
         batchSize: batch.length,
-        configuredModel: options.model,
-        fallbackModels: options.fallbackModels
+        maxApiBatches: options.maxApiBatches
       });
     }
 
@@ -579,7 +588,8 @@ export async function geotagArticles(articles, rawOptions = {}) {
     mode: "live",
     count: combined.length,
     fallbackCount: combined.filter((article) => article.geotagStatus !== "live").length,
-    modelUsageCounts
+    modelUsageCounts,
+    maxApiBatches: options.maxApiBatches
   });
 
   return combined;

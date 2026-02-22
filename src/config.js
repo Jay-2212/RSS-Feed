@@ -21,6 +21,7 @@ const DEFAULTS = {
   geminiFallbackModels: ["gemini-2.0-flash-lite", "gemini-2.0-flash"],
   geotagMode: "auto",
   geotagBatchSize: 40,
+  geotagMaxApiBatches: 1,
   geotagTimeoutMs: 20_000,
   geotagMaxRetries: 4,
   geotagRetryBaseDelayMs: 2_000,
@@ -81,6 +82,10 @@ export function getRuntimeConfig(options = {}) {
     geotagBatchSize: parseInteger(
       process.env.GEOTAG_BATCH_SIZE,
       DEFAULTS.geotagBatchSize
+    ),
+    geotagMaxApiBatches: parseInteger(
+      process.env.GEOTAG_MAX_API_BATCHES,
+      DEFAULTS.geotagMaxApiBatches
     ),
     geotagTimeoutMs: parseInteger(
       process.env.GEOTAG_TIMEOUT_MS,

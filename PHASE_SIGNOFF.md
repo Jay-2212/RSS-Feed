@@ -1,9 +1,9 @@
 # Phase Sign-Off Record
 
-## Snapshot (UTC 2026-02-22T16:34:15Z)
-- Signed off phases: 0, 1, 2, 3, 4, 5, 6
+## Snapshot (UTC 2026-02-22T16:50:18Z)
+- Signed off phases: 0, 1, 2, 3, 4, 5, 6, 7
 - Active phase: none
-- Next phase: 7
+- Next phase: maintenance
 
 ## Phase 0 - Foundation and Guardrails
 Status: `SIGNED OFF`
@@ -117,12 +117,33 @@ Validation:
 2. Backend regression checks passed (`npm test` => 11/11, `npm run run:pipeline`).
 3. Map data dependency exists and loads from local asset path.
 
+## Phase 7 - Hardening, QA, and Handoff
+Status: `SIGNED OFF`
+
+Implemented:
+1. Added spend guard and diagnostics in geotag path:
+   1. `GEOTAG_MAX_API_BATCHES` support in `/Users/jaybharti/Documents/RSS Feed/src/config.js` and `/Users/jaybharti/Documents/RSS Feed/src/geotagger.js`
+   2. Structured Gemini API error logging and retry hints
+2. Added QA automation script in `/Users/jaybharti/Documents/RSS Feed/scripts/qa-check.mjs`.
+3. Added QA npm command in `/Users/jaybharti/Documents/RSS Feed/package.json` (`npm run qa`).
+4. Updated workflow `/Users/jaybharti/Documents/RSS Feed/.github/workflows/curate.yml`:
+   1. Configurable geotag controls via repo variables
+   2. QA gate execution before artifact commit
+5. Produced QA report `/Users/jaybharti/Documents/RSS Feed/QA_REPORT_PHASE7.md`.
+
+Validation:
+1. Local validation passed:
+   1. `npm test` => 12/12
+   2. `npm run run:pipeline` pass
+   3. `npm run qa` pass
+2. GitHub workflow run `22281026024` passed end-to-end.
+
 ## Known Non-Blocking Gaps
 1. Some metered sources (for example NYT) return extraction fallback entries due `403`.
 2. Gemini API may rate-limit (`429`) in live mode; batch fallback logic already handles this.
-3. Final hardening and QA closure (Phase 7) pending.
+3. Browser-level performance (FCP/map latency) still requires manual measurement for strict benchmark claims.
 
 ## Exact Next Start Point
-1. Execute Phase 7 QA checklist and performance checks.
-2. Tune extraction/geotagging reliability and optionally reduce 429 incidence further.
-3. Produce final runbook and release-readiness summary.
+1. Maintain and iterate based on production usage feedback.
+2. If needed, tune source list and geotag model settings via repository variables.
+3. Run `npm run qa` and review `/Users/jaybharti/Documents/RSS Feed/QA_REPORT_PHASE7.md` after major changes.

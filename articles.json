@@ -1,19 +1,19 @@
 {
   "metadata": {
-    "lastUpdated": "2026-02-22T16:37:13.963Z",
+    "lastUpdated": "2026-02-22T16:50:18.792Z",
     "count": 40,
     "sources": [
       "npr-world",
       "guardian-world",
-      "bbc-world",
       "hindu",
+      "bbc-world",
       "aljazeera",
       "abc-news",
       "indian-express-world"
     ],
     "phase": "phase_5_complete",
     "geotagModeConfigured": "auto",
-    "geotagModeResolved": "live",
+    "geotagModeResolved": "mock",
     "geotagModel": "gemini-2.5-flash-lite"
   },
   "articles": [
@@ -28,12 +28,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-21T22:16:49.000Z",
       "geotag": {
-        "country": "USA",
+        "country": "UNK",
         "city": null,
-        "lat": 39.8283,
-        "lng": -98.5795
+        "lat": 0,
+        "lng": 0
       },
-      "category": "World",
+      "category": "WorthReading",
       "metrics": {
         "wordCount": 828,
         "readTime": 4
@@ -55,10 +55,32 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "World",
+      "category": "WorthReading",
       "metrics": {
         "wordCount": 682,
         "readTime": 3
+      }
+    },
+    {
+      "id": "e3478f69088b6481",
+      "sourceId": "hindu",
+      "sourceName": "The Hindu",
+      "title": "Calcutta HC sets up committee to shift urgent matters to other courts, focus on final touches to SIR",
+      "excerpt": "Calcutta HC forms committee to expedite urgent court matters and finalize electoral rolls for upcoming West Bengal elections.",
+      "content": "![Image used for representational purposes only. File ](https://www.thehindu.com/theme/images/th-online/1x1_spacer.png \"Image used for representational purposes only. File \")\n\nImage used for representational purposes only. File | Photo Credit: The Hindu\n\nThe Chief Justice of Calcutta High Court Sujoy Paul has constituted a committee to oversee interim arrangements for shifting urgent matters to alternative courts, following the engagement of judicial officers for work related to the [Special Intensive Revision (SIR) of electoral rolls in West Bengal.](https://www.thehindu.com/topic/special-intensive-revision-of-electoral-rolls/)\n\nThe development comes in the wake of the Supreme Court’s order of February 20, in which the apex court has directed judicial officers be assigned to complete the [ongoing SIR in West Bengal.](https://www.thehindu.com/news/national/west-bengal/sir-in-west-bengal-eci-suspends-7-officials-for-serious-misconduct-and-misuse-of-statutory-powers/article70637511.ece) The SC pointed out that the persistent “trust deficit” between the State government led by Chief Minister Mamata Banerjee and the Election Commission of India (EC) had led to a “stalemate”, with time running out.\n\n![](https://th-i.thgim.com/public/incoming/cjhcg3/article70656815.ece/alternates/SQUARE_80/35_MAMATA_BANERJEE_PC_03_02_DELHI.jpg)\n\nThe committee appointed by Chief Justice Paul comprises Justices Tapabrata Chakraborty and Arijit Banerjee, Registrar General Nabanita Ray, Registrar (judicial service) Raju Mukherjee, and Joint Registrar-cum-Secretary to the Chief Justice Ajay Kumar Das.\n\nIn a separate notification, the Chief Justice of the Calcutta HC constituted a committee for each district “for the smooth compliance of the order of the Hon’ble Supreme Court with the following members”, comprising the District Judge, the District Magistrate, and the Superintendent of Police.\n\nOn Sunday (February 22, 2026), Chief Justice Paul held a meeting with the State’s Chief Electoral Officer Manoj Kumar Agarwal, Chief Secretary Nandini Chakravorty, Director General of Police Piyush Pandey, Kolkata Commissioner of Police Supratim Sarkar, and other officials representing the Union of India.\n\nIt was decided that judicial officers would begin the process of completing the SIR from Monday (February 23, 2026). The Supreme Court had on February 20 also directed the EC to publish the processed list of electoral rolls on February 28. \n\nUnless the electoral rolls are finalised, the schedule for the Assembly election in West Bengal cannot be announced. The EC has decided to deploy 480 companies of the Central Armed Police Forces in the State by March 10. The first 240 companies will be deployed by March 1.\n\nPublished \\- February 22, 2026 10:10 pm IST",
+      "url": "https://www.thehindu.com/news/national/west-bengal/calcutta-hc-sets-up-committee-to-shift-urgent-matters-to-other-courts-focus-on-final-touches-to-sir/article70663983.ece",
+      "imageUrl": null,
+      "publishedAt": "2026-02-22T16:40:01.000Z",
+      "geotag": {
+        "country": "UNK",
+        "city": null,
+        "lat": 0,
+        "lng": 0
+      },
+      "category": "Trending",
+      "metrics": {
+        "wordCount": 361,
+        "readTime": 2
       }
     },
     {
@@ -67,19 +89,19 @@
       "sourceName": "BBC World",
       "title": "Trump curious why Iran has not 'capitulated', US envoy Witkoff says",
       "excerpt": "US envoy Steve Witkoff says the president is puzzled why Iran has not yet compromised in the face of a major American military build-up nearby.",
-      "content": "Jaroslav Lukivand\n\nGhoncheh Habibiazad,BBC Persian\n\n![](https://static.files.bbci.co.uk/bbcdotcom/web/20260205-130046-240c8e457e-web-2.39.1-1/grey-placeholder.png)![Reuters A multirole fighter aircraft prepares to launch from the flight deck of the US Navy's Nimitz-class aircraft carrier USS Abraham Lincoln in the Arabian Sea. Photo: 15 February 2026](https://ichef.bbci.co.uk/news/480/cpsprodpb/3c58/live/16a6d830-1005-11f1-909d-47e99fcb7a58.jpg.webp)Reuters\n\nThe US has been building up its military presence near Iran in recent weeks\n\nUS President Donald Trump is questioning why Iran has not yet \"capitulated\" in the face of Washington's military build-up in the Middle East, the US president's special envoy Steve Witkoff has said.\n\nWitkoff told Fox News on Saturday that Trump was \"curious\" about Iran's position after he had warned of a limited military strike if a deal was not reached on Tehran's nuclear programme.\n\nThe US and its European allies suspect Iran of moving towards making a nuclear weapon, which it denies.\n\nWithin Iran, anti-government protests were staged at several universities over the weekend - the first rallies on such a scale since January's deadly crackdown by the authorities, which saw thousands killed.\n\nIn his interview with Fox News, Witkoff said: \"I don't want to use the word 'frustrated'... because he \\[Trump\\] understands he's got plenty of alternatives, but he's curious as to why they haven't... I don't want to use the word 'capitulated', but why they haven't capitulated.\"\n\n\"Why, under this sort of pressure, with the amount of seapower and naval power that we have over there, why haven't they come to us and said, 'We profess that we don't want a weapon, so here's what we're prepared to do?'\"\n\n\"And yet it's hard to sort of get them to that place,\" Trump's envoy added.\n\n![](https://static.files.bbci.co.uk/bbcdotcom/web/20260205-130046-240c8e457e-web-2.39.1-1/grey-placeholder.png)![Getty Images Steve Witkoff, US President Donald Trump's special envoy. Photo: January 2026](https://ichef.bbci.co.uk/news/480/cpsprodpb/feec/live/6d607b40-1000-11f1-909d-47e99fcb7a58.jpg.webp)Getty Images\n\nSteve Witkoff was the lead US negotiator during indirect talks with Iran in Switzerland on Tuesday\n\nIran has not publicly commented on Witkoff's remarks.\n\nLast Tuesday, US and Iranian officials held indirect talks in Switzerland aimed at curbing Iran's nuclear programme, saying progress had been made.\n\nDespite this, Trump said two days later the world would find out \"over the next, probably, 10 days\" whether a deal with Iran would be reached or the US would take military action.\n\nOn Friday, Iran's Foreign Minister Abbas Araghchi said Tehran was preparing \"a draft of a possible agreement\" and would hand it over to Witkoff in the next few days.\n\nIn recent weeks, the US has been building up its military presence near Iran.\n\nThe deployment includes the world's largest warship, USS Gerald R Ford, appearing to be heading towards the region.\n\nUSS Abraham Lincoln aircraft carrier has also been deployed, along with destroyers, combat ships and fighter jets.\n\nScuffles break out at Sharif University in Tehran on Saturday\n\nIn Iran, the BBC has verified footage of demonstrators marching on the campus of the Sharif University of Technology in the capital Tehran on Saturday. They were later seen scuffling with government supporters.\n\nProtests were also reported at other universities in Tehran and elsewhere.\n\nIranian media reported demonstrations also took place on Sunday at the Iran University of Science and Technology and Khajeh Nasir Toosi University in Tehran, and at Ferdowsi University of Mashhad in north-eastern Iran.\n\nIn one video the BBC has verified, anti-government protesters raise the Lion and Sun flag - a symbol of Iran before the 1979 Islamic Revolution - at the Sharif University. People in the crowd chant \"Javid Shah\" (\"long live the king\").\n\nAnother verified video shows a pro-government crowd holding a counter-protest at the Sharif University in which US and Israeli flags are being burned.\n\nClashes between pro and anti-government crowds are also seen in verified footage filmed at Amirkabir University of Technology.\n\nStudents from different universities have been gathering to honour thousands of those killed by authorities last month.\n\nThe US-based Human Rights Activists News Agency (Hrana) said it had confirmed the killing of at least 7,015 people during that wave, including 6,508 protesters, 226 children and 214 people affiliated with the government. The latest figures were updated on 15 February.\n\nHrana also said it was investigating 11,744 more reported deaths.\n\nIranian authorities said late last month that more than 3,100 people had been killed - but that the majority were security personnel or bystanders attacked by \"rioters\".\n\nPresident Trump has supported protesters in the past - at one stage appearing to encourage them with a promise that \"help is on its way\".\n\n_Additional reporting by BBC Verify's E",
+      "content": "Jaroslav Lukivand\n\nGhoncheh Habibiazad,BBC Persian\n\n![](https://static.files.bbci.co.uk/bbcdotcom/web/20260205-130046-240c8e457e-web-2.39.1-1/grey-placeholder.png)![Reuters A multirole fighter aircraft prepares to launch from the flight deck of the US Navy's Nimitz-class aircraft carrier USS Abraham Lincoln in the Arabian Sea. Photo: 15 February 2026](https://ichef.bbci.co.uk/news/480/cpsprodpb/3c58/live/16a6d830-1005-11f1-909d-47e99fcb7a58.jpg.webp)Reuters\n\nThe US has been building up its military presence near Iran in recent weeks\n\nUS President Donald Trump is questioning why Iran has not yet \"capitulated\" in the face of Washington's military build-up in the Middle East, the US president's special envoy Steve Witkoff has said.\n\nWitkoff told Fox News on Saturday that Trump was \"curious\" about Iran's position after he had warned of a limited military strike if a deal was not reached on Tehran's nuclear programme.\n\nThe US and its European allies suspect Iran of moving towards making a nuclear weapon, which it denies.\n\nWithin Iran, anti-government protests were staged at several universities over the weekend - the first rallies on such a scale since January's deadly crackdown by the authorities, which saw thousands killed.\n\nIn his interview with Fox News, Witkoff said: \"I don't want to use the word 'frustrated'... because he \\[Trump\\] understands he's got plenty of alternatives, but he's curious as to why they haven't... I don't want to use the word 'capitulated', but why they haven't capitulated.\"\n\n\"Why, under this sort of pressure, with the amount of sea power and naval power that we have over there, why haven't they come to us and said, 'We profess that we don't want a weapon, so here's what we're prepared to do?'\"\n\n\"And yet it's hard to sort of get them to that place,\" Trump's envoy added.\n\n![](https://static.files.bbci.co.uk/bbcdotcom/web/20260205-130046-240c8e457e-web-2.39.1-1/grey-placeholder.png)![Getty Images Steve Witkoff, US President Donald Trump's special envoy. Photo: January 2026](https://ichef.bbci.co.uk/news/480/cpsprodpb/feec/live/6d607b40-1000-11f1-909d-47e99fcb7a58.jpg.webp)Getty Images\n\nSteve Witkoff was the lead US negotiator during indirect talks with Iran in Switzerland on Tuesday\n\nIran's Foreign Minister Abbas Araghchi said he believed there was still a chance that the dispute could be solved diplomatically \"based on a win-win game\".\n\nHe told CBS News negotiators were working on the elements of a deal.\n\nOn Friday, Araghchi said Tehran was preparing \"a draft of a possible agreement\" and would hand it over to Witkoff in the next few days.\n\nLast Tuesday, US and Iranian officials held indirect talks in Switzerland aimed at curbing Iran's nuclear programme, saying progress had been made.\n\nDespite this, Trump said two days later the world would find out \"over the next, probably, 10 days\" whether a deal with Iran would be reached or the US would take military action.\n\nIn recent weeks, the US has been building up its military presence near Iran.\n\nThe deployment includes the world's largest warship, USS Gerald R Ford, appearing to be heading towards the region.\n\nUSS Abraham Lincoln aircraft carrier has also been deployed, along with destroyers, combat ships and fighter jets.\n\nScuffles break out at Sharif University in Tehran on Saturday\n\nIn Iran, the BBC has verified footage of demonstrators marching on the campus of the Sharif University of Technology in the capital Tehran on Saturday. They were later seen scuffling with government supporters.\n\nProtests were also reported at other universities in Tehran and elsewhere.\n\nIranian media reported demonstrations also took place on Sunday at the Iran University of Science and Technology and Khajeh Nasir Toosi University in Tehran, and at Ferdowsi University of Mashhad in north-eastern Iran.\n\nIn one video the BBC has verified, anti-government protesters raise the Lion and Sun flag - a symbol of Iran before the 1979 Islamic Revolution - at the Sharif University. People in the crowd chant \"Javid Shah\" (\"long live the king\").\n\nAnother verified video shows a pro-government crowd holding a counter-protest at the Sharif University in which US and Israeli flags are being burned.\n\nClashes between pro and anti-government crowds are also seen in verified footage filmed at Amirkabir University of Technology.\n\nStudents from different universities have been gathering to honour thousands of those killed by authorities last month.\n\nThe US-based Human Rights Activists News Agency (Hrana) said it had confirmed the killing of at least 7,015 people during that wave, including 6,508 protesters, 226 children and 214 people affiliated with the government. The latest figures were updated on 15 February.\n\nHrana also said it was investigating 11,744 more reported deaths.\n\nIranian authorities said late last month that more than 3,100 people had been killed - but that the majority were security personnel or bystanders attacked by \"rioters\".\n\nPresident Trump has supported prote",
       "url": "https://www.bbc.com/news/articles/cn5gk15rr70o?at_medium=RSS&at_campaign=rss",
       "imageUrl": null,
       "publishedAt": "2026-02-22T16:35:17.000Z",
       "geotag": {
-        "country": "IRN",
+        "country": "UNK",
         "city": null,
-        "lat": 32.4279,
-        "lng": 53.688
+        "lat": 0,
+        "lng": 0
       },
-      "category": "World",
+      "category": "Trending",
       "metrics": {
-        "wordCount": 732,
+        "wordCount": 733,
         "readTime": 3
       }
     },
@@ -94,12 +116,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T16:25:25.000Z",
       "geotag": {
-        "country": "IND",
+        "country": "UNK",
         "city": null,
-        "lat": 20.5937,
-        "lng": 78.9629
+        "lat": 0,
+        "lng": 0
       },
-      "category": "National",
+      "category": "Trending",
       "metrics": {
         "wordCount": 532,
         "readTime": 2
@@ -116,12 +138,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T16:20:27.000Z",
       "geotag": {
-        "country": "IND",
+        "country": "UNK",
         "city": null,
-        "lat": 20.5937,
-        "lng": 78.9629
+        "lat": 0,
+        "lng": 0
       },
-      "category": "National",
+      "category": "Trending",
       "metrics": {
         "wordCount": 499,
         "readTime": 2
@@ -138,12 +160,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T16:12:55.000Z",
       "geotag": {
-        "country": "IND",
-        "city": "Vizhinjam",
-        "lat": 20.5937,
-        "lng": 78.9629
+        "country": "UNK",
+        "city": null,
+        "lat": 0,
+        "lng": 0
       },
-      "category": "National",
+      "category": "Trending",
       "metrics": {
         "wordCount": 363,
         "readTime": 2
@@ -160,12 +182,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T16:05:34.000Z",
       "geotag": {
-        "country": "IND",
+        "country": "UNK",
         "city": null,
-        "lat": 20.5937,
-        "lng": 78.9629
+        "lat": 0,
+        "lng": 0
       },
-      "category": "National",
+      "category": "Trending",
       "metrics": {
         "wordCount": 487,
         "readTime": 2
@@ -182,12 +204,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T16:00:12.000Z",
       "geotag": {
-        "country": "IND",
+        "country": "UNK",
         "city": null,
-        "lat": 20.5937,
-        "lng": 78.9629
+        "lat": 0,
+        "lng": 0
       },
-      "category": "National",
+      "category": "Trending",
       "metrics": {
         "wordCount": 425,
         "readTime": 2
@@ -209,7 +231,7 @@
         "lat": 48.3794,
         "lng": 31.1656
       },
-      "category": "World",
+      "category": "Trending",
       "metrics": {
         "wordCount": 558,
         "readTime": 3
@@ -226,12 +248,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T13:52:09.000Z",
       "geotag": {
-        "country": "UGA",
+        "country": "UNK",
         "city": null,
         "lat": 0,
         "lng": 0
       },
-      "category": "World",
+      "category": "Trending",
       "metrics": {
         "wordCount": 450,
         "readTime": 2
@@ -248,10 +270,10 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T12:35:57.000Z",
       "geotag": {
-        "country": "USA",
+        "country": "UNK",
         "city": null,
-        "lat": 39.8283,
-        "lng": -98.5795
+        "lat": 0,
+        "lng": 0
       },
       "category": "Trending",
       "metrics": {
@@ -270,12 +292,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T11:33:11.000Z",
       "geotag": {
-        "country": "PAK",
+        "country": "UNK",
         "city": null,
         "lat": 0,
         "lng": 0
       },
-      "category": "World",
+      "category": "Trending",
       "metrics": {
         "wordCount": 584,
         "readTime": 3
@@ -297,7 +319,7 @@
         "lat": 31.0461,
         "lng": 34.8516
       },
-      "category": "World",
+      "category": "Trending",
       "metrics": {
         "wordCount": 723,
         "readTime": 3
@@ -314,12 +336,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T05:04:57.000Z",
       "geotag": {
-        "country": "VEN",
+        "country": "UNK",
         "city": null,
         "lat": 0,
         "lng": 0
       },
-      "category": "World",
+      "category": "WorthReading",
       "metrics": {
         "wordCount": 426,
         "readTime": 2
@@ -336,12 +358,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T02:06:23.000Z",
       "geotag": {
-        "country": "USA",
-        "city": "Lake Tahoe",
-        "lat": 39.8283,
-        "lng": -98.5795
+        "country": "UNK",
+        "city": null,
+        "lat": 0,
+        "lng": 0
       },
-      "category": "World",
+      "category": "WorthReading",
       "metrics": {
         "wordCount": 521,
         "readTime": 2
@@ -363,7 +385,7 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "Trending",
+      "category": "WorthReading",
       "metrics": {
         "wordCount": 785,
         "readTime": 4
@@ -380,12 +402,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-21T22:16:39.000Z",
       "geotag": {
-        "country": "PAK",
-        "city": "Lahore",
+        "country": "UNK",
+        "city": null,
         "lat": 0,
         "lng": 0
       },
-      "category": "World",
+      "category": "WorthReading",
       "metrics": {
         "wordCount": 810,
         "readTime": 4
@@ -402,12 +424,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-21T12:44:31.000Z",
       "geotag": {
-        "country": "GBR",
+        "country": "UNK",
         "city": null,
-        "lat": 55.3781,
-        "lng": -3.436
+        "lat": 0,
+        "lng": 0
       },
-      "category": "World",
+      "category": "WorthReading",
       "metrics": {
         "wordCount": 878,
         "readTime": 4
@@ -424,10 +446,10 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T16:23:37.000Z",
       "geotag": {
-        "country": "USA",
+        "country": "ISR",
         "city": null,
-        "lat": 39.8283,
-        "lng": -98.5795
+        "lat": 31.0461,
+        "lng": 34.8516
       },
       "category": "World",
       "metrics": {
@@ -446,12 +468,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T15:55:39.000Z",
       "geotag": {
-        "country": "PAK",
+        "country": "UNK",
         "city": null,
         "lat": 0,
         "lng": 0
       },
-      "category": "World",
+      "category": "WorthReading",
       "metrics": {
         "wordCount": 710,
         "readTime": 3
@@ -468,12 +490,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T15:28:30.000Z",
       "geotag": {
-        "country": "UGA",
+        "country": "UNK",
         "city": null,
         "lat": 0,
         "lng": 0
       },
-      "category": "World",
+      "category": "WorthReading",
       "metrics": {
         "wordCount": 555,
         "readTime": 3
@@ -490,12 +512,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T14:31:10.000Z",
       "geotag": {
-        "country": "USA",
+        "country": "UNK",
         "city": null,
-        "lat": 39.8283,
-        "lng": -98.5795
+        "lat": 0,
+        "lng": 0
       },
-      "category": "World",
+      "category": "WorthReading",
       "metrics": {
         "wordCount": 443,
         "readTime": 2
@@ -513,11 +535,11 @@
       "publishedAt": "2026-02-22T14:13:54.000Z",
       "geotag": {
         "country": "USA",
-        "city": "Florida",
-        "lat": 39.8283,
-        "lng": -98.5795
+        "city": "washington",
+        "lat": 38.9072,
+        "lng": -77.0369
       },
-      "category": "World",
+      "category": "WorthReading",
       "metrics": {
         "wordCount": 463,
         "readTime": 2
@@ -535,11 +557,11 @@
       "publishedAt": "2026-02-22T14:08:23.000Z",
       "geotag": {
         "country": "USA",
-        "city": "New York City",
-        "lat": 39.8283,
-        "lng": -98.5795
+        "city": "newyork",
+        "lat": 40.7128,
+        "lng": -74.006
       },
-      "category": "World",
+      "category": "WorthReading",
       "metrics": {
         "wordCount": 741,
         "readTime": 3
@@ -578,10 +600,10 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T13:19:57.000Z",
       "geotag": {
-        "country": "LKA",
-        "city": "Pallekele",
-        "lat": 0,
-        "lng": 0
+        "country": "GBR",
+        "city": null,
+        "lat": 55.3781,
+        "lng": -3.436
       },
       "category": "World",
       "metrics": {
@@ -605,7 +627,7 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "Trending",
+      "category": "WorthReading",
       "metrics": {
         "wordCount": 739,
         "readTime": 3
@@ -622,12 +644,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T12:40:11.000Z",
       "geotag": {
-        "country": "USA",
+        "country": "UNK",
         "city": null,
-        "lat": 39.8283,
-        "lng": -98.5795
+        "lat": 0,
+        "lng": 0
       },
-      "category": "World",
+      "category": "WorthReading",
       "metrics": {
         "wordCount": 683,
         "readTime": 3
@@ -644,12 +666,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T11:30:36.000Z",
       "geotag": {
-        "country": "AUS",
+        "country": "UNK",
         "city": null,
-        "lat": -25.2744,
-        "lng": 133.7751
+        "lat": 0,
+        "lng": 0
       },
-      "category": "National",
+      "category": "WorthReading",
       "metrics": {
         "wordCount": 642,
         "readTime": 3
@@ -666,12 +688,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T11:08:48.000Z",
       "geotag": {
-        "country": "GRL",
+        "country": "UNK",
         "city": null,
         "lat": 0,
         "lng": 0
       },
-      "category": "World",
+      "category": "WorthReading",
       "metrics": {
         "wordCount": 342,
         "readTime": 2
@@ -683,17 +705,17 @@
       "sourceName": "ABC News",
       "title": "USA beats Canada in overtime to end 46-year gold medal drought",
       "excerpt": "Team USA beats Canada 2-1 in overtime to win the country's first men's ice hockey gold medal since 1980 in the last event of the 2026 Milano Cortina Winter Olympic Games, after Australian 16-year-old Indra Brown finishes fifth in the freeski halfpipe final.",
-      "content": "Team USA has beaten Canada 2-1 in overtime to win the country's first men's ice hockey gold medal since 1980 in the last event of the 2026 Milano Cortina Winter Olympic Games.\n\nThe victory was identical to that of the US women's team on Friday, which was also a 2-1 overtime victory against their North American rivals.\n\nBut for the women, the win marked their third gold medal since 1998, while the men's team had not won gold at the Winter Olympics since [the 1980 Miracle on Ice at Lake Placid](https://www.abc.net.au/news/2026-02-22/miracle-on-ice-usa-vs-ussr-ice-hockey-lake-placid-winter-olympic/106287402).\n\n![Matt Boldy of Team USA shouts to celebrate an ice hockey goal.](https://live-production.wcms.abc-cdn.net.au/7c99abe71e2bbcb8e42758c2f84b74be?impolicy=wcms_crop_resize&cropH=2284&cropW=3426&xPos=0&yPos=0&width=862&height=575)\n\nMatt Boldy scored early in the first period for Team USA. (Getty Images)\n\nMatt Boldy opened the scoring for Team USA in a frantic first period, before Cale Makar levelled for Canada shortly before the end of the second.\n\nThe teams could not be split through the third and final regulation period, thanks largely to US goalie Connor Hellebuyck, who made 41 saves on the night.\n\nHe was also aided by a late open-goal miss from Nathan MacKinnon, before the game went to overtime and Jack Hughes sealed the win.\n\nEarlier on the last day of competition, [Australian 16-year-old Indra Brown finished fifth in the freeski halfpipe final](https://www.abc.net.au/news/2026-02-22/indra-brown-medal-freeski-halfpipe-2026-winter-olympics/106373982).\n\nBrown earned praise from [back-to-back gold medallist Eileen Gu](https://www.abc.net.au/news/2026-02-22/winter-olympics-day-16-live-updates-indra-brown/106372016?utm_campaign=abc_news_web&utm_content=link&utm_medium=content_shared&utm_source=abc_news_web#live-blog-post-263198), who was the first to embrace Brown after her third and final run, when she landed her first 1080 in competition.\n\n\"It was a really special moment to [have someone I idolise give me a hug after I land my third run at the Olympics](https://www.abc.net.au/news/2026-02-22/winter-olympics-day-16-live-updates-indra-brown/106372016?utm_campaign=abc_news_web&utm_content=link&utm_medium=content_shared&utm_source=abc_news_web#live-blog-post-263199),\" Brown told Channel Nine.\n\nRosie Fordham was the only other Australian in action, finishing 30th in the women's 50km mass start cross-country skiing.\n\n_**Look back at all the action from day 16 in our live blog.**_\n\n## Key Events\n\n1.  42 minutes agoSun 22 Feb 2026 at 3:53pm\n    \n2.  1 hours agoSun 22 Feb 2026 at 3:32pm\n    \n3.  1 hours agoSun 22 Feb 2026 at 2:41pm\n    \n\n36m agoSun 22 Feb 2026 at 3:59pm\n\n### 2026 Winter Olympics medal tally 🥇🥈🥉\n\nHere is the final medal table for the 2026 Milano Cortina Winter Olympic Games.\n\n1.  Norway — 18 gold, 12 silver, 11 bronze\n2.  USA — 12 gold, 12 silver, 9 bronze\n3.  Netherlands — 10 gold, 7 silver, 3 bronze\n4.  Italy — 10 gold, 6 silver, 14 bronze\n5.  Germany — 8 gold, 10 silver, 8 bronze\n6.  France — 8 gold, 9 silver, 6 bronze\n7.  Sweden — 8 gold, 6 silver, 4 bronze\n8.  Switzerland — 6 gold, 9 silver, 8 bronze\n9.  Austria — 5 gold, 8 silver, 5 bronze\n10.  Japan — 5 gold, 7 silver, 12 bronze\n11.  Canada — 5 gold, 7 silver 9 bronze\n12.  China — 5 gold, 4 silver, 6 bronze\n13.  South Korea — 3 gold, 4 silver, 3 bronze\n14.  **Australia — 3 gold, 2 silver, 1 bronze**\n15.  Great Britain — 3 gold, 1 silver, 1 bronze\n16.  Czechia — 2 gold, 2 silver, 1 bronze\n17.  Slovenia — 2 gold, 1 silver, 1 bronze\n18.  Spain — 1 gold, 2 bronze\n19.  Brazil, Kazakhstan — 1 gold\n\n17m agoSun 22 Feb 2026 at 4:19pm\n\n### And that will do us\n\n![](https://au-img-cdn.livecenter.com/lc-aus-images/lcimg-777862af-00c6-40bb-882a-42a504ed67d6.jpeg)\n\n(Getty)\n\nAs the US and Canadian team get their medals, I'll sign off this last Winter Olympics competition blog.\n\nIt's been a wild two-plus weeks and we're not done yet!\n\nAndrew McGarry will be back in a couple of hours' time to blog the closing ceremony.\n\nUntil then, on behalf of myself and the rest of the blog team, good night, good morning and happy Monday or Sunday or whatever it is.\n\nI think we all look forward to living on Australian time once again.\n\n28m agoSun 22 Feb 2026 at 4:07pm\n\n### Respect\n\n![](https://au-img-cdn.livecenter.com/lc-aus-images/lcimg-5efbf944-497c-4b55-8a17-1d96d0436fdd.jpeg)\n\nUSA captain Auston Matthews and Canada captain Connor McDavid. (Getty)\n\n28m agoSun 22 Feb 2026 at 4:07pm\n\n### An emotional tribute from Team USA\n\nThe American team quickly found a \"GAUDREAU\" jersey and skated around the ice holding it up.\n\nJohnny Gaudreau played 11 seasons with the Calgary Flames and Columbus Blue Jackets in the NHL and was a national and club teammate to many players in this US team.\n\nHe and his brother were hit by a car while riding their bikes on a New Jersey highway in 2024.\n\nBoth brothers died.\n\nJohnny was 31.\n\nHis number 13 jersey has been hanging in the US locker room al",
+      "content": "Team USA has beaten Canada 2-1 in overtime to win the country's first men's ice hockey gold medal since 1980 in the last event of the 2026 Milano Cortina Winter Olympic Games.\n\nThe victory was identical to that of the US women's team on Friday, which was also a 2-1 overtime victory against their North American rivals.\n\nBut for the women, the win marked their third gold medal since 1998, while the men's team had not won gold at the Winter Olympics since [the 1980 Miracle on Ice at Lake Placid](https://www.abc.net.au/news/2026-02-22/miracle-on-ice-usa-vs-ussr-ice-hockey-lake-placid-winter-olympic/106287402).\n\n![Matt Boldy of Team USA shouts to celebrate an ice hockey goal.](https://live-production.wcms.abc-cdn.net.au/7c99abe71e2bbcb8e42758c2f84b74be?impolicy=wcms_crop_resize&cropH=2284&cropW=3426&xPos=0&yPos=0&width=862&height=575)\n\nMatt Boldy scored early in the first period for Team USA. (Getty Images)\n\nMatt Boldy opened the scoring for Team USA in a frantic first period, before Cale Makar levelled for Canada shortly before the end of the second.\n\nThe teams could not be split through the third and final regulation period, thanks largely to US goalie Connor Hellebuyck, who made 41 saves on the night.\n\nHe was also aided by a late open-goal miss from Nathan MacKinnon, before the game went to overtime and Jack Hughes sealed the win.\n\nEarlier on the last day of competition, [Australian 16-year-old Indra Brown finished fifth in the freeski halfpipe final](https://www.abc.net.au/news/2026-02-22/indra-brown-medal-freeski-halfpipe-2026-winter-olympics/106373982).\n\nBrown earned praise from [back-to-back gold medallist Eileen Gu](https://www.abc.net.au/news/2026-02-22/winter-olympics-day-16-live-updates-indra-brown/106372016?utm_campaign=abc_news_web&utm_content=link&utm_medium=content_shared&utm_source=abc_news_web#live-blog-post-263198), who was the first to embrace Brown after her third and final run, when she landed her first 1080 in competition.\n\n\"It was a really special moment to [have someone I idolise give me a hug after I land my third run at the Olympics](https://www.abc.net.au/news/2026-02-22/winter-olympics-day-16-live-updates-indra-brown/106372016?utm_campaign=abc_news_web&utm_content=link&utm_medium=content_shared&utm_source=abc_news_web#live-blog-post-263199),\" Brown told Channel Nine.\n\nRosie Fordham was the only other Australian in action, finishing 30th in the women's 50km mass start cross-country skiing.\n\n_**Look back at all the action from day 16 in our live blog.**_\n\n## Key Events\n\n1.  56 minutes agoSun 22 Feb 2026 at 3:53pm\n    \n2.  1 hours agoSun 22 Feb 2026 at 3:32pm\n    \n3.  2 hours agoSun 22 Feb 2026 at 2:41pm\n    \n\n50m agoSun 22 Feb 2026 at 3:59pm\n\n### 2026 Winter Olympics medal tally 🥇🥈🥉\n\nHere is the final medal table for the 2026 Milano Cortina Winter Olympic Games.\n\n1.  Norway — 18 gold, 12 silver, 11 bronze\n2.  USA — 12 gold, 12 silver, 9 bronze\n3.  Netherlands — 10 gold, 7 silver, 3 bronze\n4.  Italy — 10 gold, 6 silver, 14 bronze\n5.  Germany — 8 gold, 10 silver, 8 bronze\n6.  France — 8 gold, 9 silver, 6 bronze\n7.  Sweden — 8 gold, 6 silver, 4 bronze\n8.  Switzerland — 6 gold, 9 silver, 8 bronze\n9.  Austria — 5 gold, 8 silver, 5 bronze\n10.  Japan — 5 gold, 7 silver, 12 bronze\n11.  Canada — 5 gold, 7 silver 9 bronze\n12.  China — 5 gold, 4 silver, 6 bronze\n13.  South Korea — 3 gold, 4 silver, 3 bronze\n14.  **Australia — 3 gold, 2 silver, 1 bronze**\n15.  Great Britain — 3 gold, 1 silver, 1 bronze\n16.  Czechia — 2 gold, 2 silver, 1 bronze\n17.  Slovenia — 2 gold, 1 silver, 1 bronze\n18.  Spain — 1 gold, 2 bronze\n19.  Brazil, Kazakhstan — 1 gold\n\n31m agoSun 22 Feb 2026 at 4:19pm\n\n### And that will do us\n\n![](https://au-img-cdn.livecenter.com/lc-aus-images/lcimg-777862af-00c6-40bb-882a-42a504ed67d6.jpeg)\n\n(Getty)\n\nAs the US and Canadian team get their medals, I'll sign off this last Winter Olympics competition blog.\n\nIt's been a wild two-plus weeks and we're not done yet!\n\nAndrew McGarry will be back in a couple of hours' time to blog the closing ceremony.\n\nUntil then, on behalf of myself and the rest of the blog team, good night, good morning and happy Monday or Sunday or whatever it is.\n\nI think we all look forward to living on Australian time once again.\n\n42m agoSun 22 Feb 2026 at 4:07pm\n\n### Respect\n\n![](https://au-img-cdn.livecenter.com/lc-aus-images/lcimg-5efbf944-497c-4b55-8a17-1d96d0436fdd.jpeg)\n\nUSA captain Auston Matthews and Canada captain Connor McDavid. (Getty)\n\n43m agoSun 22 Feb 2026 at 4:07pm\n\n### An emotional tribute from Team USA\n\nThe American team quickly found a \"GAUDREAU\" jersey and skated around the ice holding it up.\n\nJohnny Gaudreau played 11 seasons with the Calgary Flames and Columbus Blue Jackets in the NHL and was a national and club teammate to many players in this US team.\n\nHe and his brother were hit by a car while riding their bikes on a New Jersey highway in 2024.\n\nBoth brothers died.\n\nJohnny was 31.\n\nHis number 13 jersey has been hanging in the US locker room al",
       "url": "https://www.abc.net.au/news/2026-02-22/winter-olympics-day-16-live-updates-indra-brown/106372016",
       "imageUrl": null,
       "publishedAt": "2026-02-22T08:47:41.000Z",
       "geotag": {
-        "country": "CAN",
+        "country": "UNK",
         "city": null,
-        "lat": 56.1304,
-        "lng": -106.3468
+        "lat": 0,
+        "lng": 0
       },
-      "category": "World",
+      "category": "WorthReading",
       "metrics": {
         "wordCount": 745,
         "readTime": 3
@@ -710,12 +732,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T08:29:37.000Z",
       "geotag": {
-        "country": "USA",
+        "country": "UNK",
         "city": null,
-        "lat": 39.8283,
-        "lng": -98.5795
+        "lat": 0,
+        "lng": 0
       },
-      "category": "World",
+      "category": "WorthReading",
       "metrics": {
         "wordCount": 697,
         "readTime": 3
@@ -737,7 +759,7 @@
         "lat": -25.2744,
         "lng": 133.7751
       },
-      "category": "National",
+      "category": "World",
       "metrics": {
         "wordCount": 753,
         "readTime": 3
@@ -754,12 +776,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T08:12:39.000Z",
       "geotag": {
-        "country": "AUS",
+        "country": "UNK",
         "city": null,
-        "lat": -25.2744,
-        "lng": 133.7751
+        "lat": 0,
+        "lng": 0
       },
-      "category": "National",
+      "category": "WorthReading",
       "metrics": {
         "wordCount": 386,
         "readTime": 2
@@ -776,12 +798,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T08:05:48.000Z",
       "geotag": {
-        "country": "AUS",
-        "city": "Alice Springs",
-        "lat": -25.2744,
-        "lng": 133.7751
+        "country": "UNK",
+        "city": null,
+        "lat": 0,
+        "lng": 0
       },
-      "category": "National",
+      "category": "WorthReading",
       "metrics": {
         "wordCount": 640,
         "readTime": 3
@@ -793,17 +815,17 @@
       "sourceName": "ABC News",
       "title": "Search for patient who failed to return to Sydney mental health hospital",
       "excerpt": "Madan Pandey failed to return to Cumberland Hospital after his approved leave ended on February 21.",
-      "content": "## Police search for mental health patient on approved leave who did not return to Cumberland Hospital\n\n8 hours agoSun 22 Feb 2026 at 7:47am\n\n![Madan a man who police say has escaped from cumberland hospital](https://live-production.wcms.abc-cdn.net.au/82a49cf72d239440791f0a07fd819c86?impolicy=wcms_crop_resize&cropH=608&cropW=1080&xPos=0&yPos=262&width=862&height=485)\n\nMadan Pandey, 25, was last seen on Saturday morning leaving Cumberland Hospital. (Supplied: NSW Police)\n\n## In short:\n\nPolice are searching for a patient who did not return to Cumberland Hospital after his approved leave was over. \n\nPolice say Madan Pandey, 25, was last seen on Saturday morning leaving the facility.\n\nThe hospital is under a formal investigation after two men escaped and later allegedly caused the deaths of three people between them.\n\nPolice are searching for a psychiatric patient who did not return to a Sydney mental health hospital after his approved leave.\n\nOn Sunday, an appeal was issued to help locate 25-year-old Madan Pandey who had not returned to Cumberland Hospital.\n\n\"The patient was taking approved leave from the hospital and did not return at the planned time on February 21,\" Western Sydney Local Health District said in a statement.\n\n\"As per usual process, NSW Police were notified immediately.\"\n\n![Cumberland Hospital](https://live-production.wcms.abc-cdn.net.au/54472129689005ad7015290938ce35fc?impolicy=wcms_crop_resize&cropH=4591&cropW=6886&xPos=0&yPos=0&width=862&height=575)\n\nPolice are appealing for help to locate Madan Pandey after he escaped from Cumberland Hospital. (ABC News: Timothy Ailwood)\n\nMr Panday was last seen leaving the hospital about 9:30am on Saturday morning, wearing a black T-shirt with black shorts.\n\n\"When he could not be located or contacted, officers attached to Parramatta Police Area Command were notified and commenced inquiries into his whereabouts,\" police said in a statement.\n\n> \"Police and family have concerns for his welfare.\"\n\nHe has been described as being of Middle Eastern/Mediterranean appearance, with short black hair and full beard and a moustache.\n\n## Hospital under scrutiny\n\nThe hospital is under a formal investigation after two patients who escaped from its care within 24 hours went on to allegedly cause three people’s deaths. \n\n[Setefano Mooniai Leaaetoa](https://www.abc.net.au/news/2026-02-18/man-charged-with-murder-merrylands-stabbing/106356990), 25, early last week allegedly stabbed three people on a busy shopping strip in Merrylands, killing one and critically injuring the others.\n\nTen days earlier, he had been in mental health custody at Cumberland Hospital before escaping while being transferred to Westmead Hospital's emergency department.\n\nIn a separate incident, [Luke Peter Francis](https://www.abc.net.au/news/2026-02-14/two-die-man-arrested-in-camden-car-crash-after-police-pursuit/106345042) is accused of causing a crash that killed a 60-year-old woman and her 84-year-old passenger at Camden on Saturday, February 14.\n\nMr Francis had escaped from the same hospital one week before the incident. \n\nIt is understood that the 31-year-old allegedly threatened a nurse before taking an access card and absconding from the hospital.\n\nAccording to data provided to the ABC by NSW Health, patients are three times more likely to abscond from Cumberland Hospital than from any other mental health unit in the state. \n\nOn average, one patient absconds from an acute mental health unit in NSW every 4,348 days.\n\nAt Cumberland Hospital, it happens every 1,333 days.\n\nAnyone who has seen Mr Pandey or knows of his whereabouts is urged to contact Parramatta Police Station or Crime Stoppers.",
+      "content": "## Police search for mental health patient on approved leave who did not return to Cumberland Hospital\n\n9 hours agoSun 22 Feb 2026 at 7:47am\n\n![Madan a man who police say has escaped from cumberland hospital](https://live-production.wcms.abc-cdn.net.au/82a49cf72d239440791f0a07fd819c86?impolicy=wcms_crop_resize&cropH=608&cropW=1080&xPos=0&yPos=262&width=862&height=485)\n\nMadan Pandey, 25, was last seen on Saturday morning leaving Cumberland Hospital. (Supplied: NSW Police)\n\n## In short:\n\nPolice are searching for a patient who did not return to Cumberland Hospital after his approved leave was over. \n\nPolice say Madan Pandey, 25, was last seen on Saturday morning leaving the facility.\n\nThe hospital is under a formal investigation after two men escaped and later allegedly caused the deaths of three people between them.\n\nPolice are searching for a psychiatric patient who did not return to a Sydney mental health hospital after his approved leave.\n\nOn Sunday, an appeal was issued to help locate 25-year-old Madan Pandey who had not returned to Cumberland Hospital.\n\n\"The patient was taking approved leave from the hospital and did not return at the planned time on February 21,\" Western Sydney Local Health District said in a statement.\n\n\"As per usual process, NSW Police were notified immediately.\"\n\n![Cumberland Hospital](https://live-production.wcms.abc-cdn.net.au/54472129689005ad7015290938ce35fc?impolicy=wcms_crop_resize&cropH=4591&cropW=6886&xPos=0&yPos=0&width=862&height=575)\n\nPolice are appealing for help to locate Madan Pandey after he escaped from Cumberland Hospital. (ABC News: Timothy Ailwood)\n\nMr Panday was last seen leaving the hospital about 9:30am on Saturday morning, wearing a black T-shirt with black shorts.\n\n\"When he could not be located or contacted, officers attached to Parramatta Police Area Command were notified and commenced inquiries into his whereabouts,\" police said in a statement.\n\n> \"Police and family have concerns for his welfare.\"\n\nHe has been described as being of Middle Eastern/Mediterranean appearance, with short black hair and full beard and a moustache.\n\n## Hospital under scrutiny\n\nThe hospital is under a formal investigation after two patients who escaped from its care within 24 hours went on to allegedly cause three people’s deaths. \n\n[Setefano Mooniai Leaaetoa](https://www.abc.net.au/news/2026-02-18/man-charged-with-murder-merrylands-stabbing/106356990), 25, early last week allegedly stabbed three people on a busy shopping strip in Merrylands, killing one and critically injuring the others.\n\nTen days earlier, he had been in mental health custody at Cumberland Hospital before escaping while being transferred to Westmead Hospital's emergency department.\n\nIn a separate incident, [Luke Peter Francis](https://www.abc.net.au/news/2026-02-14/two-die-man-arrested-in-camden-car-crash-after-police-pursuit/106345042) is accused of causing a crash that killed a 60-year-old woman and her 84-year-old passenger at Camden on Saturday, February 14.\n\nMr Francis had escaped from the same hospital one week before the incident. \n\nIt is understood that the 31-year-old allegedly threatened a nurse before taking an access card and absconding from the hospital.\n\nAccording to data provided to the ABC by NSW Health, patients are three times more likely to abscond from Cumberland Hospital than from any other mental health unit in the state. \n\nOn average, one patient absconds from an acute mental health unit in NSW every 4,348 days.\n\nAt Cumberland Hospital, it happens every 1,333 days.\n\nAnyone who has seen Mr Pandey or knows of his whereabouts is urged to contact Parramatta Police Station or Crime Stoppers.",
       "url": "https://www.abc.net.au/news/2026-02-22/search-psychiatric-patient-failed-return-cumberland-hospital/106373870",
       "imageUrl": null,
       "publishedAt": "2026-02-22T07:47:15.000Z",
       "geotag": {
-        "country": "AUS",
-        "city": "Sydney",
-        "lat": -25.2744,
-        "lng": 133.7751
+        "country": "UNK",
+        "city": null,
+        "lat": 0,
+        "lng": 0
       },
-      "category": "National",
+      "category": "WorthReading",
       "metrics": {
         "wordCount": 500,
         "readTime": 2
@@ -820,12 +842,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T07:15:38.000Z",
       "geotag": {
-        "country": "IRN",
+        "country": "UNK",
         "city": null,
-        "lat": 32.4279,
-        "lng": 53.688
+        "lat": 0,
+        "lng": 0
       },
-      "category": "World",
+      "category": "WorthReading",
       "metrics": {
         "wordCount": 780,
         "readTime": 4
@@ -842,12 +864,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T06:35:19.000Z",
       "geotag": {
-        "country": "AFG",
+        "country": "UNK",
         "city": null,
         "lat": 0,
         "lng": 0
       },
-      "category": "World",
+      "category": "WorthReading",
       "metrics": {
         "wordCount": 680,
         "readTime": 3
@@ -864,37 +886,15 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T05:59:45.000Z",
       "geotag": {
-        "country": "IRN",
+        "country": "UNK",
         "city": null,
-        "lat": 32.4279,
-        "lng": 53.688
+        "lat": 0,
+        "lng": 0
       },
-      "category": "World",
+      "category": "WorthReading",
       "metrics": {
         "wordCount": 480,
         "readTime": 2
-      }
-    },
-    {
-      "id": "b63f8a9e6868a832",
-      "sourceId": "abc-news",
-      "sourceName": "ABC News",
-      "title": "Labor launches SA election campaign with housing spend promise",
-      "excerpt": "SA Labor's state election campaign launch is framed around housing, with the premier committing to a scheme for the purchase of land that would then be on-sold to the private sector for development.",
-      "content": "South Australian Labor's state election campaign launch has homed in on housing, with the premier committing to a scheme for the purchase of land that would then be on-sold to the private sector to boost development.\n\nAt a mass gathering of his party's faithful, Peter Malinauskas also promised to abolish stamp duty for baby boomers who sell their homes and move into new builds — a policy Labor said would make larger homes available to young homebuyers.\n\nUnder the land purchase scheme, Labor said it would create a fund to buy up to $500 million worth of land for housing developments, with possible sites including the [Department of Defence's Warradale and Hampstead barracks](https://www.abc.net.au/news/2026-02-04/government-eyes-off-fire-sale-of-historic-defence-properties/106303044).\n\n\"This now means there is a perpetual half-a-billion-dollar fund sitting there,\" Mr Malinasukas said.\n\n![SA Premier Peter Malinauskas delivering a speech.](https://live-production.wcms.abc-cdn.net.au/66da171517ca6acee398da0bdf78206a?impolicy=wcms_crop_resize&cropH=3333&cropW=5000&xPos=0&yPos=0&width=862&height=575)\n\nMr Malinauskas delivered the speech to a packed gathering of the party faithful. (ABC News: Trent Murphy)\n\nLabor said that the money from the on-selling of the land would be reinvested in the fund to enable \"perpetual\" purchases.\n\n\"We don't want to see people land banking, making money off not building homes — we want to see industry making money because they are building homes, and our half-a-billion-dollar housing fast-track will see to exactly that,\" Mr Malinauskas said.\n\n\"\\[It\\] will see the government strategically acquiring land with the view of doing the master planning and civil works before ensuring it is then sold to the private sector under the condition that they get building.\"\n\nMr Malinauskas said the policy complemented one from [October, in which he announced that, if re-elected, Labor would financially underwrite up to $500 million of apartment construction](https://www.abc.net.au/news/2025-10-25/sa-government-unveils-apartment-construction-election-policy/105933814).\n\n![SA Premier Peter Malinauskas with Labor MPs.](https://live-production.wcms.abc-cdn.net.au/5f53a7e4f50f469331d25eaf23f4cb6c?impolicy=wcms_crop_resize&cropH=3333&cropW=5000&xPos=0&yPos=0&width=862&height=575)\n\nLabor MPs gathered on the steps of the Adelaide Convention Centre for the party's election campaign launch. (ABC News: Trent Murphy)\n\nThe party said the housing fast-track fund would be run by Renewal SA, that purchases would rely on land being sold at a \"fair value or below\", and that the selection of sites would depend on the likelihood of a developer being \"able to bring a housing precinct to market within five years\".\n\nIn a half-hour speech at the Adelaide Convention Centre, Mr Malinauskas also outlined his party's plan to scrap stamp duty on new homes for people aged 60 or over.\n\nLabor said that to be eligible, the purchaser would have to sell their \"existing principal place of residence\" and buy a \"new or off-the-plan dwelling\" with a value of no more than $2 million and \"with a land or apartment size smaller than their existing principal place of residence\".\n\nIt said the value of the savings on a $2 million home would be about $103,000, and that the policy was expected to cost $70 million \"over the forward estimates\".\n\n\"A lot of baby boomers around the state would have been pretty happy about that news this morning,\" Mr Malinauskas told Labor supporters.\n\n\"By removing stamp duty for them … they will have the opportunity to go into a new build and free that home up for a young South Australian family.\"\n\n## Ramping remains sore point\n\nLabor said its stamp duty policy would have a more beneficial impact on the housing market [than the one announced by the Liberals at their election launch a fortnight ago](https://www.abc.net.au/news/2026-02-08/sa-liberal-party-stamp-duty-election-promise/106318938) — but Liberal MP Ben Hood said the Labor plan would lead to minimal gains.\n\n\"A couple of hundred people will benefit from this and it will be probably in about four years' time, that's how long they're going to have to wait,\" he said.\n\n\"And how many homes will be built at the end of the decade? These are the questions that need to be put to Premier Peter Malinauskas.\"\n\n![South Australian Liberal MP Ben Hood.](https://live-production.wcms.abc-cdn.net.au/c85357b530c1051d836e44821b9c650e?impolicy=wcms_crop_resize&cropH=1080&cropW=1620&xPos=150&yPos=0&width=862&height=575)\n\nBoth major parties today released election booklets, with Mr Hood seen here holding up one critical of his opponents. (ABC News)\n\nAt the last state election, Labor swept to power on the back of a [promise to \"fix the ramping crisis\" afflicting the state's health system](https://www.abc.net.au/news/2025-10-28/labor-pivots-from-health-to-housing-ahead-of-sa-election/105938990).\n\nMr Hood was critical of Labor's health record, saying its failure to achieve that goal was",
-      "url": "https://www.abc.net.au/news/2026-02-22/labor-launches-sa-election-campaign-with-housing-policy/106373392",
-      "imageUrl": null,
-      "publishedAt": "2026-02-22T05:41:52.000Z",
-      "geotag": {
-        "country": "AUS",
-        "city": null,
-        "lat": -25.2744,
-        "lng": 133.7751
-      },
-      "category": "National",
-      "metrics": {
-        "wordCount": 690,
-        "readTime": 3
       }
     }
   ]

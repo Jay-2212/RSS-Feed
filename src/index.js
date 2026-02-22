@@ -68,6 +68,7 @@ export async function runPhaseOneToFour() {
     fallbackModels: config.geminiFallbackModels,
     geminiApiKey: config.geminiApiKey,
     batchSize: config.geotagBatchSize,
+    maxApiBatches: config.geotagMaxApiBatches,
     timeoutMs: config.geotagTimeoutMs,
     maxRetries: config.geotagMaxRetries,
     retryBaseDelayMs: config.geotagRetryBaseDelayMs,
