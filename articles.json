@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "lastUpdated": "2026-02-22T16:50:18.792Z",
+    "lastUpdated": "2026-02-22T16:53:04.918Z",
     "count": 40,
     "sources": [
       "npr-world",
@@ -13,7 +13,7 @@
     ],
     "phase": "phase_5_complete",
     "geotagModeConfigured": "auto",
-    "geotagModeResolved": "mock",
+    "geotagModeResolved": "live",
     "geotagModel": "gemini-2.5-flash-lite"
   },
   "articles": [
@@ -28,12 +28,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-21T22:16:49.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "USA",
         "city": null,
-        "lat": 0,
-        "lng": 0
+        "lat": 39.8283,
+        "lng": -98.5795
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 828,
         "readTime": 4
@@ -55,10 +55,76 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 682,
         "readTime": 3
+      }
+    },
+    {
+      "id": "649712ffbbcc6c6c",
+      "sourceId": "hindu",
+      "sourceName": "The Hindu",
+      "title": "Mandapathur fishing village in Karaikal grapples with poor infrastructure, unsafe water",
+      "excerpt": "Mandapathur fishing village faces severe infrastructure challenges, including unsafe water, poor roads, and unreliable electricity, impacting residents' lives.",
+      "content": "![A weak and ageing electric pole at Mandapathur fishing village in Karaikal, posing a potential safety hazard to residents.](https://www.thehindu.com/theme/images/th-online/1x1_spacer.png \"A weak and ageing electric pole at Mandapathur fishing village in Karaikal, posing a potential safety hazard to residents.\")\n\nA weak and ageing electric pole at Mandapathur fishing village in Karaikal, posing a potential safety hazard to residents. | Photo Credit: Special Arrangement\n\nResidents of Mandapathur fishing village in Karaikal continue to face severe hardship owing to the lack of basic infrastructure, including proper road access, safe drinking water, and reliable electricity, affecting nearly 150 families in the coastal hamlet.\n\nVillagers say the absence of a proper access road has made daily commuting difficult, especially during emergencies and adverse weather. Public transport connectivity is also a major concern, as there is no direct bus service between Karaikal Medu and Mandapathur. Residents from the cluster of ten surrounding villages depend largely on personal vehicles or autorickshaws, which charge as much as ₹500 to reach the Karaikal bus stand, particularly during late hours.\n\nFishermen in the village, including Veerapandiyan I. and R. Murgavel, said the drinking water supplied through public distribution points is often contaminated with visible black particles, raising fears over its safety and long-term health impacts. “We are forced to use this water as there is no alternative,” they said, urging authorities to ensure proper filtration and regular monitoring.\n\nThe lack of a sewage canal has further compounded the problem, with wastewater stagnating in residential areas and affecting hygiene and living conditions.\n\nElectricity infrastructure in the village is also in a precarious state. Residents pointed out that more than eight electric poles are old, structurally weak, and at risk of collapsing, posing a danger to life and property, especially during strong winds.\n\nOfficial sources said that road relaying works in the area have commenced and are expected to be completed within 15 days. and they would look into other issues.\n\nPublished \\- February 22, 2026 10:19 pm IST",
+      "url": "https://www.thehindu.com/news/cities/Tiruchirapalli/mandapathur-fishing-village-in-karaikal-grapples-with-poor-infrastructure-unsafe-water/article70663863.ece",
+      "imageUrl": null,
+      "publishedAt": "2026-02-22T16:49:15.000Z",
+      "geotag": {
+        "country": "IND",
+        "city": "Karaikal",
+        "lat": 20.5937,
+        "lng": 78.9629
+      },
+      "category": "National",
+      "metrics": {
+        "wordCount": 327,
+        "readTime": 1
+      }
+    },
+    {
+      "id": "382c0908a88cdc20",
+      "sourceId": "hindu",
+      "sourceName": "The Hindu",
+      "title": "Islamic State claims two attacks on Syrian Army, announces ‘new phase’ of operations",
+      "excerpt": "Islamic State claimed responsibility for two attacks targeting Syrian Army personnel in northern ​and eastern Syria",
+      "content": "![Syrian Army members. File. ](https://www.thehindu.com/theme/images/th-online/1x1_spacer.png \"Syrian Army members. File. \")\n\nSyrian Army members. File. | Photo Credit: Reuters\n\nIslamic State claimed responsibility on Saturday (February 21, 2026) for two attacks targeting Syrian Army personnel in northern ​and eastern Syria, as the militant group signalled what it ‌described as a new phase of operations against ​the country’s leadership.\n\nThe militant group said on its _⁠Dabiq news agency_ that it had targeted “an individual of the apostate Syrian regime” in the city of Mayadin in Deir al-Zor province ‌using a pistol, and attacked two other personnel with machine guns in the northern city of Raqqa.\n\n![](https://th-i.thgim.com/public/incoming/vqtf4k/article69639112.ece/alternates/SQUARE_80/Syria_IS_18018.jpg)\n\nSyria’s ‌Defence Ministry said in a statement that a ‌Syrian Army ⁠soldier and a civilian were killed on ⁠Saturday (February 21) by “unknown assailants.” A military source told Reuters the soldier belonged to the Army’s 42nd Division.\n\nThe attacks come amid a sharp escalation by IS ​against Syria’s leadership under President ‌Ahmed al-Sharaa, a former al-Qaeda leader who broke with the group in 2016 before leading a coalition of Islamist factions that overthrew President Bashar al-Assad at the ‌end of 2024.\n\nOn Saturday (February 21) evening, IS released a ​recorded statement by its spokesperson, Abu Hudhayfa al-Ansari, who said Syria had “moved from Iranian occupation to ⁠Turkish-American occupation.”\n\nThe group said it had begun a “new phase of operations” in Syria, describing Sharaa as a “watchdog” of the ‌global coalition and vowing that his fate would be no different from that of Assad.\n\nSharaa signed Syria’s accession to the global coalition to defeat IS during a visit to the U.S. last November, when he met President Donald Trump.\n\nThe latest incidents come two days after IS claimed responsibility for ‌another attack in Deir al-Zor that killed a member of the ​Interior Ministry’s internal security forces and wounded another.\n\n![](https://th-i.thgim.com/public/incoming/lmxhcr/article70633410.ece/alternates/SQUARE_80/2225412702.jpg)\n\nSeveral social media accounts and Telegram channels supporting IS have ⁠in recent hours called for intensified attacks using motorcycles and ⁠firearms.\n\nIS has carried out six attacks against Syrian government targets since the fall of Assad.\n\nA report by ‌the U.N. Office of Counter-Terrorism released last week said Sharaa and two senior cabinet ministers had been targeted ​in five foiled assassination attempts by IS.\n\nPublished \\- February 22, 2026 10:17 pm IST",
+      "url": "https://www.thehindu.com/news/international/islamic-state-claims-two-attacks-on-syrian-army-announces-new-phase-of-operations/article70663604.ece",
+      "imageUrl": null,
+      "publishedAt": "2026-02-22T16:47:58.000Z",
+      "geotag": {
+        "country": "SYR",
+        "city": null,
+        "lat": 0,
+        "lng": 0
+      },
+      "category": "World",
+      "metrics": {
+        "wordCount": 375,
+        "readTime": 2
+      }
+    },
+    {
+      "id": "a67324db3a9bacac",
+      "sourceId": "hindu",
+      "sourceName": "The Hindu",
+      "title": "Fresh FIR against RTI activist Snehamayi Krishna",
+      "excerpt": "RTI activist Snehamayi Krishna faces a fresh FIR for alleged defamation and intimidation, following previous questioning by authorities.",
+      "content": "![Snehamayi Krishna.](https://www.thehindu.com/theme/images/th-online/1x1_spacer.png \"Snehamayi Krishna.\")\n\nSnehamayi Krishna. | Photo Credit: File photo\n\n.\n\nHours after being detained and questioned by the Central Crime Branch (CCB) for allegedly circulating fabricated documents and manipulated content on social media, RTI activist Snehamayi Krishna is facing yet another criminal case — this time at the Basaveshwara Nagar Police Station.\n\nKrishna was earlier questioned and later released on Saturday over allegations that he used his Facebook account to circulate fabricated documents, edited photographs and manipulated audio clips targeting former MUDA Commissioner D.B. Natesh.\n\nIn the latest development, a fresh FIR has been registered against Snehamayi Krishna and former Bengaluru University professor Mylarappa B.C. following a complaint by Pavithra B.N. The FIR was registered on February 21.\n\nAccording to the complaint, dated December 6, 2025, the complainant stated that on the evening of December 5, she received a letter at her residence. The letter allegedly contained defamatory statements about her late husband and her advocate Raghu, and referred to a complaint purportedly filed at the Mahalakshmipuram Police Station seeking reinvestigation into her husband’s death. She claimed the letter was sent by Krishna.\n\nThe complainant further alleged that, along with the letter, a threatening note was enclosed, pressuring her to withdraw cases filed against Mylarappa. The letter reportedly contained a mobile number and allegedly included threats and abusive language.\n\nShe stated that the actions of the accused have caused distress to her and adversely affected her children’s education, disturbed the peace at her residence and created fear for her safety.\n\nBased on the complaint, police initially registered an NCR (No. 571/2025). Subsequently, after obtaining permission from the 24th ACMM Court, a formal FIR was registered against Krishna and Mylarappa for criminal intimidation and intentional insult with intent to provoke breach of peace. Further investigation is under way.\n\nIn October last year, the complainant had filed a case against Mylarappa, accusing him of stalking and harassment.\n\nPublished \\- February 22, 2026 10:14 pm IST",
+      "url": "https://www.thehindu.com/news/national/karnataka/fresh-fir-against-rti-activist-snehamayi-krishna/article70664360.ece",
+      "imageUrl": null,
+      "publishedAt": "2026-02-22T16:44:53.000Z",
+      "geotag": {
+        "country": "IND",
+        "city": null,
+        "lat": 20.5937,
+        "lng": 78.9629
+      },
+      "category": "National",
+      "metrics": {
+        "wordCount": 325,
+        "readTime": 1
       }
     },
     {
@@ -72,12 +138,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T16:40:01.000Z",
       "geotag": {
-        "country": "UNK",
-        "city": null,
-        "lat": 0,
-        "lng": 0
+        "country": "IND",
+        "city": "Kolkata",
+        "lat": 20.5937,
+        "lng": 78.9629
       },
-      "category": "Trending",
+      "category": "National",
       "metrics": {
         "wordCount": 361,
         "readTime": 2
@@ -94,12 +160,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T16:35:17.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "IRN",
         "city": null,
-        "lat": 0,
-        "lng": 0
+        "lat": 32.4279,
+        "lng": 53.688
       },
-      "category": "Trending",
+      "category": "World",
       "metrics": {
         "wordCount": 733,
         "readTime": 3
@@ -116,12 +182,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T16:25:25.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "IND",
         "city": null,
-        "lat": 0,
-        "lng": 0
+        "lat": 20.5937,
+        "lng": 78.9629
       },
-      "category": "Trending",
+      "category": "National",
       "metrics": {
         "wordCount": 532,
         "readTime": 2
@@ -138,12 +204,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T16:20:27.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "IND",
         "city": null,
-        "lat": 0,
-        "lng": 0
+        "lat": 20.5937,
+        "lng": 78.9629
       },
-      "category": "Trending",
+      "category": "National",
       "metrics": {
         "wordCount": 499,
         "readTime": 2
@@ -160,58 +226,14 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T16:12:55.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "IND",
         "city": null,
-        "lat": 0,
-        "lng": 0
+        "lat": 20.5937,
+        "lng": 78.9629
       },
-      "category": "Trending",
+      "category": "National",
       "metrics": {
         "wordCount": 363,
-        "readTime": 2
-      }
-    },
-    {
-      "id": "21f93561e5ccdbec",
-      "sourceId": "hindu",
-      "sourceName": "The Hindu",
-      "title": "BJP Kerala president reiterates desire to contest from Nemom in Assembly polls",
-      "excerpt": "BJP Kerala president Rajeev Chandrasekhar expresses intention to contest Assembly elections from Nemom, emphasizing change and local support.",
-      "content": "![BJP State president Raieev Chandrasekhar kicked off party's campaign in Nemom constituency by painting party symbol at a wall near Indira Gandhi Statue Junction, Thaliyal, in Thiruvananthapuram on Sunday.](https://www.thehindu.com/theme/images/th-online/1x1_spacer.png \"BJP State president Raieev Chandrasekhar kicked off party's campaign in Nemom constituency by painting party symbol at a wall near Indira Gandhi Statue Junction, Thaliyal, in Thiruvananthapuram on Sunday.\")\n\nBJP State president Raieev Chandrasekhar kicked off party's campaign in Nemom constituency by painting party symbol at a wall near Indira Gandhi Statue Junction, Thaliyal, in Thiruvananthapuram on Sunday. | Photo Credit: JAYAMOHAN A.\n\nBharatiya Janata Party (BJP) Kerala president Rajeev Chandrasekhar on Sunday (February 22, 2026) reiterated his desire to contest the upcoming Assembly elections from the Nemom constituency.\n\nHe was speaking to reporters after launching the BJP’s election wall-writing campaign in Nemom.\n\nResponding to a question on whether he would be the BJP candidate from the constituency, Mr. Chandrasekhar said, “That is my desire as well. The national leadership has to decide about it. I aim to bring changes in Thiruvananthapuram, which we have already started by winning the Thiruvananthapuram Corporation in the local body polls. “I believe the party will give me permission for that,” he added.\n\nHe further mentioned that he had informed the national leadership about his wish to contest the Assembly election from Nemom two months ago.\n\n“I won’t forget the love I received from the people when I contested the Parliament election here,” he said.\n\nThough Mr. Chandrasekhar did not write his name in the BJP’s election wall painting, he coloured the party’s lotus symbol and wrote a few words in Malayalam.\n\nWhen asked about the red colour used for the lotus in the wall painting, he said the lotus and development would come to Nemom.\n\n“We will ensure safety and protect the faith of the people,” he said.\n\nHe said the beginning of the wall painting should be seen as the start of the BJP’s election campaign.\n\nMr. Chandrasekhar alleged that the LDF and UDF, which have governed the State, have not addressed the public’s issues and that there should be a change now.\n\n“The Nemom MLA, who is also a Minister, has done little for the constituency. We are starting a campaign for change, and both the BJP and NDA are calling for it,” he said.\n\nHe added that change would come in the upcoming election and that the people would drive it.\n\nMr. Chandrasekhar also attended various conventions in the Nemom constituency and held meetings with local leaders.\n\nNemom is considered a favourable seat for the BJP in Thiruvananthapuram.\n\nThe party’s O. Rajagopal had won the constituency in the 2016 Assembly election, before CPI(M) leader and Education Minister V. Sivankutty recaptured it in the 2021 Assembly polls.\n\nHowever, in the 2024 Lok Sabha election and the 2025 local body polls, the BJP secured a significant number of votes in the constituency.\n\nPublished \\- February 22, 2026 09:35 pm IST",
-      "url": "https://www.thehindu.com/news/national/kerala/bjp-kerala-president-reiterates-desire-to-contest-from-nemom-in-assembly-polls/article70664243.ece",
-      "imageUrl": null,
-      "publishedAt": "2026-02-22T16:05:34.000Z",
-      "geotag": {
-        "country": "UNK",
-        "city": null,
-        "lat": 0,
-        "lng": 0
-      },
-      "category": "Trending",
-      "metrics": {
-        "wordCount": 487,
-        "readTime": 2
-      }
-    },
-    {
-      "id": "c8d727761ea19726",
-      "sourceId": "hindu",
-      "sourceName": "The Hindu",
-      "title": "Dismiss Piyush Goyal from Cabinet, SKM urges President Murmu",
-      "excerpt": "SKM urges President Murmu to dismiss Piyush Goyal for betraying farmers' interests in a U.S. trade agreement.",
-      "content": "![Union Minister Piyush Goyal. File](https://www.thehindu.com/theme/images/th-online/1x1_spacer.png \"Union Minister Piyush Goyal. File\")\n\nUnion Minister Piyush Goyal. File | Photo Credit: ANI\n\nThe Samyukt Kisan Morcha (SKM) has sent a letter to President Droupadi Murmu on Sunday (February 22, 2026), urging her to dismiss Union Commerce Minister Piyush Goyal from his post for [“betraying the nation’s confidence”](https://www.thehindu.com/news/national/india-us-interim-trade-deal-namaste-trump-scored-over-howdy-modi-says-congress/article70602880.ece) by entering into [a bilateral trade agreement with the United States.](https://www.thehindu.com/business/Economy/highlights-of-india-us-interim-trade-framework/article70602711.ece) The SKM urged her to direct the Prime Minister not to sign the deal on terms which were detrimental to farmers. It also sought a direction from her against a recent demi order of the Union Finance Ministry asking the Kerala government to end bonus to paddy farmers.\n\nThe SKM alleged in the letter that the Narendra Modi government succumbed to the pressures of the United States and endangered the self-reliance and sovereignty of the country. Maintaining that the terms accepted as per the interim agreement were detrimental to the interests of the Indian economy and India’s farmers, the SKM said the government remained silent about the terms. “In fact, all announcements made by Union Commerce Minister Piyush Goyal, the chief negotiator, only confirm the worst fears, that the government is either unable to or unwilling to stand up to U.S. diktats. Such acquiescence before an imperial superpower has led to serious resentment among the farming community,” the letter said.\n\n![](https://th-i.thgim.com/public/incoming/ewd5zi/article70636340.ece/alternates/SQUARE_80/20260212041L.jpg)\n\n#### ‘No satisfactory answer’\n\nThe SKM asked when no agreement had been signed as of now, why did U.S. President Donald Trump declare the free trade agreement with India. “Why did Prime Minister Narendra Modi endorse India as a party to the agreement? Why no statement placed in the Parliament that was in session? The Prime Minister has yet to give a satisfactory answer,” the SKM said.\n\nOn cotton, the SKM said India was self-dependent with double the production of the U.S. “The withdrawal of 11% cotton import duty on August 19, 2025 has sunk domestic cotton prices. Cotton farmers are staring at very serious losses,” it said, adding that Mr. Goyal was insensitive to the issues of cotton farmers. The SKM added that the deal would put over 55 lakh apple farmer families in the country into crisis. Maize would be imported as dry distilled grain (DDG) as per the interim agreement and the import of DDG would deplete the domestic prices and impact 120 lakh corn farmers, the SKM maintained. “Import of ethanol and maize will harm the sugar industry and around 500 lakh sugarcane farmers,” the letter added.\n\nPublished \\- February 22, 2026 09:30 pm IST",
-      "url": "https://www.thehindu.com/news/national/dismiss-piyush-goyal-from-cabinet-skm-urges-president-murmu/article70663631.ece",
-      "imageUrl": null,
-      "publishedAt": "2026-02-22T16:00:12.000Z",
-      "geotag": {
-        "country": "UNK",
-        "city": null,
-        "lat": 0,
-        "lng": 0
-      },
-      "category": "Trending",
-      "metrics": {
-        "wordCount": 425,
         "readTime": 2
       }
     },
@@ -231,7 +253,7 @@
         "lat": 48.3794,
         "lng": 31.1656
       },
-      "category": "Trending",
+      "category": "World",
       "metrics": {
         "wordCount": 558,
         "readTime": 3
@@ -248,12 +270,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T13:52:09.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "UGA",
         "city": null,
         "lat": 0,
         "lng": 0
       },
-      "category": "Trending",
+      "category": "World",
       "metrics": {
         "wordCount": 450,
         "readTime": 2
@@ -270,10 +292,10 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T12:35:57.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "USA",
         "city": null,
-        "lat": 0,
-        "lng": 0
+        "lat": 39.8283,
+        "lng": -98.5795
       },
       "category": "Trending",
       "metrics": {
@@ -292,12 +314,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T11:33:11.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "AFG",
         "city": null,
         "lat": 0,
         "lng": 0
       },
-      "category": "Trending",
+      "category": "World",
       "metrics": {
         "wordCount": 584,
         "readTime": 3
@@ -319,7 +341,7 @@
         "lat": 31.0461,
         "lng": 34.8516
       },
-      "category": "Trending",
+      "category": "World",
       "metrics": {
         "wordCount": 723,
         "readTime": 3
@@ -336,12 +358,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T05:04:57.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "VEN",
         "city": null,
         "lat": 0,
         "lng": 0
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 426,
         "readTime": 2
@@ -358,12 +380,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T02:06:23.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "USA",
         "city": null,
-        "lat": 0,
-        "lng": 0
+        "lat": 39.8283,
+        "lng": -98.5795
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 521,
         "readTime": 2
@@ -385,7 +407,7 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "WorthReading",
+      "category": "Trending",
       "metrics": {
         "wordCount": 785,
         "readTime": 4
@@ -402,12 +424,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-21T22:16:39.000Z",
       "geotag": {
-        "country": "UNK",
-        "city": null,
+        "country": "PAK",
+        "city": "Lahore",
         "lat": 0,
         "lng": 0
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 810,
         "readTime": 4
@@ -424,12 +446,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-21T12:44:31.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "GBR",
         "city": null,
-        "lat": 0,
-        "lng": 0
+        "lat": 55.3781,
+        "lng": -3.436
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 878,
         "readTime": 4
@@ -446,10 +468,10 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T16:23:37.000Z",
       "geotag": {
-        "country": "ISR",
+        "country": "USA",
         "city": null,
-        "lat": 31.0461,
-        "lng": 34.8516
+        "lat": 39.8283,
+        "lng": -98.5795
       },
       "category": "World",
       "metrics": {
@@ -468,12 +490,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T15:55:39.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "PAK",
         "city": null,
         "lat": 0,
         "lng": 0
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 710,
         "readTime": 3
@@ -490,12 +512,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T15:28:30.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "UGA",
         "city": null,
         "lat": 0,
         "lng": 0
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 555,
         "readTime": 3
@@ -512,12 +534,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T14:31:10.000Z",
       "geotag": {
-        "country": "UNK",
-        "city": null,
-        "lat": 0,
-        "lng": 0
+        "country": "USA",
+        "city": "Palm Beach",
+        "lat": 39.8283,
+        "lng": -98.5795
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 443,
         "readTime": 2
@@ -535,11 +557,11 @@
       "publishedAt": "2026-02-22T14:13:54.000Z",
       "geotag": {
         "country": "USA",
-        "city": "washington",
-        "lat": 38.9072,
-        "lng": -77.0369
+        "city": "Palm Beach",
+        "lat": 39.8283,
+        "lng": -98.5795
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 463,
         "readTime": 2
@@ -557,11 +579,11 @@
       "publishedAt": "2026-02-22T14:08:23.000Z",
       "geotag": {
         "country": "USA",
-        "city": "newyork",
-        "lat": 40.7128,
-        "lng": -74.006
+        "city": "New York City",
+        "lat": 39.8283,
+        "lng": -98.5795
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 741,
         "readTime": 3
@@ -600,10 +622,10 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T13:19:57.000Z",
       "geotag": {
-        "country": "GBR",
+        "country": "LKA",
         "city": null,
-        "lat": 55.3781,
-        "lng": -3.436
+        "lat": 0,
+        "lng": 0
       },
       "category": "World",
       "metrics": {
@@ -627,7 +649,7 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "WorthReading",
+      "category": "Trending",
       "metrics": {
         "wordCount": 739,
         "readTime": 3
@@ -644,12 +666,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T12:40:11.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "USA",
         "city": null,
-        "lat": 0,
-        "lng": 0
+        "lat": 39.8283,
+        "lng": -98.5795
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 683,
         "readTime": 3
@@ -666,12 +688,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T11:30:36.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "AUS",
         "city": null,
-        "lat": 0,
-        "lng": 0
+        "lat": -25.2744,
+        "lng": 133.7751
       },
-      "category": "WorthReading",
+      "category": "National",
       "metrics": {
         "wordCount": 642,
         "readTime": 3
@@ -688,12 +710,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T11:08:48.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "GRL",
         "city": null,
         "lat": 0,
         "lng": 0
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 342,
         "readTime": 2
@@ -705,17 +727,17 @@
       "sourceName": "ABC News",
       "title": "USA beats Canada in overtime to end 46-year gold medal drought",
       "excerpt": "Team USA beats Canada 2-1 in overtime to win the country's first men's ice hockey gold medal since 1980 in the last event of the 2026 Milano Cortina Winter Olympic Games, after Australian 16-year-old Indra Brown finishes fifth in the freeski halfpipe final.",
-      "content": "Team USA has beaten Canada 2-1 in overtime to win the country's first men's ice hockey gold medal since 1980 in the last event of the 2026 Milano Cortina Winter Olympic Games.\n\nThe victory was identical to that of the US women's team on Friday, which was also a 2-1 overtime victory against their North American rivals.\n\nBut for the women, the win marked their third gold medal since 1998, while the men's team had not won gold at the Winter Olympics since [the 1980 Miracle on Ice at Lake Placid](https://www.abc.net.au/news/2026-02-22/miracle-on-ice-usa-vs-ussr-ice-hockey-lake-placid-winter-olympic/106287402).\n\n![Matt Boldy of Team USA shouts to celebrate an ice hockey goal.](https://live-production.wcms.abc-cdn.net.au/7c99abe71e2bbcb8e42758c2f84b74be?impolicy=wcms_crop_resize&cropH=2284&cropW=3426&xPos=0&yPos=0&width=862&height=575)\n\nMatt Boldy scored early in the first period for Team USA. (Getty Images)\n\nMatt Boldy opened the scoring for Team USA in a frantic first period, before Cale Makar levelled for Canada shortly before the end of the second.\n\nThe teams could not be split through the third and final regulation period, thanks largely to US goalie Connor Hellebuyck, who made 41 saves on the night.\n\nHe was also aided by a late open-goal miss from Nathan MacKinnon, before the game went to overtime and Jack Hughes sealed the win.\n\nEarlier on the last day of competition, [Australian 16-year-old Indra Brown finished fifth in the freeski halfpipe final](https://www.abc.net.au/news/2026-02-22/indra-brown-medal-freeski-halfpipe-2026-winter-olympics/106373982).\n\nBrown earned praise from [back-to-back gold medallist Eileen Gu](https://www.abc.net.au/news/2026-02-22/winter-olympics-day-16-live-updates-indra-brown/106372016?utm_campaign=abc_news_web&utm_content=link&utm_medium=content_shared&utm_source=abc_news_web#live-blog-post-263198), who was the first to embrace Brown after her third and final run, when she landed her first 1080 in competition.\n\n\"It was a really special moment to [have someone I idolise give me a hug after I land my third run at the Olympics](https://www.abc.net.au/news/2026-02-22/winter-olympics-day-16-live-updates-indra-brown/106372016?utm_campaign=abc_news_web&utm_content=link&utm_medium=content_shared&utm_source=abc_news_web#live-blog-post-263199),\" Brown told Channel Nine.\n\nRosie Fordham was the only other Australian in action, finishing 30th in the women's 50km mass start cross-country skiing.\n\n_**Look back at all the action from day 16 in our live blog.**_\n\n## Key Events\n\n1.  56 minutes agoSun 22 Feb 2026 at 3:53pm\n    \n2.  1 hours agoSun 22 Feb 2026 at 3:32pm\n    \n3.  2 hours agoSun 22 Feb 2026 at 2:41pm\n    \n\n50m agoSun 22 Feb 2026 at 3:59pm\n\n### 2026 Winter Olympics medal tally 🥇🥈🥉\n\nHere is the final medal table for the 2026 Milano Cortina Winter Olympic Games.\n\n1.  Norway — 18 gold, 12 silver, 11 bronze\n2.  USA — 12 gold, 12 silver, 9 bronze\n3.  Netherlands — 10 gold, 7 silver, 3 bronze\n4.  Italy — 10 gold, 6 silver, 14 bronze\n5.  Germany — 8 gold, 10 silver, 8 bronze\n6.  France — 8 gold, 9 silver, 6 bronze\n7.  Sweden — 8 gold, 6 silver, 4 bronze\n8.  Switzerland — 6 gold, 9 silver, 8 bronze\n9.  Austria — 5 gold, 8 silver, 5 bronze\n10.  Japan — 5 gold, 7 silver, 12 bronze\n11.  Canada — 5 gold, 7 silver 9 bronze\n12.  China — 5 gold, 4 silver, 6 bronze\n13.  South Korea — 3 gold, 4 silver, 3 bronze\n14.  **Australia — 3 gold, 2 silver, 1 bronze**\n15.  Great Britain — 3 gold, 1 silver, 1 bronze\n16.  Czechia — 2 gold, 2 silver, 1 bronze\n17.  Slovenia — 2 gold, 1 silver, 1 bronze\n18.  Spain — 1 gold, 2 bronze\n19.  Brazil, Kazakhstan — 1 gold\n\n31m agoSun 22 Feb 2026 at 4:19pm\n\n### And that will do us\n\n![](https://au-img-cdn.livecenter.com/lc-aus-images/lcimg-777862af-00c6-40bb-882a-42a504ed67d6.jpeg)\n\n(Getty)\n\nAs the US and Canadian team get their medals, I'll sign off this last Winter Olympics competition blog.\n\nIt's been a wild two-plus weeks and we're not done yet!\n\nAndrew McGarry will be back in a couple of hours' time to blog the closing ceremony.\n\nUntil then, on behalf of myself and the rest of the blog team, good night, good morning and happy Monday or Sunday or whatever it is.\n\nI think we all look forward to living on Australian time once again.\n\n42m agoSun 22 Feb 2026 at 4:07pm\n\n### Respect\n\n![](https://au-img-cdn.livecenter.com/lc-aus-images/lcimg-5efbf944-497c-4b55-8a17-1d96d0436fdd.jpeg)\n\nUSA captain Auston Matthews and Canada captain Connor McDavid. (Getty)\n\n43m agoSun 22 Feb 2026 at 4:07pm\n\n### An emotional tribute from Team USA\n\nThe American team quickly found a \"GAUDREAU\" jersey and skated around the ice holding it up.\n\nJohnny Gaudreau played 11 seasons with the Calgary Flames and Columbus Blue Jackets in the NHL and was a national and club teammate to many players in this US team.\n\nHe and his brother were hit by a car while riding their bikes on a New Jersey highway in 2024.\n\nBoth brothers died.\n\nJohnny was 31.\n\nHis number 13 jersey has been hanging in the US locker room al",
+      "content": "Team USA has beaten Canada 2-1 in overtime to win the country's first men's ice hockey gold medal since 1980 in the last event of the 2026 Milano Cortina Winter Olympic Games.\n\nThe victory was identical to that of the US women's team on Friday, which was also a 2-1 overtime victory against their North American rivals.\n\nBut for the women, the win marked their third gold medal since 1998, while the men's team had not won gold at the Winter Olympics since [the 1980 Miracle on Ice at Lake Placid](https://www.abc.net.au/news/2026-02-22/miracle-on-ice-usa-vs-ussr-ice-hockey-lake-placid-winter-olympic/106287402).\n\n![Matt Boldy of Team USA shouts to celebrate an ice hockey goal.](https://live-production.wcms.abc-cdn.net.au/7c99abe71e2bbcb8e42758c2f84b74be?impolicy=wcms_crop_resize&cropH=2284&cropW=3426&xPos=0&yPos=0&width=862&height=575)\n\nMatt Boldy scored early in the first period for Team USA. (Getty Images)\n\nMatt Boldy opened the scoring for Team USA in a frantic first period, before Cale Makar levelled for Canada shortly before the end of the second.\n\nThe teams could not be split through the third and final regulation period, thanks largely to US goalie Connor Hellebuyck, who made 41 saves on the night.\n\nHe was also aided by a late open-goal miss from Nathan MacKinnon, before the game went to overtime and Jack Hughes sealed the win.\n\nEarlier on the last day of competition, [Australian 16-year-old Indra Brown finished fifth in the freeski halfpipe final](https://www.abc.net.au/news/2026-02-22/indra-brown-medal-freeski-halfpipe-2026-winter-olympics/106373982).\n\nBrown earned praise from [back-to-back gold medallist Eileen Gu](https://www.abc.net.au/news/2026-02-22/winter-olympics-day-16-live-updates-indra-brown/106372016?utm_campaign=abc_news_web&utm_content=link&utm_medium=content_shared&utm_source=abc_news_web#live-blog-post-263198), who was the first to embrace Brown after her third and final run, when she landed her first 1080 in competition.\n\n\"It was a really special moment to [have someone I idolise give me a hug after I land my third run at the Olympics](https://www.abc.net.au/news/2026-02-22/winter-olympics-day-16-live-updates-indra-brown/106372016?utm_campaign=abc_news_web&utm_content=link&utm_medium=content_shared&utm_source=abc_news_web#live-blog-post-263199),\" Brown told Channel Nine.\n\nRosie Fordham was the only other Australian in action, finishing 30th in the women's 50km mass start cross-country skiing.\n\n_**Look back at all the action from day 16 in our live blog.**_\n\n## Key Events\n\n1.  58 minutes agoSun 22 Feb 2026 at 3:53pm\n    \n2.  1 hours agoSun 22 Feb 2026 at 3:32pm\n    \n3.  2 hours agoSun 22 Feb 2026 at 2:41pm\n    \n\n52m agoSun 22 Feb 2026 at 3:59pm\n\n### 2026 Winter Olympics medal tally 🥇🥈🥉\n\nHere is the final medal table for the 2026 Milano Cortina Winter Olympic Games.\n\n1.  Norway — 18 gold, 12 silver, 11 bronze\n2.  USA — 12 gold, 12 silver, 9 bronze\n3.  Netherlands — 10 gold, 7 silver, 3 bronze\n4.  Italy — 10 gold, 6 silver, 14 bronze\n5.  Germany — 8 gold, 10 silver, 8 bronze\n6.  France — 8 gold, 9 silver, 6 bronze\n7.  Sweden — 8 gold, 6 silver, 4 bronze\n8.  Switzerland — 6 gold, 9 silver, 8 bronze\n9.  Austria — 5 gold, 8 silver, 5 bronze\n10.  Japan — 5 gold, 7 silver, 12 bronze\n11.  Canada — 5 gold, 7 silver 9 bronze\n12.  China — 5 gold, 4 silver, 6 bronze\n13.  South Korea — 3 gold, 4 silver, 3 bronze\n14.  **Australia — 3 gold, 2 silver, 1 bronze**\n15.  Great Britain — 3 gold, 1 silver, 1 bronze\n16.  Czechia — 2 gold, 2 silver, 1 bronze\n17.  Slovenia — 2 gold, 1 silver, 1 bronze\n18.  Spain — 1 gold, 2 bronze\n19.  Brazil, Kazakhstan — 1 gold\n\n33m agoSun 22 Feb 2026 at 4:19pm\n\n### And that will do us\n\n![](https://au-img-cdn.livecenter.com/lc-aus-images/lcimg-777862af-00c6-40bb-882a-42a504ed67d6.jpeg)\n\n(Getty)\n\nAs the US and Canadian team get their medals, I'll sign off this last Winter Olympics competition blog.\n\nIt's been a wild two-plus weeks and we're not done yet!\n\nAndrew McGarry will be back in a couple of hours' time to blog the closing ceremony.\n\nUntil then, on behalf of myself and the rest of the blog team, good night, good morning and happy Monday or Sunday or whatever it is.\n\nI think we all look forward to living on Australian time once again.\n\n44m agoSun 22 Feb 2026 at 4:07pm\n\n### Respect\n\n![](https://au-img-cdn.livecenter.com/lc-aus-images/lcimg-5efbf944-497c-4b55-8a17-1d96d0436fdd.jpeg)\n\nUSA captain Auston Matthews and Canada captain Connor McDavid. (Getty)\n\n45m agoSun 22 Feb 2026 at 4:07pm\n\n### An emotional tribute from Team USA\n\nThe American team quickly found a \"GAUDREAU\" jersey and skated around the ice holding it up.\n\nJohnny Gaudreau played 11 seasons with the Calgary Flames and Columbus Blue Jackets in the NHL and was a national and club teammate to many players in this US team.\n\nHe and his brother were hit by a car while riding their bikes on a New Jersey highway in 2024.\n\nBoth brothers died.\n\nJohnny was 31.\n\nHis number 13 jersey has been hanging in the US locker room al",
       "url": "https://www.abc.net.au/news/2026-02-22/winter-olympics-day-16-live-updates-indra-brown/106372016",
       "imageUrl": null,
       "publishedAt": "2026-02-22T08:47:41.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "USA",
         "city": null,
-        "lat": 0,
-        "lng": 0
+        "lat": 39.8283,
+        "lng": -98.5795
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 745,
         "readTime": 3
@@ -737,7 +759,7 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 697,
         "readTime": 3
@@ -759,7 +781,7 @@
         "lat": -25.2744,
         "lng": 133.7751
       },
-      "category": "World",
+      "category": "National",
       "metrics": {
         "wordCount": 753,
         "readTime": 3
@@ -776,12 +798,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T08:12:39.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "AUS",
         "city": null,
-        "lat": 0,
-        "lng": 0
+        "lat": -25.2744,
+        "lng": 133.7751
       },
-      "category": "WorthReading",
+      "category": "National",
       "metrics": {
         "wordCount": 386,
         "readTime": 2
@@ -798,12 +820,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T08:05:48.000Z",
       "geotag": {
-        "country": "UNK",
-        "city": null,
-        "lat": 0,
-        "lng": 0
+        "country": "AUS",
+        "city": "Alice Springs",
+        "lat": -25.2744,
+        "lng": 133.7751
       },
-      "category": "WorthReading",
+      "category": "National",
       "metrics": {
         "wordCount": 640,
         "readTime": 3
@@ -820,12 +842,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T07:47:15.000Z",
       "geotag": {
-        "country": "UNK",
-        "city": null,
-        "lat": 0,
-        "lng": 0
+        "country": "AUS",
+        "city": "Sydney",
+        "lat": -25.2744,
+        "lng": 133.7751
       },
-      "category": "WorthReading",
+      "category": "National",
       "metrics": {
         "wordCount": 500,
         "readTime": 2
@@ -842,12 +864,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T07:15:38.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "IRN",
         "city": null,
-        "lat": 0,
-        "lng": 0
+        "lat": 32.4279,
+        "lng": 53.688
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 780,
         "readTime": 4
@@ -864,37 +886,15 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T06:35:19.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "AFG",
         "city": null,
         "lat": 0,
         "lng": 0
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 680,
         "readTime": 3
-      }
-    },
-    {
-      "id": "a89aba680f1c0066",
-      "sourceId": "indian-express-world",
-      "sourceName": "Indian Express World",
-      "title": "Iran-US Tensions News LIVE Updates: ‘Renewed talks scheduled early March, might lead to interim deal,’ says Iranian official",
-      "excerpt": "Iran-US Tensions LIVE News Updates: Donald Trump signals possible military action as Iran drafts counterproposal amid rising Strait of Hormuz and regional security concerns.",
-      "content": "![Iran-US](https://images.indianexpress.com/2026/02/US-2-22.jpg?w=1600)US President Donald Trump and Iran Supreme Leader Ali Khamenei. (File images)\n\n**Iran-US News Today LIVE Updates:** Renewed talks ‌were scheduled in ‌early ​March ​and ​could possibly lead ​to an interim ⁠deal, a senior Iranian official Sunday told news agency Reuters, adding “Iran’s right to uranium enrichment within framework of NPT must be recognised.” This comes as the stand-off between the United States and Iran has intensified, with Tehran warning of “strong retaliation” in a letter to the UN chief and US President Donald Trump confirming he is “considering” limited military action. The warning comes as Trump’s 10-day deadline for a new nuclear deal approaches, raising concerns of a wider regional crisis.\n\n**Trump’s warning and Tehran’s counterproposal:** Asked whether he would authorise action during negotiations, Trump said: “I guess I can say I am considering that,” adding that Iran “better negotiate a fair deal”. Washington is insisting on “zero enrichment” of uranium. In response, Iranian Foreign Minister Abbas Araghchi said Tehran is drafting a counterproposal based on “mutual respect”, expected within 48 to 72 hours. It remains unclear whether Iran will accept limits on domestic enrichment.\n\nStory continues below this ad\n\n**Strait of Hormuz and military build-up:** Tensions are also rising around the Strait of Hormuz after recent live-fire drills. Iran has warned that any attack would make US assets in the region “legitimate targets”. Meanwhile, the USS Gerald R. Ford is moving to join the USS Abraham Lincoln, creating a dual-carrier presence described as a major mobilisation. Israel is also reported to be stepping up joint planning with Washington.\n\n## What’s the current situation?\n\n**Trump’s strike warning:** Asked if he would authorise kinetic action during negotiations, Trump told reporters, “I guess I can say I am considering that.” He added that Tehran “better negotiate a fair deal.”\n\n**Tehran’s counter-offer:** Iran is reportedly preparing a text based on “mutual respect”, though it remains unclear if it will address the US “red line” regarding domestic uranium enrichment.\n\n**Israel on high alert:** The Israeli government, believing talks have reached an impasse, has accelerated joint military preparations with the US for an operation that could begin “very soon”.\n\n**Strait of Hormuz tensions:** Following a brief shutdown for IRGC live-fire drills, the waterway remains a flashpoint. Iran has warned that any attack would make all US regional assets “legitimate targets”.\n\n**Massive buildup:** The USS Gerald R. Ford is currently transiting the Mediterranean to join the USS Abraham Lincoln, completing a dual-carrier presence that analysts call the most significant mobilisation in decades.\n\n_Our Global Desk is monitoring official statements from the White House, the Iranian Foreign Ministry, and maritime security agencies in the Persian Gulf. Stay tuned for real-time updates as this story develops._\n\n**Stay updated with the latest - [Click here to follow us on Instagram](https://www.instagram.com/indianexpress/)**\n\n© IE Online Media Services Pvt Ltd\n\n-   Tags:\n-   [Iran US nuclear talks](https://indianexpress.com/about/iran-us-nuclear-talks/)\n-   [Iran US tension](https://indianexpress.com/about/iran-us-tension/)",
-      "url": "https://indianexpress.com/article/world/us-news/iran-us-tensions-live-updates-trump-nuclear-strike-threat-tehran-retaliation-10545224/",
-      "imageUrl": null,
-      "publishedAt": "2026-02-22T05:59:45.000Z",
-      "geotag": {
-        "country": "UNK",
-        "city": null,
-        "lat": 0,
-        "lng": 0
-      },
-      "category": "WorthReading",
-      "metrics": {
-        "wordCount": 480,
-        "readTime": 2
       }
     }
   ]
