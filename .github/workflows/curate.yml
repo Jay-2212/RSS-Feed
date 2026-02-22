@@ -1,0 +1,28 @@
+name: Curate News
+
+on:
+  workflow_dispatch:
+
+jobs:
+  curate:
+    runs-on: ubuntu-latest
+    env:
+      # Put GEMINI_API_KEY in GitHub repo secrets. Pipeline will auto-fallback to mock mode if empty.
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-2.0-flash' }}
+      GEOTAG_MODE: auto
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run pipeline (Phase 1-4)
+        run: npm run run:pipeline

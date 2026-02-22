@@ -1,0 +1,76 @@
+{
+  "sources": [
+    {
+      "id": "nyt-world",
+      "name": "NYT World",
+      "url": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+      "tier": 1,
+      "region": "global",
+      "paywall": "metered"
+    },
+    {
+      "id": "hindu",
+      "name": "The Hindu",
+      "url": "https://www.thehindu.com/news/?service=rss",
+      "tier": 1,
+      "region": "india",
+      "paywall": false
+    },
+    {
+      "id": "bbc-world",
+      "name": "BBC World",
+      "url": "http://feeds.bbci.co.uk/news/world/rss.xml",
+      "tier": 1,
+      "region": "global",
+      "paywall": false
+    },
+    {
+      "id": "guardian-world",
+      "name": "The Guardian World",
+      "url": "https://www.theguardian.com/world/rss",
+      "tier": 2,
+      "region": "global",
+      "paywall": "metered"
+    },
+    {
+      "id": "aljazeera",
+      "name": "Al Jazeera",
+      "url": "https://www.aljazeera.com/xml/rss/all.xml",
+      "tier": 2,
+      "region": "global",
+      "paywall": false
+    },
+    {
+      "id": "npr-world",
+      "name": "NPR World",
+      "url": "https://feeds.npr.org/1004/rss.xml",
+      "tier": 2,
+      "region": "usa",
+      "paywall": false
+    },
+    {
+      "id": "indian-express-world",
+      "name": "Indian Express World",
+      "url": "https://indianexpress.com/section/world/feed/",
+      "tier": 2,
+      "region": "india",
+      "paywall": false
+    },
+    {
+      "id": "abc-news",
+      "name": "ABC News",
+      "url": "https://www.abc.net.au/news/feed/51120/rss.xml",
+      "tier": 2,
+      "region": "global",
+      "paywall": false
+    },
+    {
+      "id": "atlantic",
+      "name": "The Atlantic",
+      "url": "https://www.theatlantic.com/feed/all/",
+      "tier": 3,
+      "region": "usa",
+      "paywall": "metered"
+    }
+  ]
+}
