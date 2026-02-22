@@ -4,13 +4,74 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RSS News Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-sA+4ps4UInM3Q0lYbtVJr4m6aAnuM7n8f8f9v+3M2nA="
+      crossorigin=""
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+    />
     <link rel="stylesheet" href="assets/styles.css" />
   </head>
   <body>
-    <main>
-      <h1>RSS News Hub</h1>
-      <p>Frontend implementation starts in Phase 6.</p>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">GitHub Pages Dashboard</p>
+        <h1>RSS News Hub</h1>
+      </div>
+      <div class="header-meta">
+        <p>Last Updated</p>
+        <strong id="last-updated">Loading...</strong>
+      </div>
+      <button id="map-toggle" class="map-toggle">Hide Map</button>
+    </header>
+
+    <main class="layout">
+      <section id="map-panel" class="panel map-panel">
+        <div class="panel-header">
+          <h2>World Map</h2>
+          <button id="clear-country-filter" class="ghost-btn">Clear Country</button>
+        </div>
+        <p id="selected-country-label" class="subtle">Country filter: All countries</p>
+        <div id="world-map" class="world-map"></div>
+      </section>
+
+      <section class="panel feed-panel">
+        <div class="controls">
+          <input id="search-input" type="search" placeholder="Search headline, excerpt, source..." />
+          <div id="category-filters" class="chips"></div>
+          <label class="saved-only">
+            <input id="read-later-only" type="checkbox" />
+            Saved only
+          </label>
+        </div>
+        <div id="stats" class="stats"></div>
+        <section id="articles-grid" class="articles-grid"></section>
+      </section>
     </main>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    ></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
     <script type="module" src="assets/app.js"></script>
   </body>
 </html>

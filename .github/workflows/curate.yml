@@ -12,7 +12,8 @@ jobs:
     env:
       # Put GEMINI_API_KEY in GitHub repo secrets. Pipeline will auto-fallback to mock mode if empty.
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-      GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-2.0-flash' }}
+      GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-2.5-flash-lite' }}
+      GEMINI_FALLBACK_MODELS: ${{ vars.GEMINI_FALLBACK_MODELS || 'gemini-2.0-flash-lite,gemini-2.0-flash' }}
       GEOTAG_MODE: auto
     steps:
       - name: Checkout

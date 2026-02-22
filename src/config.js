@@ -17,14 +17,24 @@ const DEFAULTS = {
   extractionConcurrency: 3,
   curationMaxArticles: 40,
   curationMinWordCount: 200,
-  geminiModel: "gemini-2.0-flash",
+  geminiModel: "gemini-2.5-flash-lite",
+  geminiFallbackModels: ["gemini-2.0-flash-lite", "gemini-2.0-flash"],
   geotagMode: "auto",
   geotagBatchSize: 40,
   geotagTimeoutMs: 20_000,
-  geotagMaxRetries: 3,
+  geotagMaxRetries: 4,
+  geotagRetryBaseDelayMs: 2_000,
+  geotagRetryMaxDelayMs: 30_000,
   outputArticlesFile: "articles.json",
   outputLastUpdatedFile: "lastUpdated.txt"
 };
+
+function parseCsv(value) {
+  return String(value ?? "")
+    .split(",")
+    .map((part) => part.trim())
+    .filter(Boolean);
+}
 
 export function getRuntimeConfig(options = {}) {
   const requireGemini = options.requireGemini ?? false;
@@ -64,6 +74,10 @@ export function getRuntimeConfig(options = {}) {
       DEFAULTS.curationMinWordCount
     ),
     geotagMode: process.env.GEOTAG_MODE || DEFAULTS.geotagMode,
+    geminiFallbackModels:
+      parseCsv(process.env.GEMINI_FALLBACK_MODELS).length > 0
+        ? parseCsv(process.env.GEMINI_FALLBACK_MODELS)
+        : DEFAULTS.geminiFallbackModels,
     geotagBatchSize: parseInteger(
       process.env.GEOTAG_BATCH_SIZE,
       DEFAULTS.geotagBatchSize
@@ -75,6 +89,14 @@ export function getRuntimeConfig(options = {}) {
     geotagMaxRetries: parseInteger(
       process.env.GEOTAG_MAX_RETRIES,
       DEFAULTS.geotagMaxRetries
+    ),
+    geotagRetryBaseDelayMs: parseInteger(
+      process.env.GEOTAG_RETRY_BASE_DELAY_MS,
+      DEFAULTS.geotagRetryBaseDelayMs
+    ),
+    geotagRetryMaxDelayMs: parseInteger(
+      process.env.GEOTAG_RETRY_MAX_DELAY_MS,
+      DEFAULTS.geotagRetryMaxDelayMs
     ),
     outputArticlesFile: process.env.OUTPUT_ARTICLES_FILE || DEFAULTS.outputArticlesFile,
     outputLastUpdatedFile:

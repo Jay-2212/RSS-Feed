@@ -74,3 +74,74 @@ test("geotagArticles parses live-mode Gemini JSON response", async () => {
   assert.equal(result[0].category, "World");
   assert.equal(result[0].geotagConfidence, 0.88);
 });
+
+test("geotagArticles falls back to secondary model after 429", async () => {
+  const articles = [sampleArticle({ id: "a2", title: "Policy talks in Berlin" })];
+  const httpClient = {
+    async post(url) {
+      if (url.includes("gemini-primary")) {
+        const error = new Error("Rate limit");
+        error.response = {
+          status: 429,
+          data: {
+            error: {
+              code: 429,
+              status: "RESOURCE_EXHAUSTED",
+              message: "Quota exceeded",
+              details: [
+                {
+                  "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+                  violations: [{ quotaMetric: "RequestsPerMinute" }]
+                }
+              ]
+            }
+          },
+          headers: {
+            "retry-after": "0"
+          }
+        };
+        throw error;
+      }
+
+      return {
+        data: {
+          candidates: [
+            {
+              content: {
+                parts: [
+                  {
+                    text: JSON.stringify({
+                      results: [
+                        {
+                          id: "a2",
+                          country: "DEU",
+                          city: "Berlin",
+                          category: "World",
+                          confidence: 0.8,
+                          keywords: ["diplomacy"]
+                        }
+                      ]
+                    })
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      };
+    }
+  };
+
+  const result = await geotagArticles(articles, {
+    mode: "live",
+    model: "gemini-primary",
+    fallbackModels: ["gemini-secondary"],
+    geminiApiKey: "test-key",
+    httpClient,
+    maxRetries: 1
+  });
+
+  assert.equal(result.length, 1);
+  assert.equal(result[0].geotagStatus, "live");
+  assert.equal(result[0].geotag.country, "DEU");
+});

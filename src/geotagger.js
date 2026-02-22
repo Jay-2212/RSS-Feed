@@ -4,9 +4,12 @@ import { createLogger } from "./utils.js";
 
 const DEFAULTS = {
   mode: "auto",
-  model: "gemini-2.0-flash",
+  model: "gemini-2.5-flash-lite",
+  fallbackModels: ["gemini-2.0-flash-lite", "gemini-2.0-flash"],
   timeoutMs: 20_000,
-  maxRetries: 3,
+  maxRetries: 4,
+  retryBaseDelayMs: 2_000,
+  retryMaxDelayMs: 30_000,
   batchSize: 40
 };
 
@@ -322,6 +325,35 @@ async function sleep(ms) {
   });
 }
 
+function extractApiErrorDetails(error) {
+  const status = error?.response?.status ?? null;
+  const headers = error?.response?.headers ?? {};
+  const retryAfterRaw = headers["retry-after"] ?? headers["Retry-After"] ?? null;
+  const retryAfterSeconds = Number.parseInt(retryAfterRaw, 10);
+  const apiError = error?.response?.data?.error ?? {};
+  const quotaFailure = Array.isArray(apiError?.details)
+    ? apiError.details.find((detail) => String(detail?.["@type"] ?? "").includes("QuotaFailure"))
+    : null;
+
+  return {
+    status,
+    code: apiError.code ?? null,
+    apiStatus: apiError.status ?? null,
+    message: apiError.message || error.message,
+    retryAfterSeconds: Number.isFinite(retryAfterSeconds) ? retryAfterSeconds : null,
+    quotaViolations: Array.isArray(quotaFailure?.violations) ? quotaFailure.violations : []
+  };
+}
+
+function computeBackoffMs(details, attempt, options) {
+  if (Number.isFinite(details.retryAfterSeconds) && details.retryAfterSeconds > 0) {
+    return Math.min(details.retryAfterSeconds * 1000, options.retryMaxDelayMs);
+  }
+
+  const exponential = options.retryBaseDelayMs * Math.pow(2, Math.max(0, attempt - 1));
+  return Math.min(exponential, options.retryMaxDelayMs);
+}
+
 async function callGeminiGenerateContent(prompt, options) {
   const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(
     options.model
@@ -354,7 +386,8 @@ async function callGeminiGenerateContent(prompt, options) {
       });
       return response.data;
     } catch (error) {
-      const status = error?.response?.status;
+      const details = extractApiErrorDetails(error);
+      const status = details.status;
       const retryable = status === 429 || (status >= 500 && status <= 599);
       const exhausted = attempt === options.maxRetries;
 
@@ -362,12 +395,52 @@ async function callGeminiGenerateContent(prompt, options) {
         throw error;
       }
 
-      const backoffMs = 500 * Math.pow(2, attempt - 1);
+      const backoffMs = computeBackoffMs(details, attempt, options);
       await sleep(backoffMs);
     }
   }
 
   return {};
+}
+
+async function callGeminiWithModelFallback(prompt, options, logger) {
+  const models = [options.model, ...(options.fallbackModels ?? [])]
+    .map((model) => String(model || "").trim())
+    .filter(Boolean)
+    .filter((model, index, array) => array.indexOf(model) === index);
+
+  let lastError;
+
+  for (const model of models) {
+    try {
+      const data = await callGeminiGenerateContent(prompt, {
+        ...options,
+        model
+      });
+      return {
+        data,
+        modelUsed: model
+      };
+    } catch (error) {
+      const details = extractApiErrorDetails(error);
+      logger.warn("Gemini model request failed", {
+        model,
+        status: details.status,
+        apiStatus: details.apiStatus,
+        message: details.message,
+        quotaViolations: details.quotaViolations
+      });
+
+      lastError = error;
+      const retryableAcrossModels =
+        details.status === 429 || details.status === 503 || details.status === 500;
+      if (!retryableAcrossModels) {
+        break;
+      }
+    }
+  }
+
+  throw lastError;
 }
 
 function sanitizeSingleResult(result) {
@@ -462,18 +535,36 @@ export async function geotagArticles(articles, rawOptions = {}) {
 
   const chunks = chunkArticles(articles, Math.max(1, options.batchSize));
   const combined = [];
+  const modelUsageCounts = {};
 
   for (const batch of chunks) {
     const prompt = buildGeotagPrompt(batch);
     let parsedResults = [];
+    let modelUsedForBatch = null;
 
     try {
-      const response = await callGeminiGenerateContent(prompt, options);
-      parsedResults = parseGeminiResponsePayload(response);
+      const response = await callGeminiWithModelFallback(prompt, options, logger);
+      modelUsedForBatch = response.modelUsed;
+      parsedResults = parseGeminiResponsePayload(response.data);
+      if (modelUsedForBatch) {
+        modelUsageCounts[modelUsedForBatch] = (modelUsageCounts[modelUsedForBatch] ?? 0) + 1;
+      }
+      if (parsedResults.length === 0) {
+        logger.warn("Gemini response parsed but returned no usable geotag rows", {
+          modelUsed: modelUsedForBatch,
+          batchSize: batch.length
+        });
+      }
     } catch (error) {
+      const details = extractApiErrorDetails(error);
       logger.warn("Gemini geotag batch failed; using fallback for batch", {
-        message: error.message,
-        batchSize: batch.length
+        status: details.status,
+        apiStatus: details.apiStatus,
+        message: details.message,
+        quotaViolations: details.quotaViolations,
+        batchSize: batch.length,
+        configuredModel: options.model,
+        fallbackModels: options.fallbackModels
       });
     }
 
@@ -487,7 +578,8 @@ export async function geotagArticles(articles, rawOptions = {}) {
   logger.info("Geotagging completed", {
     mode: "live",
     count: combined.length,
-    fallbackCount: combined.filter((article) => article.geotagStatus !== "live").length
+    fallbackCount: combined.filter((article) => article.geotagStatus !== "live").length,
+    modelUsageCounts
   });
 
   return combined;

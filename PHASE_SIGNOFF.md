@@ -1,9 +1,9 @@
 # Phase Sign-Off Record
 
-## Snapshot (UTC 2026-02-22T16:21:26Z)
-- Signed off phases: 0, 1, 2, 3, 4, 5
+## Snapshot (UTC 2026-02-22T16:34:15Z)
+- Signed off phases: 0, 1, 2, 3, 4, 5, 6
 - Active phase: none
-- Next phase: 6
+- Next phase: 7
 
 ## Phase 0 - Foundation and Guardrails
 Status: `SIGNED OFF`
@@ -95,12 +95,33 @@ Validation:
 2. Live pipeline completed through Phase 5 and wrote both output files.
 3. `articles.json` metadata includes `phase_5_complete`.
 
+## Phase 6 - Frontend Dashboard
+Status: `SIGNED OFF`
+
+Implemented:
+1. Replaced placeholder UI with real dashboard shell in `/Users/jaybharti/Documents/RSS Feed/index.html`.
+2. Implemented AMOLED responsive UI in `/Users/jaybharti/Documents/RSS Feed/assets/styles.css`.
+3. Implemented dashboard logic in `/Users/jaybharti/Documents/RSS Feed/assets/app.js`:
+   1. Fetch and render `articles.json`
+   2. Search + category + country filters
+   3. LocalStorage-based Read Later support
+4. Implemented map layer in `/Users/jaybharti/Documents/RSS Feed/assets/map.js`:
+   1. Leaflet dark tiles
+   2. Marker clustering
+   3. Country click filtering integration
+5. Added world boundary dataset to `/Users/jaybharti/Documents/RSS Feed/assets/world.geo.json`.
+
+Validation:
+1. Frontend modules syntax checked (`node --check assets/app.js`, `node --check assets/map.js`).
+2. Backend regression checks passed (`npm test` => 11/11, `npm run run:pipeline`).
+3. Map data dependency exists and loads from local asset path.
+
 ## Known Non-Blocking Gaps
 1. Some metered sources (for example NYT) return extraction fallback entries due `403`.
 2. Gemini API may rate-limit (`429`) in live mode; batch fallback logic already handles this.
-3. Frontend map/dashboard (Phase 6) and final hardening (Phase 7) pending.
+3. Final hardening and QA closure (Phase 7) pending.
 
 ## Exact Next Start Point
-1. Implement Phase 6 frontend in `/Users/jaybharti/Documents/RSS Feed/index.html` and `/Users/jaybharti/Documents/RSS Feed/assets/*`.
-2. Add Leaflet map + marker clustering + country filter binding to `articles.json`.
-3. Add Read Later persistence and responsive layout polish.
+1. Execute Phase 7 QA checklist and performance checks.
+2. Tune extraction/geotagging reliability and optionally reduce 429 incidence further.
+3. Produce final runbook and release-readiness summary.

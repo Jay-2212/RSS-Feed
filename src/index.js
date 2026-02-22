@@ -65,10 +65,13 @@ export async function runPhaseOneToFour() {
   const geotaggedArticles = await geotagArticles(phaseThreeOutput.articles, {
     mode: config.geotagMode,
     model: config.geminiModel,
+    fallbackModels: config.geminiFallbackModels,
     geminiApiKey: config.geminiApiKey,
     batchSize: config.geotagBatchSize,
     timeoutMs: config.geotagTimeoutMs,
     maxRetries: config.geotagMaxRetries,
+    retryBaseDelayMs: config.geotagRetryBaseDelayMs,
+    retryMaxDelayMs: config.geotagRetryMaxDelayMs,
     logger
   });
 

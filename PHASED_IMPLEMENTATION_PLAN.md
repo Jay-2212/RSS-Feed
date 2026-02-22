@@ -177,5 +177,5 @@ Each phase sign-off entry must include:
 
 ## Current Status
 1. Planning complete (this document).
-2. Phases 0-5 implemented.
-3. Next actionable phase: Phase 6.
+2. Phases 0-6 implemented.
+3. Next actionable phase: Phase 7.

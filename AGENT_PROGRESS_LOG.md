@@ -9,9 +9,9 @@ RSS News Hub (GitHub Actions + Gemini + GitHub Pages)
 3. Keep entries short and operational.
 
 ## Status Snapshot
-Current Phase: `Phase 5 complete`
-Last Completed Phase: `Phase 5 - Persistence + Orchestration`
-Next Phase: `Phase 6 - Frontend Dashboard`
+Current Phase: `Phase 6 complete`
+Last Completed Phase: `Phase 6 - Frontend Dashboard`
+Next Phase: `Phase 7 - Hardening, QA, and Handoff`
 Blockers: `None`
 
 ## Session Entries
@@ -206,6 +206,41 @@ Deferred:
 Exact Next Start Point:
 1. Start Phase 6 UI/map in `/Users/jaybharti/Documents/RSS Feed/index.html`.
 2. Implement Leaflet + marker cluster + country-based filtering in `/Users/jaybharti/Documents/RSS Feed/assets/map.js` and `/Users/jaybharti/Documents/RSS Feed/assets/app.js`.
+
+### 2026-02-22T16:34:15Z - Phase 6 + Gemini Diagnostics Session
+Owner: Codex agent
+
+Completed:
+1. Improved Gemini API diagnostics in `/Users/jaybharti/Documents/RSS Feed/src/geotagger.js`:
+   1. Structured API error extraction (status, apiStatus, message, quota details)
+   2. Respect `Retry-After` and tunable backoff settings
+   3. Model fallback chain support (`GEMINI_FALLBACK_MODELS`)
+2. Updated geotag defaults and config to prefer `gemini-2.5-flash-lite` with fallback models.
+3. Added geotagger test for model fallback after 429 (`/Users/jaybharti/Documents/RSS Feed/tests/geotagger.test.js`).
+4. Implemented Phase 6 frontend:
+   1. `/Users/jaybharti/Documents/RSS Feed/index.html`
+   2. `/Users/jaybharti/Documents/RSS Feed/assets/styles.css`
+   3. `/Users/jaybharti/Documents/RSS Feed/assets/app.js`
+   4. `/Users/jaybharti/Documents/RSS Feed/assets/map.js`
+   5. `/Users/jaybharti/Documents/RSS Feed/assets/world.geo.json`
+
+Validation:
+1. `npm test` passed (11/11).
+2. Frontend syntax checks passed (`node --check assets/app.js`, `node --check assets/map.js`).
+3. `npm run run:pipeline` passed through Phase 5.
+4. New error diagnostics are visible in logs (example captured locally: `API key expired` 400, showing root cause clarity).
+
+Runtime Notes:
+1. Prior `429` behavior was not due to hardcoding; request path is correct and key wiring is correct.
+2. New diagnostics now distinguish quota/rate-limit issues from key/config issues.
+
+Deferred:
+1. Phase 7 checklist (performance/quality hardening, final runbook).
+
+Exact Next Start Point:
+1. Run final QA checklist from TSD Section 6.
+2. Tune performance and data quality edges where needed.
+3. Prepare final release summary.
 
 ## Handoff Checklist (Must Be Updated Per Session)
 1. `Current Phase` updated.
