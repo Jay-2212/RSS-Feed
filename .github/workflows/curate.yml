@@ -24,5 +24,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Validate secret wiring
+        run: |
+          if [ -n "${GEMINI_API_KEY}" ]; then
+            echo "GEMINI_API_KEY detected in environment."
+          else
+            echo "GEMINI_API_KEY is not set. Geotagger will use mock mode."
+          fi
+
       - name: Run pipeline (Phase 1-4)
         run: npm run run:pipeline

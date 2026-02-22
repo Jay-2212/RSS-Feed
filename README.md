@@ -51,6 +51,11 @@ The workflow already maps the secret into runtime env:
 2. `/Users/jaybharti/Documents/RSS Feed/src/config.js` reads `process.env.GEMINI_API_KEY`.
 3. `/Users/jaybharti/Documents/RSS Feed/src/geotagger.js` switches to live Gemini when key exists; otherwise it uses mock geotagging.
 
+Verification in Actions logs:
+1. Step `Validate secret wiring` should print `GEMINI_API_KEY detected in environment.` once you add the secret.
+2. Pipeline log line should include `hasGeminiKey:true`.
+3. If Gemini is not rate-limited, `geotagModeResolved` should be `live`; otherwise fallback may show `mock` with a `429` warning (still confirms secret wiring).
+
 ## Implemented Modules (Phases 0-3)
 
 - `src/config.js`: environment and runtime configuration.
