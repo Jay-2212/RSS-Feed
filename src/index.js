@@ -64,9 +64,10 @@ export async function runPhaseOneToFour() {
 
   const geotaggedArticles = await geotagArticles(phaseThreeOutput.articles, {
     mode: config.geotagMode,
-    model: config.geminiModel,
-    fallbackModels: config.geminiFallbackModels,
-    geminiApiKey: config.geminiApiKey,
+    model: config.kimiModel,
+    fallbackModels: config.kimiFallbackModels,
+    kimiBaseUrl: config.kimiBaseUrl,
+    kimiApiKey: config.kimiApiKey,
     batchSize: config.geotagBatchSize,
     maxApiBatches: config.geotagMaxApiBatches,
     timeoutMs: config.geotagTimeoutMs,
@@ -84,7 +85,7 @@ export async function runPhaseOneToFour() {
     geotagged: geotaggedArticles.length,
     geotagModeConfigured: config.geotagMode,
     geotagModeResolved: resolvedGeotagMode,
-    hasGeminiKey: Boolean(config.geminiApiKey)
+    hasKimiKey: Boolean(config.kimiApiKey)
   });
 
   return {
@@ -93,7 +94,7 @@ export async function runPhaseOneToFour() {
       phase: "phase_4_complete",
       geotagModeConfigured: config.geotagMode,
       geotagModeResolved: resolvedGeotagMode,
-      geotagModel: config.geminiModel
+      geotagModel: config.kimiModel
     },
     articles: geotaggedArticles
   };

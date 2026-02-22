@@ -5,6 +5,15 @@ import { calculateWordCount, clampText, estimateReadTime } from "./utils.js";
 
 const CATEGORY_FALLBACK = "WorthReading";
 const VALID_CATEGORIES = new Set(["World", "National", "Trending", "WorthReading"]);
+const TAG_BLACKLIST = new Set([
+  "world",
+  "national",
+  "trending",
+  "worthreading",
+  "news",
+  "latest",
+  "update"
+]);
 
 function toIsoTimestamp(value, fallback) {
   const parsed = new Date(value ?? "");
@@ -27,6 +36,41 @@ function toNumber(value, fallback = 0) {
 function sanitizeCategory(value) {
   const category = String(value ?? "").trim();
   return VALID_CATEGORIES.has(category) ? category : CATEGORY_FALLBACK;
+}
+
+function normalizeTag(value) {
+  const normalized = String(value ?? "")
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (!normalized || normalized.length < 3 || normalized.length > 40) {
+    return null;
+  }
+  if (TAG_BLACKLIST.has(normalized)) {
+    return null;
+  }
+  return normalized;
+}
+
+function sanitizeTags(tags) {
+  const safe = [];
+  const seen = new Set();
+  const list = Array.isArray(tags) ? tags : [];
+
+  for (const raw of list) {
+    const tag = normalizeTag(raw);
+    if (!tag || seen.has(tag)) {
+      continue;
+    }
+    seen.add(tag);
+    safe.push(tag);
+    if (safe.length >= 8) {
+      break;
+    }
+  }
+
+  return safe;
 }
 
 function sanitizeGeotag(geotag) {
@@ -59,6 +103,12 @@ function sanitizeMetrics(article) {
 }
 
 function sanitizeArticle(article, timestamp) {
+  const tagsFromSource = Array.isArray(article.tags)
+    ? article.tags
+    : Array.isArray(article.geotagKeywords)
+      ? article.geotagKeywords
+      : [];
+
   return {
     id: String(article.id ?? ""),
     sourceId: String(article.sourceId ?? ""),
@@ -71,6 +121,7 @@ function sanitizeArticle(article, timestamp) {
     publishedAt: toIsoTimestamp(article.publishedAt, timestamp),
     geotag: sanitizeGeotag(article.geotag),
     category: sanitizeCategory(article.category),
+    tags: sanitizeTags(tagsFromSource),
     metrics: sanitizeMetrics(article)
   };
 }

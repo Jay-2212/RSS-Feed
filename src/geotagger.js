@@ -4,8 +4,9 @@ import { createLogger } from "./utils.js";
 
 const DEFAULTS = {
   mode: "auto",
-  model: "gemini-2.5-flash-lite",
-  fallbackModels: ["gemini-2.0-flash-lite", "gemini-2.0-flash"],
+  model: "kimi-k2-0905-preview",
+  fallbackModels: ["kimi-k2-turbo-preview", "kimi-for-coding"],
+  kimiBaseUrl: "https://api.kimi.com/coding/v1",
   timeoutMs: 20_000,
   maxRetries: 4,
   retryBaseDelayMs: 2_000,
@@ -15,6 +16,44 @@ const DEFAULTS = {
 };
 
 const VALID_CATEGORIES = new Set(["World", "National", "Trending", "WorthReading"]);
+
+const TAG_BLACKLIST = new Set([
+  "world",
+  "national",
+  "trending",
+  "worthreading",
+  "news",
+  "latest",
+  "breaking",
+  "update",
+  "headline",
+  "story"
+]);
+
+const TOPIC_TAG_MATCHERS = [
+  { pattern: /\b(election|vote|ballot|poll)\b/i, tag: "elections" },
+  { pattern: /\b(parliament|congress|senate|assembly)\b/i, tag: "legislature" },
+  { pattern: /\b(court|judge|legal|lawsuit|supreme court)\b/i, tag: "law-and-justice" },
+  { pattern: /\b(trade|tariff|export|import|sanction)\b/i, tag: "trade" },
+  { pattern: /\b(inflation|gdp|economy|fiscal|budget|tax)\b/i, tag: "economy" },
+  { pattern: /\b(stock|market|shares|investor)\b/i, tag: "markets" },
+  { pattern: /\b(central bank|interest rate|federal reserve|rbi)\b/i, tag: "monetary-policy" },
+  { pattern: /\b(startup|funding|venture|ipo)\b/i, tag: "startups" },
+  { pattern: /\b(ai|artificial intelligence|machine learning|llm)\b/i, tag: "ai" },
+  { pattern: /\b(cyber|hacker|malware|ransomware)\b/i, tag: "cybersecurity" },
+  { pattern: /\b(climate|emission|carbon|heatwave|wildfire)\b/i, tag: "climate" },
+  { pattern: /\b(energy|oil|gas|renewable|solar|wind)\b/i, tag: "energy" },
+  { pattern: /\b(health|hospital|disease|virus|vaccine)\b/i, tag: "health" },
+  { pattern: /\b(education|school|university|student)\b/i, tag: "education" },
+  { pattern: /\b(immigration|migrant|refugee|asylum)\b/i, tag: "migration" },
+  { pattern: /\b(war|conflict|military|strike|drone|ceasefire)\b/i, tag: "conflict" },
+  { pattern: /\b(protest|demonstration|rally)\b/i, tag: "protests" },
+  { pattern: /\b(crime|police|arrest|investigation)\b/i, tag: "crime" },
+  { pattern: /\b(infrastructure|bridge|road|rail|metro|port)\b/i, tag: "infrastructure" },
+  { pattern: /\b(agriculture|farmer|crop|monsoon)\b/i, tag: "agriculture" },
+  { pattern: /\b(sports|cricket|football|olympic|tennis)\b/i, tag: "sports" },
+  { pattern: /\b(culture|film|movie|music|art)\b/i, tag: "culture" }
+];
 
 const COUNTRY_COORDINATES = {
   UNK: { lat: 0, lng: 0 },
@@ -53,10 +92,17 @@ const CITY_COORDINATES = {
   jerusalem: { lat: 31.7683, lng: 35.2137, country: "ISR" },
   gaza: { lat: 31.5018, lng: 34.4668, country: "PSE" },
   newdelhi: { lat: 28.6139, lng: 77.209, country: "IND" },
+  delhi: { lat: 28.7041, lng: 77.1025, country: "IND" },
   mumbai: { lat: 19.076, lng: 72.8777, country: "IND" },
   tokyo: { lat: 35.6762, lng: 139.6503, country: "JPN" },
   paris: { lat: 48.8566, lng: 2.3522, country: "FRA" },
-  berlin: { lat: 52.52, lng: 13.405, country: "DEU" }
+  berlin: { lat: 52.52, lng: 13.405, country: "DEU" },
+  lahore: { lat: 31.5497, lng: 74.3436, country: "PAK" },
+  kabul: { lat: 34.5553, lng: 69.2075, country: "AFG" },
+  damascus: { lat: 33.5138, lng: 36.2765, country: "SYR" },
+  khartoum: { lat: 15.5007, lng: 32.5599, country: "SDN" },
+  kampala: { lat: 0.3476, lng: 32.5825, country: "UGA" },
+  caracas: { lat: 10.4806, lng: -66.9036, country: "VEN" }
 };
 
 const COUNTRY_ALIASES = {
@@ -89,7 +135,25 @@ const COUNTRY_ALIASES = {
   turkey: "TUR",
   saudiarabia: "SAU",
   uae: "ARE",
-  emirates: "ARE"
+  emirates: "ARE",
+  pakistan: "PAK",
+  pakistani: "PAK",
+  afghanistan: "AFG",
+  afghan: "AFG",
+  syria: "SYR",
+  syrian: "SYR",
+  sudan: "SDN",
+  sudanese: "SDN",
+  uganda: "UGA",
+  ugandan: "UGA",
+  venezuela: "VEN",
+  venezuelan: "VEN",
+  colombia: "COL",
+  colombian: "COL",
+  nigeria: "NGA",
+  nigerian: "NGA",
+  egypt: "EGY",
+  egyptian: "EGY"
 };
 
 const KEYWORD_COUNTRY_MATCHERS = [
@@ -104,7 +168,13 @@ const KEYWORD_COUNTRY_MATCHERS = [
   { pattern: /\b(japan|tokyo)\b/i, country: "JPN" },
   { pattern: /\b(germany|berlin)\b/i, country: "DEU" },
   { pattern: /\b(france|paris)\b/i, country: "FRA" },
-  { pattern: /\b(australia)\b/i, country: "AUS" }
+  { pattern: /\b(australia)\b/i, country: "AUS" },
+  { pattern: /\b(pakistan|lahore)\b/i, country: "PAK" },
+  { pattern: /\b(afghanistan|kabul)\b/i, country: "AFG" },
+  { pattern: /\b(syria|damascus)\b/i, country: "SYR" },
+  { pattern: /\b(sudan|khartoum)\b/i, country: "SDN" },
+  { pattern: /\b(uganda|kampala)\b/i, country: "UGA" },
+  { pattern: /\b(venezuela|caracas)\b/i, country: "VEN" }
 ];
 
 function normalizeToken(value) {
@@ -169,6 +239,58 @@ function clampConfidence(value, fallback = 0.55) {
   return Math.min(1, Math.max(0, parsed));
 }
 
+function normalizeTag(value) {
+  const cleaned = String(value ?? "")
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (!cleaned || cleaned.length < 3 || cleaned.length > 40) {
+    return null;
+  }
+  if (TAG_BLACKLIST.has(cleaned)) {
+    return null;
+  }
+  return cleaned;
+}
+
+function sanitizeTagList(tags, maxItems = 8) {
+  const normalized = [];
+  const seen = new Set();
+  for (const tagRaw of tags ?? []) {
+    const tag = normalizeTag(tagRaw);
+    if (!tag || seen.has(tag)) {
+      continue;
+    }
+    seen.add(tag);
+    normalized.push(tag);
+    if (normalized.length >= maxItems) {
+      break;
+    }
+  }
+  return normalized;
+}
+
+function extractFallbackTags(article, country, city) {
+  const text = `${article.title || ""} ${article.excerpt || ""}`;
+  const inferred = [];
+
+  for (const matcher of TOPIC_TAG_MATCHERS) {
+    if (matcher.pattern.test(text)) {
+      inferred.push(matcher.tag);
+    }
+  }
+
+  if (country && country !== "UNK") {
+    inferred.push(String(country).toLowerCase());
+  }
+  if (city) {
+    inferred.push(city);
+  }
+
+  return sanitizeTagList(inferred);
+}
+
 function hoursSince(publishedAt) {
   const parsed = new Date(publishedAt ?? "");
   if (Number.isNaN(parsed.getTime())) {
@@ -206,6 +328,29 @@ function inferCountryFromText(text) {
     }
   }
 
+  const words = String(text ?? "")
+    .toLowerCase()
+    .split(/[^a-z]+/)
+    .filter(Boolean);
+
+  const candidates = [];
+  for (let index = 0; index < words.length; index += 1) {
+    candidates.push(words[index]);
+    if (index + 1 < words.length) {
+      candidates.push(`${words[index]}${words[index + 1]}`);
+    }
+    if (index + 2 < words.length) {
+      candidates.push(`${words[index]}${words[index + 1]}${words[index + 2]}`);
+    }
+  }
+
+  for (const candidate of candidates) {
+    const alias = COUNTRY_ALIASES[candidate];
+    if (alias) {
+      return alias;
+    }
+  }
+
   return "UNK";
 }
 
@@ -221,10 +366,17 @@ function inferCityFromText(text) {
     { pattern: /\bjerusalem\b/i, token: "jerusalem" },
     { pattern: /\bgaza\b/i, token: "gaza" },
     { pattern: /\bnew delhi\b/i, token: "newdelhi" },
+    { pattern: /\bdelhi\b/i, token: "delhi" },
     { pattern: /\bmumbai\b/i, token: "mumbai" },
     { pattern: /\btokyo\b/i, token: "tokyo" },
     { pattern: /\bparis\b/i, token: "paris" },
-    { pattern: /\bberlin\b/i, token: "berlin" }
+    { pattern: /\bberlin\b/i, token: "berlin" },
+    { pattern: /\blahore\b/i, token: "lahore" },
+    { pattern: /\bkabul\b/i, token: "kabul" },
+    { pattern: /\bdamascus\b/i, token: "damascus" },
+    { pattern: /\bkhartoum\b/i, token: "khartoum" },
+    { pattern: /\bkampala\b/i, token: "kampala" },
+    { pattern: /\bcaracas\b/i, token: "caracas" }
   ];
 
   for (const matcher of cityMatchers) {
@@ -249,12 +401,15 @@ function mockGeotag(article) {
   const geotag = toCoordinate(inferredCountry, inferredCity);
   const confidence = geotag.country === "UNK" ? 0.45 : 0.62;
   const category = fallbackCategory(article, geotag.country, confidence);
+  const tags = extractFallbackTags(article, geotag.country, geotag.city);
 
   return {
     ...article,
     geotag: geotag,
     category,
     geotagConfidence: confidence,
+    geotagKeywords: tags,
+    tags,
     geotagStatus: "mock"
   };
 }
@@ -279,8 +434,25 @@ function extractJsonText(maybeText) {
   return null;
 }
 
-function parseGeminiResponsePayload(data) {
-  const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+function parseModelResponsePayload(data) {
+  const choiceContent = data?.choices?.[0]?.message?.content;
+  const choiceText = Array.isArray(choiceContent)
+    ? choiceContent
+        .map((part) => {
+          if (typeof part === "string") {
+            return part;
+          }
+          if (part && typeof part.text === "string") {
+            return part.text;
+          }
+          return "";
+        })
+        .join("\n")
+    : choiceContent;
+  const text =
+    choiceText ||
+    data?.choices?.[0]?.text ||
+    data?.candidates?.[0]?.content?.parts?.[0]?.text;
   const jsonCandidate = extractJsonText(text);
   if (!jsonCandidate) {
     return [];
@@ -304,16 +476,22 @@ function buildGeotagPrompt(batch) {
   }));
 
   return [
-    "You are a strict geotagging engine.",
-    "Return only JSON object with shape: {\"results\":[...]}",
-    "For each article, return:",
+    "You are a strict geotagging and topical-tagging engine for a news dashboard.",
+    "Return only one JSON object with shape: {\"results\":[...]} and no prose.",
+    "For each article return:",
     "- id (string)",
-    "- country (ISO 3166-1 alpha-3, e.g. USA, IND, GBR)",
-    "- city (string or null)",
+    "- country (ISO 3166-1 alpha-3, e.g. USA, IND, GBR; return UNK only if truly unclear)",
+    "- city (string or null, specific city when present in article)",
     "- category (World | National | Trending | WorthReading)",
     "- confidence (0.0 to 1.0)",
-    "- keywords (string array)",
-    "If uncertain, set country to UNK and confidence below 0.6.",
+    "- tags (array of 3-8 specific, lowercase tags; include topic + domain terms, no generic tags)",
+    "",
+    "Tagging rules:",
+    "- Prefer specific tags like 'trade', 'ceasefire', 'cybersecurity', 'elections', 'inflation'.",
+    "- Avoid generic tags like 'news', 'world', 'politics', 'headline', 'update'.",
+    "- Include one location tag when evident (city or country name in lowercase).",
+    "- Do not invent places; use UNK only when location cannot be inferred.",
+    "- confidence below 0.6 when location confidence is weak.",
     "",
     "ARTICLES:",
     JSON.stringify(articles, null, 2)
@@ -339,7 +517,7 @@ function extractApiErrorDetails(error) {
   return {
     status,
     code: apiError.code ?? null,
-    apiStatus: apiError.status ?? null,
+    apiStatus: apiError.status ?? apiError.type ?? null,
     message: apiError.message || error.message,
     retryAfterSeconds: Number.isFinite(retryAfterSeconds) ? retryAfterSeconds : null,
     quotaViolations: Array.isArray(quotaFailure?.violations) ? quotaFailure.violations : []
@@ -355,23 +533,23 @@ function computeBackoffMs(details, attempt, options) {
   return Math.min(exponential, options.retryMaxDelayMs);
 }
 
-async function callGeminiGenerateContent(prompt, options) {
-  const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(
-    options.model
-  )}:generateContent`;
-
+async function callKimiChatCompletions(prompt, options) {
+  const baseUrl = String(options.kimiBaseUrl || DEFAULTS.kimiBaseUrl).replace(/\/+$/, "");
+  const endpoint = `${baseUrl}/chat/completions`;
   const payload = {
-    contents: [
+    model: options.model,
+    messages: [
+      {
+        role: "system",
+        content: "You are a strict geotagging and topical tagging engine. Return JSON only."
+      },
       {
         role: "user",
-        parts: [{ text: prompt }]
+        content: prompt
       }
     ],
-    generationConfig: {
-      temperature: 0.1,
-      maxOutputTokens: 4096,
-      responseMimeType: "application/json"
-    }
+    temperature: 0.1,
+    max_tokens: 4096
   };
 
   const client = options.httpClient || axios;
@@ -382,7 +560,7 @@ async function callGeminiGenerateContent(prompt, options) {
         timeout: options.timeoutMs,
         headers: {
           "Content-Type": "application/json",
-          "x-goog-api-key": options.geminiApiKey
+          Authorization: `Bearer ${options.kimiApiKey}`
         }
       });
       return response.data;
@@ -404,7 +582,7 @@ async function callGeminiGenerateContent(prompt, options) {
   return {};
 }
 
-async function callGeminiWithModelFallback(prompt, options, logger) {
+async function callKimiWithModelFallback(prompt, options, logger) {
   const models = [options.model, ...(options.fallbackModels ?? [])]
     .map((model) => String(model || "").trim())
     .filter(Boolean)
@@ -414,7 +592,7 @@ async function callGeminiWithModelFallback(prompt, options, logger) {
 
   for (const model of models) {
     try {
-      const data = await callGeminiGenerateContent(prompt, {
+      const data = await callKimiChatCompletions(prompt, {
         ...options,
         model
       });
@@ -424,7 +602,7 @@ async function callGeminiWithModelFallback(prompt, options, logger) {
       };
     } catch (error) {
       const details = extractApiErrorDetails(error);
-      logger.warn("Gemini model request failed", {
+      logger.warn("Kimi model request failed", {
         model,
         status: details.status,
         apiStatus: details.apiStatus,
@@ -461,9 +639,13 @@ function sanitizeSingleResult(result) {
     city: cityValue,
     category: VALID_CATEGORIES.has(result.category) ? result.category : null,
     confidence: clampConfidence(result.confidence),
-    keywords: Array.isArray(result.keywords)
-      ? result.keywords.map((keyword) => String(keyword)).slice(0, 8)
-      : []
+    tags: sanitizeTagList(
+      Array.isArray(result.tags)
+        ? result.tags
+        : Array.isArray(result.keywords)
+          ? result.keywords
+          : []
+    )
   };
 }
 
@@ -485,13 +667,18 @@ function applyResultOrFallback(article, result, modeLabel) {
 
   const geotag = toCoordinate(result.country, result.city);
   const category = fallbackCategory(article, geotag.country, result.confidence, result.category);
+  const fallbackTags = extractFallbackTags(article, geotag.country, geotag.city);
+  const tags = sanitizeTagList(
+    result.tags && result.tags.length > 0 ? result.tags : fallbackTags
+  );
 
   return {
     ...article,
     geotag,
     category,
     geotagConfidence: result.confidence,
-    geotagKeywords: result.keywords,
+    geotagKeywords: tags,
+    tags,
     geotagStatus: modeLabel
   };
 }
@@ -503,7 +690,7 @@ function resolveMode(options) {
   if (options.mode === "live") {
     return "live";
   }
-  return options.geminiApiKey ? "live" : "mock";
+  return options.kimiApiKey ? "live" : "mock";
 }
 
 function chunkArticles(articles, size) {
@@ -545,21 +732,21 @@ export async function geotagArticles(articles, rawOptions = {}) {
 
     if (batchIndex < options.maxApiBatches) {
       try {
-        const response = await callGeminiWithModelFallback(prompt, options, logger);
+        const response = await callKimiWithModelFallback(prompt, options, logger);
         modelUsedForBatch = response.modelUsed;
-        parsedResults = parseGeminiResponsePayload(response.data);
+        parsedResults = parseModelResponsePayload(response.data);
         if (modelUsedForBatch) {
           modelUsageCounts[modelUsedForBatch] = (modelUsageCounts[modelUsedForBatch] ?? 0) + 1;
         }
         if (parsedResults.length === 0) {
-          logger.warn("Gemini response parsed but returned no usable geotag rows", {
+          logger.warn("Kimi response parsed but returned no usable geotag rows", {
             modelUsed: modelUsedForBatch,
             batchSize: batch.length
           });
         }
       } catch (error) {
         const details = extractApiErrorDetails(error);
-        logger.warn("Gemini geotag batch failed; using fallback for batch", {
+        logger.warn("Kimi geotag batch failed; using fallback for batch", {
           status: details.status,
           apiStatus: details.apiStatus,
           message: details.message,
@@ -570,7 +757,7 @@ export async function geotagArticles(articles, rawOptions = {}) {
         });
       }
     } else {
-      logger.warn("Skipping Gemini batch due API cost guard", {
+      logger.warn("Skipping Kimi batch due API cost guard", {
         batchIndex,
         batchSize: batch.length,
         maxApiBatches: options.maxApiBatches

@@ -9,8 +9,8 @@ RSS News Hub (GitHub Actions + Gemini + GitHub Pages)
 3. Keep entries short and operational.
 
 ## Status Snapshot
-Current Phase: `Phase 7 complete`
-Last Completed Phase: `Phase 7 - Hardening, QA, and Handoff`
+Current Phase: `Maintenance`
+Last Completed Phase: `Maintenance - Kimi API Migration`
 Next Phase: `Maintenance`
 Blockers: `None`
 
@@ -329,6 +329,80 @@ Deferred:
 
 Exact Next Start Point:
 1. Maintenance mode only: tune source/model settings as needed.
+
+### 2026-02-22T17:14:30Z - Maintenance UX + Tagging Improvements
+Owner: Codex agent
+
+Completed:
+1. Fixed dashboard reading flow to stay native in-app:
+   1. Replaced external article anchors with an internal reader overlay in `/Users/jaybharti/Documents/RSS Feed/assets/app.js`.
+   2. Added markdown rendering helper `/Users/jaybharti/Documents/RSS Feed/assets/markdown.js`.
+2. Added clean static logbook reading experience:
+   1. New `/Users/jaybharti/Documents/RSS Feed/logbook.html`.
+   2. New `/Users/jaybharti/Documents/RSS Feed/assets/logbook.js` and `/Users/jaybharti/Documents/RSS Feed/assets/logbook.css`.
+   3. Added dashboard header entry point to open logbook.
+3. Improved map reliability and visibility:
+   1. Removed brittle Leaflet SRI attributes in `/Users/jaybharti/Documents/RSS Feed/index.html`.
+   2. Reworked `/Users/jaybharti/Documents/RSS Feed/assets/map.js` to support country-centroid fallback coordinates from world GeoJSON.
+   3. Added map resize hook + improved style handling in `/Users/jaybharti/Documents/RSS Feed/assets/styles.css`.
+4. Improved geotag/tagging quality:
+   1. Strengthened Gemini prompt in `/Users/jaybharti/Documents/RSS Feed/src/geotagger.js` for granular topic tags.
+   2. Added normalized `tags` output in geotagger + persistence (`/Users/jaybharti/Documents/RSS Feed/src/persistence.js`).
+   3. Expanded fallback country/city heuristics for degraded Gemini conditions.
+5. Updated and expanded tests:
+   1. `/Users/jaybharti/Documents/RSS Feed/tests/geotagger.test.js`
+   2. `/Users/jaybharti/Documents/RSS Feed/tests/persistence.test.js`
+
+Validation:
+1. `npm test` passed (13/13).
+2. `npm run run:pipeline` passed through Phase 5.
+3. `npm run qa` passed with no warnings.
+4. Post-change fallback geotag unknown ratio improved from 80% to 40% in local run.
+
+Runtime Notes:
+1. Gemini API currently failed in local run with `400 INVALID_ARGUMENT` (`API key expired`), so fallback geotagging was used.
+2. Despite API fallback, tags and map markers now remain materially usable.
+
+Deferred:
+1. Refresh `GEMINI_API_KEY` for live tag quality validation in production environment.
+
+Exact Next Start Point:
+1. Re-run workflow with renewed `GEMINI_API_KEY`.
+2. Validate live geotag/tag distribution in generated `/Users/jaybharti/Documents/RSS Feed/articles.json`.
+3. Review UI map + reader behavior on GitHub Pages deployment.
+
+### 2026-02-22T23:53:54Z - Kimi Code API Migration
+Owner: Codex agent
+
+Completed:
+1. Replaced geotag live provider from Gemini to Kimi Code API in `/Users/jaybharti/Documents/RSS Feed/src/geotagger.js`.
+2. Switched runtime config/env parsing to Kimi:
+   1. `/Users/jaybharti/Documents/RSS Feed/src/config.js`
+   2. `/Users/jaybharti/Documents/RSS Feed/.env.example`
+3. Updated pipeline wiring to pass Kimi options in `/Users/jaybharti/Documents/RSS Feed/src/index.js`.
+4. Updated GitHub Actions secret wiring to `KIMI_CODE_API` in `/Users/jaybharti/Documents/RSS Feed/.github/workflows/curate.yml`.
+5. Updated documentation for Kimi secret/model usage in `/Users/jaybharti/Documents/RSS Feed/README.md`.
+6. Updated tests for OpenAI-compatible Kimi response format:
+   1. `/Users/jaybharti/Documents/RSS Feed/tests/geotagger.test.js`
+   2. `/Users/jaybharti/Documents/RSS Feed/tests/persistence.test.js`
+
+Validation:
+1. `npm test` passed (13/13).
+2. `npm run run:pipeline` passed through Phase 5.
+3. `npm run qa` passed (`QA_CHECK: PASS`).
+4. Pipeline log now reports `hasKimiKey` state instead of `hasGeminiKey`.
+
+Runtime Notes:
+1. With no `KIMI_CODE_API` set, `GEOTAG_MODE=auto` cleanly resolves to mock mode.
+2. Kimi live endpoint configured as `https://api.kimi.com/coding/v1/chat/completions` with model fallback support.
+
+Deferred:
+1. Add `KIMI_CODE_API` in GitHub Secrets and run workflow for live-tag verification.
+
+Exact Next Start Point:
+1. Add repository secret `KIMI_CODE_API`.
+2. Trigger `Curate News` workflow manually.
+3. Confirm logs show `KIMI_CODE_API detected in environment` and `geotagModeResolved":"live"` when key is valid.
 
 ## Handoff Checklist (Must Be Updated Per Session)
 1. `Current Phase` updated.

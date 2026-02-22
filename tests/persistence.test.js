@@ -12,7 +12,7 @@ test("buildPersistedOutput normalizes schema and metadata", () => {
       metadata: {
         geotagModeConfigured: "auto",
         geotagModeResolved: "mock",
-        geotagModel: "gemini-2.0-flash"
+        geotagModel: "kimi-k2-0905-preview"
       },
       articles: [
         {
@@ -27,6 +27,7 @@ test("buildPersistedOutput normalizes schema and metadata", () => {
           publishedAt: "2026-02-22T16:00:00.000Z",
           geotag: { country: "usa", city: "Washington", lat: 38.9, lng: -77.03 },
           category: "World",
+          tags: ["trade", "inflation", "world", "trade"],
           wordCount: 450,
           readTime: 2
         }
@@ -39,6 +40,7 @@ test("buildPersistedOutput normalizes schema and metadata", () => {
   assert.equal(output.metadata.phase, "phase_5_complete");
   assert.deepEqual(output.metadata.sources, ["nyt-world"]);
   assert.equal(output.articles[0].geotag.country, "USA");
+  assert.deepEqual(output.articles[0].tags, ["trade", "inflation"]);
   assert.equal(output.articles[0].metrics.wordCount, 450);
   assert.equal(output.articles[0].metrics.readTime, 2);
 });

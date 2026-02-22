@@ -1,8 +1,8 @@
 const CATEGORY_COLORS = {
   World: "#7c3aed",
   National: "#10b981",
-  Trending: "#00d4ff",
-  WorthReading: "#ff6b35"
+  Trending: "#0891b2",
+  WorthReading: "#f97316"
 };
 
 function escapeHtml(value) {
@@ -12,6 +12,20 @@ function escapeHtml(value) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
+}
+
+function setMapPlaceholder(elementId, message) {
+  const element = document.getElementById(elementId);
+  if (!element) {
+    return;
+  }
+
+  element.innerHTML = `
+    <div class="map-empty-state">
+      <strong>Map unavailable</strong>
+      <p>${escapeHtml(message)}</p>
+    </div>
+  `;
 }
 
 function countryCodeFromFeature(feature) {
@@ -34,10 +48,76 @@ function isValidPoint(lat, lng) {
   );
 }
 
+function appendCoordinatePairs(container, coordinates) {
+  for (const point of coordinates) {
+    if (!Array.isArray(point)) {
+      continue;
+    }
+
+    if (typeof point[0] === "number" && typeof point[1] === "number") {
+      container.push(point);
+    } else {
+      appendCoordinatePairs(container, point);
+    }
+  }
+}
+
+function centroidFromGeometry(geometry) {
+  if (!geometry || !Array.isArray(geometry.coordinates)) {
+    return null;
+  }
+
+  const pairs = [];
+  appendCoordinatePairs(pairs, geometry.coordinates);
+  if (pairs.length === 0) {
+    return null;
+  }
+
+  let sumLng = 0;
+  let sumLat = 0;
+  for (const [lng, lat] of pairs) {
+    sumLng += lng;
+    sumLat += lat;
+  }
+
+  return [sumLat / pairs.length, sumLng / pairs.length];
+}
+
+function buildCountryCentroids(geoJson) {
+  const lookup = new Map();
+  const features = Array.isArray(geoJson?.features) ? geoJson.features : [];
+
+  for (const feature of features) {
+    const code = String(countryCodeFromFeature(feature) ?? "")
+      .trim()
+      .toUpperCase();
+    if (!code) {
+      continue;
+    }
+
+    const centroid = centroidFromGeometry(feature.geometry);
+    if (!centroid) {
+      continue;
+    }
+
+    lookup.set(code, centroid);
+  }
+
+  return lookup;
+}
+
 export function initializeMap(options = {}) {
-  if (!window.L) {
+  const {
+    elementId = "world-map",
+    onCountrySelect = () => {},
+    onCountryClear = () => {}
+  } = options;
+
+  const mapElement = document.getElementById(elementId);
+  if (!mapElement) {
     return {
       update() {},
+      resize() {},
       setSelectedCountry() {},
       clearSelection() {},
       getSelectedCountry() {
@@ -46,11 +126,18 @@ export function initializeMap(options = {}) {
     };
   }
 
-  const {
-    elementId = "world-map",
-    onCountrySelect = () => {},
-    onCountryClear = () => {}
-  } = options;
+  if (!window.L) {
+    setMapPlaceholder(elementId, "Leaflet failed to load.");
+    return {
+      update() {},
+      resize() {},
+      setSelectedCountry() {},
+      clearSelection() {},
+      getSelectedCountry() {
+        return null;
+      }
+    };
+  }
 
   const map = L.map(elementId, {
     minZoom: 2,
@@ -59,7 +146,7 @@ export function initializeMap(options = {}) {
     zoomControl: true
   }).setView([20, 0], 2);
 
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
     attribution: "&copy; OpenStreetMap contributors &copy; CARTO"
   }).addTo(map);
 
@@ -72,15 +159,17 @@ export function initializeMap(options = {}) {
 
   let selectedCountry = null;
   let worldLayer = null;
+  let lastArticles = [];
+  let countryCentroids = new Map();
 
   function countryStyle(feature) {
     const code = countryCodeFromFeature(feature);
     const isSelected = selectedCountry && code === selectedCountry;
     return {
-      color: isSelected ? "#00d4ff" : "#27272a",
+      color: isSelected ? "#0284c7" : "#64748b",
       weight: isSelected ? 1.5 : 0.8,
-      fillColor: isSelected ? "#0ea5e9" : "#111111",
-      fillOpacity: isSelected ? 0.45 : 0.22
+      fillColor: isSelected ? "#0ea5e9" : "#e2e8f0",
+      fillOpacity: isSelected ? 0.45 : 0.2
     };
   }
 
@@ -107,7 +196,7 @@ export function initializeMap(options = {}) {
     layer.on("mouseover", () => {
       layer.setStyle({
         weight: 1.4,
-        color: "#3f3f46"
+        color: "#0f172a"
       });
     });
 
@@ -129,6 +218,23 @@ export function initializeMap(options = {}) {
     });
   }
 
+  function resolveMarkerPoint(geotag = {}) {
+    const lat = Number.parseFloat(geotag.lat);
+    const lng = Number.parseFloat(geotag.lng);
+    if (isValidPoint(lat, lng)) {
+      return [lat, lng];
+    }
+
+    const countryCode = String(geotag.country || "")
+      .trim()
+      .toUpperCase();
+    if (!countryCode || countryCode === "UNK") {
+      return null;
+    }
+
+    return countryCentroids.get(countryCode) ?? null;
+  }
+
   async function loadWorldLayer() {
     try {
       const response = await fetch("assets/world.geo.json");
@@ -137,37 +243,40 @@ export function initializeMap(options = {}) {
       }
 
       const geoJson = await response.json();
+      countryCentroids = buildCountryCentroids(geoJson);
       worldLayer = L.geoJSON(geoJson, {
         style: countryStyle,
         onEachFeature: bindCountryFeature
       });
       worldLayer.addTo(map);
+      update(lastArticles);
     } catch (error) {
       console.warn("Failed to load world geojson", error);
     }
   }
 
   function update(articles) {
+    lastArticles = Array.isArray(articles) ? articles : [];
     markers.clearLayers();
 
     const bounds = [];
-    for (const article of articles) {
+    for (const article of lastArticles) {
       const geotag = article?.geotag || {};
-      const lat = Number.parseFloat(geotag.lat);
-      const lng = Number.parseFloat(geotag.lng);
       const country = String(geotag.country || "UNK").toUpperCase();
+      const point = resolveMarkerPoint(geotag);
 
-      if (!isValidPoint(lat, lng) || country === "UNK") {
+      if (!point || country === "UNK") {
         continue;
       }
 
-      const color = CATEGORY_COLORS[article.category] || "#94a3b8";
+      const [lat, lng] = point;
+      const color = CATEGORY_COLORS[article.category] || "#64748b";
       const marker = L.circleMarker([lat, lng], {
         radius: 7,
         color,
         weight: 1.2,
         fillColor: color,
-        fillOpacity: 0.8
+        fillOpacity: 0.85
       });
 
       marker.bindPopup(
@@ -204,6 +313,9 @@ export function initializeMap(options = {}) {
 
   return {
     update,
+    resize() {
+      map.invalidateSize();
+    },
     setSelectedCountry(code) {
       setSelectedCountry(code, false);
     },

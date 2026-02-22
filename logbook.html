@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RSS News Hub Logbook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/logbook.css" />
+  </head>
+  <body>
+    <main class="logbook-shell">
+      <header class="logbook-header">
+        <div>
+          <p class="eyebrow">Project Journal</p>
+          <h1>Agent Progress Log</h1>
+          <p class="subtle">
+            Clean static reader for <code>AGENT_PROGRESS_LOG.md</code>
+          </p>
+        </div>
+        <div class="header-actions">
+          <a class="btn ghost" href="index.html">Back To Dashboard</a>
+          <span id="logbook-meta" class="meta">Loading...</span>
+        </div>
+      </header>
+      <article id="logbook-content" class="logbook-content">
+        <p>Loading logbook...</p>
+      </article>
+    </main>
+    <script type="module" src="assets/logbook.js"></script>
+  </body>
+</html>

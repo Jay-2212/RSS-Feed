@@ -17,8 +17,9 @@ const DEFAULTS = {
   extractionConcurrency: 3,
   curationMaxArticles: 40,
   curationMinWordCount: 200,
-  geminiModel: "gemini-2.5-flash-lite",
-  geminiFallbackModels: ["gemini-2.0-flash-lite", "gemini-2.0-flash"],
+  kimiModel: "kimi-k2-0905-preview",
+  kimiFallbackModels: ["kimi-k2-turbo-preview", "kimi-for-coding"],
+  kimiBaseUrl: "https://api.kimi.com/coding/v1",
   geotagMode: "auto",
   geotagBatchSize: 40,
   geotagMaxApiBatches: 1,
@@ -38,7 +39,7 @@ function parseCsv(value) {
 }
 
 export function getRuntimeConfig(options = {}) {
-  const requireGemini = options.requireGemini ?? false;
+  const requireKimi = options.requireKimi ?? options.requireGemini ?? false;
 
   const config = {
     maxSources: parseInteger(process.env.MAX_SOURCES, DEFAULTS.maxSources),
@@ -75,10 +76,10 @@ export function getRuntimeConfig(options = {}) {
       DEFAULTS.curationMinWordCount
     ),
     geotagMode: process.env.GEOTAG_MODE || DEFAULTS.geotagMode,
-    geminiFallbackModels:
-      parseCsv(process.env.GEMINI_FALLBACK_MODELS).length > 0
-        ? parseCsv(process.env.GEMINI_FALLBACK_MODELS)
-        : DEFAULTS.geminiFallbackModels,
+    kimiFallbackModels:
+      parseCsv(process.env.KIMI_FALLBACK_MODELS).length > 0
+        ? parseCsv(process.env.KIMI_FALLBACK_MODELS)
+        : DEFAULTS.kimiFallbackModels,
     geotagBatchSize: parseInteger(
       process.env.GEOTAG_BATCH_SIZE,
       DEFAULTS.geotagBatchSize
@@ -106,14 +107,15 @@ export function getRuntimeConfig(options = {}) {
     outputArticlesFile: process.env.OUTPUT_ARTICLES_FILE || DEFAULTS.outputArticlesFile,
     outputLastUpdatedFile:
       process.env.OUTPUT_LAST_UPDATED_FILE || DEFAULTS.outputLastUpdatedFile,
-    geminiModel: process.env.GEMINI_MODEL || DEFAULTS.geminiModel,
-    geminiApiKey: process.env.GEMINI_API_KEY || ""
+    kimiModel: process.env.KIMI_MODEL || DEFAULTS.kimiModel,
+    kimiBaseUrl: process.env.KIMI_BASE_URL || DEFAULTS.kimiBaseUrl,
+    kimiApiKey: process.env.KIMI_CODE_API || process.env.KIMI_API_KEY || ""
   };
 
-  if (requireGemini && !config.geminiApiKey) {
+  if (requireKimi && !config.kimiApiKey) {
     throw new AppError(
-      "GEMINI_API_KEY is required for geotagging phases but is not set.",
-      { code: "CONFIG_MISSING_GEMINI_KEY" }
+      "KIMI_CODE_API is required for geotagging phases but is not set.",
+      { code: "CONFIG_MISSING_KIMI_KEY" }
     );
   }
 

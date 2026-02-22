@@ -12,7 +12,7 @@ A phased implementation of a personal RSS news aggregator that runs on GitHub Ac
 
 1. Never hardcode API keys in source code.
 2. Keep secrets in GitHub Actions repository secrets.
-3. Use `GEMINI_API_KEY` from environment variables only.
+3. Use `KIMI_CODE_API` from environment variables only.
 4. Commit `.env.example`, never `.env`.
 
 ## Local Setup
@@ -38,11 +38,11 @@ npm run run:pipeline
 ```
 
 By default this runs Phase 1-5. Geotag behavior:
-1. `GEOTAG_MODE=auto`: uses Gemini when `GEMINI_API_KEY` exists, otherwise mock geotagging.
+1. `GEOTAG_MODE=auto`: uses Kimi when `KIMI_CODE_API` exists, otherwise mock geotagging.
 2. `GEOTAG_MODE=mock`: always mock geotagging.
-3. `GEOTAG_MODE=live`: forces Gemini API geotagging (requires key).
-4. Default model: `gemini-2.5-flash-lite` with fallbacks to `gemini-2.0-flash-lite,gemini-2.0-flash`.
-5. Cost guard: `GEOTAG_MAX_API_BATCHES=1` (default) limits live Gemini requests per run.
+3. `GEOTAG_MODE=live`: forces Kimi API geotagging (requires key).
+4. Default model: `kimi-k2-0905-preview` with fallbacks to `kimi-k2-turbo-preview,kimi-for-coding`.
+5. Cost guard: `GEOTAG_MAX_API_BATCHES=1` (default) limits live API requests per run.
 
 6. Run final QA gate:
 
@@ -54,21 +54,21 @@ npm run qa
 
 The workflow already maps the secret into runtime env:
 1. `/Users/jaybharti/Documents/RSS Feed/.github/workflows/curate.yml` sets:
-   1. `GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}`
+   1. `KIMI_CODE_API: ${{ secrets.KIMI_CODE_API }}`
    2. `GEOTAG_MODE` configurable via repo variable (defaults to `auto`)
    3. `GEOTAG_MAX_API_BATCHES` configurable via repo variable (defaults to `1`)
-2. `/Users/jaybharti/Documents/RSS Feed/src/config.js` reads `process.env.GEMINI_API_KEY`.
-3. `/Users/jaybharti/Documents/RSS Feed/src/geotagger.js` switches to live Gemini when key exists; otherwise it uses mock geotagging.
+2. `/Users/jaybharti/Documents/RSS Feed/src/config.js` reads `process.env.KIMI_CODE_API`.
+3. `/Users/jaybharti/Documents/RSS Feed/src/geotagger.js` switches to live Kimi when key exists; otherwise it uses mock geotagging.
 
 Verification in Actions logs:
-1. Step `Validate secret wiring` should print `GEMINI_API_KEY detected in environment.` once you add the secret.
-2. Pipeline log line should include `hasGeminiKey:true`.
-3. If Gemini is not rate-limited, `geotagModeResolved` should be `live`; otherwise fallback may show `mock` with a `429` warning (still confirms secret wiring).
+1. Step `Validate secret wiring` should print `KIMI_CODE_API detected in environment.` once you add the secret.
+2. Pipeline log line should include `hasKimiKey:true`.
+3. If Kimi is not rate-limited, `geotagModeResolved` should be `live`; otherwise fallback may show `mock` with a `429` warning (still confirms secret wiring).
 
-Gemini troubleshooting:
-1. `429 RESOURCE_EXHAUSTED`: usually quota/rate limits at the project level.
-2. `400 INVALID_ARGUMENT` with key message: key configuration/validity issue (for example expired key).
-3. Logs now include structured API error details and quota violation hints from Gemini responses.
+Kimi troubleshooting:
+1. `429` responses: usually quota/rate-limit issues.
+2. `401 invalid_authentication_error`: key missing/invalid/expired.
+3. Logs now include structured API error details and quota violation hints from API responses.
 
 ## Implemented Modules (Phases 0-3)
 
@@ -81,7 +81,7 @@ Gemini troubleshooting:
 
 ## Implemented Modules (Phase 4)
 
-- `src/geotagger.js`: mock/live geotagging, Gemini integration, retry/backoff, response validation, and fallback category logic.
+- `src/geotagger.js`: mock/live geotagging, Kimi integration, retry/backoff, response validation, and fallback category logic.
 
 ## Implemented Modules (Phase 5)
 
@@ -90,11 +90,13 @@ Gemini troubleshooting:
 
 ## Implemented Modules (Phase 6)
 
-- `index.html`: responsive dashboard shell with map + grid layout.
-- `assets/styles.css`: AMOLED theme, responsive layout, and card animations.
-- `assets/app.js`: data loading, filters, search, and Read Later localStorage.
-- `assets/map.js`: Leaflet map + marker clustering + country click filtering.
+- `index.html`: responsive dashboard shell with map + grid layout + native reader overlay.
+- `assets/styles.css`: AMOLED theme, responsive layout, card animations, and reader styles.
+- `assets/app.js`: data loading, map/category/tag filters, native article reader, and Read Later localStorage.
+- `assets/map.js`: Leaflet map + marker clustering + country click filtering + centroid fallback coordinates.
+- `assets/markdown.js`: safe markdown renderer used by the in-app reader.
 - `assets/world.geo.json`: world country boundaries used for map highlighting/filtering.
+- `logbook.html`, `assets/logbook.js`, `assets/logbook.css`: clean static logbook reader for `AGENT_PROGRESS_LOG.md`.
 
 ## Implemented Modules (Phase 7)
 

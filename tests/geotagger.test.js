@@ -18,40 +18,37 @@ test("geotagArticles uses mock mode when no key is present", async () => {
   const articles = [sampleArticle()];
   const result = await geotagArticles(articles, {
     mode: "auto",
-    geminiApiKey: ""
+    kimiApiKey: ""
   });
 
   assert.equal(result.length, 1);
   assert.equal(result[0].geotagStatus, "mock");
   assert.equal(result[0].geotag.country, "IND");
   assert.ok(["National", "Trending", "World", "WorthReading"].includes(result[0].category));
+  assert.ok(Array.isArray(result[0].tags));
 });
 
-test("geotagArticles parses live-mode Gemini JSON response", async () => {
+test("geotagArticles parses live-mode Kimi JSON response", async () => {
   const articles = [sampleArticle({ id: "a1", title: "Talks continue in London" })];
   const httpClient = {
     async post() {
       return {
         data: {
-          candidates: [
+          choices: [
             {
-              content: {
-                parts: [
-                  {
-                    text: JSON.stringify({
-                      results: [
-                        {
-                          id: "a1",
-                          country: "GBR",
-                          city: "London",
-                          category: "World",
-                          confidence: 0.88,
-                          keywords: ["diplomacy"]
-                        }
-                      ]
-                    })
-                  }
-                ]
+              message: {
+                content: JSON.stringify({
+                  results: [
+                    {
+                      id: "a1",
+                      country: "GBR",
+                      city: "London",
+                      category: "World",
+                      confidence: 0.88,
+                      tags: ["trade", "london", "diplomacy"]
+                    }
+                  ]
+                })
               }
             }
           ]
@@ -62,8 +59,8 @@ test("geotagArticles parses live-mode Gemini JSON response", async () => {
 
   const result = await geotagArticles(articles, {
     mode: "live",
-    model: "gemini-test",
-    geminiApiKey: "test-key",
+    model: "kimi-test",
+    kimiApiKey: "test-key",
     httpClient
   });
 
@@ -73,27 +70,23 @@ test("geotagArticles parses live-mode Gemini JSON response", async () => {
   assert.equal(result[0].geotag.city, "London");
   assert.equal(result[0].category, "World");
   assert.equal(result[0].geotagConfidence, 0.88);
+  assert.deepEqual(result[0].tags, ["trade", "london", "diplomacy"]);
 });
 
 test("geotagArticles falls back to secondary model after 429", async () => {
   const articles = [sampleArticle({ id: "a2", title: "Policy talks in Berlin" })];
   const httpClient = {
-    async post(url) {
-      if (url.includes("gemini-primary")) {
+    async post(_url, payload) {
+      if (payload?.model === "kimi-primary") {
         const error = new Error("Rate limit");
         error.response = {
           status: 429,
           data: {
             error: {
               code: 429,
-              status: "RESOURCE_EXHAUSTED",
+              type: "rate_limit_error",
               message: "Quota exceeded",
-              details: [
-                {
-                  "@type": "type.googleapis.com/google.rpc.QuotaFailure",
-                  violations: [{ quotaMetric: "RequestsPerMinute" }]
-                }
-              ]
+              details: []
             }
           },
           headers: {
@@ -105,25 +98,21 @@ test("geotagArticles falls back to secondary model after 429", async () => {
 
       return {
         data: {
-          candidates: [
+          choices: [
             {
-              content: {
-                parts: [
-                  {
-                    text: JSON.stringify({
-                      results: [
-                        {
-                          id: "a2",
-                          country: "DEU",
-                          city: "Berlin",
-                          category: "World",
-                          confidence: 0.8,
-                          keywords: ["diplomacy"]
-                        }
-                      ]
-                    })
-                  }
-                ]
+              message: {
+                content: JSON.stringify({
+                  results: [
+                    {
+                      id: "a2",
+                      country: "DEU",
+                      city: "Berlin",
+                      category: "World",
+                      confidence: 0.8,
+                      tags: ["ceasefire", "berlin", "diplomacy"]
+                    }
+                  ]
+                })
               }
             }
           ]
@@ -134,9 +123,9 @@ test("geotagArticles falls back to secondary model after 429", async () => {
 
   const result = await geotagArticles(articles, {
     mode: "live",
-    model: "gemini-primary",
-    fallbackModels: ["gemini-secondary"],
-    geminiApiKey: "test-key",
+    model: "kimi-primary",
+    fallbackModels: ["kimi-secondary"],
+    kimiApiKey: "test-key",
     httpClient,
     maxRetries: 1
   });
@@ -144,6 +133,7 @@ test("geotagArticles falls back to secondary model after 429", async () => {
   assert.equal(result.length, 1);
   assert.equal(result[0].geotagStatus, "live");
   assert.equal(result[0].geotag.country, "DEU");
+  assert.deepEqual(result[0].tags, ["ceasefire", "berlin", "diplomacy"]);
 });
 
 test("geotagArticles enforces maxApiBatches guard to control spend", async () => {
@@ -158,25 +148,21 @@ test("geotagArticles enforces maxApiBatches guard to control spend", async () =>
       callCount += 1;
       return {
         data: {
-          candidates: [
+          choices: [
             {
-              content: {
-                parts: [
-                  {
-                    text: JSON.stringify({
-                      results: [
-                        {
-                          id: "b1",
-                          country: "GBR",
-                          city: "London",
-                          category: "World",
-                          confidence: 0.9,
-                          keywords: []
-                        }
-                      ]
-                    })
-                  }
-                ]
+              message: {
+                content: JSON.stringify({
+                  results: [
+                    {
+                      id: "b1",
+                      country: "GBR",
+                      city: "London",
+                      category: "World",
+                      confidence: 0.9,
+                      tags: ["diplomacy", "london"]
+                    }
+                  ]
+                })
               }
             }
           ]
@@ -187,8 +173,8 @@ test("geotagArticles enforces maxApiBatches guard to control spend", async () =>
 
   const result = await geotagArticles(articles, {
     mode: "live",
-    model: "gemini-test",
-    geminiApiKey: "test-key",
+    model: "kimi-test",
+    kimiApiKey: "test-key",
     httpClient,
     batchSize: 1,
     maxApiBatches: 1,
@@ -199,4 +185,25 @@ test("geotagArticles enforces maxApiBatches guard to control spend", async () =>
   assert.equal(result.length, 2);
   assert.equal(result[0].geotagStatus, "live");
   assert.equal(result[1].geotagStatus, "mock");
+});
+
+test("geotagArticles mock fallback infers country from broader aliases", async () => {
+  const result = await geotagArticles(
+    [
+      sampleArticle({
+        id: "fallback-pak",
+        title: "Pakistan launches strikes on Afghan border targets",
+        excerpt: "Officials in Lahore provided details."
+      })
+    ],
+    {
+      mode: "mock",
+      kimiApiKey: ""
+    }
+  );
+
+  assert.equal(result.length, 1);
+  assert.equal(result[0].geotagStatus, "mock");
+  assert.equal(result[0].geotag.country, "PAK");
+  assert.ok(result[0].tags.includes("pak"));
 });

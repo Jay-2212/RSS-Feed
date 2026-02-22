@@ -13,7 +13,6 @@
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-      integrity="sha256-sA+4ps4UInM3Q0lYbtVJr4m6aAnuM7n8f8f9v+3M2nA="
       crossorigin=""
     />
     <link
@@ -39,6 +38,7 @@
         <p>Last Updated</p>
         <strong id="last-updated">Loading...</strong>
       </div>
+      <a href="logbook.html" class="map-toggle logbook-link">Open Logbook</a>
       <button id="map-toggle" class="map-toggle">Hide Map</button>
     </header>
 
@@ -56,6 +56,7 @@
         <div class="controls">
           <input id="search-input" type="search" placeholder="Search headline, excerpt, source..." />
           <div id="category-filters" class="chips"></div>
+          <div id="tag-filters" class="chips chips-tags"></div>
           <label class="saved-only">
             <input id="read-later-only" type="checkbox" />
             Saved only
@@ -66,9 +67,19 @@
       </section>
     </main>
 
+    <aside id="reader-overlay" class="reader-overlay" aria-hidden="true">
+      <section class="reader-panel" role="dialog" aria-modal="true" aria-labelledby="reader-title">
+        <header class="reader-header">
+          <h2 id="reader-title">Article</h2>
+          <button id="reader-close" class="ghost-btn">Close</button>
+        </header>
+        <p id="reader-meta" class="reader-meta"></p>
+        <article id="reader-content" class="reader-content"></article>
+      </section>
+    </aside>
+
     <script
       src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
       crossorigin=""
     ></script>
     <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
