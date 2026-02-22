@@ -1,0 +1,117 @@
+import fs from "node:fs/promises";
+import path from "node:path";
+
+import { calculateWordCount, clampText, estimateReadTime } from "./utils.js";
+
+const CATEGORY_FALLBACK = "WorthReading";
+const VALID_CATEGORIES = new Set(["World", "National", "Trending", "WorthReading"]);
+
+function toIsoTimestamp(value, fallback) {
+  const parsed = new Date(value ?? "");
+  if (Number.isNaN(parsed.getTime())) {
+    return fallback;
+  }
+
+  return parsed.toISOString();
+}
+
+function toNumber(value, fallback = 0) {
+  const parsed = Number.parseFloat(value);
+  if (!Number.isFinite(parsed)) {
+    return fallback;
+  }
+
+  return parsed;
+}
+
+function sanitizeCategory(value) {
+  const category = String(value ?? "").trim();
+  return VALID_CATEGORIES.has(category) ? category : CATEGORY_FALLBACK;
+}
+
+function sanitizeGeotag(geotag) {
+  const country = String(geotag?.country ?? "UNK")
+    .trim()
+    .toUpperCase();
+  const cityRaw = geotag?.city;
+  const city = cityRaw === null || cityRaw === undefined ? null : String(cityRaw).trim() || null;
+
+  return {
+    country: country || "UNK",
+    city,
+    lat: toNumber(geotag?.lat, 0),
+    lng: toNumber(geotag?.lng, 0)
+  };
+}
+
+function sanitizeMetrics(article) {
+  const contentWordCount = calculateWordCount(article.content || article.excerpt || "");
+  const wordCount = Number.isFinite(article.wordCount) ? article.wordCount : contentWordCount;
+  const safeWordCount = Math.max(0, wordCount);
+  const readTime = Number.isFinite(article.readTime)
+    ? Math.max(1, article.readTime)
+    : estimateReadTime(safeWordCount);
+
+  return {
+    wordCount: safeWordCount,
+    readTime
+  };
+}
+
+function sanitizeArticle(article, timestamp) {
+  return {
+    id: String(article.id ?? ""),
+    sourceId: String(article.sourceId ?? ""),
+    sourceName: String(article.sourceName ?? ""),
+    title: clampText(article.title ?? "", 280),
+    excerpt: clampText(article.excerpt ?? "", 300),
+    content: clampText(article.content ?? "", 5_000),
+    url: String(article.url ?? ""),
+    imageUrl: article.imageUrl ? String(article.imageUrl) : null,
+    publishedAt: toIsoTimestamp(article.publishedAt, timestamp),
+    geotag: sanitizeGeotag(article.geotag),
+    category: sanitizeCategory(article.category),
+    metrics: sanitizeMetrics(article)
+  };
+}
+
+export function buildPersistedOutput(phaseFourOutput, options = {}) {
+  const timestamp = toIsoTimestamp(options.timestamp, new Date().toISOString());
+  const rawArticles = Array.isArray(phaseFourOutput?.articles) ? phaseFourOutput.articles : [];
+  const articles = rawArticles.map((article) => sanitizeArticle(article, timestamp));
+  const sourceIds = Array.from(
+    new Set(articles.map((article) => article.sourceId).filter((value) => Boolean(value)))
+  );
+
+  return {
+    metadata: {
+      lastUpdated: timestamp,
+      count: articles.length,
+      sources: sourceIds,
+      phase: "phase_5_complete",
+      geotagModeConfigured: phaseFourOutput?.metadata?.geotagModeConfigured ?? "auto",
+      geotagModeResolved: phaseFourOutput?.metadata?.geotagModeResolved ?? "unknown",
+      geotagModel: phaseFourOutput?.metadata?.geotagModel ?? null
+    },
+    articles
+  };
+}
+
+export async function writePersistedArtifacts(output, options = {}) {
+  const rootDir = options.rootDir ?? process.cwd();
+  const articlesFilePath = options.articlesFilePath ?? "articles.json";
+  const lastUpdatedFilePath = options.lastUpdatedFilePath ?? "lastUpdated.txt";
+  const articlesPath = path.resolve(rootDir, articlesFilePath);
+  const lastUpdatedPath = path.resolve(rootDir, lastUpdatedFilePath);
+
+  const payload = `${JSON.stringify(output, null, 2)}\n`;
+  const timestamp = `${output?.metadata?.lastUpdated ?? new Date().toISOString()}\n`;
+
+  await fs.writeFile(articlesPath, payload, "utf8");
+  await fs.writeFile(lastUpdatedPath, timestamp, "utf8");
+
+  return {
+    articlesPath,
+    lastUpdatedPath
+  };
+}

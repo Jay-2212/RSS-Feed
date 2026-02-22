@@ -3,6 +3,7 @@ import { curateArticles } from "./curator.js";
 import { extractArticles } from "./extractor.js";
 import { fetchArticles } from "./fetcher.js";
 import { geotagArticles } from "./geotagger.js";
+import { buildPersistedOutput, writePersistedArtifacts } from "./persistence.js";
 import { createLogger } from "./utils.js";
 
 const logger = createLogger("pipeline");
@@ -94,13 +95,34 @@ export async function runPhaseOneToFour() {
   };
 }
 
+export async function runPhaseOneToFive() {
+  const config = getRuntimeConfig();
+  const phaseFourOutput = await runPhaseOneToFour();
+  const persistedOutput = buildPersistedOutput(phaseFourOutput, {
+    timestamp: new Date().toISOString()
+  });
+
+  const paths = await writePersistedArtifacts(persistedOutput, {
+    articlesFilePath: config.outputArticlesFile,
+    lastUpdatedFilePath: config.outputLastUpdatedFile
+  });
+
+  logger.info("Pipeline completed through Phase 5", {
+    articlesPersisted: persistedOutput.metadata.count,
+    articlesPath: paths.articlesPath,
+    lastUpdatedPath: paths.lastUpdatedPath
+  });
+
+  return persistedOutput;
+}
+
 async function main() {
   if (!hasFlag("--run")) {
-    logger.info("Scaffold is ready. Run `npm run run:pipeline` to execute Phase 1-4 pipeline.");
+    logger.info("Scaffold is ready. Run `npm run run:pipeline` to execute Phase 1-5 pipeline.");
     return;
   }
 
-  const output = await runPhaseOneToFour();
+  const output = await runPhaseOneToFive();
   logger.info("Run summary", {
     curatedCount: output.articles.length
   });

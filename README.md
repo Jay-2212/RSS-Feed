@@ -4,9 +4,9 @@ A phased implementation of a personal RSS news aggregator that runs on GitHub Ac
 
 ## Current Build Status
 
-- Completed phases: 0, 1, 2, 3, 4
+- Completed phases: 0, 1, 2, 3, 4, 5
 - In progress: none
-- Next phase: 5 (Persistence + workflow artifact commit)
+- Next phase: 6 (Frontend dashboard + world map)
 
 ## Security Rules
 
@@ -31,13 +31,13 @@ npm install
 npm test
 ```
 
-5. Run Phase 1-4 pipeline:
+5. Run Phase 1-5 pipeline:
 
 ```bash
 npm run run:pipeline
 ```
 
-By default this runs Phase 1-4. Geotag behavior:
+By default this runs Phase 1-5. Geotag behavior:
 1. `GEOTAG_MODE=auto`: uses Gemini when `GEMINI_API_KEY` exists, otherwise mock geotagging.
 2. `GEOTAG_MODE=mock`: always mock geotagging.
 3. `GEOTAG_MODE=live`: forces Gemini API geotagging (requires key).
@@ -63,20 +63,23 @@ Verification in Actions logs:
 - `src/fetcher.js`: RSS ingestion, normalization, deduplication.
 - `src/extractor.js`: content extraction with fallback chain.
 - `src/curator.js`: scoring, exclusion filters, top article selection.
-- `src/index.js`: orchestration entrypoint through Phase 4 (`runPhaseOneToFour`).
+- `src/index.js`: orchestration entrypoint through Phase 5 (`runPhaseOneToFive`).
 
 ## Implemented Modules (Phase 4)
 
 - `src/geotagger.js`: mock/live geotagging, Gemini integration, retry/backoff, response validation, and fallback category logic.
-- `.github/workflows/curate.yml`: GitHub Actions wiring that reads `GEMINI_API_KEY` from repository secrets.
+
+## Implemented Modules (Phase 5)
+
+- `src/persistence.js`: output schema normalization and artifact writing (`articles.json`, `lastUpdated.txt`).
+- `.github/workflows/curate.yml`: workflow now commits generated artifacts back to `main`.
 
 ## Planned Next Modules
 
-- `.github/workflows/curate.yml`: workflow commit/publish enhancements (Phase 5).
 - Static frontend in `index.html` + `assets/*` (Phase 6).
 
 ## Notes For Next Agent
 
 1. Read `PHASED_IMPLEMENTATION_PLAN.md` and `AGENT_PROGRESS_LOG.md` before coding.
-2. Continue from Phase 5 using current output shape from `runPhaseOneToFour()`.
+2. Continue from Phase 6 using current output shape from `runPhaseOneToFive()`.
 3. Use `PHASE_SIGNOFF.md` for signed-off scope and exact next-start checklist.

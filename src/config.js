@@ -21,7 +21,9 @@ const DEFAULTS = {
   geotagMode: "auto",
   geotagBatchSize: 40,
   geotagTimeoutMs: 20_000,
-  geotagMaxRetries: 3
+  geotagMaxRetries: 3,
+  outputArticlesFile: "articles.json",
+  outputLastUpdatedFile: "lastUpdated.txt"
 };
 
 export function getRuntimeConfig(options = {}) {
@@ -74,6 +76,9 @@ export function getRuntimeConfig(options = {}) {
       process.env.GEOTAG_MAX_RETRIES,
       DEFAULTS.geotagMaxRetries
     ),
+    outputArticlesFile: process.env.OUTPUT_ARTICLES_FILE || DEFAULTS.outputArticlesFile,
+    outputLastUpdatedFile:
+      process.env.OUTPUT_LAST_UPDATED_FILE || DEFAULTS.outputLastUpdatedFile,
     geminiModel: process.env.GEMINI_MODEL || DEFAULTS.geminiModel,
     geminiApiKey: process.env.GEMINI_API_KEY || ""
   };

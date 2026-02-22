@@ -9,9 +9,9 @@ RSS News Hub (GitHub Actions + Gemini + GitHub Pages)
 3. Keep entries short and operational.
 
 ## Status Snapshot
-Current Phase: `Phase 4 complete`
-Last Completed Phase: `Phase 4 - Geotagging + Category Assignment`
-Next Phase: `Phase 5 - Persistence + Orchestration`
+Current Phase: `Phase 5 complete`
+Last Completed Phase: `Phase 5 - Persistence + Orchestration`
+Next Phase: `Phase 6 - Frontend Dashboard`
 Blockers: `None`
 
 ## Session Entries
@@ -149,6 +149,38 @@ Deferred:
 Exact Next Start Point:
 1. Push Node18 compatibility fix commit to `main`.
 2. User reruns workflow after setting repository-level `GEMINI_API_KEY` secret.
+
+### 2026-02-22T16:22:23Z - Phase 5 Implementation Session
+Owner: Codex agent
+
+Completed:
+1. Implemented schema-normalized persistence module in `/Users/jaybharti/Documents/RSS Feed/src/persistence.js`.
+2. Added Phase 5 orchestration path in `/Users/jaybharti/Documents/RSS Feed/src/index.js` (`runPhaseOneToFive`).
+3. Added output file configuration in `/Users/jaybharti/Documents/RSS Feed/src/config.js` and `/Users/jaybharti/Documents/RSS Feed/.env.example`.
+4. Added persistence tests in `/Users/jaybharti/Documents/RSS Feed/tests/persistence.test.js`.
+5. Updated workflow `/Users/jaybharti/Documents/RSS Feed/.github/workflows/curate.yml` to:
+   1. Use `permissions: contents: write`
+   2. Auto-commit changed `articles.json` and `lastUpdated.txt`
+6. Ran pipeline and generated production-shaped `/Users/jaybharti/Documents/RSS Feed/articles.json` and `/Users/jaybharti/Documents/RSS Feed/lastUpdated.txt`.
+
+Validation:
+1. `npm test` passed (10/10).
+2. `npm run lint` passed.
+3. `npm run run:pipeline` completed through Phase 5.
+4. Output metadata includes `"phase": "phase_5_complete"`.
+
+Runtime Notes:
+1. Secret wiring remains correct (`hasGeminiKey:true` when key present).
+2. Latest live call still showed Gemini `429`; fallback path remained functional.
+
+Deferred:
+1. Phase 6 frontend/map implementation.
+2. Phase 7 hardening/performance/QA closure.
+
+Exact Next Start Point:
+1. Build dashboard UI in `/Users/jaybharti/Documents/RSS Feed/index.html` and `/Users/jaybharti/Documents/RSS Feed/assets/`.
+2. Implement Leaflet world map rendering and article-country filtering.
+3. Add Read Later localStorage flow and responsive card grid.
 
 ## Handoff Checklist (Must Be Updated Per Session)
 1. `Current Phase` updated.

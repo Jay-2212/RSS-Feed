@@ -3,6 +3,9 @@ name: Curate News
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   curate:
     runs-on: ubuntu-latest
@@ -32,5 +35,18 @@ jobs:
             echo "GEMINI_API_KEY is not set. Geotagger will use mock mode."
           fi
 
-      - name: Run pipeline (Phase 1-4)
+      - name: Run pipeline (Phase 1-5)
         run: npm run run:pipeline
+
+      - name: Commit generated artifacts
+        run: |
+          if [ -z "$(git status --porcelain -- articles.json lastUpdated.txt)" ]; then
+            echo "No generated artifact changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add articles.json lastUpdated.txt
+          git commit -m "chore(data): update generated feed artifacts"
+          git push
