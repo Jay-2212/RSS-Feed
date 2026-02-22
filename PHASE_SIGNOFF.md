@@ -136,7 +136,7 @@ Validation:
    1. `npm test` => 12/12
    2. `npm run run:pipeline` pass
    3. `npm run qa` pass
-2. GitHub workflow run `22281026024` passed end-to-end.
+2. GitHub workflow run `22281271753` passed end-to-end (includes QA gate + live geotagging + artifact commit).
 
 ## Known Non-Blocking Gaps
 1. Some metered sources (for example NYT) return extraction fallback entries due `403`.

@@ -1,6 +1,6 @@
 # Phase 7 QA Report
 
-Generated: `2026-02-22T16:50:18Z` (UTC)
+Generated: `2026-02-22T16:53:05Z` (UTC)
 
 ## Scope
 Final hardening and QA closure for:
@@ -15,16 +15,16 @@ Final hardening and QA closure for:
 3. `npm run run:pipeline`: **PASS** (completes through Phase 5)
 4. `npm run qa`: **PASS**
    1. `articles=40`
-   2. `articles.json size=197810 bytes` (target `<500000`)
+   2. `articles.json size=195484 bytes` (target `<500000`)
    3. `metadata/lastUpdated synchronization`: pass
 
 ## GitHub Actions Validation
 Workflow: `Curate News`
-1. Run `22281026024`: **PASS**
+1. Run `22281271753`: **PASS**
 2. Secret wiring: `GEMINI_API_KEY detected in environment` (confirmed in logs)
 3. Pipeline completion: `Pipeline completed through Phase 5` (confirmed in logs)
-4. Artifact commit: bot commit `f7675ea` pushed generated files
-5. Runtime: `52s` (target `<5 minutes`)
+4. Artifact commit: bot commit `b930541` pushed generated files
+5. Runtime: `43s` (target `<5 minutes`)
 
 ## TSD Checklist Mapping
 
