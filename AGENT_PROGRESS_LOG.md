@@ -128,6 +128,28 @@ Exact Next Start Point:
 2. User manually triggers `Curate News` workflow from Actions tab.
 3. Begin Phase 5 after first run verification.
 
+### 2026-02-22T16:14:23Z - Workflow Node18 Compatibility Fix
+Owner: Codex agent
+
+Completed:
+1. Diagnosed Actions crash: `ReferenceError: File is not defined` from `undici` during Node 18 workflow run.
+2. Root cause identified: `cheerio` resolved to `1.2.x` and pulled `undici@7`, which requires newer Node web globals.
+3. Fixed by pinning `cheerio` to exact `1.0.0` (Node 18 compatible dependency chain).
+4. Updated lockfile accordingly.
+
+Validation:
+1. `npm ls cheerio undici` now resolves to `cheerio@1.0.0` and `undici@6.23.0`.
+2. `npm test` passed (8/8).
+3. `npm run run:pipeline` completed successfully.
+
+Deferred:
+1. User-side secret placement correction (repository secret vs environment secret).
+2. Phase 5 implementation.
+
+Exact Next Start Point:
+1. Push Node18 compatibility fix commit to `main`.
+2. User reruns workflow after setting repository-level `GEMINI_API_KEY` secret.
+
 ## Handoff Checklist (Must Be Updated Per Session)
 1. `Current Phase` updated.
 2. `Last Completed Phase` updated.
