@@ -242,6 +242,29 @@ Exact Next Start Point:
 2. Tune performance and data quality edges where needed.
 3. Prepare final release summary.
 
+### 2026-02-22T16:37:49Z - Post-Fix Workflow Verification
+Owner: Codex agent
+
+Completed:
+1. Triggered `Curate News` workflow after Gemini diagnostics + model defaults update.
+2. Verified successful run: `22281026024`.
+3. Confirmed key points in Actions logs:
+   1. `GEMINI_API_KEY detected in environment.`
+   2. `geotagModeResolved":"live"` in pipeline Phase 4 completion log.
+   3. Pipeline completed through Phase 5.
+4. Verified artifact auto-commit still works after updates (bot commit `f7675ea`).
+
+Validation:
+1. End-to-end run succeeded with live Gemini geotagging in GitHub environment.
+2. No regressions in artifact commit workflow.
+
+Deferred:
+1. Phase 7 hardening and final QA closure.
+
+Exact Next Start Point:
+1. Execute TSD Section 6 checklist and produce final QA report.
+2. Decide whether to keep current model defaults or pin repository variable values.
+
 ## Handoff Checklist (Must Be Updated Per Session)
 1. `Current Phase` updated.
 2. `Last Completed Phase` updated.
