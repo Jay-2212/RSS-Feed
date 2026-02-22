@@ -1,19 +1,19 @@
 {
   "metadata": {
-    "lastUpdated": "2026-02-22T16:34:15.031Z",
+    "lastUpdated": "2026-02-22T16:37:13.963Z",
     "count": 40,
     "sources": [
       "npr-world",
       "guardian-world",
-      "hindu",
       "bbc-world",
+      "hindu",
       "aljazeera",
       "abc-news",
       "indian-express-world"
     ],
     "phase": "phase_5_complete",
     "geotagModeConfigured": "auto",
-    "geotagModeResolved": "mock",
+    "geotagModeResolved": "live",
     "geotagModel": "gemini-2.5-flash-lite"
   },
   "articles": [
@@ -28,12 +28,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-21T22:16:49.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "USA",
         "city": null,
-        "lat": 0,
-        "lng": 0
+        "lat": 39.8283,
+        "lng": -98.5795
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 828,
         "readTime": 4
@@ -55,9 +55,31 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 682,
+        "readTime": 3
+      }
+    },
+    {
+      "id": "21fc2e2708143476",
+      "sourceId": "bbc-world",
+      "sourceName": "BBC World",
+      "title": "Trump curious why Iran has not 'capitulated', US envoy Witkoff says",
+      "excerpt": "US envoy Steve Witkoff says the president is puzzled why Iran has not yet compromised in the face of a major American military build-up nearby.",
+      "content": "Jaroslav Lukivand\n\nGhoncheh Habibiazad,BBC Persian\n\n![](https://static.files.bbci.co.uk/bbcdotcom/web/20260205-130046-240c8e457e-web-2.39.1-1/grey-placeholder.png)![Reuters A multirole fighter aircraft prepares to launch from the flight deck of the US Navy's Nimitz-class aircraft carrier USS Abraham Lincoln in the Arabian Sea. Photo: 15 February 2026](https://ichef.bbci.co.uk/news/480/cpsprodpb/3c58/live/16a6d830-1005-11f1-909d-47e99fcb7a58.jpg.webp)Reuters\n\nThe US has been building up its military presence near Iran in recent weeks\n\nUS President Donald Trump is questioning why Iran has not yet \"capitulated\" in the face of Washington's military build-up in the Middle East, the US president's special envoy Steve Witkoff has said.\n\nWitkoff told Fox News on Saturday that Trump was \"curious\" about Iran's position after he had warned of a limited military strike if a deal was not reached on Tehran's nuclear programme.\n\nThe US and its European allies suspect Iran of moving towards making a nuclear weapon, which it denies.\n\nWithin Iran, anti-government protests were staged at several universities over the weekend - the first rallies on such a scale since January's deadly crackdown by the authorities, which saw thousands killed.\n\nIn his interview with Fox News, Witkoff said: \"I don't want to use the word 'frustrated'... because he \\[Trump\\] understands he's got plenty of alternatives, but he's curious as to why they haven't... I don't want to use the word 'capitulated', but why they haven't capitulated.\"\n\n\"Why, under this sort of pressure, with the amount of seapower and naval power that we have over there, why haven't they come to us and said, 'We profess that we don't want a weapon, so here's what we're prepared to do?'\"\n\n\"And yet it's hard to sort of get them to that place,\" Trump's envoy added.\n\n![](https://static.files.bbci.co.uk/bbcdotcom/web/20260205-130046-240c8e457e-web-2.39.1-1/grey-placeholder.png)![Getty Images Steve Witkoff, US President Donald Trump's special envoy. Photo: January 2026](https://ichef.bbci.co.uk/news/480/cpsprodpb/feec/live/6d607b40-1000-11f1-909d-47e99fcb7a58.jpg.webp)Getty Images\n\nSteve Witkoff was the lead US negotiator during indirect talks with Iran in Switzerland on Tuesday\n\nIran has not publicly commented on Witkoff's remarks.\n\nLast Tuesday, US and Iranian officials held indirect talks in Switzerland aimed at curbing Iran's nuclear programme, saying progress had been made.\n\nDespite this, Trump said two days later the world would find out \"over the next, probably, 10 days\" whether a deal with Iran would be reached or the US would take military action.\n\nOn Friday, Iran's Foreign Minister Abbas Araghchi said Tehran was preparing \"a draft of a possible agreement\" and would hand it over to Witkoff in the next few days.\n\nIn recent weeks, the US has been building up its military presence near Iran.\n\nThe deployment includes the world's largest warship, USS Gerald R Ford, appearing to be heading towards the region.\n\nUSS Abraham Lincoln aircraft carrier has also been deployed, along with destroyers, combat ships and fighter jets.\n\nScuffles break out at Sharif University in Tehran on Saturday\n\nIn Iran, the BBC has verified footage of demonstrators marching on the campus of the Sharif University of Technology in the capital Tehran on Saturday. They were later seen scuffling with government supporters.\n\nProtests were also reported at other universities in Tehran and elsewhere.\n\nIranian media reported demonstrations also took place on Sunday at the Iran University of Science and Technology and Khajeh Nasir Toosi University in Tehran, and at Ferdowsi University of Mashhad in north-eastern Iran.\n\nIn one video the BBC has verified, anti-government protesters raise the Lion and Sun flag - a symbol of Iran before the 1979 Islamic Revolution - at the Sharif University. People in the crowd chant \"Javid Shah\" (\"long live the king\").\n\nAnother verified video shows a pro-government crowd holding a counter-protest at the Sharif University in which US and Israeli flags are being burned.\n\nClashes between pro and anti-government crowds are also seen in verified footage filmed at Amirkabir University of Technology.\n\nStudents from different universities have been gathering to honour thousands of those killed by authorities last month.\n\nThe US-based Human Rights Activists News Agency (Hrana) said it had confirmed the killing of at least 7,015 people during that wave, including 6,508 protesters, 226 children and 214 people affiliated with the government. The latest figures were updated on 15 February.\n\nHrana also said it was investigating 11,744 more reported deaths.\n\nIranian authorities said late last month that more than 3,100 people had been killed - but that the majority were security personnel or bystanders attacked by \"rioters\".\n\nPresident Trump has supported protesters in the past - at one stage appearing to encourage them with a promise that \"help is on its way\".\n\n_Additional reporting by BBC Verify's E",
+      "url": "https://www.bbc.com/news/articles/cn5gk15rr70o?at_medium=RSS&at_campaign=rss",
+      "imageUrl": null,
+      "publishedAt": "2026-02-22T16:35:17.000Z",
+      "geotag": {
+        "country": "IRN",
+        "city": null,
+        "lat": 32.4279,
+        "lng": 53.688
+      },
+      "category": "World",
+      "metrics": {
+        "wordCount": 732,
         "readTime": 3
       }
     },
@@ -72,37 +94,15 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T16:25:25.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "IND",
         "city": null,
-        "lat": 0,
-        "lng": 0
+        "lat": 20.5937,
+        "lng": 78.9629
       },
-      "category": "Trending",
+      "category": "National",
       "metrics": {
         "wordCount": 532,
         "readTime": 2
-      }
-    },
-    {
-      "id": "21fc2e2708143476",
-      "sourceId": "bbc-world",
-      "sourceName": "BBC World",
-      "title": "Trump curious why Iran has not 'capitulated', US envoy Witkoff says",
-      "excerpt": "US envoy Steve Witkoff says the president is puzzled why Iran has not yet compromised in the face of a major American military build-up nearby.",
-      "content": "Jaroslav Lukivand\n\nGhoncheh Habibiazad,BBC Persian\n\n![](https://static.files.bbci.co.uk/bbcdotcom/web/20260205-130046-240c8e457e-web-2.39.1-1/grey-placeholder.png)![Reuters A multirole fighter aircraft prepares to launch from the flight deck of the US Navy's Nimitz-class aircraft carrier USS Abraham Lincoln in the Arabian Sea. Photo: 15 February 2026](https://ichef.bbci.co.uk/news/480/cpsprodpb/3c58/live/16a6d830-1005-11f1-909d-47e99fcb7a58.jpg.webp)Reuters\n\nThe US has been building up its military presence near Iran in recent weeks\n\nUS President Donald Trump is questioning why Iran has not yet \"capitulated\" in the face of Washington's military build-up in the Middle East, the US president's special envoy Steve Witkoff has said.\n\nWitkoff told Fox News on Saturday that Trump was \"curious\" about Iran's position after he had warned of a limited military strike if a deal was not reached on Tehran's nuclear programme.\n\nThe US and its European allies suspect Iran of moving towards making a nuclear weapon, which it denies.\n\nWithin Iran, anti-government protests were staged at several universities over the weekend - the first rallies on such a scale since January's deadly crackdown by the authorities, which saw thousands killed.\n\nIn his interview with Fox News, Witkoff said: \"I don't want to use the word 'frustrated'... because he \\[Trump\\] understands he's got plenty of alternatives, but he's curious as to why they haven't... I don't want to use the word 'capitulated', but why they haven't capitulated.\"\n\n\"Why, under this sort of pressure, with the amount of seapower and naval power that we have over there, why haven't they come to us and said, 'We profess that we don't want a weapon, so here's what we're prepared to do?'\"\n\n\"And yet it's hard to sort of get them to that place,\" Trump's envoy added.\n\n![](https://static.files.bbci.co.uk/bbcdotcom/web/20260205-130046-240c8e457e-web-2.39.1-1/grey-placeholder.png)![Getty Images Steve Witkoff, US President Donald Trump's special envoy. Photo: January 2026](https://ichef.bbci.co.uk/news/480/cpsprodpb/feec/live/6d607b40-1000-11f1-909d-47e99fcb7a58.jpg.webp)Getty Images\n\nSteve Witkoff was the lead US negotiator during indirect talks with Iran in Switzerland on Tuesday\n\nIran has not publicly commented on Witkoff's remarks.\n\nLast Tuesday, US and Iranian officials held indirect talks in Switzerland aimed at curbing Iran's nuclear programme, saying progress had been made.\n\nDespite this, Trump said two days later the world would find out \"over the next, probably, 10 days\" whether a deal with Iran would be reached or the US would take military action.\n\nOn Friday, Iran's Foreign Minister Abbas Araghchi said Tehran was preparing \"a draft of a possible agreement\" and would hand it over to Witkoff in the next few days.\n\nIn recent weeks, the US has been building up its military presence near Iran.\n\nThe deployment includes the world's largest warship, USS Gerald R Ford, appearing to be heading towards the region.\n\nUSS Abraham Lincoln aircraft carrier has also been deployed, along with destroyers, combat ships and fighter jets.\n\nScuffles break out at Sharif University in Tehran on Saturday\n\nIn Iran, the BBC has verified footage of demonstrators marching on the campus of the Sharif University of Technology in the capital Tehran on Saturday. They were later seen scuffling with government supporters.\n\nProtests were also reported at other universities in Tehran and elsewhere.\n\nIranian media reported demonstrations also took place on Sunday at the Iran University of Science and Technology and Khajeh Nasir Toosi University in Tehran, and at Ferdowsi University of Mashhad in north-eastern Iran.\n\nIn one video the BBC has verified, anti-government protesters raise the Lion and Sun flag - a symbol of Iran before the 1979 Islamic Revolution - at the Sharif University. People in the crowd chant \"Javid Shah\" (\"long live the king\").\n\nAnother verified video shows a pro-government crowd holding a counter-protest at the Sharif University in which US and Israeli flags are being burned.\n\nClashes between pro and anti-government crowds are also seen in verified footage filmed at Amirkabir University of Technology.\n\nStudents from different universities have been gathering to honour thousands of those killed by authorities last month.\n\nThe US-based Human Rights Activists News Agency (Hrana) said it had confirmed the killing of at least 7,015 people during that wave, including 6,508 protesters, 226 children and 214 people affiliated with the government. The latest figures were updated on 15 February.\n\nHrana also said it was investigating 11,744 more reported deaths.\n\nIranian authorities said late last month that more than 3,100 people had been killed - but that the majority were security personnel or bystanders attacked by \"rioters\".\n\nPresident Trump has supported protesters in the past - at one stage appearing to encourage them with a promise that \"help is on its way\".\n\n_Additional reporting by BBC Verify's E",
-      "url": "https://www.bbc.com/news/articles/cn5gk15rr70o?at_medium=RSS&at_campaign=rss",
-      "imageUrl": null,
-      "publishedAt": "2026-02-22T16:22:43.000Z",
-      "geotag": {
-        "country": "UNK",
-        "city": null,
-        "lat": 0,
-        "lng": 0
-      },
-      "category": "Trending",
-      "metrics": {
-        "wordCount": 732,
-        "readTime": 3
       }
     },
     {
@@ -116,12 +116,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T16:20:27.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "IND",
         "city": null,
-        "lat": 0,
-        "lng": 0
+        "lat": 20.5937,
+        "lng": 78.9629
       },
-      "category": "Trending",
+      "category": "National",
       "metrics": {
         "wordCount": 499,
         "readTime": 2
@@ -138,12 +138,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T16:12:55.000Z",
       "geotag": {
-        "country": "UNK",
-        "city": null,
-        "lat": 0,
-        "lng": 0
+        "country": "IND",
+        "city": "Vizhinjam",
+        "lat": 20.5937,
+        "lng": 78.9629
       },
-      "category": "Trending",
+      "category": "National",
       "metrics": {
         "wordCount": 363,
         "readTime": 2
@@ -160,12 +160,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T16:05:34.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "IND",
         "city": null,
-        "lat": 0,
-        "lng": 0
+        "lat": 20.5937,
+        "lng": 78.9629
       },
-      "category": "Trending",
+      "category": "National",
       "metrics": {
         "wordCount": 487,
         "readTime": 2
@@ -182,12 +182,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T16:00:12.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "IND",
         "city": null,
-        "lat": 0,
-        "lng": 0
+        "lat": 20.5937,
+        "lng": 78.9629
       },
-      "category": "Trending",
+      "category": "National",
       "metrics": {
         "wordCount": 425,
         "readTime": 2
@@ -209,7 +209,7 @@
         "lat": 48.3794,
         "lng": 31.1656
       },
-      "category": "Trending",
+      "category": "World",
       "metrics": {
         "wordCount": 558,
         "readTime": 3
@@ -226,12 +226,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T13:52:09.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "UGA",
         "city": null,
         "lat": 0,
         "lng": 0
       },
-      "category": "Trending",
+      "category": "World",
       "metrics": {
         "wordCount": 450,
         "readTime": 2
@@ -248,10 +248,10 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T12:35:57.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "USA",
         "city": null,
-        "lat": 0,
-        "lng": 0
+        "lat": 39.8283,
+        "lng": -98.5795
       },
       "category": "Trending",
       "metrics": {
@@ -270,12 +270,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T11:33:11.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "PAK",
         "city": null,
         "lat": 0,
         "lng": 0
       },
-      "category": "Trending",
+      "category": "World",
       "metrics": {
         "wordCount": 584,
         "readTime": 3
@@ -297,7 +297,7 @@
         "lat": 31.0461,
         "lng": 34.8516
       },
-      "category": "Trending",
+      "category": "World",
       "metrics": {
         "wordCount": 723,
         "readTime": 3
@@ -314,12 +314,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T05:04:57.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "VEN",
         "city": null,
         "lat": 0,
         "lng": 0
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 426,
         "readTime": 2
@@ -336,12 +336,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T02:06:23.000Z",
       "geotag": {
-        "country": "UNK",
-        "city": null,
-        "lat": 0,
-        "lng": 0
+        "country": "USA",
+        "city": "Lake Tahoe",
+        "lat": 39.8283,
+        "lng": -98.5795
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 521,
         "readTime": 2
@@ -363,7 +363,7 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "WorthReading",
+      "category": "Trending",
       "metrics": {
         "wordCount": 785,
         "readTime": 4
@@ -380,12 +380,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-21T22:16:39.000Z",
       "geotag": {
-        "country": "UNK",
-        "city": null,
+        "country": "PAK",
+        "city": "Lahore",
         "lat": 0,
         "lng": 0
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 810,
         "readTime": 4
@@ -402,15 +402,37 @@
       "imageUrl": null,
       "publishedAt": "2026-02-21T12:44:31.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "GBR",
         "city": null,
-        "lat": 0,
-        "lng": 0
+        "lat": 55.3781,
+        "lng": -3.436
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 878,
         "readTime": 4
+      }
+    },
+    {
+      "id": "3017d50e407dad8c",
+      "sourceId": "aljazeera",
+      "sourceName": "Al Jazeera",
+      "title": "US envoy Huckabee tries to deny saying he would support Israel expansionism",
+      "excerpt": "Rights advocate warns that failure to sack Huckabee ‘will be read by the world as an endorsement of his views’ by Trump.",
+      "content": "_Rights advocate warns that failure to sack Huckabee ‘will be read by the world as an endorsement of his views’ by Trump._\n\nDespite explicitly saying he “would be fine” if Israel took most of the Middle East in accordance with his interpretation of the Bible, US Ambassador Mike Huckabee has suggested the remark was selectively edited.\n\nThe comment by the United States envoy, made during an interview with podcaster Tucker Carlson, sparked outrage and condemnation across the Arab world, including from Saudi Arabia.\n\n## Recommended Stories\n\nlist of 3 items\n\n-   list 1 of 3[US envoy suggests it would be ‘fine’ if Israel expands across Middle East](https://www.aljazeera.com/news/2026/2/20/us-envoy-suggests-it-would-be-fine-if-israel-expands-across-middle-east)\n-   list 2 of 3[Tucker Carlson says passport seized, staff interrogated at Israeli airport](https://www.aljazeera.com/news/2026/2/20/tucker-carlson-says-passport-seized-staff-interrogated-at-israeli-airport)\n-   list 3 of 3[‘Zionist to the core’: Swiss commentator slams Israeli bobsleigh team](https://www.aljazeera.com/sports/2026/2/17/swiss-commentator-slams-zionist-israeli-bobsleigh-team-at-winter-olympics)\n\nend of list\n\n“The version Tucker put on X edited out my full response. Truth matters to many of us. Apparently not to Tucker. Sad,” Huckabee wrote in a social media post on Sunday.\n\nThe evangelical pastor also shared a post saying the Arab League, which condemned his comment, “needs a new translator”.\n\nSpeaking with [Carlson](https://www.aljazeera.com/news/2026/2/20/tucker-carlson-says-passport-seized-staff-interrogated-at-israeli-airport) on Friday, Huckabee was pressed about the geographical borders of Israel, which he argued are rooted in Old Testament scripture.\n\nHuckabee told Carlson that the biblical verse that promised land to the descendants of Abraham refers to an area between the Euphrates River in Iraq and the Nile River in Egypt.\n\nSuch a stretch of territory would encompass modern-day Lebanon, Syria, Jordan and parts of Saudi Arabia.\n\n“It would be fine if they took it all,” said Huckabee, who was appointed by President Donald Trump last year.\n\nOn Sunday, the ambassador, an avowed Christian Zionist and [staunch defender](https://www.aljazeera.com/news/2024/11/13/who-is-mike-huckabee-the-evangelical-pro-settlement-envoy-to-israel) of Israel, tried to deny making the statement, claiming Carlson, who aired the full interview on his website, had taken his words out of context.\n\nHe shared a Jewish Insider article with the headline “Saudi Arabia leads regional push against Huckabee based on partial remarks.”\n\n“As Paul Harvey would say ‘Now the REST OF THE STORY,'” Huckabee wrote, referring to the late American radio broadcaster and his catchphrase.\n\nThe US Department of State has not addressed Huckabee’s remarks publicly, and it has not responded to repeated requests for comment by Al Jazeera.\n\nThe comments [sparked a backlash](https://www.aljazeera.com/news/2026/2/21/absurd-and-provocative-huckabee-faces-firestorm-for-israel-border-stance) across the region, including from some close US allies.\n\nRaed Jarrar, advocacy director at the US-based rights group DAWN, stressed that Huckabee’s statement was not a gaffe and called for the ambassador to be sacked.\n\n“An ambassador who publicly endorses Israeli territorial expansion across the entire Middle East cannot serve as a representative of the United States,” Jarrar told Al Jazeera.\n\n“He should be removed immediately, and the Trump administration’s failure to act will be read by the world as an endorsement of his views.”\n\nHe stressed that Huckabee’s “extremist views” do not align with established US policy.\n\n“The longer he remains in this post, the greater the damage to US credibility and its ability to play any constructive role in the region,” Jarrar said.\n\nHuckabee appeared to walk back his assertion during the interview, saying it had been “somewhat of a hyperbolic statement”.\n\n“They don’t want to take it over. They’re not asking to take it over,” the ambassador replied.\n\nStill, he left the door open for Israeli expansionism. “If they end up getting attacked by all these places and they win that war and they take that land, OK, that’s a whole other discussion,” he said.\n\nIsraeli law does not clearly demarcate the country’s borders. Since its inception in 1948, Israel has been expanding its territories through war in violation of international law.",
+      "url": "https://www.aljazeera.com/news/2026/2/22/us-envoy-huckabee-tries-to-deny-saying-he-would-support-israel-expansionism?traffic_source=rss",
+      "imageUrl": null,
+      "publishedAt": "2026-02-22T16:23:37.000Z",
+      "geotag": {
+        "country": "USA",
+        "city": null,
+        "lat": 39.8283,
+        "lng": -98.5795
+      },
+      "category": "World",
+      "metrics": {
+        "wordCount": 611,
+        "readTime": 3
       }
     },
     {
@@ -424,12 +446,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T15:55:39.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "PAK",
         "city": null,
         "lat": 0,
         "lng": 0
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 710,
         "readTime": 3
@@ -446,12 +468,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T15:28:30.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "UGA",
         "city": null,
         "lat": 0,
         "lng": 0
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 555,
         "readTime": 3
@@ -468,12 +490,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T14:31:10.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "USA",
         "city": null,
-        "lat": 0,
-        "lng": 0
+        "lat": 39.8283,
+        "lng": -98.5795
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 443,
         "readTime": 2
@@ -491,11 +513,11 @@
       "publishedAt": "2026-02-22T14:13:54.000Z",
       "geotag": {
         "country": "USA",
-        "city": "washington",
-        "lat": 38.9072,
-        "lng": -77.0369
+        "city": "Florida",
+        "lat": 39.8283,
+        "lng": -98.5795
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 463,
         "readTime": 2
@@ -513,11 +535,11 @@
       "publishedAt": "2026-02-22T14:08:23.000Z",
       "geotag": {
         "country": "USA",
-        "city": "newyork",
-        "lat": 40.7128,
-        "lng": -74.006
+        "city": "New York City",
+        "lat": 39.8283,
+        "lng": -98.5795
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 741,
         "readTime": 3
@@ -556,37 +578,15 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T13:19:57.000Z",
       "geotag": {
-        "country": "GBR",
-        "city": null,
-        "lat": 55.3781,
-        "lng": -3.436
+        "country": "LKA",
+        "city": "Pallekele",
+        "lat": 0,
+        "lng": 0
       },
       "category": "World",
       "metrics": {
         "wordCount": 514,
         "readTime": 2
-      }
-    },
-    {
-      "id": "28c28e8590b7af45",
-      "sourceId": "aljazeera",
-      "sourceName": "Al Jazeera",
-      "title": "Small but mighty: Colombia’s Muslim community celebrates Ramadan",
-      "excerpt": "Colombia’s Muslims comprise less than 0.2 percent of the population in a country that is majority Catholic.",
-      "content": "**Medellin, Colombia –** Ziauddin Yahya Iqbal Sandoval, known to his friends as Zia, observes Ramadan with quiet conviction.\n\nThe 14-year-old was born and raised in Colombia, where Christianity remains dominant. Nearly 63 percent of the population identifies as Catholic.\n\n## Recommended Stories\n\nlist of 3 items\n\n-   list 1 of 3[Colombia to resume peace talks with ECG after temporary suspension](https://www.aljazeera.com/news/2026/2/17/colombia-to-resume-peace-talks-with-ecg-after-temporary-suspension)\n-   list 2 of 3[Venezuela’s Rodriguez, Colombia’s Petro say they will meet ‘soon’](https://www.aljazeera.com/news/2026/2/19/venezuelas-rodriguez-colombias-petro-say-they-will-meet-soon)\n-   list 3 of 3[‘A Colombian Wild West’: Inside Maicao’s Arab community](https://www.aljazeera.com/news/2023/3/2/a-colombian-wild-west-inside-maicaos-arab-community)\n\nend of list\n\nBut Zia is one of an estimated 85,000 to 100,000 Muslims in Colombia, comprising less than 0.2 percent of the country’s population.\n\nWithin that community, though, is a prism of diverse backgrounds and experiences. Some of Colombia’s Muslims reflect a rich history of migration to the region. Others are converts.\n\n“The Colombian Islamic community is a small one but enjoys more on account of its diversity,” Zia said, as he took a break from serving tea in his uncle Zaheer’s restaurant in the upscale Poblado neighbourhood of Medellin.\n\nOn the eve of Ramadan, Muslim communities in cities like Bogota and Medellin prepared for the coming festivities with decorations and prayer.\n\nGolden, glittering letters spelled out wishes for “Ramadan Karim” — or a “generous Ramadan” — above a modest mosque in Belen, on the outskirts of Medellin.\n\nInside, shoes were lined neatly along the wall. In a small, square prayer room, about eight men of different ages and nationalities stood shoulder to shoulder, bowing in unison.\n\n“The majority of those who come to the mosque are Colombians, but we see people from Trinidad and Tobago, Tunisia, Pakistan and other Arab countries,” said Mu’tasem Abdo, the mosque’s imam who came to Medellin from Egypt four years ago.\n\n![Imam Mu’tasem Abdo speaks in his office](https://www.aljazeera.com/wp-content/uploads/2026/02/DSC_1162-1771634202.jpg?w=770&resize=770%2C513&quality=80)\n\nImam Mu’tasem Abdo speaks about celebrating Ramadan in Colombia from his office \\[Arjun Harindranath/Al Jazeera\\]\n\nHe explained how, because Colombia’s Muslim community is relatively small, newcomers sometimes find themselves aching for the festive experience they remember from home.\n\n“A native from a Muslim country can miss the grandeur of Ramadan as experienced back home,” Abdo explained.\n\nPakistani immigrant Rana Arif Mohammad remembers arriving in Colombia 23 years ago with dreams of adventuring through Latin America. But he too felt isolation as a Muslim in the country.\n\nHe settled in Medellin and founded a restaurant where he serves Pakistani and Arabic specialities in his Belen restaurant. But fellow Muslims were few and far between, and he remembers struggling to find a mosque.\n\n“Twenty-three years ago, I met just four to five Muslims, just a few from Lebanon and Turkiye,” Mohammad said.\n\nBut Mohammad and others have observed Muslim visibility on the rise in Colombia.\n\nIn 2020, for instance, Colombia elected its first Muslim mayor in the border city of Maicao. And Mohammad explained that there are now more Islamic cultural centres and places of worship.\n\n“Today, Medellin has five mosques,” he said, counting the ones he knows.\n\n![Restaurateur Rana Arif Mohammad speaks of the importance of Ramadan and the growth of Medellin’s Muslim community.](https://www.aljazeera.com/wp-content/uploads/2026/02/DSC_1107-1771634232.jpg?w=770&resize=770%2C513&quality=80)\n\nRestaurateur Rana Arif Mohammad speaks of the importance of Ramadan and the growth of Medellin’s Muslim community \\[Arjun Harindranath/Al Jazeera\\]\n\nThe Muslim population in Latin America first surged after the collapse of the Ottoman Empire in the early 20th century. There have been several waves of migration in the century since.\n\nIn Colombia, one of the most significant came during Lebanon’s civil war in the 1970s. The conflict triggered an exodus of nearly one million Lebanese people that included many Muslims and Christians.\n\nSome settled in cities like Maicao, where one of the largest mosques in Latin America was built and completed in 1997.\n\nThe continued migration into Colombia has contributed to the diversity of its Muslim community.\n\nIn Bogota, Sheikh Ahmad Qurtubi speaks proudly of the range of nationalities in his jamaat, or congregation, at the Qurtubi Islamic Centre in the west of the city.\n\n“There are people of different nationalities, approximately 10 or 15 different countries, and we find great diversity in this centre,” Qurtubi explained after delivering the Taraweeh prayer marking the first night of Ramadan.\n\nThough there are no official statistics on the origins of Colombia’s Muslim populat",
-      "url": "https://www.aljazeera.com/news/2026/2/22/small-but-mighty-colombias-muslim-community-celebrates-ramadan?traffic_source=rss",
-      "imageUrl": null,
-      "publishedAt": "2026-02-22T12:53:53.000Z",
-      "geotag": {
-        "country": "UNK",
-        "city": null,
-        "lat": 0,
-        "lng": 0
-      },
-      "category": "WorthReading",
-      "metrics": {
-        "wordCount": 705,
-        "readTime": 3
       }
     },
     {
@@ -605,7 +605,7 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "WorthReading",
+      "category": "Trending",
       "metrics": {
         "wordCount": 739,
         "readTime": 3
@@ -622,12 +622,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T12:40:11.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "USA",
         "city": null,
-        "lat": 0,
-        "lng": 0
+        "lat": 39.8283,
+        "lng": -98.5795
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 683,
         "readTime": 3
@@ -644,12 +644,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T11:30:36.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "AUS",
         "city": null,
-        "lat": 0,
-        "lng": 0
+        "lat": -25.2744,
+        "lng": 133.7751
       },
-      "category": "WorthReading",
+      "category": "National",
       "metrics": {
         "wordCount": 642,
         "readTime": 3
@@ -666,12 +666,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T11:08:48.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "GRL",
         "city": null,
         "lat": 0,
         "lng": 0
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 342,
         "readTime": 2
@@ -683,17 +683,17 @@
       "sourceName": "ABC News",
       "title": "USA beats Canada in overtime to end 46-year gold medal drought",
       "excerpt": "Team USA beats Canada 2-1 in overtime to win the country's first men's ice hockey gold medal since 1980 in the last event of the 2026 Milano Cortina Winter Olympic Games, after Australian 16-year-old Indra Brown finishes fifth in the freeski halfpipe final.",
-      "content": "Team USA has beaten Canada 2-1 in overtime to win the country's first men's ice hockey gold medal since 1980 in the last event of the 2026 Milano Cortina Winter Olympic Games.\n\nThe victory was identical to that of the US women's team on Friday, which was also a 2-1 overtime victory against their North American rivals.\n\nBut for the women, the win marked their third gold medal since 1998, while the men's team had not won gold at the Winter Olympics since [the 1980 Miracle on Ice at Lake Placid](https://www.abc.net.au/news/2026-02-22/miracle-on-ice-usa-vs-ussr-ice-hockey-lake-placid-winter-olympic/106287402).\n\n![Matt Boldy of Team USA shouts to celebrate an ice hockey goal.](https://live-production.wcms.abc-cdn.net.au/7c99abe71e2bbcb8e42758c2f84b74be?impolicy=wcms_crop_resize&cropH=2284&cropW=3426&xPos=0&yPos=0&width=862&height=575)\n\nMatt Boldy scored early in the first period for Team USA. (Getty Images)\n\nMatt Boldy opened the scoring for Team USA in a frantic first period, before Cale Makar levelled for Canada shortly before the end of the second.\n\nThe teams could not be split through the third and final regulation period, thanks largely to US goalie Connor Hellebuyck, who made 41 saves on the night.\n\nHe was also aided by a late open-goal miss from Nathan MacKinnon, before the game went to overtime and Jack Hughes sealed the win.\n\nEarlier on the last day of competition, [Australian 16-year-old Indra Brown finished fifth in the freeski halfpipe final](https://www.abc.net.au/news/2026-02-22/indra-brown-medal-freeski-halfpipe-2026-winter-olympics/106373982).\n\nBrown earned praise from [back-to-back gold medallist Eileen Gu](https://www.abc.net.au/news/2026-02-22/winter-olympics-day-16-live-updates-indra-brown/106372016?utm_campaign=abc_news_web&utm_content=link&utm_medium=content_shared&utm_source=abc_news_web#live-blog-post-263198), who was the first to embrace Brown after her third and final run, when she landed her first 1080 in competition.\n\n\"It was a really special moment to [have someone I idolise give me a hug after I land my third run at the Olympics](https://www.abc.net.au/news/2026-02-22/winter-olympics-day-16-live-updates-indra-brown/106372016?utm_campaign=abc_news_web&utm_content=link&utm_medium=content_shared&utm_source=abc_news_web#live-blog-post-263199),\" Brown told Channel Nine.\n\nRosie Fordham was the only other Australian in action, finishing 30th in the women's 50km mass start cross-country skiing.\n\n_**Look back at all the action from day 16 in our live blog.**_\n\n## Key Events\n\n1.  40 minutes agoSun 22 Feb 2026 at 3:53pm\n    \n2.  1 hours agoSun 22 Feb 2026 at 3:32pm\n    \n3.  1 hours agoSun 22 Feb 2026 at 2:41pm\n    \n\n34m agoSun 22 Feb 2026 at 3:59pm\n\n### 2026 Winter Olympics medal tally 🥇🥈🥉\n\nHere is the final medal table for the 2026 Milano Cortina Winter Olympic Games.\n\n1.  Norway — 18 gold, 12 silver, 11 bronze\n2.  USA — 12 gold, 12 silver, 9 bronze\n3.  Netherlands — 10 gold, 7 silver, 3 bronze\n4.  Italy — 10 gold, 6 silver, 14 bronze\n5.  Germany — 8 gold, 10 silver, 8 bronze\n6.  France — 8 gold, 9 silver, 6 bronze\n7.  Sweden — 8 gold, 6 silver, 4 bronze\n8.  Switzerland — 6 gold, 9 silver, 8 bronze\n9.  Austria — 5 gold, 8 silver, 5 bronze\n10.  Japan — 5 gold, 7 silver, 12 bronze\n11.  Canada — 5 gold, 7 silver 9 bronze\n12.  China — 5 gold, 4 silver, 6 bronze\n13.  South Korea — 3 gold, 4 silver, 3 bronze\n14.  **Australia — 3 gold, 2 silver, 1 bronze**\n15.  Great Britain — 3 gold, 1 silver, 1 bronze\n16.  Czechia — 2 gold, 2 silver, 1 bronze\n17.  Slovenia — 2 gold, 1 silver, 1 bronze\n18.  Spain — 1 gold, 2 bronze\n19.  Brazil, Kazakhstan — 1 gold\n\n15m agoSun 22 Feb 2026 at 4:19pm\n\n### And that will do us\n\n![](https://au-img-cdn.livecenter.com/lc-aus-images/lcimg-777862af-00c6-40bb-882a-42a504ed67d6.jpeg)\n\n(Getty)\n\nAs the US and Canadian team get their medals, I'll sign off this last Winter Olympics competition blog.\n\nIt's been a wild two-plus weeks and we're not done yet!\n\nAndrew McGarry will be back in a couple of hours' time to blog the closing ceremony.\n\nUntil then, on behalf of myself and the rest of the blog team, good night, good morning and happy Monday or Sunday or whatever it is.\n\nI think we all look forward to living on Australian time once again.\n\n26m agoSun 22 Feb 2026 at 4:07pm\n\n### Respect\n\n![](https://au-img-cdn.livecenter.com/lc-aus-images/lcimg-5efbf944-497c-4b55-8a17-1d96d0436fdd.jpeg)\n\nUSA captain Auston Matthews and Canada captain Connor McDavid. (Getty)\n\n27m agoSun 22 Feb 2026 at 4:07pm\n\n### An emotional tribute from Team USA\n\nThe American team quickly found a \"GAUDREAU\" jersey and skated around the ice holding it up.\n\nJohnny Gaudreau played 11 seasons with the Calgary Flames and Columbus Blue Jackets in the NHL and was a national and club teammate to many players in this US team.\n\nHe and his brother were hit by a car while riding their bikes on a New Jersey highway in 2024.\n\nBoth brothers died.\n\nJohnny was 31.\n\nHis number 13 jersey has been hanging in the US locker room al",
+      "content": "Team USA has beaten Canada 2-1 in overtime to win the country's first men's ice hockey gold medal since 1980 in the last event of the 2026 Milano Cortina Winter Olympic Games.\n\nThe victory was identical to that of the US women's team on Friday, which was also a 2-1 overtime victory against their North American rivals.\n\nBut for the women, the win marked their third gold medal since 1998, while the men's team had not won gold at the Winter Olympics since [the 1980 Miracle on Ice at Lake Placid](https://www.abc.net.au/news/2026-02-22/miracle-on-ice-usa-vs-ussr-ice-hockey-lake-placid-winter-olympic/106287402).\n\n![Matt Boldy of Team USA shouts to celebrate an ice hockey goal.](https://live-production.wcms.abc-cdn.net.au/7c99abe71e2bbcb8e42758c2f84b74be?impolicy=wcms_crop_resize&cropH=2284&cropW=3426&xPos=0&yPos=0&width=862&height=575)\n\nMatt Boldy scored early in the first period for Team USA. (Getty Images)\n\nMatt Boldy opened the scoring for Team USA in a frantic first period, before Cale Makar levelled for Canada shortly before the end of the second.\n\nThe teams could not be split through the third and final regulation period, thanks largely to US goalie Connor Hellebuyck, who made 41 saves on the night.\n\nHe was also aided by a late open-goal miss from Nathan MacKinnon, before the game went to overtime and Jack Hughes sealed the win.\n\nEarlier on the last day of competition, [Australian 16-year-old Indra Brown finished fifth in the freeski halfpipe final](https://www.abc.net.au/news/2026-02-22/indra-brown-medal-freeski-halfpipe-2026-winter-olympics/106373982).\n\nBrown earned praise from [back-to-back gold medallist Eileen Gu](https://www.abc.net.au/news/2026-02-22/winter-olympics-day-16-live-updates-indra-brown/106372016?utm_campaign=abc_news_web&utm_content=link&utm_medium=content_shared&utm_source=abc_news_web#live-blog-post-263198), who was the first to embrace Brown after her third and final run, when she landed her first 1080 in competition.\n\n\"It was a really special moment to [have someone I idolise give me a hug after I land my third run at the Olympics](https://www.abc.net.au/news/2026-02-22/winter-olympics-day-16-live-updates-indra-brown/106372016?utm_campaign=abc_news_web&utm_content=link&utm_medium=content_shared&utm_source=abc_news_web#live-blog-post-263199),\" Brown told Channel Nine.\n\nRosie Fordham was the only other Australian in action, finishing 30th in the women's 50km mass start cross-country skiing.\n\n_**Look back at all the action from day 16 in our live blog.**_\n\n## Key Events\n\n1.  42 minutes agoSun 22 Feb 2026 at 3:53pm\n    \n2.  1 hours agoSun 22 Feb 2026 at 3:32pm\n    \n3.  1 hours agoSun 22 Feb 2026 at 2:41pm\n    \n\n36m agoSun 22 Feb 2026 at 3:59pm\n\n### 2026 Winter Olympics medal tally 🥇🥈🥉\n\nHere is the final medal table for the 2026 Milano Cortina Winter Olympic Games.\n\n1.  Norway — 18 gold, 12 silver, 11 bronze\n2.  USA — 12 gold, 12 silver, 9 bronze\n3.  Netherlands — 10 gold, 7 silver, 3 bronze\n4.  Italy — 10 gold, 6 silver, 14 bronze\n5.  Germany — 8 gold, 10 silver, 8 bronze\n6.  France — 8 gold, 9 silver, 6 bronze\n7.  Sweden — 8 gold, 6 silver, 4 bronze\n8.  Switzerland — 6 gold, 9 silver, 8 bronze\n9.  Austria — 5 gold, 8 silver, 5 bronze\n10.  Japan — 5 gold, 7 silver, 12 bronze\n11.  Canada — 5 gold, 7 silver 9 bronze\n12.  China — 5 gold, 4 silver, 6 bronze\n13.  South Korea — 3 gold, 4 silver, 3 bronze\n14.  **Australia — 3 gold, 2 silver, 1 bronze**\n15.  Great Britain — 3 gold, 1 silver, 1 bronze\n16.  Czechia — 2 gold, 2 silver, 1 bronze\n17.  Slovenia — 2 gold, 1 silver, 1 bronze\n18.  Spain — 1 gold, 2 bronze\n19.  Brazil, Kazakhstan — 1 gold\n\n17m agoSun 22 Feb 2026 at 4:19pm\n\n### And that will do us\n\n![](https://au-img-cdn.livecenter.com/lc-aus-images/lcimg-777862af-00c6-40bb-882a-42a504ed67d6.jpeg)\n\n(Getty)\n\nAs the US and Canadian team get their medals, I'll sign off this last Winter Olympics competition blog.\n\nIt's been a wild two-plus weeks and we're not done yet!\n\nAndrew McGarry will be back in a couple of hours' time to blog the closing ceremony.\n\nUntil then, on behalf of myself and the rest of the blog team, good night, good morning and happy Monday or Sunday or whatever it is.\n\nI think we all look forward to living on Australian time once again.\n\n28m agoSun 22 Feb 2026 at 4:07pm\n\n### Respect\n\n![](https://au-img-cdn.livecenter.com/lc-aus-images/lcimg-5efbf944-497c-4b55-8a17-1d96d0436fdd.jpeg)\n\nUSA captain Auston Matthews and Canada captain Connor McDavid. (Getty)\n\n28m agoSun 22 Feb 2026 at 4:07pm\n\n### An emotional tribute from Team USA\n\nThe American team quickly found a \"GAUDREAU\" jersey and skated around the ice holding it up.\n\nJohnny Gaudreau played 11 seasons with the Calgary Flames and Columbus Blue Jackets in the NHL and was a national and club teammate to many players in this US team.\n\nHe and his brother were hit by a car while riding their bikes on a New Jersey highway in 2024.\n\nBoth brothers died.\n\nJohnny was 31.\n\nHis number 13 jersey has been hanging in the US locker room al",
       "url": "https://www.abc.net.au/news/2026-02-22/winter-olympics-day-16-live-updates-indra-brown/106372016",
       "imageUrl": null,
       "publishedAt": "2026-02-22T08:47:41.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "CAN",
         "city": null,
-        "lat": 0,
-        "lng": 0
+        "lat": 56.1304,
+        "lng": -106.3468
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 745,
         "readTime": 3
@@ -710,12 +710,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T08:29:37.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "USA",
         "city": null,
-        "lat": 0,
-        "lng": 0
+        "lat": 39.8283,
+        "lng": -98.5795
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 697,
         "readTime": 3
@@ -737,7 +737,7 @@
         "lat": -25.2744,
         "lng": 133.7751
       },
-      "category": "World",
+      "category": "National",
       "metrics": {
         "wordCount": 753,
         "readTime": 3
@@ -754,12 +754,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T08:12:39.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "AUS",
         "city": null,
-        "lat": 0,
-        "lng": 0
+        "lat": -25.2744,
+        "lng": 133.7751
       },
-      "category": "WorthReading",
+      "category": "National",
       "metrics": {
         "wordCount": 386,
         "readTime": 2
@@ -776,12 +776,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T08:05:48.000Z",
       "geotag": {
-        "country": "UNK",
-        "city": null,
-        "lat": 0,
-        "lng": 0
+        "country": "AUS",
+        "city": "Alice Springs",
+        "lat": -25.2744,
+        "lng": 133.7751
       },
-      "category": "WorthReading",
+      "category": "National",
       "metrics": {
         "wordCount": 640,
         "readTime": 3
@@ -798,12 +798,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T07:47:15.000Z",
       "geotag": {
-        "country": "UNK",
-        "city": null,
-        "lat": 0,
-        "lng": 0
+        "country": "AUS",
+        "city": "Sydney",
+        "lat": -25.2744,
+        "lng": 133.7751
       },
-      "category": "WorthReading",
+      "category": "National",
       "metrics": {
         "wordCount": 500,
         "readTime": 2
@@ -820,12 +820,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T07:15:38.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "IRN",
         "city": null,
-        "lat": 0,
-        "lng": 0
+        "lat": 32.4279,
+        "lng": 53.688
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 780,
         "readTime": 4
@@ -842,12 +842,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T06:35:19.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "AFG",
         "city": null,
         "lat": 0,
         "lng": 0
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 680,
         "readTime": 3
@@ -864,12 +864,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T05:59:45.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "IRN",
         "city": null,
-        "lat": 0,
-        "lng": 0
+        "lat": 32.4279,
+        "lng": 53.688
       },
-      "category": "WorthReading",
+      "category": "World",
       "metrics": {
         "wordCount": 480,
         "readTime": 2
@@ -886,12 +886,12 @@
       "imageUrl": null,
       "publishedAt": "2026-02-22T05:41:52.000Z",
       "geotag": {
-        "country": "UNK",
+        "country": "AUS",
         "city": null,
-        "lat": 0,
-        "lng": 0
+        "lat": -25.2744,
+        "lng": 133.7751
       },
-      "category": "WorthReading",
+      "category": "National",
       "metrics": {
         "wordCount": 690,
         "readTime": 3
