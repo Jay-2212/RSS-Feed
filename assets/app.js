@@ -597,8 +597,42 @@ function getStoredGitHubToken() {
   }
 }
 
-async function ensureGitHubToken() {
-  return getStoredGitHubToken();
+function storeGitHubToken(token) {
+  try {
+    localStorage.setItem(GITHUB_TOKEN_KEY, String(token || "").trim());
+  } catch {
+    // Ignore localStorage failures.
+  }
+}
+
+function clearGitHubToken() {
+  try {
+    localStorage.removeItem(GITHUB_TOKEN_KEY);
+  } catch {
+    // Ignore localStorage failures.
+  }
+}
+
+async function ensureGitHubToken({ interactive = false } = {}) {
+  const stored = getStoredGitHubToken();
+  if (stored) {
+    return stored;
+  }
+
+  if (!interactive) {
+    return "";
+  }
+
+  const entered = window.prompt(
+    "To run a fresh pipeline now, enter a GitHub token (PAT) with Actions/Workflows access. This is separate from Kimi API key. Leave blank to reload current snapshot only."
+  );
+  const token = String(entered || "").trim();
+  if (!token) {
+    return "";
+  }
+
+  storeGitHubToken(token);
+  return token;
 }
 
 async function githubRequest(path, token, options = {}) {
@@ -734,7 +768,7 @@ async function runRefresh(mapController) {
     let workflowTriggered = false;
 
     if (hasWorkflowConfig()) {
-      const token = await ensureGitHubToken();
+      const token = await ensureGitHubToken({ interactive: true });
       if (token) {
         setRefreshStatus("Starting workflow run...");
         const startedAt = await triggerWorkflowDispatch(token);
@@ -743,7 +777,9 @@ async function runRefresh(mapController) {
         await waitForWorkflowCompletion(token, runId);
         workflowTriggered = true;
       } else {
-        setRefreshStatus("No GitHub token saved in this browser. Reloading current snapshot only.");
+        setRefreshStatus(
+          "No GitHub token provided. Reloading current snapshot only (no new pipeline run)."
+        );
       }
     }
 
@@ -759,6 +795,9 @@ async function runRefresh(mapController) {
       setRefreshStatus(`Snapshot reloaded: ${formatDate(state.metadata?.lastUpdated)}`);
     }
   } catch (error) {
+    if (/GitHub API 401|GitHub API 403/i.test(String(error?.message || ""))) {
+      clearGitHubToken();
+    }
     setRefreshStatus(error.message || "Refresh failed.", true);
   } finally {
     state.refreshing = false;
