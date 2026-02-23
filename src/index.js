@@ -1,7 +1,7 @@
 import { getRuntimeConfig, loadSourcesFile, applySourceLimit } from "./config.js";
 import { curateArticles } from "./curator.js";
 import { extractArticles } from "./extractor.js";
-import { fetchArticles } from "./fetcher.js";
+import { fetchArticles, loadFeedCacheState, writeFeedCacheState } from "./fetcher.js";
 import { geotagArticles } from "./geotagger.js";
 import {
   buildExistingIndex,
@@ -13,9 +13,22 @@ import { buildPersistedOutput, writePersistedArtifacts } from "./persistence.js"
 import { createLogger } from "./utils.js";
 
 const logger = createLogger("pipeline");
+const BROKEN_IMAGE_REGEX =
+  /(1x1_spacer|grey-placeholder|placeholder|transparent|blank|pixel)/i;
 
 function hasFlag(flag) {
   return process.argv.includes(flag);
+}
+
+function needsMediaRefresh(article) {
+  const imageUrl = String(article?.imageUrl || "").trim();
+  const content = String(article?.content || "");
+
+  if (!imageUrl) {
+    return true;
+  }
+
+  return BROKEN_IMAGE_REGEX.test(imageUrl) || BROKEN_IMAGE_REGEX.test(content);
 }
 
 export async function runPhaseOneToThree() {
@@ -23,6 +36,8 @@ export async function runPhaseOneToThree() {
   const loadedSources = await loadSourcesFile();
   const sources = applySourceLimit(loadedSources, config.maxSources);
   const sourceMap = new Map(sources.map((source) => [source.id, source]));
+  const feedCacheState = await loadFeedCacheState(config.outputFeedStateFile, { logger });
+  const fetchStats = {};
 
   logger.info("Pipeline start", {
     sourcesConfigured: loadedSources.length,
@@ -34,13 +49,38 @@ export async function runPhaseOneToThree() {
     logger
   });
   const existingArticles = existingSnapshot.articles;
-  const existingIndex = buildExistingIndex(existingArticles);
+  const mediaRepairCandidates = existingArticles
+    .filter((article) => needsMediaRefresh(article))
+    .slice(0, Math.max(0, config.mediaRefreshPerRun));
+
+  let repairedExistingArticles = [];
+  if (mediaRepairCandidates.length > 0) {
+    repairedExistingArticles = await extractArticles(mediaRepairCandidates, {
+      attemptTimeoutMs: config.extractionAttemptTimeoutMs,
+      totalTimeoutMs: config.extractionTotalTimeoutMs,
+      maxMarkdownChars: config.extractionMarkdownMaxChars,
+      maxExcerptChars: config.extractionExcerptMaxChars,
+      concurrency: Math.max(1, Math.min(3, config.extractionConcurrency)),
+      logger
+    });
+  }
+
+  const existingByUrl = new Map(existingArticles.map((article) => [article.url, article]));
+  for (const repaired of repairedExistingArticles) {
+    existingByUrl.set(repaired.url, repaired);
+  }
+  const effectiveExistingArticles = Array.from(existingByUrl.values());
+  const existingIndex = buildExistingIndex(effectiveExistingArticles);
 
   const fetched = await fetchArticles(sources, {
     maxPerSource: config.maxArticlesPerSource,
     timeoutMs: config.extractionAttemptTimeoutMs,
-    logger
+    logger,
+    feedCacheState,
+    enableConditionalFetch: config.feedConditionalFetch,
+    fetchStats
   });
+  await writeFeedCacheState(config.outputFeedStateFile, feedCacheState, { logger });
 
   const delta = splitArticlesByDifference(fetched, existingIndex);
 
@@ -65,12 +105,15 @@ export async function runPhaseOneToThree() {
 
   logger.info("Pipeline completed through Phase 3", {
     fetched: fetched.length,
+    unchangedSources: fetchStats.unchangedSourceCount ?? 0,
+    failedSources: fetchStats.failedSourceCount ?? 0,
     duplicateByUrl: delta.duplicateUrlCount,
     duplicateByTitle: delta.duplicateTitleCount,
     newForExtraction: delta.newArticles.length,
     extracted: extracted.length,
     curatedNew: curatedNew.length,
-    cachedExisting: existingArticles.length
+    cachedExisting: effectiveExistingArticles.length,
+    refreshedExistingMedia: repairedExistingArticles.length
   });
 
   return {
@@ -78,14 +121,17 @@ export async function runPhaseOneToThree() {
       lastRun: new Date().toISOString(),
       sources: sources.map((source) => source.id),
       phase: "phase_3_complete",
-      existingCount: existingArticles.length,
+      existingCount: effectiveExistingArticles.length,
       newCount: curatedNew.length,
+      refreshedExistingMedia: repairedExistingArticles.length,
+      unchangedSources: fetchStats.unchangedSourceCount ?? 0,
+      failedSources: fetchStats.failedSourceCount ?? 0,
       duplicateByUrl: delta.duplicateUrlCount,
       duplicateByTitle: delta.duplicateTitleCount,
       previousGeotagModeResolved: existingSnapshot.metadata?.geotagModeResolved ?? "unknown"
     },
     articles: curatedNew,
-    existingArticles
+    existingArticles: effectiveExistingArticles
   };
 }
 

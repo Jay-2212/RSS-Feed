@@ -49,11 +49,16 @@ By default this runs Phase 1-5. Geotag behavior:
    1. `CURATION_MAX_ARTICLES=120`
    2. `MAX_ARTICLES_PER_SOURCE=20`
    3. `ARTICLE_RETENTION_DAYS=21`
+   4. `MEDIA_REFRESH_PER_RUN=20` (refreshes image/content for cached items with broken media)
 7. Incremental fetch mode is enabled:
    1. Existing `articles.json` is used as a cache/index.
    2. Already-seen URLs are skipped before extraction/geotagging.
    3. Near-duplicate titles from the same source are skipped to avoid refetching similar stories.
    4. Final output is merged and pruned by recency + `CURATION_MAX_ARTICLES`.
+8. Conditional feed fetch mode is enabled:
+   1. `FEED_CONDITIONAL_FETCH=true` sends `If-None-Match`/`If-Modified-Since` to publishers.
+   2. Per-source header state is persisted in `feedState.json`.
+   3. `304 Not Modified` responses are skipped, reducing source load and throttle risk.
 
 6. Run final QA gate:
 
@@ -70,6 +75,7 @@ The workflow already maps the secret into runtime env:
    3. `GEOTAG_MAX_API_BATCHES` configurable via repo variable (defaults to `0` for uncapped)
 2. `/Users/jaybharti/Documents/RSS Feed/src/config.js` reads `process.env.KIMI_CODE_API`.
 3. `/Users/jaybharti/Documents/RSS Feed/src/geotagger.js` switches to live Kimi when key exists; otherwise it uses mock geotagging.
+4. `/Users/jaybharti/Documents/RSS Feed/src/fetcher.js` uses `feedState.json` to track feed cache headers for conditional requests.
 
 Verification in Actions logs:
 1. Step `Validate secret wiring` should print `KIMI_CODE_API detected in environment.` once you add the secret.
@@ -97,6 +103,7 @@ Kimi troubleshooting:
 ## Implemented Modules (Phase 5)
 
 - `src/persistence.js`: output schema normalization and artifact writing (`articles.json`, `lastUpdated.txt`).
+- `src/fetcher.js`: conditional feed request support and feed cache state persistence (`feedState.json`).
 - `.github/workflows/curate.yml`: workflow now commits generated artifacts back to `main`.
 
 ## Implemented Modules (Phase 6)

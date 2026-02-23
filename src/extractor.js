@@ -17,6 +17,8 @@ import {
 
 const USER_AGENT =
   "Mozilla/5.0 (compatible; RSSNewsHub/1.0; +https://github.com)";
+const PLACEHOLDER_IMAGE_REGEX =
+  /(1x1|spacer|pixel|placeholder|blank|transparent|default-image|grey-placeholder)/i;
 
 const DEFAULT_OPTIONS = {
   attemptTimeoutMs: 8_000,
@@ -69,6 +71,131 @@ function parseReadableFromHtml(html, url) {
   }
 }
 
+function resolveHttpUrl(rawUrl, baseUrl = "") {
+  const value = String(rawUrl ?? "").trim();
+  if (!value) {
+    return null;
+  }
+
+  try {
+    const parsed = baseUrl ? new URL(value, baseUrl) : new URL(value);
+    if (!["http:", "https:"].includes(parsed.protocol)) {
+      return null;
+    }
+    return parsed.toString();
+  } catch {
+    return null;
+  }
+}
+
+function isLikelyPlaceholderImage(url) {
+  return PLACEHOLDER_IMAGE_REGEX.test(String(url ?? "").toLowerCase());
+}
+
+function chooseUrlFromSrcset(rawSrcset, baseUrl) {
+  const srcset = String(rawSrcset ?? "").trim();
+  if (!srcset) {
+    return null;
+  }
+
+  const candidates = srcset
+    .split(",")
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .map((entry) => {
+      const [rawCandidate, descriptorRaw] = entry.split(/\s+/, 2);
+      const url = resolveHttpUrl(rawCandidate, baseUrl);
+      if (!url) {
+        return null;
+      }
+
+      const descriptor = String(descriptorRaw || "").trim().toLowerCase();
+      const widthMatch = descriptor.match(/^(\d+)w$/);
+      const densityMatch = descriptor.match(/^(\d+(?:\.\d+)?)x$/);
+      const score = widthMatch
+        ? Number.parseInt(widthMatch[1], 10)
+        : densityMatch
+          ? Number.parseFloat(densityMatch[1]) * 1_000
+          : 1;
+
+      return { url, score };
+    })
+    .filter(Boolean);
+
+  if (candidates.length === 0) {
+    return null;
+  }
+
+  candidates.sort((a, b) => b.score - a.score);
+  return candidates[0].url;
+}
+
+function chooseBestImageCandidate($image, baseUrl) {
+  const directSrc = resolveHttpUrl($image.attr("src"), baseUrl);
+  const srcsetCandidate = chooseUrlFromSrcset(
+    $image.attr("srcset") || $image.attr("data-srcset"),
+    baseUrl
+  );
+
+  const lazyCandidates = [
+    $image.attr("data-src"),
+    $image.attr("data-original"),
+    $image.attr("data-lazy-src"),
+    $image.attr("data-src-template"),
+    $image.attr("data-image-url"),
+    $image.attr("data-url"),
+    $image.attr("data-full-src"),
+    $image.attr("data-zoom-src")
+  ]
+    .map((candidate) => resolveHttpUrl(candidate, baseUrl))
+    .filter(Boolean);
+
+  const allCandidates = [directSrc, srcsetCandidate, ...lazyCandidates].filter(Boolean);
+  if (allCandidates.length === 0) {
+    return null;
+  }
+
+  const nonPlaceholder = allCandidates.find((candidate) => !isLikelyPlaceholderImage(candidate));
+  return nonPlaceholder || allCandidates[0];
+}
+
+function preprocessPublisherHtml(html, pageUrl) {
+  const $ = cheerio.load(String(html ?? ""));
+
+  $("img").each((_index, element) => {
+    const $image = $(element);
+    const best = chooseBestImageCandidate($image, pageUrl);
+    if (!best) {
+      return;
+    }
+
+    const currentSrc = resolveHttpUrl($image.attr("src"), pageUrl);
+    if (!currentSrc || isLikelyPlaceholderImage(currentSrc)) {
+      $image.attr("src", best);
+    }
+
+    const srcsetCandidate = chooseUrlFromSrcset(
+      $image.attr("srcset") || $image.attr("data-srcset"),
+      pageUrl
+    );
+    if (srcsetCandidate) {
+      $image.attr("srcset", srcsetCandidate);
+    }
+  });
+
+  const leadImage = resolveHttpUrl(
+    $("meta[property='og:image']").attr("content") ||
+      $("meta[name='twitter:image']").attr("content") ||
+      $("link[rel='image_src']").attr("href"),
+    pageUrl
+  );
+
+  return {
+    html: $.html(),
+    leadImage
+  };
+}
+
 function fallbackExcerptFromHtml(html) {
   const $ = cheerio.load(html);
   const paragraphs = $("p")
@@ -86,7 +213,55 @@ function markdownFromParsedArticle(parsed) {
   return turndown.turndown(contentHtml);
 }
 
-function formatExtractionResult(article, parsed, method, options, htmlFallback = "") {
+function firstImageFromMarkdown(markdown, baseUrl) {
+  const source = String(markdown ?? "");
+  const matches = source.matchAll(/!\[[^\]]*]\(([^)\s]+)[^)]*\)/g);
+  for (const match of matches) {
+    const resolved = resolveHttpUrl(match?.[1], baseUrl);
+    if (!resolved || isLikelyPlaceholderImage(resolved)) {
+      continue;
+    }
+    return resolved;
+  }
+  return null;
+}
+
+function fallbackImageFromHtml(html, baseUrl) {
+  const $ = cheerio.load(String(html ?? ""));
+  let fallback = null;
+
+  $("img").each((_index, element) => {
+    if (fallback) {
+      return;
+    }
+
+    const best = chooseBestImageCandidate($(element), baseUrl);
+    if (!best || isLikelyPlaceholderImage(best)) {
+      return;
+    }
+    fallback = best;
+  });
+
+  return fallback;
+}
+
+function chooseArticleImage(article, markdown, html, leadImage, baseUrl) {
+  const existing = resolveHttpUrl(article?.imageUrl, baseUrl);
+  const fromMarkdown = firstImageFromMarkdown(markdown, baseUrl);
+  const fromHtml = fallbackImageFromHtml(html, baseUrl);
+  const candidates = [existing, fromMarkdown, leadImage, fromHtml].filter(Boolean);
+
+  if (candidates.length === 0) {
+    return null;
+  }
+
+  const nonPlaceholder = candidates.find((candidate) => !isLikelyPlaceholderImage(candidate));
+  return nonPlaceholder || candidates[0];
+}
+
+function formatExtractionResult(article, parsed, method, options, context = {}) {
+  const htmlFallback = context.html || "";
+  const leadImage = context.leadImage || null;
   const markdown = markdownFromParsedArticle(parsed);
   const content = clampText(markdown, options.maxMarkdownChars);
 
@@ -96,9 +271,12 @@ function formatExtractionResult(article, parsed, method, options, htmlFallback =
   const excerpt = clampText(excerptSeed, options.maxExcerptChars);
 
   const wordCount = calculateWordCount(content || excerpt);
+  const imageUrl = chooseArticleImage(article, content, htmlFallback, leadImage, article.url);
+
   return {
     ...article,
     excerpt: excerpt || article.excerpt,
+    imageUrl,
     content,
     wordCount,
     readTime: estimateReadTime(wordCount),
@@ -108,27 +286,29 @@ function formatExtractionResult(article, parsed, method, options, htmlFallback =
 
 async function directReadabilityAttempt(article, attemptTimeoutMs, options) {
   const html = await fetchHtml(article.url, attemptTimeoutMs);
-  const parsed = parseReadableFromHtml(html, article.url);
+  const prepared = preprocessPublisherHtml(html, article.url);
+  const parsed = parseReadableFromHtml(prepared.html, article.url);
   if (!parsed?.textContent) {
     throw new AppError("Readability failed on direct fetch", {
       code: "EXTRACTION_READABILITY_EMPTY"
     });
   }
 
-  return formatExtractionResult(article, parsed, "direct", options, html);
+  return formatExtractionResult(article, parsed, "direct", options, prepared);
 }
 
 async function twelveFtAttempt(article, attemptTimeoutMs, options) {
   const proxyUrl = `https://12ft.io/api/proxy?url=${encodeURIComponent(article.url)}`;
   const html = await fetchHtml(proxyUrl, attemptTimeoutMs);
-  const parsed = parseReadableFromHtml(html, article.url);
+  const prepared = preprocessPublisherHtml(html, article.url);
+  const parsed = parseReadableFromHtml(prepared.html, article.url);
   if (!parsed?.textContent) {
     throw new AppError("Readability failed on 12ft proxy", {
       code: "EXTRACTION_12FT_EMPTY"
     });
   }
 
-  return formatExtractionResult(article, parsed, "12ft", options, html);
+  return formatExtractionResult(article, parsed, "12ft", options, prepared);
 }
 
 async function archiveTodayAttempt(article, attemptTimeoutMs, options) {
@@ -149,14 +329,15 @@ async function archiveTodayAttempt(article, attemptTimeoutMs, options) {
 
   const html = String(submitResponse.data ?? "");
   const archiveHtml = finalUrl === submitUrl ? html : await fetchHtml(finalUrl, attemptTimeoutMs);
-  const parsed = parseReadableFromHtml(archiveHtml, finalUrl);
+  const prepared = preprocessPublisherHtml(archiveHtml, finalUrl);
+  const parsed = parseReadableFromHtml(prepared.html, finalUrl);
   if (!parsed?.textContent) {
     throw new AppError("Readability failed on archive.today", {
       code: "EXTRACTION_ARCHIVE_EMPTY"
     });
   }
 
-  return formatExtractionResult(article, parsed, "archive.today", options, archiveHtml);
+  return formatExtractionResult(article, parsed, "archive.today", options, prepared);
 }
 
 function buildAttemptChain(options) {

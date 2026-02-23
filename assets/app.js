@@ -471,7 +471,7 @@ function openReader(articleId) {
   const heroImage = heroUrl
     ? `<figure><img src="${escapeHtml(heroUrl)}" alt="${escapeHtml(
         article.title
-      )}" loading="lazy" referrerpolicy="no-referrer" /></figure>`
+      )}" loading="lazy" decoding="async" referrerpolicy="strict-origin-when-cross-origin" /></figure>`
     : "";
   const readerBody = article.content?.trim()
     ? renderMarkdown(article.content, { baseUrl: article.url })

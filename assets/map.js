@@ -12,6 +12,66 @@ const PRIORITY_COLORS = {
   None: "#334155"
 };
 
+const BORDER_CONFLICT_PAIRS = [
+  {
+    id: "RUS-UKR",
+    a: "RUS",
+    b: "UKR",
+    label: "Russia-Ukraine Front",
+    keywords: ["donbas", "crimea", "dnipro", "kharkiv"]
+  },
+  {
+    id: "ISR-PSE",
+    a: "ISR",
+    b: "PSE",
+    label: "Israel-Gaza Border",
+    keywords: ["gaza", "west bank", "hamas", "rafah"]
+  },
+  {
+    id: "IND-PAK",
+    a: "IND",
+    b: "PAK",
+    label: "India-Pakistan Border",
+    keywords: ["kashmir", "line of control", "loc"]
+  },
+  {
+    id: "IND-CHN",
+    a: "IND",
+    b: "CHN",
+    label: "India-China Border",
+    keywords: ["ladakh", "arunachal", "himalaya", "lac"]
+  },
+  {
+    id: "AFG-PAK",
+    a: "AFG",
+    b: "PAK",
+    label: "Afghanistan-Pakistan Border",
+    keywords: ["durand line", "paktika", "nangarhar", "ttp"]
+  },
+  {
+    id: "ARM-AZE",
+    a: "ARM",
+    b: "AZE",
+    label: "Armenia-Azerbaijan Border",
+    keywords: ["nagorno", "karabakh"]
+  }
+];
+
+const COUNTRY_TEXT_MATCHERS = {
+  USA: /\b(united states|u\.s\.|america|washington|new york)\b/i,
+  IND: /\b(india|indian|new delhi|delhi|mumbai)\b/i,
+  GBR: /\b(uk|britain|england|london|united kingdom)\b/i,
+  CHN: /\b(china|chinese|beijing)\b/i,
+  RUS: /\b(russia|russian|moscow)\b/i,
+  UKR: /\b(ukraine|ukrainian|kyiv)\b/i,
+  ISR: /\b(israel|israeli|jerusalem)\b/i,
+  PSE: /\b(gaza|palestine|palestinian|west bank)\b/i,
+  PAK: /\b(pakistan|pakistani|islamabad|lahore)\b/i,
+  AFG: /\b(afghanistan|afghan|kabul)\b/i,
+  ARM: /\b(armenia|armenian|yerevan)\b/i,
+  AZE: /\b(azerbaijan|azerbaijani|baku)\b/i
+};
+
 function escapeHtml(value) {
   return String(value ?? "")
     .replace(/&/g, "&amp;")
@@ -77,6 +137,31 @@ function hasConflictSignal(article) {
   }
   const tags = Array.isArray(article?.tags) ? article.tags : [];
   return tags.some((tag) => /\b(conflict|war|ceasefire|military|attack)\b/i.test(tag));
+}
+
+function articleSearchText(article) {
+  const tags = Array.isArray(article?.tags) ? article.tags.join(" ") : "";
+  return `${article?.title || ""} ${article?.excerpt || ""} ${tags}`.toLowerCase();
+}
+
+function detectMentionedCountries(article) {
+  const text = articleSearchText(article);
+  const mentioned = new Set();
+
+  for (const [country, pattern] of Object.entries(COUNTRY_TEXT_MATCHERS)) {
+    if (pattern.test(text)) {
+      mentioned.add(country);
+    }
+  }
+
+  const geotagCountry = String(article?.geotag?.country || "")
+    .trim()
+    .toUpperCase();
+  if (geotagCountry && geotagCountry !== "UNK") {
+    mentioned.add(geotagCountry);
+  }
+
+  return mentioned;
 }
 
 function appendCoordinatePairs(container, coordinates) {
@@ -167,6 +252,53 @@ function buildCountrySignals(articles) {
   return lookup;
 }
 
+function buildBorderConflictSignals(articles) {
+  const signals = new Map();
+
+  for (const article of articles) {
+    const priority = normalizePriority(article?.priority);
+    const conflict = hasConflictSignal(article);
+    if (!conflict && priority !== "High") {
+      continue;
+    }
+
+    const text = articleSearchText(article);
+    const countries = detectMentionedCountries(article);
+
+    for (const pair of BORDER_CONFLICT_PAIRS) {
+      const hasA = countries.has(pair.a);
+      const hasB = countries.has(pair.b);
+      const keywordHit = pair.keywords.some((keyword) => text.includes(keyword.toLowerCase()));
+
+      if (!((hasA && hasB) || (keywordHit && (hasA || hasB)))) {
+        continue;
+      }
+
+      const existing = signals.get(pair.id) || {
+        ...pair,
+        count: 0,
+        priority: "Low",
+        sampleTitle: ""
+      };
+
+      existing.count += 1;
+      if (PRIORITY_RANK[priority] > PRIORITY_RANK[existing.priority]) {
+        existing.priority = priority;
+        existing.sampleTitle = article.title || existing.sampleTitle;
+      }
+
+      signals.set(pair.id, existing);
+    }
+  }
+
+  return Array.from(signals.values()).sort((a, b) => {
+    if (b.count !== a.count) {
+      return b.count - a.count;
+    }
+    return PRIORITY_RANK[b.priority] - PRIORITY_RANK[a.priority];
+  });
+}
+
 export function initializeMap(options = {}) {
   const {
     elementId = "world-map",
@@ -217,12 +349,26 @@ export function initializeMap(options = {}) {
     maxClusterRadius: 42
   });
   map.addLayer(markers);
+  const borderOverlays = L.layerGroup().addTo(map);
 
   let selectedCountry = null;
   let worldLayer = null;
   let lastArticles = [];
   let countryCentroids = new Map();
   let countrySignals = new Map();
+
+  const legendControl = L.control({ position: "bottomleft" });
+  legendControl.onAdd = () => {
+    const container = L.DomUtil.create("div", "map-legend");
+    container.innerHTML = `
+      <div class="legend-row"><span class="legend-dot" style="background:#ef4444"></span>High priority country</div>
+      <div class="legend-row"><span class="legend-dot" style="background:#f59e0b"></span>Medium priority country</div>
+      <div class="legend-row"><span class="legend-dot" style="background:#22c55e"></span>Low priority country</div>
+      <div class="legend-row"><span class="legend-line"></span>Border conflict corridor</div>
+    `;
+    return container;
+  };
+  legendControl.addTo(map);
 
   function countryStyle(feature) {
     const code = String(countryCodeFromFeature(feature) ?? "")
@@ -333,8 +479,10 @@ export function initializeMap(options = {}) {
   function update(articles) {
     lastArticles = Array.isArray(articles) ? articles : [];
     countrySignals = buildCountrySignals(lastArticles);
+    const borderSignals = buildBorderConflictSignals(lastArticles);
     refreshWorldStyles();
     markers.clearLayers();
+    borderOverlays.clearLayers();
 
     const bounds = [];
     for (const article of lastArticles) {
@@ -382,6 +530,40 @@ export function initializeMap(options = {}) {
 
       markers.addLayer(marker);
       bounds.push([lat, lng]);
+    }
+
+    for (const signal of borderSignals) {
+      const start = countryCentroids.get(signal.a);
+      const end = countryCentroids.get(signal.b);
+      if (!start || !end) {
+        continue;
+      }
+
+      const lineColor = signal.priority === "High" ? "#b91c1c" : "#dc2626";
+      const lineWeight = 2 + Math.min(4, signal.count * 0.6);
+      const line = L.polyline([start, end], {
+        color: lineColor,
+        weight: lineWeight,
+        opacity: 0.78,
+        dashArray: "8 6"
+      });
+
+      line.bindTooltip(`${escapeHtml(signal.label)} • ${signal.count} signals`, {
+        sticky: true
+      });
+      line.bindPopup(
+        [
+          `<strong>${escapeHtml(signal.label)}</strong>`,
+          `<div>Signals: ${escapeHtml(signal.count)}</div>`,
+          `<div>Priority: ${escapeHtml(signal.priority)}</div>`,
+          signal.sampleTitle ? `<div>Example: ${escapeHtml(signal.sampleTitle)}</div>` : ""
+        ].join("")
+      );
+
+      borderOverlays.addLayer(line);
+
+      bounds.push(start);
+      bounds.push(end);
     }
 
     if (bounds.length > 0) {

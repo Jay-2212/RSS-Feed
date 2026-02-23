@@ -10,7 +10,7 @@ RSS News Hub (GitHub Actions + Kimi + GitHub Pages)
 
 ## Status Snapshot
 Current Phase: `Maintenance`
-Last Completed Phase: `Maintenance - Incremental Diff Fetch and Source Quality Updates`
+Last Completed Phase: `Maintenance - Conditional Feed Caching, Media Reliability, and Border Conflict Overlay`
 Next Phase: `Maintenance`
 Blockers: `None`
 
@@ -538,3 +538,45 @@ Deferred:
 Exact Next Start Point:
 1. If needed, tune `ARTICLE_RETENTION_DAYS`, `MAX_ARTICLES_PER_SOURCE`, and `CURATION_MAX_ARTICLES` for your desired freshness window.
 2. Trigger GitHub Actions run and verify similar delta behavior in remote logs.
+
+### 2026-02-23T02:34:00Z - Conditional Feed Cache + Reader Media/Tweet Fix + Border Conflicts
+Owner: Codex agent
+
+Completed:
+1. Implemented conditional RSS fetching with persisted feed cache headers:
+   1. Added `ETag` / `Last-Modified` support in `/Users/jaybharti/Documents/RSS Feed/src/fetcher.js`.
+   2. Added persisted cache artifact `/Users/jaybharti/Documents/RSS Feed/feedState.json`.
+   3. Wired feed cache I/O in `/Users/jaybharti/Documents/RSS Feed/src/index.js`.
+   4. Updated workflow artifact commit scope in `/Users/jaybharti/Documents/RSS Feed/.github/workflows/curate.yml`.
+2. Added cached media refresh pass to improve old article image quality:
+   1. New config `MEDIA_REFRESH_PER_RUN` in `/Users/jaybharti/Documents/RSS Feed/src/config.js` and `/Users/jaybharti/Documents/RSS Feed/.env.example`.
+   2. Pipeline now refreshes extraction for a bounded set of cached items with missing/placeholder media in `/Users/jaybharti/Documents/RSS Feed/src/index.js`.
+3. Improved extractor media handling for publishers (including The Hindu-style lazy images):
+   1. Added HTML preprocessing for lazy image attributes, `srcset`, and `og:image` fallback in `/Users/jaybharti/Documents/RSS Feed/src/extractor.js`.
+   2. Extraction now updates `imageUrl` with best available candidate.
+4. Improved in-app reader rendering:
+   1. Added inline tweet embedding via `twitframe` for Twitter/X status links in `/Users/jaybharti/Documents/RSS Feed/assets/markdown.js`.
+   2. Added blockquote handling and tweet card styling in `/Users/jaybharti/Documents/RSS Feed/assets/styles.css`.
+   3. Adjusted image referrer policy and placeholder suppression in `/Users/jaybharti/Documents/RSS Feed/assets/markdown.js` and `/Users/jaybharti/Documents/RSS Feed/assets/app.js`.
+5. Added map border-conflict overlays:
+   1. Added heuristic border corridors and country-mention matching in `/Users/jaybharti/Documents/RSS Feed/assets/map.js`.
+   2. Rendered dashed conflict lines with tooltips/popups and a legend.
+6. Added regression tests:
+   1. `/Users/jaybharti/Documents/RSS Feed/tests/feed-cache.test.js`
+   2. `/Users/jaybharti/Documents/RSS Feed/tests/markdown.test.js`
+
+Validation:
+1. `npm test` passed (20/20).
+2. `npm run qa` passed.
+3. Pipeline verification:
+   1. Conditional fetch confirmed on second run (`unchangedSourceCount=6` and later `7`).
+   2. Feed cache artifact generated and updated (`feedState.json`).
+   3. Media refresh verification run completed (`refreshedExistingMedia=118`).
+
+Deferred:
+1. Optional: move tweet embeds from `twitframe` to a first-party server-side embed renderer if stricter privacy/control is required.
+
+Exact Next Start Point:
+1. Trigger GitHub Actions workflow and confirm logs show non-zero `unchangedSourceCount` as cache warms.
+2. Review map overlay behavior in browser and tune border pair heuristics if needed.
+3. If needed, raise/lower `MEDIA_REFRESH_PER_RUN` based on run-time budget.

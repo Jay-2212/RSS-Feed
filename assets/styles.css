@@ -678,6 +678,64 @@ body.reader-open {
   color: var(--text-secondary);
 }
 
+.reader-content blockquote {
+  margin: 0 0 1em;
+  border-left: 3px solid rgba(0, 212, 255, 0.45);
+  padding: 0.3em 0 0.3em 0.9em;
+  color: #dbeafe;
+  background: rgba(2, 132, 199, 0.08);
+  border-radius: 0 10px 10px 0;
+}
+
+.reader-content .tweet-embed {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(15, 23, 42, 0.55);
+}
+
+.reader-content .tweet-embed iframe {
+  display: block;
+  width: 100%;
+  min-height: 480px;
+  border: 0;
+  background: #0f172a;
+}
+
+.reader-content .tweet-embed figcaption {
+  padding: 8px 10px 10px;
+}
+
+.map-legend {
+  background: rgba(10, 10, 10, 0.92);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 10px;
+  color: #e2e8f0;
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+
+.map-legend .legend-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 2px 0;
+}
+
+.map-legend .legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.map-legend .legend-line {
+  width: 16px;
+  border-top: 2px dashed #dc2626;
+  display: inline-block;
+}
+
 .reader-content ul,
 .reader-content ol {
   margin: 0 0 1em;

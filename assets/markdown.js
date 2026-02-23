@@ -24,15 +24,77 @@ function resolveUrl(rawUrl, baseUrl) {
   }
 }
 
+function isPlaceholderImageUrl(url) {
+  return /(1x1_spacer|grey-placeholder|placeholder|blank|pixel|transparent)/i.test(
+    String(url ?? "")
+  );
+}
+
+function normalizeTweetStatusUrl(rawUrl, baseUrl) {
+  const resolved = resolveUrl(rawUrl, baseUrl);
+  if (!resolved) {
+    return null;
+  }
+
+  const match = resolved.match(
+    /^https?:\/\/(?:www\.)?(?:twitter\.com|x\.com)\/([A-Za-z0-9_]+)\/status\/(\d+)/i
+  );
+  if (!match) {
+    return null;
+  }
+
+  return `https://x.com/${match[1]}/status/${match[2]}`;
+}
+
+function extractTweetStatusUrl(text, baseUrl) {
+  const source = String(text ?? "");
+  const markdownLinkMatches = source.matchAll(/\[[^\]]*]\((https?:\/\/[^)\s]+)\)/g);
+  for (const match of markdownLinkMatches) {
+    const normalized = normalizeTweetStatusUrl(match?.[1], baseUrl);
+    if (normalized) {
+      return normalized;
+    }
+  }
+
+  const plainMatch = source.match(
+    /(https?:\/\/(?:www\.)?(?:twitter\.com|x\.com)\/[A-Za-z0-9_]+\/status\/\d+[^\s)]*)/i
+  );
+  if (!plainMatch) {
+    return null;
+  }
+
+  return normalizeTweetStatusUrl(plainMatch[1], baseUrl);
+}
+
+function renderTweetEmbed(tweetUrl) {
+  const encodedUrl = encodeURIComponent(tweetUrl);
+  return `
+    <figure class="tweet-embed">
+      <iframe
+        src="https://twitframe.com/show?url=${encodedUrl}"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        sandbox="allow-scripts allow-same-origin allow-popups"
+        title="Embedded post"
+      ></iframe>
+      <figcaption>
+        <a href="${escapeHtml(tweetUrl)}" target="_blank" rel="noreferrer noopener">Open post</a>
+      </figcaption>
+    </figure>
+  `;
+}
+
 function renderImage(altText, url, options) {
   const resolved = resolveUrl(url, options.baseUrl);
-  if (!resolved) {
+  if (!resolved || isPlaceholderImageUrl(resolved)) {
     return "";
   }
 
   return `<figure><img src="${escapeHtml(
     resolved
-  )}" alt="${escapeHtml(altText || "Article image")}" loading="lazy" referrerpolicy="no-referrer" /></figure>`;
+  )}" alt="${escapeHtml(
+    altText || "Article image"
+  )}" loading="lazy" decoding="async" referrerpolicy="strict-origin-when-cross-origin" /></figure>`;
 }
 
 function renderInlineMarkdown(text, options) {
@@ -70,6 +132,7 @@ export function renderMarkdown(markdown, options = {}) {
   const out = [];
   const unordered = [];
   const ordered = [];
+  const blockquote = [];
 
   function flushUnordered() {
     if (unordered.length === 0) {
@@ -92,12 +155,39 @@ export function renderMarkdown(markdown, options = {}) {
     flushOrdered();
   }
 
+  function flushBlockquote() {
+    if (blockquote.length === 0) {
+      return;
+    }
+
+    const lines = blockquote.map((line) => line.replace(/^>\s?/, "").trim()).filter(Boolean);
+    const merged = lines.join(" ");
+    const tweetUrl = extractTweetStatusUrl(merged, options.baseUrl);
+
+    if (tweetUrl) {
+      out.push(renderTweetEmbed(tweetUrl));
+    } else if (lines.length > 0) {
+      out.push(`<blockquote>${lines.map((line) => renderInlineMarkdown(line, options)).join("<br />")}</blockquote>`);
+    }
+
+    blockquote.length = 0;
+  }
+
   for (const rawLine of lines) {
     const line = rawLine.trim();
     if (!line) {
       flushLists();
+      flushBlockquote();
       continue;
     }
+
+    if (/^>\s?/.test(line)) {
+      flushLists();
+      blockquote.push(line);
+      continue;
+    }
+
+    flushBlockquote();
 
     const headingMatch = line.match(/^(#{1,6})\s+(.*)$/);
     if (headingMatch) {
@@ -111,6 +201,16 @@ export function renderMarkdown(markdown, options = {}) {
     if (imageOnlyMatch) {
       flushLists();
       out.push(renderImage(imageOnlyMatch[1], imageOnlyMatch[2], options));
+      continue;
+    }
+
+    const standaloneTweetUrl =
+      line.includes("status/") && /^[\[\]().:\-_\sA-Za-z0-9/=?&%#]*$/.test(line)
+        ? extractTweetStatusUrl(line, options.baseUrl)
+        : null;
+    if (standaloneTweetUrl && !/\s[a-zA-Z]{3,}\s/.test(line.replace(standaloneTweetUrl, "").trim())) {
+      flushLists();
+      out.push(renderTweetEmbed(standaloneTweetUrl));
       continue;
     }
 
@@ -139,5 +239,6 @@ export function renderMarkdown(markdown, options = {}) {
   }
 
   flushLists();
+  flushBlockquote();
   return out.join("");
 }

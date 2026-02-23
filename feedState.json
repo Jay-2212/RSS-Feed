@@ -1,0 +1,101 @@
+{
+  "updatedAt": "2026-02-23T02:32:29.520Z",
+  "sources": {
+    "nyt-world": {
+      "etag": null,
+      "lastModified": null,
+      "lastCheckedAt": "2026-02-23T02:32:22.354Z",
+      "lastFetchedAt": "2026-02-23T02:32:22.354Z",
+      "lastStatus": 200,
+      "lastItemCount": 60
+    },
+    "hindu": {
+      "etag": null,
+      "lastModified": "Mon, 23 Feb 2026 02:21:42 GMT",
+      "lastCheckedAt": "2026-02-23T02:32:22.477Z",
+      "lastFetchedAt": "2026-02-23T02:28:06.251Z",
+      "lastStatus": 304,
+      "lastItemCount": 100
+    },
+    "bbc-world": {
+      "etag": null,
+      "lastModified": null,
+      "lastCheckedAt": "2026-02-23T02:32:22.620Z",
+      "lastFetchedAt": "2026-02-23T02:32:22.620Z",
+      "lastStatus": 200,
+      "lastItemCount": 39
+    },
+    "guardian-world": {
+      "etag": "W/\"hash531053455593031657\"",
+      "lastModified": null,
+      "lastCheckedAt": "2026-02-23T02:32:22.636Z",
+      "lastFetchedAt": "2026-02-23T02:29:38.500Z",
+      "lastStatus": 304,
+      "lastItemCount": 45
+    },
+    "reuters-world": {
+      "etag": null,
+      "lastModified": null,
+      "lastCheckedAt": "2026-02-23T02:32:23.595Z",
+      "lastFetchedAt": "2026-02-23T02:32:23.595Z",
+      "lastStatus": 200,
+      "lastItemCount": 100
+    },
+    "npr-world": {
+      "etag": null,
+      "lastModified": null,
+      "lastCheckedAt": "2026-02-23T02:32:23.681Z",
+      "lastFetchedAt": "2026-02-23T02:32:23.681Z",
+      "lastStatus": 200,
+      "lastItemCount": 10
+    },
+    "indian-express-world": {
+      "etag": "W/\"5de0a92026da49ad2e840236a6b513e6\"",
+      "lastModified": "Mon, 23 Feb 2026 02:23:21 GMT",
+      "lastCheckedAt": "2026-02-23T02:32:23.704Z",
+      "lastFetchedAt": "2026-02-23T02:28:08.443Z",
+      "lastStatus": 304,
+      "lastItemCount": 200
+    },
+    "ap-news": {
+      "etag": null,
+      "lastModified": null,
+      "lastCheckedAt": "2026-02-23T02:32:23.745Z",
+      "lastFetchedAt": "2026-02-23T02:32:23.745Z",
+      "lastStatus": 200,
+      "lastItemCount": 100
+    },
+    "quartz": {
+      "etag": null,
+      "lastModified": "Mon, 23 Feb 2026 02:18:43 GMT",
+      "lastCheckedAt": "2026-02-23T02:32:25.156Z",
+      "lastFetchedAt": "2026-02-23T02:28:10.446Z",
+      "lastStatus": 304,
+      "lastItemCount": 50
+    },
+    "ars-technica": {
+      "etag": null,
+      "lastModified": "Sun, 22 Feb 2026 19:04:41 GMT",
+      "lastCheckedAt": "2026-02-23T02:32:25.252Z",
+      "lastFetchedAt": "2026-02-23T02:28:11.098Z",
+      "lastStatus": 304,
+      "lastItemCount": 20
+    },
+    "hacker-news": {
+      "etag": null,
+      "lastModified": "Sun, 22 Feb 2026 14:50:44 GMT",
+      "lastCheckedAt": "2026-02-23T02:32:29.259Z",
+      "lastFetchedAt": "2026-02-23T02:28:12.248Z",
+      "lastStatus": 304,
+      "lastItemCount": 20
+    },
+    "atlantic": {
+      "etag": null,
+      "lastModified": "Mon, 23 Feb 2026 01:14:47 GMT",
+      "lastCheckedAt": "2026-02-23T02:32:29.519Z",
+      "lastFetchedAt": "2026-02-23T02:28:13.239Z",
+      "lastStatus": 304,
+      "lastItemCount": 25
+    }
+  }
+}

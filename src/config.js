@@ -15,6 +15,7 @@ const DEFAULTS = {
   extractionMarkdownMaxChars: 5_000,
   extractionExcerptMaxChars: 300,
   extractionConcurrency: 3,
+  mediaRefreshPerRun: 20,
   curationMaxArticles: 120,
   curationMinWordCount: 120,
   articleRetentionDays: 21,
@@ -29,7 +30,9 @@ const DEFAULTS = {
   geotagRetryBaseDelayMs: 2_000,
   geotagRetryMaxDelayMs: 30_000,
   outputArticlesFile: "articles.json",
-  outputLastUpdatedFile: "lastUpdated.txt"
+  outputLastUpdatedFile: "lastUpdated.txt",
+  outputFeedStateFile: "feedState.json",
+  feedConditionalFetch: true
 };
 
 function parseCsv(value) {
@@ -37,6 +40,22 @@ function parseCsv(value) {
     .split(",")
     .map((part) => part.trim())
     .filter(Boolean);
+}
+
+function parseBoolean(value, fallback) {
+  if (value === undefined || value === null || value === "") {
+    return fallback;
+  }
+
+  const normalized = String(value).trim().toLowerCase();
+  if (["1", "true", "yes", "on"].includes(normalized)) {
+    return true;
+  }
+  if (["0", "false", "no", "off"].includes(normalized)) {
+    return false;
+  }
+
+  return fallback;
 }
 
 export function getRuntimeConfig(options = {}) {
@@ -67,6 +86,10 @@ export function getRuntimeConfig(options = {}) {
     extractionConcurrency: parseInteger(
       process.env.EXTRACTION_CONCURRENCY,
       DEFAULTS.extractionConcurrency
+    ),
+    mediaRefreshPerRun: parseInteger(
+      process.env.MEDIA_REFRESH_PER_RUN,
+      DEFAULTS.mediaRefreshPerRun
     ),
     curationMaxArticles: parseInteger(
       process.env.CURATION_MAX_ARTICLES,
@@ -112,6 +135,11 @@ export function getRuntimeConfig(options = {}) {
     outputArticlesFile: process.env.OUTPUT_ARTICLES_FILE || DEFAULTS.outputArticlesFile,
     outputLastUpdatedFile:
       process.env.OUTPUT_LAST_UPDATED_FILE || DEFAULTS.outputLastUpdatedFile,
+    outputFeedStateFile: process.env.OUTPUT_FEED_STATE_FILE || DEFAULTS.outputFeedStateFile,
+    feedConditionalFetch: parseBoolean(
+      process.env.FEED_CONDITIONAL_FETCH,
+      DEFAULTS.feedConditionalFetch
+    ),
     kimiModel: process.env.KIMI_MODEL || DEFAULTS.kimiModel,
     kimiBaseUrl: process.env.KIMI_BASE_URL || DEFAULTS.kimiBaseUrl,
     kimiApiKey: process.env.KIMI_CODE_API || process.env.KIMI_API_KEY || ""
