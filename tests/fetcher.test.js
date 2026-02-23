@@ -1,7 +1,13 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import axios from "axios";
 
-import { dedupeByUrl, limitArticlesPerSource, normalizeFeedItem } from "../src/fetcher.js";
+import {
+  dedupeByUrl,
+  fetchSourceFeed,
+  limitArticlesPerSource,
+  normalizeFeedItem
+} from "../src/fetcher.js";
 
 const SOURCE = {
   id: "test",
@@ -48,4 +54,66 @@ test("normalizeFeedItem maps feed entry into internal schema", () => {
   assert.equal(normalized.url, "https://example.com/post?id=10");
   assert.equal(normalized.excerpt, "Preview text");
   assert.equal(normalized.wordCount, 0);
+});
+
+test("fetchSourceFeed sends ETag headers and skips parsing on 304", async () => {
+  const source = {
+    id: "guardian-world",
+    name: "The Guardian World",
+    url: "https://example.com/feed.xml"
+  };
+  const feedCacheState = {
+    updatedAt: null,
+    sources: {
+      "guardian-world": {
+        etag: "W/\"etag-123\"",
+        lastModified: "Mon, 23 Feb 2026 01:00:00 GMT"
+      }
+    }
+  };
+
+  const parser = {
+    parseString() {
+      throw new Error("parseString should not be called on 304");
+    },
+    parseURL() {
+      throw new Error("parseURL should not be called on 304");
+    }
+  };
+
+  const originalAxiosGet = axios.get;
+  axios.get = async (_url, options = {}) => {
+    assert.equal(options?.headers?.["If-None-Match"], "W/\"etag-123\"");
+    assert.equal(
+      options?.headers?.["If-Modified-Since"],
+      "Mon, 23 Feb 2026 01:00:00 GMT"
+    );
+
+    return {
+      status: 304,
+      data: "",
+      headers: {
+        etag: "W/\"etag-456\"",
+        "last-modified": "Mon, 23 Feb 2026 03:00:00 GMT"
+      }
+    };
+  };
+
+  try {
+    const result = await fetchSourceFeed(source, {
+      parser,
+      feedCacheState,
+      enableConditionalFetch: true
+    });
+
+    assert.deepEqual(result, []);
+    assert.equal(feedCacheState.sources["guardian-world"].lastStatus, 304);
+    assert.equal(feedCacheState.sources["guardian-world"].etag, "W/\"etag-456\"");
+    assert.equal(
+      feedCacheState.sources["guardian-world"].lastModified,
+      "Mon, 23 Feb 2026 03:00:00 GMT"
+    );
+  } finally {
+    axios.get = originalAxiosGet;
+  }
 });

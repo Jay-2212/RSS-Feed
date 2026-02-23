@@ -21,3 +21,27 @@ test("renderMarkdown uses permissive referrer policy for images", () => {
   assert.match(html, /referrerpolicy="strict-origin-when-cross-origin"/);
   assert.match(html, /decoding="async"/);
 });
+
+test("renderMarkdown supports underscore emphasis markers", () => {
+  const markdown = "The _Financial Times_ and _Ahimsa_ markers should render.";
+  const html = renderMarkdown(markdown, {});
+
+  assert.match(html, /<em>Financial Times<\/em>/);
+  assert.match(html, /<em>Ahimsa<\/em>/);
+});
+
+test("renderMarkdown renders linked images without leaking escaped figure markup", () => {
+  const markdown = "[![Hero](https://example.com/image.jpg)](https://example.com/story)";
+  const html = renderMarkdown(markdown, {});
+
+  assert.match(html, /<a href="https:\/\/example\.com\/story"/);
+  assert.match(html, /<img src="https:\/\/example\.com\/image\.jpg"/);
+  assert.doesNotMatch(html, /&lt;figure&gt;/);
+});
+
+test("renderMarkdown renders standalone image URLs as images", () => {
+  const markdown = "https://example.com/article-image.webp";
+  const html = renderMarkdown(markdown, {});
+
+  assert.match(html, /<img src="https:\/\/example\.com\/article-image\.webp"/);
+});

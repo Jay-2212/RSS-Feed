@@ -125,6 +125,55 @@ function resolveHttpUrl(rawUrl, baseUrl = "") {
   }
 }
 
+function upgradeImageUrlForDisplay(rawUrl) {
+  const source = String(rawUrl ?? "").trim();
+  if (!source) {
+    return null;
+  }
+
+  let upgraded = source;
+  if (/th-i\.thgim\.com/i.test(upgraded)) {
+    upgraded = upgraded.replace(
+      /\/alternates\/SQUARE_(?:80|120|160)\//i,
+      "/alternates/LANDSCAPE_1200/"
+    );
+  }
+
+  try {
+    const parsed = new URL(upgraded);
+
+    const width = Number.parseInt(parsed.searchParams.get("width") || "", 10);
+    if (Number.isFinite(width) && width > 0 && width < 1200) {
+      parsed.searchParams.set("width", "1200");
+    }
+
+    const w = Number.parseInt(parsed.searchParams.get("w") || "", 10);
+    if (Number.isFinite(w) && w > 0 && w < 1200) {
+      parsed.searchParams.set("w", "1200");
+    }
+
+    const resizeMatch = String(parsed.searchParams.get("resize") || "").match(/^(\d+),(\d+)$/);
+    if (resizeMatch) {
+      const currentWidth = Number.parseInt(resizeMatch[1], 10);
+      const currentHeight = Number.parseInt(resizeMatch[2], 10);
+      if (
+        Number.isFinite(currentWidth) &&
+        currentWidth > 0 &&
+        Number.isFinite(currentHeight) &&
+        currentHeight > 0 &&
+        currentWidth < 1200
+      ) {
+        const scaledHeight = Math.max(1, Math.round((currentHeight * 1200) / currentWidth));
+        parsed.searchParams.set("resize", `1200,${scaledHeight}`);
+      }
+    }
+
+    return parsed.toString();
+  } catch {
+    return upgraded;
+  }
+}
+
 function loadReadLater() {
   try {
     const raw = localStorage.getItem(READ_LATER_KEY);
@@ -467,7 +516,7 @@ function openReader(articleId) {
   state.activeArticleId = article.id;
   const city = article.geotag?.city ? `, ${article.geotag.city}` : "";
   const tags = articleTags(article);
-  const heroUrl = resolveHttpUrl(article.imageUrl, article.url);
+  const heroUrl = resolveHttpUrl(upgradeImageUrlForDisplay(article.imageUrl), article.url);
   const heroImage = heroUrl
     ? `<figure><img src="${escapeHtml(heroUrl)}" alt="${escapeHtml(
         article.title

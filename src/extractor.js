@@ -19,6 +19,15 @@ const USER_AGENT =
   "Mozilla/5.0 (compatible; RSSNewsHub/1.0; +https://github.com)";
 const PLACEHOLDER_IMAGE_REGEX =
   /(1x1|spacer|pixel|placeholder|blank|transparent|default-image|grey-placeholder)/i;
+const LOW_QUALITY_IMAGE_PATH_REGEX =
+  /(\/alternates\/SQUARE_(?:80|120|160)\b|\/thumbs?\/|\/thumbnail\/|\/small\/|\/tiny\/|\/news\/480\/cpsprodpb\/)/i;
+const LOW_QUALITY_WIDTH_THRESHOLD = 640;
+const ZERO_WIDTH_CHAR_REGEX = /[\u200b-\u200f\ufeff\u2060]/g;
+const STORY_CONTINUES_LINE_REGEX = /^\s*Story continues below this ad\s*$/gim;
+const READ_TIME_LINE_REGEX = /^\s*\d+\s*min\s+read.*$/gim;
+const PUBLISHED_METADATA_LINE_REGEX = /^\s*Published\s*[-–].*$/gim;
+const INDIAN_EXPRESS_PROMO_REGEX =
+  /\nThe Express Global Desk at The Indian Express[\s\S]*$/i;
 
 const DEFAULT_OPTIONS = {
   attemptTimeoutMs: 8_000,
@@ -92,6 +101,187 @@ function isLikelyPlaceholderImage(url) {
   return PLACEHOLDER_IMAGE_REGEX.test(String(url ?? "").toLowerCase());
 }
 
+function parsePositiveInteger(rawValue) {
+  const value = Number.parseInt(String(rawValue ?? "").trim(), 10);
+  if (!Number.isFinite(value) || value <= 0) {
+    return null;
+  }
+  return value;
+}
+
+function estimateImageWidth(url) {
+  const source = String(url ?? "").trim();
+  if (!source) {
+    return null;
+  }
+
+  try {
+    const parsed = new URL(source);
+    const widthFromW = parsePositiveInteger(parsed.searchParams.get("w"));
+    if (widthFromW) {
+      return widthFromW;
+    }
+
+    const widthFromWidth = parsePositiveInteger(parsed.searchParams.get("width"));
+    if (widthFromWidth) {
+      return widthFromWidth;
+    }
+
+    const resizeMatch = String(parsed.searchParams.get("resize") || "").match(/^(\d+),(\d+)$/);
+    if (resizeMatch) {
+      return parsePositiveInteger(resizeMatch[1]);
+    }
+
+    const path480Match = parsed.pathname.match(/\/news\/(\d{2,4})\/cpsprodpb\//i);
+    if (path480Match) {
+      return parsePositiveInteger(path480Match[1]);
+    }
+  } catch {
+    return null;
+  }
+
+  return null;
+}
+
+function isLikelyLowResolutionImage(url) {
+  const source = String(url ?? "");
+  if (LOW_QUALITY_IMAGE_PATH_REGEX.test(source)) {
+    return true;
+  }
+
+  const width = estimateImageWidth(source);
+  return Number.isFinite(width) && width > 0 && width < LOW_QUALITY_WIDTH_THRESHOLD;
+}
+
+function upgradeKnownImageUrl(rawUrl) {
+  const source = String(rawUrl ?? "").trim();
+  if (!source) {
+    return null;
+  }
+
+  let upgraded = source;
+  if (/th-i\.thgim\.com/i.test(upgraded)) {
+    upgraded = upgraded.replace(
+      /\/alternates\/SQUARE_(?:80|120|160)\//i,
+      "/alternates/LANDSCAPE_1200/"
+    );
+  }
+
+  try {
+    const parsed = new URL(upgraded);
+
+    const widthValue = parsePositiveInteger(parsed.searchParams.get("w"));
+    if (widthValue && widthValue < 1200) {
+      parsed.searchParams.set("w", "1200");
+    }
+
+    const widthParamValue = parsePositiveInteger(parsed.searchParams.get("width"));
+    if (widthParamValue && widthParamValue < 1200) {
+      parsed.searchParams.set("width", "1200");
+    }
+
+    const resizeMatch = String(parsed.searchParams.get("resize") || "").match(/^(\d+),(\d+)$/);
+    if (resizeMatch) {
+      const width = parsePositiveInteger(resizeMatch[1]);
+      const height = parsePositiveInteger(resizeMatch[2]);
+      if (width && height && width < 1200) {
+        const scaledHeight = Math.max(1, Math.round((height * 1200) / width));
+        parsed.searchParams.set("resize", `1200,${scaledHeight}`);
+      }
+    }
+
+    return parsed.toString();
+  } catch {
+    return upgraded;
+  }
+}
+
+function expandImageCandidates(candidates) {
+  const list = Array.isArray(candidates) ? candidates : [];
+  const expanded = [];
+  const seen = new Set();
+
+  for (const candidate of list) {
+    const normalized = String(candidate ?? "").trim();
+    if (!normalized) {
+      continue;
+    }
+
+    const upgraded = upgradeKnownImageUrl(normalized);
+    const variants = [normalized, upgraded].filter(Boolean);
+    for (const variant of variants) {
+      if (seen.has(variant)) {
+        continue;
+      }
+      seen.add(variant);
+      expanded.push(variant);
+    }
+  }
+
+  return expanded;
+}
+
+function scoreImageCandidate(url) {
+  const candidate = String(url ?? "").trim();
+  if (!candidate) {
+    return Number.NEGATIVE_INFINITY;
+  }
+
+  if (isLikelyPlaceholderImage(candidate)) {
+    return -10_000;
+  }
+
+  let score = 0;
+  const width = estimateImageWidth(candidate);
+  if (width && width >= 1200) {
+    score += 2_000;
+  } else if (width && width >= 800) {
+    score += 1_200;
+  } else if (width && width >= LOW_QUALITY_WIDTH_THRESHOLD) {
+    score += 800;
+  } else if (width) {
+    score -= 800;
+  } else {
+    score += 300;
+  }
+
+  if (isLikelyLowResolutionImage(candidate)) {
+    score -= 1_000;
+  } else {
+    score += 500;
+  }
+
+  if (/\/alternates\/LANDSCAPE_1200\//i.test(candidate)) {
+    score += 800;
+  }
+  if (/\/alternates\/SQUARE_80\//i.test(candidate)) {
+    score -= 1_500;
+  }
+
+  return score;
+}
+
+function selectBestImageCandidate(candidates) {
+  const expanded = expandImageCandidates(candidates);
+  if (expanded.length === 0) {
+    return null;
+  }
+
+  let best = expanded[0];
+  let bestScore = scoreImageCandidate(best);
+
+  for (let index = 1; index < expanded.length; index += 1) {
+    const candidate = expanded[index];
+    const score = scoreImageCandidate(candidate);
+    if (score > bestScore) {
+      best = candidate;
+      bestScore = score;
+    }
+  }
+
+  return best;
+}
+
 function chooseUrlFromSrcset(rawSrcset, baseUrl) {
   const srcset = String(rawSrcset ?? "").trim();
   if (!srcset) {
@@ -151,12 +341,7 @@ function chooseBestImageCandidate($image, baseUrl) {
     .filter(Boolean);
 
   const allCandidates = [directSrc, srcsetCandidate, ...lazyCandidates].filter(Boolean);
-  if (allCandidates.length === 0) {
-    return null;
-  }
-
-  const nonPlaceholder = allCandidates.find((candidate) => !isLikelyPlaceholderImage(candidate));
-  return nonPlaceholder || allCandidates[0];
+  return selectBestImageCandidate(allCandidates);
 }
 
 function preprocessPublisherHtml(html, pageUrl) {
@@ -170,7 +355,7 @@ function preprocessPublisherHtml(html, pageUrl) {
     }
 
     const currentSrc = resolveHttpUrl($image.attr("src"), pageUrl);
-    if (!currentSrc || isLikelyPlaceholderImage(currentSrc)) {
+    if (!currentSrc || scoreImageCandidate(best) > scoreImageCandidate(currentSrc) + 50) {
       $image.attr("src", best);
     }
 
@@ -179,16 +364,21 @@ function preprocessPublisherHtml(html, pageUrl) {
       pageUrl
     );
     if (srcsetCandidate) {
-      $image.attr("srcset", srcsetCandidate);
+      const bestSrcsetCandidate = selectBestImageCandidate([srcsetCandidate]);
+      if (bestSrcsetCandidate) {
+        $image.attr("srcset", bestSrcsetCandidate);
+      }
     }
   });
 
-  const leadImage = resolveHttpUrl(
-    $("meta[property='og:image']").attr("content") ||
-      $("meta[name='twitter:image']").attr("content") ||
-      $("link[rel='image_src']").attr("href"),
-    pageUrl
-  );
+  const leadImage = selectBestImageCandidate([
+    resolveHttpUrl(
+      $("meta[property='og:image']").attr("content") ||
+        $("meta[name='twitter:image']").attr("content") ||
+        $("link[rel='image_src']").attr("href"),
+      pageUrl
+    )
+  ]);
 
   return {
     html: $.html(),
@@ -213,6 +403,101 @@ function markdownFromParsedArticle(parsed) {
   return turndown.turndown(contentHtml);
 }
 
+function isLikelyIndianExpressSource(article) {
+  const sourceName = String(article?.sourceName ?? "").toLowerCase();
+  const sourceId = String(article?.sourceId ?? "").toLowerCase();
+  const url = String(article?.url ?? "").toLowerCase();
+
+  return (
+    sourceName.includes("indian express") ||
+    sourceId.includes("indian-express") ||
+    url.includes("indianexpress.com")
+  );
+}
+
+function stripLeadingIndianExpressBreadcrumbs(markdown, article) {
+  if (!isLikelyIndianExpressSource(article)) {
+    return markdown;
+  }
+
+  const lines = String(markdown ?? "").split("\n");
+  let cursor = 0;
+  while (cursor < lines.length && !lines[cursor].trim()) {
+    cursor += 1;
+  }
+
+  let breadcrumbCount = 0;
+  while (cursor < lines.length) {
+    const line = lines[cursor].trim();
+    if (!line) {
+      break;
+    }
+
+    const match = line.match(/^(\d+)\.\s+\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)\s*$/i);
+    if (!match) {
+      break;
+    }
+
+    const label = match[2].trim().toLowerCase();
+    const link = match[3].trim().toLowerCase();
+    const looksBreadcrumbLabel =
+      /^(home|news|world|national|india|cities|opinion|business|technology|science|sports|us news|global|politics|explained)$/.test(
+        label
+      );
+    const looksBreadcrumbUrl =
+      link.includes("indianexpress.com/section/") || link === "https://indianexpress.com/";
+
+    if (!looksBreadcrumbLabel && !looksBreadcrumbUrl) {
+      break;
+    }
+
+    breadcrumbCount += 1;
+    cursor += 1;
+  }
+
+  if (breadcrumbCount < 2) {
+    return markdown;
+  }
+
+  if (cursor < lines.length && /^\d+\.\s+/.test(lines[cursor].trim())) {
+    cursor += 1;
+  }
+  while (cursor < lines.length && !lines[cursor].trim()) {
+    cursor += 1;
+  }
+
+  return lines.slice(cursor).join("\n");
+}
+
+function normalizeBrokenImageMarkdown(markdown) {
+  return String(markdown ?? "")
+    .replace(/!\[([^\]\n]{0,240})\s*\n\]\((https?:\/\/[^)\s]+(?:\?[^)\s]+)?)(?:\s+"[^"]*")?\)/g, "![$1]($2)")
+    .replace(/!\[([^\]\n]{0,240})\]\s*\n\((https?:\/\/[^)\s]+(?:\?[^)\s]+)?)(?:\s+"[^"]*")?\)/g, "![$1]($2)");
+}
+
+export function cleanExtractedMarkdown(markdown, article = {}) {
+  if (!markdown) {
+    return "";
+  }
+
+  let cleaned = String(markdown)
+    .replace(/\r\n/g, "\n")
+    .replace(ZERO_WIDTH_CHAR_REGEX, "")
+    .replace(STORY_CONTINUES_LINE_REGEX, "")
+    .replace(READ_TIME_LINE_REGEX, "")
+    .replace(PUBLISHED_METADATA_LINE_REGEX, "")
+    .replace(INDIAN_EXPRESS_PROMO_REGEX, "")
+    .replace(
+      /^\s*-\s+\[\\?#?[^\]]+]\(https?:\/\/indianexpress\.com\/about\/[^)]+\)\s*$/gim,
+      ""
+    );
+
+  cleaned = stripLeadingIndianExpressBreadcrumbs(cleaned, article);
+  cleaned = normalizeBrokenImageMarkdown(cleaned);
+  cleaned = cleaned.replace(/\n{3,}/g, "\n\n").trim();
+  return cleaned;
+}
+
 function firstImageFromMarkdown(markdown, baseUrl) {
   const source = String(markdown ?? "");
   const matches = source.matchAll(/!\[[^\]]*]\(([^)\s]+)[^)]*\)/g);
@@ -221,7 +506,7 @@ function firstImageFromMarkdown(markdown, baseUrl) {
     if (!resolved || isLikelyPlaceholderImage(resolved)) {
       continue;
     }
-    return resolved;
+    return selectBestImageCandidate([resolved]);
   }
   return null;
 }
@@ -251,18 +536,13 @@ function chooseArticleImage(article, markdown, html, leadImage, baseUrl) {
   const fromHtml = fallbackImageFromHtml(html, baseUrl);
   const candidates = [existing, fromMarkdown, leadImage, fromHtml].filter(Boolean);
 
-  if (candidates.length === 0) {
-    return null;
-  }
-
-  const nonPlaceholder = candidates.find((candidate) => !isLikelyPlaceholderImage(candidate));
-  return nonPlaceholder || candidates[0];
+  return selectBestImageCandidate(candidates);
 }
 
 function formatExtractionResult(article, parsed, method, options, context = {}) {
   const htmlFallback = context.html || "";
   const leadImage = context.leadImage || null;
-  const markdown = markdownFromParsedArticle(parsed);
+  const markdown = cleanExtractedMarkdown(markdownFromParsedArticle(parsed), article);
   const content = clampText(markdown, options.maxMarkdownChars);
 
   const fallbackExcerpt = fallbackExcerptFromHtml(htmlFallback);

@@ -30,6 +30,55 @@ function isPlaceholderImageUrl(url) {
   );
 }
 
+function upgradeImageUrlForDisplay(rawUrl) {
+  const source = String(rawUrl ?? "").trim();
+  if (!source) {
+    return null;
+  }
+
+  let upgraded = source;
+  if (/th-i\.thgim\.com/i.test(upgraded)) {
+    upgraded = upgraded.replace(
+      /\/alternates\/SQUARE_(?:80|120|160)\//i,
+      "/alternates/LANDSCAPE_1200/"
+    );
+  }
+
+  try {
+    const parsed = new URL(upgraded);
+
+    const width = Number.parseInt(parsed.searchParams.get("width") || "", 10);
+    if (Number.isFinite(width) && width > 0 && width < 1200) {
+      parsed.searchParams.set("width", "1200");
+    }
+
+    const w = Number.parseInt(parsed.searchParams.get("w") || "", 10);
+    if (Number.isFinite(w) && w > 0 && w < 1200) {
+      parsed.searchParams.set("w", "1200");
+    }
+
+    const resizeMatch = String(parsed.searchParams.get("resize") || "").match(/^(\d+),(\d+)$/);
+    if (resizeMatch) {
+      const currentWidth = Number.parseInt(resizeMatch[1], 10);
+      const currentHeight = Number.parseInt(resizeMatch[2], 10);
+      if (
+        Number.isFinite(currentWidth) &&
+        currentWidth > 0 &&
+        Number.isFinite(currentHeight) &&
+        currentHeight > 0 &&
+        currentWidth < 1200
+      ) {
+        const scaledHeight = Math.max(1, Math.round((currentHeight * 1200) / currentWidth));
+        parsed.searchParams.set("resize", `1200,${scaledHeight}`);
+      }
+    }
+
+    return parsed.toString();
+  } catch {
+    return upgraded;
+  }
+}
+
 function normalizeTweetStatusUrl(rawUrl, baseUrl) {
   const resolved = resolveUrl(rawUrl, baseUrl);
   if (!resolved) {
@@ -86,23 +135,34 @@ function renderTweetEmbed(tweetUrl) {
 
 function renderImage(altText, url, options) {
   const resolved = resolveUrl(url, options.baseUrl);
-  if (!resolved || isPlaceholderImageUrl(resolved)) {
+  const upgraded = resolved ? upgradeImageUrlForDisplay(resolved) : null;
+  const finalUrl = resolveUrl(upgraded, options.baseUrl);
+  if (!finalUrl || isPlaceholderImageUrl(finalUrl)) {
     return "";
   }
 
   return `<figure><img src="${escapeHtml(
-    resolved
+    finalUrl
   )}" alt="${escapeHtml(
     altText || "Article image"
   )}" loading="lazy" decoding="async" referrerpolicy="strict-origin-when-cross-origin" /></figure>`;
 }
 
 function renderInlineMarkdown(text, options) {
-  let html = escapeHtml(text);
+  const imageTokens = [];
+  let staged = String(text ?? "");
 
-  html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_match, alt, url) => {
-    return renderImage(alt, url, options);
+  staged = staged.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g, (_match, alt, url) => {
+    const imageHtml = renderImage(alt, url, options);
+    if (!imageHtml) {
+      return "";
+    }
+    const token = `@@IMG_TOKEN_${imageTokens.length}@@`;
+    imageTokens.push({ token, html: imageHtml });
+    return token;
   });
+
+  let html = escapeHtml(staged);
 
   html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_match, label, url) => {
     const resolved = resolveUrl(url, options.baseUrl);
@@ -117,13 +177,96 @@ function renderInlineMarkdown(text, options) {
   html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
   html = html.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
   html = html.replace(/\*([^*]+)\*/g, "<em>$1</em>");
+  html = html.replace(
+    /(^|[\s([{>])_([^_\n]+?)_(?=$|[\s)\]}<.,!?;:])/g,
+    (_match, prefix, body) => `${prefix}<em>${body}</em>`
+  );
+
+  for (const token of imageTokens) {
+    html = html.split(token.token).join(token.html);
+  }
+
   return html;
 }
 
-export function renderMarkdown(markdown, options = {}) {
-  const source = String(markdown ?? "")
+function stripLeadingIndianExpressBreadcrumbs(markdown, baseUrl) {
+  if (!/indianexpress\.com/i.test(String(baseUrl || ""))) {
+    return markdown;
+  }
+
+  const lines = String(markdown ?? "").split("\n");
+  let cursor = 0;
+  while (cursor < lines.length && !lines[cursor].trim()) {
+    cursor += 1;
+  }
+
+  let breadcrumbCount = 0;
+  while (cursor < lines.length) {
+    const line = lines[cursor].trim();
+    if (!line) {
+      break;
+    }
+
+    const match = line.match(/^(\d+)\.\s+\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)\s*$/i);
+    if (!match) {
+      break;
+    }
+
+    const label = match[2].trim().toLowerCase();
+    const link = match[3].trim().toLowerCase();
+    const looksBreadcrumbLabel =
+      /^(home|news|world|national|india|cities|opinion|business|technology|science|sports|us news|global|politics|explained)$/.test(
+        label
+      );
+    const looksBreadcrumbUrl =
+      link.includes("indianexpress.com/section/") || link === "https://indianexpress.com/";
+
+    if (!looksBreadcrumbLabel && !looksBreadcrumbUrl) {
+      break;
+    }
+
+    breadcrumbCount += 1;
+    cursor += 1;
+  }
+
+  if (breadcrumbCount < 2) {
+    return markdown;
+  }
+
+  if (cursor < lines.length && /^\d+\.\s+/.test(lines[cursor].trim())) {
+    cursor += 1;
+  }
+  while (cursor < lines.length && !lines[cursor].trim()) {
+    cursor += 1;
+  }
+
+  return lines.slice(cursor).join("\n");
+}
+
+function normalizeMarkdownSource(markdown, baseUrl) {
+  let normalized = String(markdown ?? "")
     .replace(/\r\n/g, "\n")
-    .trim();
+    .replace(/[\u200b-\u200f\ufeff\u2060]/g, "")
+    .replace(/!\[([^\]\n]{0,240})\s*\n\]\((https?:\/\/[^)\s]+(?:\?[^)\s]+)?)(?:\s+"[^"]*")?\)/g, "![$1]($2)")
+    .replace(/!\[([^\]\n]{0,240})\]\s*\n\((https?:\/\/[^)\s]+(?:\?[^)\s]+)?)(?:\s+"[^"]*")?\)/g, "![$1]($2)");
+
+  normalized = stripLeadingIndianExpressBreadcrumbs(normalized, baseUrl);
+  return normalized;
+}
+
+function extractStandaloneImageUrl(line, baseUrl) {
+  const match = String(line ?? "")
+    .trim()
+    .match(/^<?(https?:\/\/[^\s>]+\.(?:jpg|jpeg|png|webp|gif)(?:\?[^\s>]*)?)>?$/i);
+  if (!match) {
+    return null;
+  }
+
+  return resolveUrl(match[1], baseUrl);
+}
+
+export function renderMarkdown(markdown, options = {}) {
+  const source = normalizeMarkdownSource(markdown, options.baseUrl).trim();
   if (!source) {
     return "<p>No content extracted for this article.</p>";
   }
@@ -167,7 +310,9 @@ export function renderMarkdown(markdown, options = {}) {
     if (tweetUrl) {
       out.push(renderTweetEmbed(tweetUrl));
     } else if (lines.length > 0) {
-      out.push(`<blockquote>${lines.map((line) => renderInlineMarkdown(line, options)).join("<br />")}</blockquote>`);
+      out.push(
+        `<blockquote>${lines.map((line) => renderInlineMarkdown(line, options)).join("<br />")}</blockquote>`
+      );
     }
 
     blockquote.length = 0;
@@ -201,6 +346,13 @@ export function renderMarkdown(markdown, options = {}) {
     if (imageOnlyMatch) {
       flushLists();
       out.push(renderImage(imageOnlyMatch[1], imageOnlyMatch[2], options));
+      continue;
+    }
+
+    const directImageUrl = extractStandaloneImageUrl(line, options.baseUrl);
+    if (directImageUrl) {
+      flushLists();
+      out.push(renderImage("Article image", directImageUrl, options));
       continue;
     }
 
