@@ -16,8 +16,8 @@ jobs:
       KIMI_MODEL: ${{ vars.KIMI_MODEL || 'kimi-k2-0905-preview' }}
       KIMI_FALLBACK_MODELS: ${{ vars.KIMI_FALLBACK_MODELS || 'kimi-k2-turbo-preview,kimi-for-coding' }}
       GEOTAG_MODE: ${{ vars.GEOTAG_MODE || 'auto' }}
-      GEOTAG_BATCH_SIZE: ${{ vars.GEOTAG_BATCH_SIZE || '40' }}
-      GEOTAG_MAX_API_BATCHES: ${{ vars.GEOTAG_MAX_API_BATCHES || '1' }}
+      GEOTAG_BATCH_SIZE: ${{ vars.GEOTAG_BATCH_SIZE || '60' }}
+      GEOTAG_MAX_API_BATCHES: ${{ vars.GEOTAG_MAX_API_BATCHES || '0' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4

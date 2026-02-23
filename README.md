@@ -42,7 +42,12 @@ By default this runs Phase 1-5. Geotag behavior:
 2. `GEOTAG_MODE=mock`: always mock geotagging.
 3. `GEOTAG_MODE=live`: forces Kimi API geotagging (requires key).
 4. Default model: `kimi-k2-0905-preview` with fallbacks to `kimi-k2-turbo-preview,kimi-for-coding`.
-5. Cost guard: `GEOTAG_MAX_API_BATCHES=1` (default) limits live API requests per run.
+5. Live batch defaults are tuned for higher throughput:
+   1. `GEOTAG_BATCH_SIZE=60`
+   2. `GEOTAG_MAX_API_BATCHES=0` (`0` means unlimited batches per run)
+6. Article volume defaults are no longer capped at 40:
+   1. `CURATION_MAX_ARTICLES=0` (`0` means uncapped)
+   2. `MAX_ARTICLES_PER_SOURCE=40`
 
 6. Run final QA gate:
 
@@ -56,7 +61,7 @@ The workflow already maps the secret into runtime env:
 1. `/Users/jaybharti/Documents/RSS Feed/.github/workflows/curate.yml` sets:
    1. `KIMI_CODE_API: ${{ secrets.KIMI_CODE_API }}`
    2. `GEOTAG_MODE` configurable via repo variable (defaults to `auto`)
-   3. `GEOTAG_MAX_API_BATCHES` configurable via repo variable (defaults to `1`)
+   3. `GEOTAG_MAX_API_BATCHES` configurable via repo variable (defaults to `0` for uncapped)
 2. `/Users/jaybharti/Documents/RSS Feed/src/config.js` reads `process.env.KIMI_CODE_API`.
 3. `/Users/jaybharti/Documents/RSS Feed/src/geotagger.js` switches to live Kimi when key exists; otherwise it uses mock geotagging.
 
@@ -90,9 +95,9 @@ Kimi troubleshooting:
 
 ## Implemented Modules (Phase 6)
 
-- `index.html`: responsive dashboard shell with map + grid layout + native reader overlay.
+- `index.html`: responsive dashboard shell with map + grid layout + native reader overlay + refresh controls.
 - `assets/styles.css`: AMOLED theme, responsive layout, card animations, and reader styles.
-- `assets/app.js`: data loading, map/category/tag filters, native article reader, and Read Later localStorage.
+- `assets/app.js`: data loading, map/category/tag filters, GitHub workflow refresh trigger/polling, native article reader, and Read Later localStorage.
 - `assets/map.js`: Leaflet map + marker clustering + country click filtering + centroid fallback coordinates.
 - `assets/markdown.js`: safe markdown renderer used by the in-app reader.
 - `assets/world.geo.json`: world country boundaries used for map highlighting/filtering.

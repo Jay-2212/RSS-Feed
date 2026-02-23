@@ -33,9 +33,9 @@
       "paywall": "metered"
     },
     {
-      "id": "aljazeera",
-      "name": "Al Jazeera",
-      "url": "https://www.aljazeera.com/xml/rss/all.xml",
+      "id": "reuters-world",
+      "name": "Reuters World (via Google News)",
+      "url": "https://news.google.com/rss/search?q=site:reuters.com/world&hl=en-US&gl=US&ceid=US:en",
       "tier": 2,
       "region": "global",
       "paywall": false
@@ -57,9 +57,17 @@
       "paywall": false
     },
     {
-      "id": "abc-news",
-      "name": "ABC News",
-      "url": "https://www.abc.net.au/news/feed/51120/rss.xml",
+      "id": "ap-news",
+      "name": "AP News (via Google News)",
+      "url": "https://news.google.com/rss/search?q=site:apnews.com&hl=en-US&gl=US&ceid=US:en",
+      "tier": 2,
+      "region": "global",
+      "paywall": false
+    },
+    {
+      "id": "quartz",
+      "name": "Quartz",
+      "url": "https://qz.com/rss",
       "tier": 2,
       "region": "global",
       "paywall": false

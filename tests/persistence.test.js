@@ -40,7 +40,7 @@ test("buildPersistedOutput normalizes schema and metadata", () => {
   assert.equal(output.metadata.phase, "phase_5_complete");
   assert.deepEqual(output.metadata.sources, ["nyt-world"]);
   assert.equal(output.articles[0].geotag.country, "USA");
-  assert.deepEqual(output.articles[0].tags, ["trade", "inflation"]);
+  assert.deepEqual(output.articles[0].tags, ["Trade", "Inflation"]);
   assert.equal(output.articles[0].metrics.wordCount, 450);
   assert.equal(output.articles[0].metrics.readTime, 2);
 });

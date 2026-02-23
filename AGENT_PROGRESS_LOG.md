@@ -10,7 +10,7 @@ RSS News Hub (GitHub Actions + Gemini + GitHub Pages)
 
 ## Status Snapshot
 Current Phase: `Maintenance`
-Last Completed Phase: `Maintenance - Kimi API Migration`
+Last Completed Phase: `Maintenance - Refresh UX, Limits, and Source Strategy`
 Next Phase: `Maintenance`
 Blockers: `None`
 
@@ -403,6 +403,55 @@ Exact Next Start Point:
 1. Add repository secret `KIMI_CODE_API`.
 2. Trigger `Curate News` workflow manually.
 3. Confirm logs show `KIMI_CODE_API detected in environment` and `geotagModeResolved":"live"` when key is valid.
+
+### 2026-02-23T00:24:17Z - Refresh, Reader UX, Limits, and Source Updates
+Owner: Codex agent
+
+Completed:
+1. Added real refresh orchestration in dashboard UI:
+   1. New refresh button in `/Users/jaybharti/Documents/RSS Feed/index.html`.
+   2. `/Users/jaybharti/Documents/RSS Feed/assets/app.js` now can dispatch GitHub Actions workflow (`curate.yml`) via GitHub API, poll run status, then fetch latest `articles.json` with cache-busting.
+   3. Added refresh status messaging and token storage flow (`localStorage`) for PAT-based trigger.
+2. Improved article reading experience:
+   1. `/Users/jaybharti/Documents/RSS Feed/assets/markdown.js` now renders images and resolves relative URLs against article URL.
+   2. Reader now shows hero image fallback from feed `imageUrl`.
+   3. Added fullscreen control in reader (`#reader-fullscreen`) with Fullscreen API + CSS fallback.
+3. Refined dashboard layout:
+   1. Moved snapshot stats from feed body to top bar beside controls.
+   2. Added top-bar action grouping and status line in `/Users/jaybharti/Documents/RSS Feed/assets/styles.css`.
+4. Increased data throughput and removed prior tight caps:
+   1. `CURATION_MAX_ARTICLES` default switched to uncapped (`0`) in `/Users/jaybharti/Documents/RSS Feed/src/config.js` and `/Users/jaybharti/Documents/RSS Feed/src/curator.js`.
+   2. `GEOTAG_MAX_API_BATCHES` default switched to uncapped (`0`) with unlimited handling in `/Users/jaybharti/Documents/RSS Feed/src/geotagger.js`.
+   3. `MAX_ARTICLES_PER_SOURCE` default raised to `40` and per-source limiting now supports uncapped mode in `/Users/jaybharti/Documents/RSS Feed/src/fetcher.js`.
+   4. QA thresholds updated for higher-volume output in `/Users/jaybharti/Documents/RSS Feed/scripts/qa-check.mjs`.
+5. Improved Kimi tag presentation:
+   1. Tags now normalized to display-friendly Title Case/acronym style in `/Users/jaybharti/Documents/RSS Feed/src/geotagger.js` and `/Users/jaybharti/Documents/RSS Feed/src/persistence.js`.
+6. Updated source strategy per request:
+   1. Removed `aljazeera` and `abc-news`.
+   2. Added `reuters-world`, `ap-news` (via Google News site-scoped RSS), and `quartz` in `/Users/jaybharti/Documents/RSS Feed/config/sources.json`.
+7. Updated docs/env defaults for new behavior in:
+   1. `/Users/jaybharti/Documents/RSS Feed/.env.example`
+   2. `/Users/jaybharti/Documents/RSS Feed/README.md`
+
+Validation:
+1. `npm test` passed (13/13).
+2. `npm run qa` passed.
+3. Latest generated dataset after updates:
+   1. `articles.json` count: `178`
+   2. File size: `886901` bytes
+   3. Unknown geotag ratio: `47.8%`
+
+Runtime Notes:
+1. The long extraction stage is expected now due larger source volume and uncapped curation.
+2. Reuters/AP are currently configured via Google News site-scoped RSS endpoints for stability in this environment.
+
+Deferred:
+1. Optional: add direct Reuters/AP official feeds if environment/network access reliably supports them.
+
+Exact Next Start Point:
+1. Add `KIMI_CODE_API` secret in repo and test live refresh from UI (workflow dispatch + poll + snapshot update).
+2. Trigger one workflow run on GitHub and verify updated data appears after clicking Refresh in deployed Pages UI.
+3. Monitor run time and tune `MAX_ARTICLES_PER_SOURCE`/`CURATION_MIN_WORD_COUNT` for desired freshness vs. runtime.
 
 ## Handoff Checklist (Must Be Updated Per Session)
 1. `Current Phase` updated.

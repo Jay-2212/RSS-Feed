@@ -2,23 +2,36 @@ import { renderMarkdown } from "./markdown.js";
 import { initializeMap } from "./map.js";
 
 const READ_LATER_KEY = "rss_news_hub_read_later_v1";
+const GITHUB_TOKEN_KEY = "rss_news_hub_github_pat_v1";
 const BASE_CATEGORY_ORDER = ["World", "National", "Trending", "WorthReading"];
+const REFRESH_POLL_INTERVAL_MS = 7_000;
+const REFRESH_MAX_POLLS = 60;
 
 const state = {
   metadata: null,
   allArticles: [],
   selectedCountry: null,
   selectedCategory: "All",
-  selectedTag: "All",
+  selectedTagKey: "all",
   searchQuery: "",
   readLaterOnly: false,
   readLaterIds: new Set(),
-  activeArticleId: null
+  activeArticleId: null,
+  refreshing: false
+};
+
+const workflowConfig = {
+  owner: document.body.dataset.githubOwner || "",
+  repo: document.body.dataset.githubRepo || "",
+  workflow: document.body.dataset.githubWorkflow || "",
+  ref: document.body.dataset.githubRef || "main"
 };
 
 const elements = {
   lastUpdated: document.querySelector("#last-updated"),
-  stats: document.querySelector("#stats"),
+  topStats: document.querySelector("#top-stats"),
+  refreshButton: document.querySelector("#refresh-button"),
+  refreshStatus: document.querySelector("#refresh-status"),
   searchInput: document.querySelector("#search-input"),
   categoryFilters: document.querySelector("#category-filters"),
   tagFilters: document.querySelector("#tag-filters"),
@@ -29,7 +42,9 @@ const elements = {
   mapToggle: document.querySelector("#map-toggle"),
   mapPanel: document.querySelector("#map-panel"),
   readerOverlay: document.querySelector("#reader-overlay"),
+  readerPanel: document.querySelector("#reader-panel"),
   readerClose: document.querySelector("#reader-close"),
+  readerFullscreen: document.querySelector("#reader-fullscreen"),
   readerTitle: document.querySelector("#reader-title"),
   readerMeta: document.querySelector("#reader-meta"),
   readerContent: document.querySelector("#reader-content")
@@ -44,6 +59,12 @@ function escapeHtml(value) {
     .replace(/'/g, "&#39;");
 }
 
+function sleep(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
+
 function formatDate(isoString) {
   try {
     return new Date(isoString).toLocaleString(undefined, {
@@ -55,6 +76,29 @@ function formatDate(isoString) {
     });
   } catch {
     return "Unknown time";
+  }
+}
+
+function normalizeTagKey(value) {
+  return String(value ?? "")
+    .trim()
+    .toLowerCase();
+}
+
+function resolveHttpUrl(rawUrl, baseUrl = "") {
+  const value = String(rawUrl ?? "").trim();
+  if (!value) {
+    return null;
+  }
+
+  try {
+    const parsed = baseUrl ? new URL(value, baseUrl) : new URL(value);
+    if (!["http:", "https:"].includes(parsed.protocol)) {
+      return null;
+    }
+    return parsed.toString();
+  } catch {
+    return null;
   }
 }
 
@@ -97,30 +141,50 @@ function categoriesFromArticles() {
 function topTagsFromArticles(limit = 14) {
   const counts = new Map();
   for (const article of state.allArticles) {
-    for (const tag of articleTags(article)) {
-      const normalized = String(tag).trim().toLowerCase();
-      if (!normalized) {
+    for (const labelRaw of articleTags(article)) {
+      const label = String(labelRaw || "").trim();
+      const key = normalizeTagKey(label);
+      if (!key) {
         continue;
       }
-      counts.set(normalized, (counts.get(normalized) ?? 0) + 1);
+
+      const entry = counts.get(key) || { key, label, count: 0 };
+      entry.count += 1;
+      counts.set(key, entry);
     }
   }
 
-  return Array.from(counts.entries())
+  return Array.from(counts.values())
     .sort((a, b) => {
-      if (b[1] !== a[1]) {
-        return b[1] - a[1];
+      if (b.count !== a.count) {
+        return b.count - a.count;
       }
-      return a[0].localeCompare(b[0]);
+      return a.label.localeCompare(b.label);
     })
-    .slice(0, limit)
-    .map((entry) => entry[0]);
+    .slice(0, limit);
 }
 
 function updateSelectedCountryLabel() {
   elements.selectedCountryLabel.textContent = state.selectedCountry
     ? `Country filter: ${state.selectedCountry}`
     : "Country filter: All countries";
+}
+
+function setRefreshStatus(message, isError = false) {
+  if (!elements.refreshStatus) {
+    return;
+  }
+  elements.refreshStatus.textContent = message || "";
+  elements.refreshStatus.classList.toggle("error", Boolean(isError));
+}
+
+function updateRefreshButton() {
+  if (!elements.refreshButton) {
+    return;
+  }
+
+  elements.refreshButton.disabled = state.refreshing;
+  elements.refreshButton.textContent = state.refreshing ? "Refreshing..." : "Refresh";
 }
 
 function toggleReadLater(id, mapController) {
@@ -154,21 +218,23 @@ function createCategoryButtons() {
 
 function createTagButtons() {
   const tags = topTagsFromArticles();
-  const entries = ["All", ...tags];
+  const entries = [{ key: "all", label: "All" }, ...tags];
 
   elements.tagFilters.innerHTML = entries
-    .map((tag) => {
-      const active = state.selectedTag === tag;
+    .map((entry) => {
+      const active = state.selectedTagKey === entry.key;
       return `
-        <button class="chip chip-topic ${active ? "active" : ""}" data-tag="${escapeHtml(tag)}">
-          ${escapeHtml(tag)}
+        <button class="chip chip-topic ${active ? "active" : ""}" data-tag-key="${escapeHtml(
+          entry.key
+        )}">
+          ${escapeHtml(entry.label)}
         </button>
       `;
     })
     .join("");
 
-  if (!entries.includes(state.selectedTag)) {
-    state.selectedTag = "All";
+  if (!entries.some((entry) => entry.key === state.selectedTagKey)) {
+    state.selectedTagKey = "all";
   }
 }
 
@@ -184,7 +250,8 @@ function applyFilters() {
 
     const tags = articleTags(article);
     const tagMatch =
-      state.selectedTag === "All" || tags.map((value) => value.toLowerCase()).includes(state.selectedTag);
+      state.selectedTagKey === "all" ||
+      tags.some((tag) => normalizeTagKey(tag) === state.selectedTagKey);
     if (!tagMatch) {
       return false;
     }
@@ -227,13 +294,12 @@ function renderStats(filteredCount) {
   const fallbackMode = geotagMode === "mock" ? "Yes" : "No";
   const tagged = state.allArticles.filter((article) => articleTags(article).length > 0).length;
 
-  elements.stats.innerHTML = `
+  elements.topStats.innerHTML = `
     <div class="stat"><span class="label">Total</span><span class="value">${total}</span></div>
     <div class="stat"><span class="label">Visible</span><span class="value">${filteredCount}</span></div>
     <div class="stat"><span class="label">Tagged</span><span class="value">${tagged}</span></div>
     <div class="stat"><span class="label">Read Later</span><span class="value">${saved}</span></div>
     <div class="stat"><span class="label">AI Fallback</span><span class="value">${fallbackMode}</span></div>
-    <div class="stat"><span class="label">Data Mode</span><span class="value">Snapshot</span></div>
   `;
 }
 
@@ -305,7 +371,13 @@ function renderArticles(articles) {
 function closeReader() {
   state.activeArticleId = null;
   elements.readerOverlay.classList.remove("visible");
+  elements.readerOverlay.setAttribute("aria-hidden", "true");
+  elements.readerPanel.classList.remove("reader-panel-maximized");
   document.body.classList.remove("reader-open");
+
+  if (document.fullscreenElement === elements.readerPanel) {
+    document.exitFullscreen().catch(() => {});
+  }
 }
 
 function openReader(articleId) {
@@ -317,8 +389,14 @@ function openReader(articleId) {
   state.activeArticleId = article.id;
   const city = article.geotag?.city ? `, ${article.geotag.city}` : "";
   const tags = articleTags(article);
+  const heroUrl = resolveHttpUrl(article.imageUrl, article.url);
+  const heroImage = heroUrl
+    ? `<figure><img src="${escapeHtml(heroUrl)}" alt="${escapeHtml(
+        article.title
+      )}" loading="lazy" referrerpolicy="no-referrer" /></figure>`
+    : "";
   const readerBody = article.content?.trim()
-    ? renderMarkdown(article.content)
+    ? renderMarkdown(article.content, { baseUrl: article.url })
     : `<p>${escapeHtml(article.excerpt || "No extracted content available.")}</p>`;
 
   elements.readerTitle.textContent = article.title;
@@ -328,9 +406,235 @@ function openReader(articleId) {
     <span>${escapeHtml(article.geotag?.country || "UNK")}${escapeHtml(city)}</span>
     ${tags.length > 0 ? `<span>${escapeHtml(tags.join(" • "))}</span>` : ""}
   `;
-  elements.readerContent.innerHTML = readerBody;
+  elements.readerContent.innerHTML = `${heroImage}${readerBody}`;
   elements.readerOverlay.classList.add("visible");
+  elements.readerOverlay.setAttribute("aria-hidden", "false");
   document.body.classList.add("reader-open");
+}
+
+async function toggleReaderFullscreen() {
+  if (!elements.readerPanel) {
+    return;
+  }
+
+  if (document.fullscreenElement === elements.readerPanel) {
+    await document.exitFullscreen();
+    return;
+  }
+
+  if (elements.readerPanel.requestFullscreen) {
+    try {
+      await elements.readerPanel.requestFullscreen();
+      return;
+    } catch {
+      // Fallback to CSS maximized mode below.
+    }
+  }
+
+  elements.readerPanel.classList.toggle("reader-panel-maximized");
+}
+
+function hasWorkflowConfig() {
+  return Boolean(workflowConfig.owner && workflowConfig.repo && workflowConfig.workflow);
+}
+
+function getStoredGitHubToken() {
+  try {
+    return String(localStorage.getItem(GITHUB_TOKEN_KEY) || "").trim();
+  } catch {
+    return "";
+  }
+}
+
+function storeGitHubToken(token) {
+  try {
+    localStorage.setItem(GITHUB_TOKEN_KEY, token);
+  } catch {
+    // Ignore localStorage failures.
+  }
+}
+
+async function ensureGitHubToken() {
+  const stored = getStoredGitHubToken();
+  if (stored) {
+    return stored;
+  }
+
+  const entered = window.prompt(
+    "Enter a GitHub token with workflow access to trigger refresh runs (stored locally in this browser)."
+  );
+  const token = String(entered || "").trim();
+  if (!token) {
+    return "";
+  }
+
+  storeGitHubToken(token);
+  return token;
+}
+
+async function githubRequest(path, token, options = {}) {
+  const response = await fetch(`https://api.github.com${path}`, {
+    ...options,
+    headers: {
+      Accept: "application/vnd.github+json",
+      Authorization: `Bearer ${token}`,
+      "X-GitHub-Api-Version": "2022-11-28",
+      ...(options.headers || {})
+    }
+  });
+
+  if (!response.ok) {
+    const text = await response.text();
+    throw new Error(`GitHub API ${response.status}: ${text || response.statusText}`);
+  }
+
+  if (response.status === 204) {
+    return null;
+  }
+
+  const contentType = response.headers.get("content-type") || "";
+  if (contentType.includes("application/json")) {
+    return response.json();
+  }
+  return response.text();
+}
+
+async function triggerWorkflowDispatch(token) {
+  await githubRequest(
+    `/repos/${encodeURIComponent(workflowConfig.owner)}/${encodeURIComponent(
+      workflowConfig.repo
+    )}/actions/workflows/${encodeURIComponent(workflowConfig.workflow)}/dispatches`,
+    token,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        ref: workflowConfig.ref
+      })
+    }
+  );
+
+  return new Date().toISOString();
+}
+
+async function findDispatchedRunId(token, startedAtIso) {
+  const startedAtMs = new Date(startedAtIso).getTime();
+
+  for (let attempt = 0; attempt < 15; attempt += 1) {
+    const runsResponse = await githubRequest(
+      `/repos/${encodeURIComponent(workflowConfig.owner)}/${encodeURIComponent(
+        workflowConfig.repo
+      )}/actions/workflows/${encodeURIComponent(workflowConfig.workflow)}/runs?event=workflow_dispatch&branch=${encodeURIComponent(
+        workflowConfig.ref
+      )}&per_page=20`,
+      token
+    );
+
+    const runs = Array.isArray(runsResponse?.workflow_runs) ? runsResponse.workflow_runs : [];
+    const matched = runs.find((run) => {
+      const createdAtMs = new Date(run.created_at || "").getTime();
+      return Number.isFinite(createdAtMs) && createdAtMs >= startedAtMs - 20_000;
+    });
+
+    if (matched) {
+      return matched.id;
+    }
+
+    await sleep(3_000);
+  }
+
+  throw new Error("Workflow dispatch accepted, but no run was found yet.");
+}
+
+async function waitForWorkflowCompletion(token, runId) {
+  for (let pollIndex = 0; pollIndex < REFRESH_MAX_POLLS; pollIndex += 1) {
+    const run = await githubRequest(
+      `/repos/${encodeURIComponent(workflowConfig.owner)}/${encodeURIComponent(
+        workflowConfig.repo
+      )}/actions/runs/${encodeURIComponent(runId)}`,
+      token
+    );
+
+    const status = String(run?.status || "").toLowerCase();
+    const conclusion = String(run?.conclusion || "").toLowerCase();
+
+    if (status === "completed") {
+      if (conclusion === "success") {
+        return;
+      }
+      throw new Error(`Workflow finished with status: ${conclusion || "failed"}.`);
+    }
+
+    setRefreshStatus(`Workflow is ${status || "in progress"}...`);
+    await sleep(REFRESH_POLL_INTERVAL_MS);
+  }
+
+  throw new Error("Timed out while waiting for workflow completion.");
+}
+
+async function loadArticles({ forceNetwork = false } = {}) {
+  const cacheBuster = forceNetwork ? `?t=${Date.now()}` : "";
+  const response = await fetch(`articles.json${cacheBuster}`, {
+    cache: forceNetwork ? "no-store" : "default"
+  });
+  if (!response.ok) {
+    throw new Error(`Unable to load articles.json (${response.status})`);
+  }
+
+  const payload = await response.json();
+  state.metadata = payload.metadata || null;
+  state.allArticles = Array.isArray(payload.articles) ? payload.articles : [];
+
+  if (elements.lastUpdated) {
+    elements.lastUpdated.textContent = formatDate(state.metadata?.lastUpdated);
+  }
+}
+
+async function runRefresh(mapController) {
+  if (state.refreshing) {
+    return;
+  }
+
+  state.refreshing = true;
+  updateRefreshButton();
+  const previousTimestamp = state.metadata?.lastUpdated || "";
+
+  try {
+    let workflowTriggered = false;
+
+    if (hasWorkflowConfig()) {
+      const token = await ensureGitHubToken();
+      if (token) {
+        setRefreshStatus("Starting workflow run...");
+        const startedAt = await triggerWorkflowDispatch(token);
+        const runId = await findDispatchedRunId(token, startedAt);
+        setRefreshStatus(`Workflow run #${runId} started.`);
+        await waitForWorkflowCompletion(token, runId);
+        workflowTriggered = true;
+      } else {
+        setRefreshStatus("No GitHub token set. Reloading current snapshot only.");
+      }
+    }
+
+    await loadArticles({ forceNetwork: true });
+    render(mapController);
+    mapController.resize();
+
+    if (state.metadata?.lastUpdated && state.metadata.lastUpdated !== previousTimestamp) {
+      setRefreshStatus(`Updated: ${formatDate(state.metadata.lastUpdated)}`);
+    } else if (workflowTriggered) {
+      setRefreshStatus("Workflow completed, but the snapshot timestamp is unchanged.");
+    } else {
+      setRefreshStatus(`Snapshot reloaded: ${formatDate(state.metadata?.lastUpdated)}`);
+    }
+  } catch (error) {
+    setRefreshStatus(error.message || "Refresh failed.", true);
+  } finally {
+    state.refreshing = false;
+    updateRefreshButton();
+  }
 }
 
 function setupEvents(mapController) {
@@ -350,12 +654,12 @@ function setupEvents(mapController) {
   });
 
   elements.tagFilters.addEventListener("click", (event) => {
-    const button = event.target.closest("button[data-tag]");
+    const button = event.target.closest("button[data-tag-key]");
     if (!button) {
       return;
     }
 
-    state.selectedTag = button.dataset.tag || "All";
+    state.selectedTagKey = button.dataset.tagKey || "all";
     render(mapController);
   });
 
@@ -398,8 +702,22 @@ function setupEvents(mapController) {
     }, 120);
   });
 
+  elements.refreshButton.addEventListener("click", async () => {
+    await runRefresh(mapController);
+  });
+
   elements.readerClose.addEventListener("click", () => {
     closeReader();
+  });
+
+  elements.readerFullscreen.addEventListener("click", async () => {
+    await toggleReaderFullscreen();
+  });
+
+  document.addEventListener("fullscreenchange", () => {
+    if (document.fullscreenElement !== elements.readerPanel) {
+      elements.readerPanel.classList.remove("reader-panel-maximized");
+    }
   });
 
   elements.readerOverlay.addEventListener("click", (event) => {
@@ -428,6 +746,7 @@ function render(mapController) {
 
 async function bootstrap() {
   state.readLaterIds = loadReadLater();
+  updateRefreshButton();
 
   const mapController = initializeMap({
     elementId: "world-map",
@@ -442,19 +761,7 @@ async function bootstrap() {
   });
 
   setupEvents(mapController);
-
-  const response = await fetch("articles.json");
-  if (!response.ok) {
-    throw new Error(`Unable to load articles.json (${response.status})`);
-  }
-
-  const payload = await response.json();
-  state.metadata = payload.metadata || null;
-  state.allArticles = Array.isArray(payload.articles) ? payload.articles : [];
-
-  if (elements.lastUpdated) {
-    elements.lastUpdated.textContent = formatDate(state.metadata?.lastUpdated);
-  }
+  await loadArticles({ forceNetwork: true });
 
   render(mapController);
   mapController.resize();
@@ -469,4 +776,5 @@ bootstrap().catch((error) => {
       </div>
     `;
   }
+  setRefreshStatus(error.message || "Dashboard failed to load.", true);
 });

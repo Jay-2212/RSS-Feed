@@ -8,21 +8,21 @@ const ROOT_DIR = process.cwd();
 const SOURCES_FILE = path.join(ROOT_DIR, "config", "sources.json");
 
 const DEFAULTS = {
-  maxSources: 9,
-  maxArticlesPerSource: 10,
+  maxSources: 0,
+  maxArticlesPerSource: 40,
   extractionAttemptTimeoutMs: 8_000,
   extractionTotalTimeoutMs: 25_000,
   extractionMarkdownMaxChars: 5_000,
   extractionExcerptMaxChars: 300,
   extractionConcurrency: 3,
-  curationMaxArticles: 40,
-  curationMinWordCount: 200,
+  curationMaxArticles: 0,
+  curationMinWordCount: 120,
   kimiModel: "kimi-k2-0905-preview",
   kimiFallbackModels: ["kimi-k2-turbo-preview", "kimi-for-coding"],
   kimiBaseUrl: "https://api.kimi.com/coding/v1",
   geotagMode: "auto",
-  geotagBatchSize: 40,
-  geotagMaxApiBatches: 1,
+  geotagBatchSize: 60,
+  geotagMaxApiBatches: 0,
   geotagTimeoutMs: 20_000,
   geotagMaxRetries: 4,
   geotagRetryBaseDelayMs: 2_000,
@@ -137,5 +137,8 @@ export async function loadSourcesFile(filePath = SOURCES_FILE) {
 }
 
 export function applySourceLimit(sources, maxSources) {
+  if (!Number.isFinite(maxSources) || maxSources <= 0) {
+    return [...sources];
+  }
   return sources.slice(0, maxSources);
 }

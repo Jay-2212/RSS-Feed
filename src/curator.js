@@ -14,8 +14,8 @@ const SOURCE_TIER_WEIGHTS = {
 };
 
 const DEFAULT_OPTIONS = {
-  maxArticles: 40,
-  minWordCount: 200,
+  maxArticles: 0,
+  minWordCount: 120,
   excludePatterns: [CLICKBAIT_REGEX]
 };
 
@@ -75,6 +75,10 @@ export function curateArticles(articles, rawOptions = {}) {
 
     return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
   });
+
+  if (!Number.isFinite(options.maxArticles) || options.maxArticles <= 0) {
+    return scored;
+  }
 
   return scored.slice(0, options.maxArticles);
 }

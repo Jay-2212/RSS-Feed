@@ -14,6 +14,51 @@ const TAG_BLACKLIST = new Set([
   "latest",
   "update"
 ]);
+const TAG_UPPERCASE_WORDS = new Set([
+  "ai",
+  "api",
+  "usa",
+  "ind",
+  "gbr",
+  "chn",
+  "rus",
+  "ukr",
+  "isr",
+  "pse",
+  "deu",
+  "fra",
+  "ita",
+  "esp",
+  "can",
+  "mex",
+  "bra",
+  "aus",
+  "jpn",
+  "kor",
+  "zaf",
+  "irn",
+  "tur",
+  "sau",
+  "are",
+  "pak",
+  "afg",
+  "syr",
+  "sdn",
+  "uga",
+  "ven",
+  "col",
+  "nga",
+  "egy",
+  "uk",
+  "eu",
+  "un",
+  "uae",
+  "nato",
+  "gdp",
+  "ipo",
+  "icc",
+  "rbi"
+]);
 
 function toIsoTimestamp(value, fallback) {
   const parsed = new Date(value ?? "");
@@ -41,6 +86,7 @@ function sanitizeCategory(value) {
 function normalizeTag(value) {
   const normalized = String(value ?? "")
     .toLowerCase()
+    .replace(/[_-]/g, " ")
     .replace(/[^a-z0-9\s-]/g, " ")
     .replace(/\s+/g, " ")
     .trim();
@@ -51,6 +97,29 @@ function normalizeTag(value) {
     return null;
   }
   return normalized;
+}
+
+function toDisplayTag(normalizedTag) {
+  const words = String(normalizedTag)
+    .split(/\s+/)
+    .filter(Boolean);
+  if (words.length === 0) {
+    return null;
+  }
+
+  return words
+    .map((word, index) => {
+      if (TAG_UPPERCASE_WORDS.has(word)) {
+        return word.toUpperCase();
+      }
+
+      if (index > 0 && ["and", "of", "for", "to", "in", "on"].includes(word)) {
+        return word;
+      }
+
+      return `${word[0].toUpperCase()}${word.slice(1)}`;
+    })
+    .join(" ");
 }
 
 function sanitizeTags(tags) {
@@ -64,7 +133,11 @@ function sanitizeTags(tags) {
       continue;
     }
     seen.add(tag);
-    safe.push(tag);
+    const displayTag = toDisplayTag(tag);
+    if (!displayTag) {
+      continue;
+    }
+    safe.push(displayTag);
     if (safe.length >= 8) {
       break;
     }

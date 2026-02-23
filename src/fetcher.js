@@ -12,6 +12,9 @@ import {
 const DEFAULT_FETCH_TIMEOUT_MS = 15_000;
 
 export function limitArticlesPerSource(items, maxItems) {
+  if (!Number.isFinite(maxItems) || maxItems <= 0) {
+    return [...items];
+  }
   return items.slice(0, maxItems);
 }
 

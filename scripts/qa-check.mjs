@@ -4,9 +4,8 @@ import path from "node:path";
 const ROOT = process.cwd();
 const ARTICLES_PATH = path.join(ROOT, "articles.json");
 const LAST_UPDATED_PATH = path.join(ROOT, "lastUpdated.txt");
-const MAX_ARTICLES_FILE_BYTES = 500_000;
-const MAX_ARTICLES = 40;
-const MIN_WORD_COUNT = 200;
+const MAX_ARTICLES_FILE_BYTES = 3_000_000;
+const MIN_WORD_COUNT = 120;
 const CLICKBAIT_REGEX =
   /(vs|versus|rumor|leaked|trailer|epic|destroyed|slammed|shocking|you won't believe)/i;
 
@@ -85,7 +84,7 @@ async function run() {
     "metadata.count does not match articles array length",
     failures
   );
-  assertCheck(articles.length <= MAX_ARTICLES, `articles length exceeds ${MAX_ARTICLES}`, failures);
+  assertCheck(articles.length > 0, "articles array is empty", failures);
   assertCheck(
     Array.isArray(metadata.sources) && metadata.sources.length > 0,
     "metadata.sources is missing or empty",

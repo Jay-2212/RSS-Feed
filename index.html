@@ -25,21 +25,33 @@
     />
     <link rel="stylesheet" href="assets/styles.css" />
   </head>
-  <body>
+  <body
+    data-github-owner="Jay-2212"
+    data-github-repo="RSS-Feed"
+    data-github-workflow="curate.yml"
+    data-github-ref="main"
+  >
     <div class="ambient ambient-one"></div>
     <div class="ambient ambient-two"></div>
 
     <header class="topbar">
-      <div>
+      <div class="topbar-brand">
         <p class="eyebrow">GitHub Pages Dashboard</p>
         <h1>RSS News Hub</h1>
       </div>
-      <div class="header-meta">
-        <p>Last Updated</p>
-        <strong id="last-updated">Loading...</strong>
+      <div class="topbar-right">
+        <div class="header-meta">
+          <p>Last Updated</p>
+          <strong id="last-updated">Loading...</strong>
+        </div>
+        <div id="top-stats" class="top-stats"></div>
+        <div class="top-actions">
+          <button id="refresh-button" class="map-toggle">Refresh</button>
+          <a href="logbook.html" class="map-toggle logbook-link">Open Logbook</a>
+          <button id="map-toggle" class="map-toggle">Hide Map</button>
+        </div>
+        <p id="refresh-status" class="refresh-status"></p>
       </div>
-      <a href="logbook.html" class="map-toggle logbook-link">Open Logbook</a>
-      <button id="map-toggle" class="map-toggle">Hide Map</button>
     </header>
 
     <main class="layout">
@@ -62,16 +74,35 @@
             Saved only
           </label>
         </div>
-        <div id="stats" class="stats"></div>
         <section id="articles-grid" class="articles-grid"></section>
       </section>
     </main>
 
     <aside id="reader-overlay" class="reader-overlay" aria-hidden="true">
-      <section class="reader-panel" role="dialog" aria-modal="true" aria-labelledby="reader-title">
+      <section
+        id="reader-panel"
+        class="reader-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="reader-title"
+      >
         <header class="reader-header">
           <h2 id="reader-title">Article</h2>
-          <button id="reader-close" class="ghost-btn">Close</button>
+          <div class="reader-actions">
+            <button id="reader-fullscreen" class="ghost-btn icon-btn" aria-label="Toggle full screen">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <button id="reader-close" class="ghost-btn">Close</button>
+          </div>
         </header>
         <p id="reader-meta" class="reader-meta"></p>
         <article id="reader-content" class="reader-content"></article>

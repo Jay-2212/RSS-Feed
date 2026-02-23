@@ -11,8 +11,8 @@ const DEFAULTS = {
   maxRetries: 4,
   retryBaseDelayMs: 2_000,
   retryMaxDelayMs: 30_000,
-  batchSize: 40,
-  maxApiBatches: 1
+  batchSize: 60,
+  maxApiBatches: 0
 };
 
 const VALID_CATEGORIES = new Set(["World", "National", "Trending", "WorthReading"]);
@@ -28,6 +28,52 @@ const TAG_BLACKLIST = new Set([
   "update",
   "headline",
   "story"
+]);
+
+const TAG_UPPERCASE_WORDS = new Set([
+  "ai",
+  "api",
+  "usa",
+  "ind",
+  "gbr",
+  "chn",
+  "rus",
+  "ukr",
+  "isr",
+  "pse",
+  "deu",
+  "fra",
+  "ita",
+  "esp",
+  "can",
+  "mex",
+  "bra",
+  "aus",
+  "jpn",
+  "kor",
+  "zaf",
+  "irn",
+  "tur",
+  "sau",
+  "are",
+  "pak",
+  "afg",
+  "syr",
+  "sdn",
+  "uga",
+  "ven",
+  "col",
+  "nga",
+  "egy",
+  "uk",
+  "eu",
+  "un",
+  "uae",
+  "nato",
+  "gdp",
+  "ipo",
+  "icc",
+  "rbi"
 ]);
 
 const TOPIC_TAG_MATCHERS = [
@@ -242,6 +288,7 @@ function clampConfidence(value, fallback = 0.55) {
 function normalizeTag(value) {
   const cleaned = String(value ?? "")
     .toLowerCase()
+    .replace(/[_-]/g, " ")
     .replace(/[^a-z0-9\s-]/g, " ")
     .replace(/\s+/g, " ")
     .trim();
@@ -254,8 +301,31 @@ function normalizeTag(value) {
   return cleaned;
 }
 
+function toDisplayTag(normalizedTag) {
+  const words = String(normalizedTag)
+    .split(/\s+/)
+    .filter(Boolean);
+  if (words.length === 0) {
+    return null;
+  }
+
+  return words
+    .map((word, index) => {
+      if (TAG_UPPERCASE_WORDS.has(word)) {
+        return word.toUpperCase();
+      }
+
+      if (index > 0 && ["and", "of", "for", "to", "in", "on"].includes(word)) {
+        return word;
+      }
+
+      return `${word[0].toUpperCase()}${word.slice(1)}`;
+    })
+    .join(" ");
+}
+
 function sanitizeTagList(tags, maxItems = 8) {
-  const normalized = [];
+  const displayTags = [];
   const seen = new Set();
   for (const tagRaw of tags ?? []) {
     const tag = normalizeTag(tagRaw);
@@ -263,12 +333,16 @@ function sanitizeTagList(tags, maxItems = 8) {
       continue;
     }
     seen.add(tag);
-    normalized.push(tag);
-    if (normalized.length >= maxItems) {
+    const displayTag = toDisplayTag(tag);
+    if (!displayTag) {
+      continue;
+    }
+    displayTags.push(displayTag);
+    if (displayTags.length >= maxItems) {
       break;
     }
   }
-  return normalized;
+  return displayTags;
 }
 
 function extractFallbackTags(article, country, city) {
@@ -282,7 +356,7 @@ function extractFallbackTags(article, country, city) {
   }
 
   if (country && country !== "UNK") {
-    inferred.push(String(country).toLowerCase());
+    inferred.push(String(country));
   }
   if (city) {
     inferred.push(city);
@@ -484,12 +558,12 @@ function buildGeotagPrompt(batch) {
     "- city (string or null, specific city when present in article)",
     "- category (World | National | Trending | WorthReading)",
     "- confidence (0.0 to 1.0)",
-    "- tags (array of 3-8 specific, lowercase tags; include topic + domain terms, no generic tags)",
+    "- tags (array of 3-8 specific display-ready tags; use Title Case when possible)",
     "",
     "Tagging rules:",
     "- Prefer specific tags like 'trade', 'ceasefire', 'cybersecurity', 'elections', 'inflation'.",
     "- Avoid generic tags like 'news', 'world', 'politics', 'headline', 'update'.",
-    "- Include one location tag when evident (city or country name in lowercase).",
+    "- Include one location tag when evident (city or country name).",
     "- Do not invent places; use UNK only when location cannot be inferred.",
     "- confidence below 0.6 when location confidence is weak.",
     "",
@@ -724,13 +798,17 @@ export async function geotagArticles(articles, rawOptions = {}) {
   const chunks = chunkArticles(articles, Math.max(1, options.batchSize));
   const combined = [];
   const modelUsageCounts = {};
+  const effectiveMaxApiBatches =
+    Number.isFinite(options.maxApiBatches) && options.maxApiBatches > 0
+      ? options.maxApiBatches
+      : Number.POSITIVE_INFINITY;
 
   for (const [batchIndex, batch] of chunks.entries()) {
     const prompt = buildGeotagPrompt(batch);
     let parsedResults = [];
     let modelUsedForBatch = null;
 
-    if (batchIndex < options.maxApiBatches) {
+    if (batchIndex < effectiveMaxApiBatches) {
       try {
         const response = await callKimiWithModelFallback(prompt, options, logger);
         modelUsedForBatch = response.modelUsed;
@@ -776,7 +854,10 @@ export async function geotagArticles(articles, rawOptions = {}) {
     count: combined.length,
     fallbackCount: combined.filter((article) => article.geotagStatus !== "live").length,
     modelUsageCounts,
-    maxApiBatches: options.maxApiBatches
+    maxApiBatches: options.maxApiBatches,
+    effectiveMaxApiBatches: Number.isFinite(effectiveMaxApiBatches)
+      ? effectiveMaxApiBatches
+      : "unlimited"
   });
 
   return combined;

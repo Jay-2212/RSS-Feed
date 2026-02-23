@@ -70,7 +70,7 @@ test("geotagArticles parses live-mode Kimi JSON response", async () => {
   assert.equal(result[0].geotag.city, "London");
   assert.equal(result[0].category, "World");
   assert.equal(result[0].geotagConfidence, 0.88);
-  assert.deepEqual(result[0].tags, ["trade", "london", "diplomacy"]);
+  assert.deepEqual(result[0].tags, ["Trade", "London", "Diplomacy"]);
 });
 
 test("geotagArticles falls back to secondary model after 429", async () => {
@@ -133,7 +133,7 @@ test("geotagArticles falls back to secondary model after 429", async () => {
   assert.equal(result.length, 1);
   assert.equal(result[0].geotagStatus, "live");
   assert.equal(result[0].geotag.country, "DEU");
-  assert.deepEqual(result[0].tags, ["ceasefire", "berlin", "diplomacy"]);
+  assert.deepEqual(result[0].tags, ["Ceasefire", "Berlin", "Diplomacy"]);
 });
 
 test("geotagArticles enforces maxApiBatches guard to control spend", async () => {
@@ -205,5 +205,5 @@ test("geotagArticles mock fallback infers country from broader aliases", async (
   assert.equal(result.length, 1);
   assert.equal(result[0].geotagStatus, "mock");
   assert.equal(result[0].geotag.country, "PAK");
-  assert.ok(result[0].tags.includes("pak"));
+  assert.ok(result[0].tags.includes("PAK"));
 });
