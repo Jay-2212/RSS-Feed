@@ -14,7 +14,7 @@ const SOURCE_TIER_WEIGHTS = {
 };
 
 const DEFAULT_OPTIONS = {
-  maxArticles: 0,
+  maxArticles: 120,
   minWordCount: 120,
   excludePatterns: [CLICKBAIT_REGEX]
 };

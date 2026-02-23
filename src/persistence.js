@@ -5,6 +5,7 @@ import { calculateWordCount, clampText, estimateReadTime } from "./utils.js";
 
 const CATEGORY_FALLBACK = "WorthReading";
 const VALID_CATEGORIES = new Set(["World", "National", "Trending", "WorthReading"]);
+const VALID_PRIORITIES = new Set(["High", "Medium", "Low"]);
 const TAG_BLACKLIST = new Set([
   "world",
   "national",
@@ -81,6 +82,25 @@ function toNumber(value, fallback = 0) {
 function sanitizeCategory(value) {
   const category = String(value ?? "").trim();
   return VALID_CATEGORIES.has(category) ? category : CATEGORY_FALLBACK;
+}
+
+function sanitizePriority(value) {
+  const normalized = String(value ?? "")
+    .trim()
+    .toLowerCase();
+
+  if (["high", "critical", "urgent", "severe"].includes(normalized)) {
+    return "High";
+  }
+  if (["low", "minor", "routine"].includes(normalized)) {
+    return "Low";
+  }
+  if (["medium", "moderate", "important"].includes(normalized)) {
+    return "Medium";
+  }
+
+  const direct = String(value ?? "").trim();
+  return VALID_PRIORITIES.has(direct) ? direct : "Medium";
 }
 
 function normalizeTag(value) {
@@ -161,6 +181,12 @@ function sanitizeGeotag(geotag) {
   };
 }
 
+function sanitizeSignals(signals) {
+  return {
+    conflict: Boolean(signals?.conflict)
+  };
+}
+
 function sanitizeMetrics(article) {
   const contentWordCount = calculateWordCount(article.content || article.excerpt || "");
   const wordCount = Number.isFinite(article.wordCount) ? article.wordCount : contentWordCount;
@@ -194,6 +220,8 @@ function sanitizeArticle(article, timestamp) {
     publishedAt: toIsoTimestamp(article.publishedAt, timestamp),
     geotag: sanitizeGeotag(article.geotag),
     category: sanitizeCategory(article.category),
+    priority: sanitizePriority(article.priority),
+    signals: sanitizeSignals(article.signals),
     tags: sanitizeTags(tagsFromSource),
     metrics: sanitizeMetrics(article)
   };

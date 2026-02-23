@@ -9,13 +9,13 @@ const SOURCES_FILE = path.join(ROOT_DIR, "config", "sources.json");
 
 const DEFAULTS = {
   maxSources: 0,
-  maxArticlesPerSource: 40,
+  maxArticlesPerSource: 20,
   extractionAttemptTimeoutMs: 8_000,
   extractionTotalTimeoutMs: 25_000,
   extractionMarkdownMaxChars: 5_000,
   extractionExcerptMaxChars: 300,
   extractionConcurrency: 3,
-  curationMaxArticles: 0,
+  curationMaxArticles: 120,
   curationMinWordCount: 120,
   kimiModel: "kimi-k2-0905-preview",
   kimiFallbackModels: ["kimi-k2-turbo-preview", "kimi-for-coding"],

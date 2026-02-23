@@ -45,9 +45,9 @@ By default this runs Phase 1-5. Geotag behavior:
 5. Live batch defaults are tuned for higher throughput:
    1. `GEOTAG_BATCH_SIZE=60`
    2. `GEOTAG_MAX_API_BATCHES=0` (`0` means unlimited batches per run)
-6. Article volume defaults are no longer capped at 40:
-   1. `CURATION_MAX_ARTICLES=0` (`0` means uncapped)
-   2. `MAX_ARTICLES_PER_SOURCE=40`
+6. Article volume defaults are now capped to balance freshness and safety:
+   1. `CURATION_MAX_ARTICLES=120`
+   2. `MAX_ARTICLES_PER_SOURCE=20`
 
 6. Run final QA gate:
 
@@ -97,8 +97,8 @@ Kimi troubleshooting:
 
 - `index.html`: responsive dashboard shell with map + grid layout + native reader overlay + refresh controls.
 - `assets/styles.css`: AMOLED theme, responsive layout, card animations, and reader styles.
-- `assets/app.js`: data loading, map/category/tag filters, GitHub workflow refresh trigger/polling, native article reader, and Read Later localStorage.
-- `assets/map.js`: Leaflet map + marker clustering + country click filtering + centroid fallback coordinates.
+- `assets/app.js`: data loading, map/category/tag filters, GitHub workflow refresh trigger/polling, high-priority strip, native article reader, and Read Later localStorage.
+- `assets/map.js`: Leaflet map + marker clustering + country click filtering + ocean-click deselect + priority/conflict coloring.
 - `assets/markdown.js`: safe markdown renderer used by the in-app reader.
 - `assets/world.geo.json`: world country boundaries used for map highlighting/filtering.
 - `logbook.html`, `assets/logbook.js`, `assets/logbook.css`: clean static logbook reader for `AGENT_PROGRESS_LOG.md`.

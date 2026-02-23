@@ -1,8 +1,15 @@
-const CATEGORY_COLORS = {
-  World: "#7c3aed",
-  National: "#10b981",
-  Trending: "#0891b2",
-  WorthReading: "#f97316"
+const PRIORITY_RANK = {
+  High: 3,
+  Medium: 2,
+  Low: 1,
+  None: 0
+};
+
+const PRIORITY_COLORS = {
+  High: "#ef4444",
+  Medium: "#f59e0b",
+  Low: "#22c55e",
+  None: "#334155"
 };
 
 function escapeHtml(value) {
@@ -46,6 +53,30 @@ function isValidPoint(lat, lng) {
     Math.abs(lng) <= 180 &&
     !(lat === 0 && lng === 0)
   );
+}
+
+function normalizePriority(value) {
+  const normalized = String(value ?? "")
+    .trim()
+    .toLowerCase();
+  if (["high", "critical", "urgent"].includes(normalized)) {
+    return "High";
+  }
+  if (["medium", "moderate"].includes(normalized)) {
+    return "Medium";
+  }
+  if (["low", "minor", "routine"].includes(normalized)) {
+    return "Low";
+  }
+  return "Low";
+}
+
+function hasConflictSignal(article) {
+  if (article?.signals?.conflict) {
+    return true;
+  }
+  const tags = Array.isArray(article?.tags) ? article.tags : [];
+  return tags.some((tag) => /\b(conflict|war|ceasefire|military|attack)\b/i.test(tag));
 }
 
 function appendCoordinatePairs(container, coordinates) {
@@ -106,6 +137,36 @@ function buildCountryCentroids(geoJson) {
   return lookup;
 }
 
+function buildCountrySignals(articles) {
+  const lookup = new Map();
+
+  for (const article of articles) {
+    const country = String(article?.geotag?.country || "")
+      .trim()
+      .toUpperCase();
+    if (!country || country === "UNK") {
+      continue;
+    }
+
+    const priority = normalizePriority(article?.priority);
+    const conflict = hasConflictSignal(article);
+    const existing = lookup.get(country) || {
+      priority: "Low",
+      conflict: false,
+      count: 0
+    };
+
+    if (PRIORITY_RANK[priority] > PRIORITY_RANK[existing.priority]) {
+      existing.priority = priority;
+    }
+    existing.conflict = existing.conflict || conflict;
+    existing.count += 1;
+    lookup.set(country, existing);
+  }
+
+  return lookup;
+}
+
 export function initializeMap(options = {}) {
   const {
     elementId = "world-map",
@@ -161,15 +222,23 @@ export function initializeMap(options = {}) {
   let worldLayer = null;
   let lastArticles = [];
   let countryCentroids = new Map();
+  let countrySignals = new Map();
 
   function countryStyle(feature) {
-    const code = countryCodeFromFeature(feature);
-    const isSelected = selectedCountry && code === selectedCountry;
+    const code = String(countryCodeFromFeature(feature) ?? "")
+      .trim()
+      .toUpperCase();
+    const signal = countrySignals.get(code);
+    const isSelected = Boolean(selectedCountry && code === selectedCountry);
+    const priority = signal?.priority || "None";
+    const fillColor = PRIORITY_COLORS[priority] || PRIORITY_COLORS.None;
+    const conflict = Boolean(signal?.conflict);
+
     return {
-      color: isSelected ? "#0284c7" : "#64748b",
-      weight: isSelected ? 1.5 : 0.8,
-      fillColor: isSelected ? "#0ea5e9" : "#e2e8f0",
-      fillOpacity: isSelected ? 0.45 : 0.2
+      color: isSelected ? "#0c4a6e" : conflict ? "#7f1d1d" : "#475569",
+      weight: isSelected ? 1.8 : conflict ? 1.4 : 0.8,
+      fillColor: isSelected ? "#0ea5e9" : fillColor,
+      fillOpacity: isSelected ? 0.5 : signal ? 0.28 : 0.12
     };
   }
 
@@ -195,7 +264,7 @@ export function initializeMap(options = {}) {
   function bindCountryFeature(feature, layer) {
     layer.on("mouseover", () => {
       layer.setStyle({
-        weight: 1.4,
+        weight: 1.5,
         color: "#0f172a"
       });
     });
@@ -204,8 +273,14 @@ export function initializeMap(options = {}) {
       refreshWorldStyles();
     });
 
-    layer.on("click", () => {
-      const code = countryCodeFromFeature(feature);
+    layer.on("click", (event) => {
+      if (event) {
+        L.DomEvent.stopPropagation(event);
+      }
+
+      const code = String(countryCodeFromFeature(feature) ?? "")
+        .trim()
+        .toUpperCase();
       if (!code) {
         return;
       }
@@ -257,6 +332,8 @@ export function initializeMap(options = {}) {
 
   function update(articles) {
     lastArticles = Array.isArray(articles) ? articles : [];
+    countrySignals = buildCountrySignals(lastArticles);
+    refreshWorldStyles();
     markers.clearLayers();
 
     const bounds = [];
@@ -264,30 +341,38 @@ export function initializeMap(options = {}) {
       const geotag = article?.geotag || {};
       const country = String(geotag.country || "UNK").toUpperCase();
       const point = resolveMarkerPoint(geotag);
-
       if (!point || country === "UNK") {
         continue;
       }
 
       const [lat, lng] = point;
-      const color = CATEGORY_COLORS[article.category] || "#64748b";
+      const priority = normalizePriority(article?.priority);
+      const conflict = hasConflictSignal(article);
+      const color = PRIORITY_COLORS[priority] || PRIORITY_COLORS.Low;
+
       const marker = L.circleMarker([lat, lng], {
-        radius: 7,
-        color,
-        weight: 1.2,
+        radius: conflict ? 8 : 7,
+        color: conflict ? "#7f1d1d" : color,
+        weight: conflict ? 1.8 : 1.2,
         fillColor: color,
-        fillOpacity: 0.85
+        fillOpacity: 0.86
       });
 
       marker.bindPopup(
         [
           `<strong>${escapeHtml(article.title)}</strong>`,
           `<div>${escapeHtml(article.sourceName)}</div>`,
-          `<div>${escapeHtml(country)}</div>`
+          `<div>Country: ${escapeHtml(country)}</div>`,
+          `<div>Priority: ${escapeHtml(priority)}</div>`,
+          `<div>Conflict Signal: ${conflict ? "Yes" : "No"}</div>`
         ].join("")
       );
 
-      marker.on("click", () => {
+      marker.on("click", (event) => {
+        if (event?.originalEvent) {
+          L.DomEvent.stopPropagation(event.originalEvent);
+        }
+
         if (selectedCountry === country) {
           setSelectedCountry(null, true);
         } else {
@@ -308,6 +393,12 @@ export function initializeMap(options = {}) {
       map.setView([20, 0], 2);
     }
   }
+
+  map.on("click", () => {
+    if (selectedCountry) {
+      setSelectedCountry(null, true);
+    }
+  });
 
   loadWorldLayer();
 

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "lastUpdated": "2026-02-23T00:22:48.028Z",
+    "lastUpdated": "2026-02-23T00:42:29.388Z",
     "count": 178,
     "sources": [
       "npr-world",
@@ -34,6 +34,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 828,
@@ -57,6 +61,10 @@
         "lng": 37.6173
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Energy",
         "RUS",
@@ -84,6 +92,10 @@
         "lng": -98.5795
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Law and Justice",
         "USA"
@@ -109,7 +121,11 @@
         "lat": 23.6345,
         "lng": -102.5528
       },
-      "category": "Trending",
+      "category": "World",
+      "priority": "High",
+      "signals": {
+        "conflict": true
+      },
       "tags": [
         "Conflict",
         "MEX"
@@ -135,7 +151,11 @@
         "lat": 35.9078,
         "lng": 127.7669
       },
-      "category": "Trending",
+      "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Legislature",
         "KOR"
@@ -161,7 +181,11 @@
         "lat": 38.9072,
         "lng": -77.0369
       },
-      "category": "Trending",
+      "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "USA",
         "Washington"
@@ -187,7 +211,11 @@
         "lat": 50.4501,
         "lng": 30.5234
       },
-      "category": "Trending",
+      "category": "World",
+      "priority": "High",
+      "signals": {
+        "conflict": true
+      },
       "tags": [
         "Conflict",
         "UKR",
@@ -215,6 +243,10 @@
         "lng": 78.9629
       },
       "category": "National",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "IND"
       ],
@@ -239,7 +271,11 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "Trending",
+      "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Education"
       ],
@@ -264,7 +300,11 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "Trending",
+      "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Markets"
       ],
@@ -289,7 +329,11 @@
         "lat": 39.8283,
         "lng": -98.5795
       },
-      "category": "Trending",
+      "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "USA"
       ],
@@ -314,7 +358,11 @@
         "lat": 32.4279,
         "lng": 53.688
       },
-      "category": "Trending",
+      "category": "World",
+      "priority": "High",
+      "signals": {
+        "conflict": true
+      },
       "tags": [
         "Conflict",
         "IRN"
@@ -341,6 +389,10 @@
         "lng": 77.1025
       },
       "category": "National",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "IND",
         "Delhi"
@@ -367,6 +419,10 @@
         "lng": 77.1025
       },
       "category": "National",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "IND",
         "Delhi"
@@ -392,7 +448,11 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "Trending",
+      "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 344,
@@ -415,7 +475,11 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "Trending",
+      "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 476,
@@ -438,7 +502,11 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "Trending",
+      "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 566,
@@ -461,7 +529,11 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "Trending",
+      "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 313,
@@ -484,7 +556,11 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "Trending",
+      "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Legislature"
       ],
@@ -509,7 +585,11 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "Trending",
+      "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 436,
@@ -532,7 +612,11 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "Trending",
+      "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 780,
@@ -555,7 +639,11 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "Trending",
+      "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 332,
@@ -578,7 +666,11 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "Trending",
+      "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 334,
@@ -601,7 +693,11 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "Trending",
+      "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 422,
@@ -624,7 +720,11 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "Trending",
+      "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 355,
@@ -647,7 +747,11 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "Trending",
+      "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Legislature"
       ],
@@ -672,7 +776,11 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "Trending",
+      "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Sports"
       ],
@@ -697,7 +805,11 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "Trending",
+      "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Infrastructure"
       ],
@@ -723,6 +835,10 @@
         "lng": 78.9629
       },
       "category": "National",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "IND"
       ],
@@ -747,7 +863,11 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "Trending",
+      "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 477,
@@ -770,7 +890,11 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "Trending",
+      "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 498,
@@ -794,6 +918,10 @@
         "lng": 53.688
       },
       "category": "World",
+      "priority": "High",
+      "signals": {
+        "conflict": true
+      },
       "tags": [
         "Conflict",
         "IRN"
@@ -820,6 +948,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 758,
@@ -843,6 +975,10 @@
         "lng": 12.5674
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "ITA"
       ],
@@ -868,6 +1004,10 @@
         "lng": -98.5795
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Health",
         "USA"
@@ -894,6 +1034,10 @@
         "lng": -3.436
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Trade",
         "GBR"
@@ -920,6 +1064,10 @@
         "lng": 31.1656
       },
       "category": "World",
+      "priority": "High",
+      "signals": {
+        "conflict": true
+      },
       "tags": [
         "Crime",
         "UKR"
@@ -946,6 +1094,10 @@
         "lng": 0
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "SDN"
       ],
@@ -971,6 +1123,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 421,
@@ -994,6 +1150,10 @@
         "lng": 0
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "PAK"
       ],
@@ -1019,6 +1179,10 @@
         "lng": 34.8516
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "ISR"
       ],
@@ -1044,6 +1208,10 @@
         "lng": 0
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Legislature",
         "VEN"
@@ -1070,6 +1238,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 521,
@@ -1093,6 +1265,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Culture"
       ],
@@ -1118,6 +1294,10 @@
         "lng": 78.9629
       },
       "category": "National",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Sports",
         "IND"
@@ -1144,6 +1324,10 @@
         "lng": 0
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Migration",
         "VEN"
@@ -1170,6 +1354,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Culture"
       ],
@@ -1195,6 +1383,10 @@
         "lng": 74.3436
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "PAK",
         "Lahore"
@@ -1221,6 +1413,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 434,
@@ -1244,6 +1440,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 441,
@@ -1267,6 +1467,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 435,
@@ -1290,6 +1494,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Education"
       ],
@@ -1315,6 +1523,10 @@
         "lng": 34.8516
       },
       "category": "World",
+      "priority": "High",
+      "signals": {
+        "conflict": true
+      },
       "tags": [
         "Conflict",
         "ISR"
@@ -1341,6 +1553,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Health"
       ],
@@ -1366,6 +1582,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Health"
       ],
@@ -1391,6 +1611,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 359,
@@ -1414,6 +1638,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 464,
@@ -1437,6 +1665,10 @@
         "lng": 34.8516
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "ISR"
       ],
@@ -1462,6 +1694,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 447,
@@ -1485,6 +1721,10 @@
         "lng": 53.688
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Culture",
         "IRN"
@@ -1511,6 +1751,10 @@
         "lng": 105.3188
       },
       "category": "World",
+      "priority": "High",
+      "signals": {
+        "conflict": true
+      },
       "tags": [
         "Conflict",
         "RUS"
@@ -1537,6 +1781,10 @@
         "lng": 53.688
       },
       "category": "World",
+      "priority": "High",
+      "signals": {
+        "conflict": true
+      },
       "tags": [
         "Conflict",
         "IRN"
@@ -1563,6 +1811,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Elections"
       ],
@@ -1588,6 +1840,10 @@
         "lng": -102.5528
       },
       "category": "World",
+      "priority": "High",
+      "signals": {
+        "conflict": true
+      },
       "tags": [
         "Conflict",
         "MEX"
@@ -1614,6 +1870,10 @@
         "lng": -3.436
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "GBR"
       ],
@@ -1639,6 +1899,10 @@
         "lng": 0
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "SYR"
       ],
@@ -1664,6 +1928,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Crime"
       ],
@@ -1689,6 +1957,10 @@
         "lng": -3.436
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "GBR"
       ],
@@ -1714,6 +1986,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 558,
@@ -1737,6 +2013,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 673,
@@ -1760,6 +2040,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 760,
@@ -1783,6 +2067,10 @@
         "lng": -77.0369
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "USA",
         "Washington"
@@ -1809,6 +2097,10 @@
         "lng": -98.5795
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Law and Justice",
         "Trade",
@@ -1836,6 +2128,10 @@
         "lng": 2.2137
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "FRA"
       ],
@@ -1861,6 +2157,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 496,
@@ -1884,6 +2184,10 @@
         "lng": 31.1656
       },
       "category": "World",
+      "priority": "High",
+      "signals": {
+        "conflict": true
+      },
       "tags": [
         "Conflict",
         "UKR"
@@ -1910,6 +2214,10 @@
         "lng": 53.688
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Education",
         "IRN"
@@ -1936,6 +2244,10 @@
         "lng": -98.5795
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "USA"
       ],
@@ -1961,6 +2273,10 @@
         "lng": 0
       },
       "category": "World",
+      "priority": "High",
+      "signals": {
+        "conflict": true
+      },
       "tags": [
         "Conflict",
         "PAK"
@@ -1987,6 +2303,10 @@
         "lng": 34.8516
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "ISR"
       ],
@@ -2012,6 +2332,10 @@
         "lng": -74.006
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "USA",
         "Newyork"
@@ -2038,6 +2362,10 @@
         "lng": -98.5795
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "USA"
       ],
@@ -2063,6 +2391,10 @@
         "lng": 2.2137
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "FRA"
       ],
@@ -2088,6 +2420,10 @@
         "lng": 31.1656
       },
       "category": "World",
+      "priority": "High",
+      "signals": {
+        "conflict": true
+      },
       "tags": [
         "Startups",
         "Conflict",
@@ -2115,6 +2451,10 @@
         "lng": -98.5795
       },
       "category": "WorthReading",
+      "priority": "High",
+      "signals": {
+        "conflict": true
+      },
       "tags": [
         "Conflict",
         "USA"
@@ -2141,6 +2481,10 @@
         "lng": 116.4074
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "CHN",
         "Beijing"
@@ -2167,6 +2511,10 @@
         "lng": 53.688
       },
       "category": "World",
+      "priority": "High",
+      "signals": {
+        "conflict": true
+      },
       "tags": [
         "IRN"
       ],
@@ -2192,6 +2540,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 697,
@@ -2215,6 +2567,10 @@
         "lng": 53.688
       },
       "category": "World",
+      "priority": "High",
+      "signals": {
+        "conflict": true
+      },
       "tags": [
         "Conflict",
         "IRN"
@@ -2241,6 +2597,10 @@
         "lng": 0
       },
       "category": "World",
+      "priority": "High",
+      "signals": {
+        "conflict": true
+      },
       "tags": [
         "Conflict",
         "PAK"
@@ -2267,6 +2627,10 @@
         "lng": -98.5795
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "USA"
       ],
@@ -2292,6 +2656,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Economy",
         "Health"
@@ -2318,6 +2686,10 @@
         "lng": 133.7751
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Trade",
         "AUS"
@@ -2344,6 +2716,10 @@
         "lng": 133.7751
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "AUS"
       ],
@@ -2369,6 +2745,10 @@
         "lng": -0.1278
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Law and Justice",
         "GBR",
@@ -2396,6 +2776,10 @@
         "lng": 0
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "PAK"
       ],
@@ -2421,6 +2805,10 @@
         "lng": -98.5795
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "USA"
       ],
@@ -2446,6 +2834,10 @@
         "lng": 0
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "PAK"
       ],
@@ -2471,6 +2863,10 @@
         "lng": 0
       },
       "category": "World",
+      "priority": "High",
+      "signals": {
+        "conflict": true
+      },
       "tags": [
         "VEN"
       ],
@@ -2496,6 +2892,10 @@
         "lng": 78.9629
       },
       "category": "National",
+      "priority": "High",
+      "signals": {
+        "conflict": true
+      },
       "tags": [
         "Legislature",
         "Law and Justice",
@@ -2525,6 +2925,10 @@
         "lng": 77.1025
       },
       "category": "National",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Law and Justice",
         "Trade",
@@ -2553,6 +2957,10 @@
         "lng": 34.8516
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "ISR"
       ],
@@ -2578,6 +2986,10 @@
         "lng": 78.9629
       },
       "category": "National",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "IND"
       ],
@@ -2603,6 +3015,10 @@
         "lng": 34.8516
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "ISR"
       ],
@@ -2628,6 +3044,10 @@
         "lng": 53.688
       },
       "category": "World",
+      "priority": "High",
+      "signals": {
+        "conflict": true
+      },
       "tags": [
         "Conflict",
         "IRN"
@@ -2654,6 +3074,10 @@
         "lng": -106.3468
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "CAN"
       ],
@@ -2679,6 +3103,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 677,
@@ -2702,6 +3130,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Crime"
       ],
@@ -2727,6 +3159,10 @@
         "lng": 78.9629
       },
       "category": "National",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Law and Justice",
         "Trade",
@@ -2754,6 +3190,10 @@
         "lng": -98.5795
       },
       "category": "WorthReading",
+      "priority": "High",
+      "signals": {
+        "conflict": true
+      },
       "tags": [
         "Conflict",
         "USA"
@@ -2780,6 +3220,10 @@
         "lng": -98.5795
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Law and Justice",
         "Trade",
@@ -2807,6 +3251,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 774,
@@ -2830,6 +3278,10 @@
         "lng": 53.688
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "IRN"
       ],
@@ -2855,6 +3307,10 @@
         "lng": 78.9629
       },
       "category": "National",
+      "priority": "High",
+      "signals": {
+        "conflict": true
+      },
       "tags": [
         "Law and Justice",
         "Conflict",
@@ -2882,6 +3338,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 611,
@@ -2905,6 +3365,10 @@
         "lng": 78.9629
       },
       "category": "National",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Law and Justice",
         "Trade",
@@ -2932,6 +3396,10 @@
         "lng": -98.5795
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Legislature",
         "Law and Justice",
@@ -2960,6 +3428,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Health"
       ],
@@ -2985,6 +3457,10 @@
         "lng": -98.5795
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Law and Justice",
         "Economy",
@@ -3012,6 +3488,10 @@
         "lng": -3.436
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Crime",
         "GBR"
@@ -3038,6 +3518,10 @@
         "lng": -98.5795
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Law and Justice",
         "Economy",
@@ -3065,6 +3549,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 803,
@@ -3088,6 +3576,10 @@
         "lng": 78.9629
       },
       "category": "National",
+      "priority": "High",
+      "signals": {
+        "conflict": true
+      },
       "tags": [
         "Conflict",
         "IND"
@@ -3114,6 +3606,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Law and Justice"
       ],
@@ -3139,6 +3635,10 @@
         "lng": -98.5795
       },
       "category": "WorthReading",
+      "priority": "High",
+      "signals": {
+        "conflict": true
+      },
       "tags": [
         "Conflict",
         "USA"
@@ -3165,6 +3665,10 @@
         "lng": 78.9629
       },
       "category": "National",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "IND"
       ],
@@ -3190,6 +3694,10 @@
         "lng": 53.688
       },
       "category": "World",
+      "priority": "High",
+      "signals": {
+        "conflict": true
+      },
       "tags": [
         "Conflict",
         "IRN"
@@ -3216,6 +3724,10 @@
         "lng": 78.9629
       },
       "category": "National",
+      "priority": "High",
+      "signals": {
+        "conflict": true
+      },
       "tags": [
         "Conflict",
         "IND"
@@ -3242,6 +3754,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 459,
@@ -3265,6 +3781,10 @@
         "lng": 34.4668
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "PSE",
         "Gaza"
@@ -3291,6 +3811,10 @@
         "lng": -98.5795
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "USA"
       ],
@@ -3316,6 +3840,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Crime"
       ],
@@ -3341,6 +3869,10 @@
         "lng": -98.5795
       },
       "category": "WorthReading",
+      "priority": "High",
+      "signals": {
+        "conflict": true
+      },
       "tags": [
         "USA"
       ],
@@ -3366,6 +3898,10 @@
         "lng": 0
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "SDN"
       ],
@@ -3391,6 +3927,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 547,
@@ -3414,6 +3954,10 @@
         "lng": 105.3188
       },
       "category": "World",
+      "priority": "High",
+      "signals": {
+        "conflict": true
+      },
       "tags": [
         "Legislature",
         "Conflict",
@@ -3441,6 +3985,10 @@
         "lng": -3.436
       },
       "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "GBR"
       ],
@@ -3466,6 +4014,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 430,
@@ -3489,6 +4041,10 @@
         "lng": 77.1025
       },
       "category": "National",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "IND",
         "Delhi"
@@ -3515,6 +4071,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Economy"
       ],
@@ -3540,6 +4100,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Crime"
       ],
@@ -3565,6 +4129,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 664,
@@ -3588,6 +4156,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Elections"
       ],
@@ -3613,6 +4185,10 @@
         "lng": -98.5795
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "USA"
       ],
@@ -3638,6 +4214,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 328,
@@ -3661,6 +4241,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 546,
@@ -3684,6 +4268,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 614,
@@ -3707,6 +4295,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 719,
@@ -3730,6 +4322,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 770,
@@ -3753,6 +4349,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Culture"
       ],
@@ -3778,6 +4378,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 794,
@@ -3801,6 +4405,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Sports"
       ],
@@ -3826,6 +4434,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Law and Justice"
       ],
@@ -3851,6 +4463,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 446,
@@ -3874,6 +4490,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 770,
@@ -3897,6 +4517,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Sports"
       ],
@@ -3922,6 +4546,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Culture"
       ],
@@ -3947,6 +4575,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Law and Justice"
       ],
@@ -3972,6 +4604,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 674,
@@ -3995,6 +4631,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Law and Justice",
         "Trade"
@@ -4021,6 +4661,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Law and Justice",
         "Trade"
@@ -4047,6 +4691,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 598,
@@ -4069,7 +4717,11 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "Trending",
+      "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 742,
@@ -4093,6 +4745,10 @@
         "lng": 53.688
       },
       "category": "World",
+      "priority": "High",
+      "signals": {
+        "conflict": true
+      },
       "tags": [
         "Conflict",
         "IRN"
@@ -4118,7 +4774,11 @@
         "lat": 55.7558,
         "lng": 37.6173
       },
-      "category": "Trending",
+      "category": "World",
+      "priority": "High",
+      "signals": {
+        "conflict": true
+      },
       "tags": [
         "Conflict",
         "RUS",
@@ -4145,7 +4805,11 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "Trending",
+      "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 210,
@@ -4169,6 +4833,10 @@
         "lng": 77.1025
       },
       "category": "National",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Crime",
         "IND",
@@ -4196,6 +4864,10 @@
         "lng": 78.9629
       },
       "category": "National",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Agriculture",
         "IND"
@@ -4221,7 +4893,11 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "Trending",
+      "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "Crime",
         "Sports"
@@ -4247,7 +4923,11 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "Trending",
+      "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 273,
@@ -4270,7 +4950,11 @@
         "lat": 0,
         "lng": 0
       },
-      "category": "Trending",
+      "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 262,
@@ -4294,6 +4978,10 @@
         "lng": 78.9629
       },
       "category": "National",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
       "tags": [
         "IND"
       ],
@@ -4319,6 +5007,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 289,
@@ -4342,6 +5034,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 297,
@@ -4365,6 +5061,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 201,
@@ -4388,6 +5088,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 289,
@@ -4411,6 +5115,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 243,
@@ -4434,6 +5142,10 @@
         "lng": 0
       },
       "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
       "tags": [],
       "metrics": {
         "wordCount": 227,

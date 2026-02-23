@@ -26,6 +26,8 @@ test("geotagArticles uses mock mode when no key is present", async () => {
   assert.equal(result[0].geotag.country, "IND");
   assert.ok(["National", "Trending", "World", "WorthReading"].includes(result[0].category));
   assert.ok(Array.isArray(result[0].tags));
+  assert.ok(["High", "Medium", "Low"].includes(result[0].priority));
+  assert.equal(typeof result[0].signals?.conflict, "boolean");
 });
 
 test("geotagArticles parses live-mode Kimi JSON response", async () => {
@@ -44,6 +46,8 @@ test("geotagArticles parses live-mode Kimi JSON response", async () => {
                       country: "GBR",
                       city: "London",
                       category: "World",
+                      priority: "Medium",
+                      conflictSignal: false,
                       confidence: 0.88,
                       tags: ["trade", "london", "diplomacy"]
                     }
@@ -69,6 +73,8 @@ test("geotagArticles parses live-mode Kimi JSON response", async () => {
   assert.equal(result[0].geotag.country, "GBR");
   assert.equal(result[0].geotag.city, "London");
   assert.equal(result[0].category, "World");
+  assert.equal(result[0].priority, "Medium");
+  assert.equal(result[0].signals.conflict, false);
   assert.equal(result[0].geotagConfidence, 0.88);
   assert.deepEqual(result[0].tags, ["Trade", "London", "Diplomacy"]);
 });
@@ -108,6 +114,8 @@ test("geotagArticles falls back to secondary model after 429", async () => {
                       country: "DEU",
                       city: "Berlin",
                       category: "World",
+                      priority: "High",
+                      conflictSignal: true,
                       confidence: 0.8,
                       tags: ["ceasefire", "berlin", "diplomacy"]
                     }
@@ -133,6 +141,8 @@ test("geotagArticles falls back to secondary model after 429", async () => {
   assert.equal(result.length, 1);
   assert.equal(result[0].geotagStatus, "live");
   assert.equal(result[0].geotag.country, "DEU");
+  assert.equal(result[0].priority, "High");
+  assert.equal(result[0].signals.conflict, true);
   assert.deepEqual(result[0].tags, ["Ceasefire", "Berlin", "Diplomacy"]);
 });
 

@@ -37,7 +37,9 @@ const elements = {
   tagFilters: document.querySelector("#tag-filters"),
   readLaterOnlyToggle: document.querySelector("#read-later-only"),
   clearCountryButton: document.querySelector("#clear-country-filter"),
+  mapFullscreenButton: document.querySelector("#map-fullscreen"),
   selectedCountryLabel: document.querySelector("#selected-country-label"),
+  priorityStrip: document.querySelector("#priority-strip"),
   articlesGrid: document.querySelector("#articles-grid"),
   mapToggle: document.querySelector("#map-toggle"),
   mapPanel: document.querySelector("#map-panel"),
@@ -83,6 +85,27 @@ function normalizeTagKey(value) {
   return String(value ?? "")
     .trim()
     .toLowerCase();
+}
+
+function normalizePriority(value) {
+  const normalized = String(value ?? "")
+    .trim()
+    .toLowerCase();
+  if (["high", "critical", "urgent"].includes(normalized)) {
+    return "High";
+  }
+  if (["low", "minor", "routine"].includes(normalized)) {
+    return "Low";
+  }
+  return "Medium";
+}
+
+function hasConflictSignal(article) {
+  if (article?.signals?.conflict) {
+    return true;
+  }
+  const tags = articleTags(article);
+  return tags.some((tag) => /\b(conflict|war|ceasefire|military|attack)\b/i.test(tag));
 }
 
 function resolveHttpUrl(rawUrl, baseUrl = "") {
@@ -262,7 +285,9 @@ function applyFilters() {
 
     const haystack = `${article.title} ${article.excerpt} ${article.sourceName} ${tags.join(" ")} ${
       article.geotag?.country || ""
-    } ${article.geotag?.city || ""}`.toLowerCase();
+    } ${article.geotag?.city || ""} ${article.priority || ""} ${
+      article?.signals?.conflict ? "conflict" : ""
+    }`.toLowerCase();
 
     return haystack.includes(search);
   });
@@ -293,11 +318,15 @@ function renderStats(filteredCount) {
   const geotagMode = state.metadata?.geotagModeResolved || "unknown";
   const fallbackMode = geotagMode === "mock" ? "Yes" : "No";
   const tagged = state.allArticles.filter((article) => articleTags(article).length > 0).length;
+  const highPriorityCount = state.allArticles.filter(
+    (article) => normalizePriority(article.priority) === "High"
+  ).length;
 
   elements.topStats.innerHTML = `
     <div class="stat"><span class="label">Total</span><span class="value">${total}</span></div>
     <div class="stat"><span class="label">Visible</span><span class="value">${filteredCount}</span></div>
     <div class="stat"><span class="label">Tagged</span><span class="value">${tagged}</span></div>
+    <div class="stat"><span class="label">High Priority</span><span class="value">${highPriorityCount}</span></div>
     <div class="stat"><span class="label">Read Later</span><span class="value">${saved}</span></div>
     <div class="stat"><span class="label">AI Fallback</span><span class="value">${fallbackMode}</span></div>
   `;
@@ -313,6 +342,50 @@ function renderArticleTags(tags) {
       ${tags
         .slice(0, 5)
         .map((tag) => `<span class="article-tag">${escapeHtml(tag)}</span>`)
+        .join("")}
+    </div>
+  `;
+}
+
+function renderPriorityStrip(articles) {
+  if (!elements.priorityStrip) {
+    return;
+  }
+
+  const prioritized = [...articles]
+    .filter(
+      (article) => normalizePriority(article.priority) === "High" || hasConflictSignal(article)
+    )
+    .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+    .slice(0, 8);
+
+  if (prioritized.length === 0) {
+    elements.priorityStrip.innerHTML = `
+      <div class="empty-priority">
+        High-priority briefing is clear for current filters.
+      </div>
+    `;
+    return;
+  }
+
+  elements.priorityStrip.innerHTML = `
+    <div class="priority-list">
+      ${prioritized
+        .map((article) => {
+          const country = article?.geotag?.country || "UNK";
+          const priority = normalizePriority(article.priority);
+          const conflict = hasConflictSignal(article);
+          return `
+            <article class="priority-item">
+              <button data-open-id="${escapeHtml(article.id)}">${escapeHtml(article.title)}</button>
+              <div class="meta">
+                ${escapeHtml(priority)} Priority • ${escapeHtml(country)} • ${
+                  conflict ? "Conflict Signal" : "General Alert"
+                }
+              </div>
+            </article>
+          `;
+        })
         .join("")}
     </div>
   `;
@@ -340,9 +413,14 @@ function renderArticles(articles) {
           <header>
             <div class="meta-row">
               <span class="source">${escapeHtml(article.sourceName)}</span>
-              <span class="category category-${escapeHtml(article.category)}">${escapeHtml(
-                article.category
-              )}</span>
+              <div class="meta-badges">
+                <span class="priority-badge priority-${escapeHtml(normalizePriority(article.priority))}">
+                  ${escapeHtml(normalizePriority(article.priority))}
+                </span>
+                <span class="category category-${escapeHtml(article.category)}">${escapeHtml(
+                  article.category
+                )}</span>
+              </div>
             </div>
             <h3>
               <button class="title-btn" data-open-id="${escapeHtml(article.id)}">
@@ -432,6 +510,30 @@ async function toggleReaderFullscreen() {
   }
 
   elements.readerPanel.classList.toggle("reader-panel-maximized");
+}
+
+async function toggleMapFullscreen(mapController) {
+  const panel = elements.mapPanel;
+  if (!panel) {
+    return;
+  }
+
+  if (document.fullscreenElement === panel) {
+    await document.exitFullscreen();
+    return;
+  }
+
+  if (panel.requestFullscreen) {
+    try {
+      await panel.requestFullscreen();
+    } catch {
+      // Ignore fullscreen rejection.
+    }
+  }
+
+  setTimeout(() => {
+    mapController.resize();
+  }, 120);
 }
 
 function hasWorkflowConfig() {
@@ -693,6 +795,17 @@ function setupEvents(mapController) {
     }
   });
 
+  elements.priorityStrip?.addEventListener("click", (event) => {
+    const openButton = event.target.closest("button[data-open-id]");
+    if (!openButton) {
+      return;
+    }
+    const articleId = openButton.dataset.openId;
+    if (articleId) {
+      openReader(articleId);
+    }
+  });
+
   elements.mapToggle.addEventListener("click", () => {
     elements.mapPanel.classList.toggle("collapsed");
     const collapsed = elements.mapPanel.classList.contains("collapsed");
@@ -700,6 +813,10 @@ function setupEvents(mapController) {
     setTimeout(() => {
       mapController.resize();
     }, 120);
+  });
+
+  elements.mapFullscreenButton?.addEventListener("click", async () => {
+    await toggleMapFullscreen(mapController);
   });
 
   elements.refreshButton.addEventListener("click", async () => {
@@ -718,6 +835,13 @@ function setupEvents(mapController) {
     if (document.fullscreenElement !== elements.readerPanel) {
       elements.readerPanel.classList.remove("reader-panel-maximized");
     }
+
+    if (elements.mapFullscreenButton) {
+      elements.mapFullscreenButton.textContent =
+        document.fullscreenElement === elements.mapPanel ? "Exit Map" : "Full Map";
+    }
+
+    mapController.resize();
   });
 
   elements.readerOverlay.addEventListener("click", (event) => {
@@ -740,6 +864,7 @@ function render(mapController) {
 
   const filtered = applyFilters();
   renderStats(filtered.gridArticles.length);
+  renderPriorityStrip(filtered.gridArticles);
   renderArticles(filtered.gridArticles);
   mapController.update(filtered.mapArticles);
 }

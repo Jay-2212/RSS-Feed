@@ -16,6 +16,10 @@ const DEFAULTS = {
 };
 
 const VALID_CATEGORIES = new Set(["World", "National", "Trending", "WorthReading"]);
+const VALID_PRIORITIES = new Set(["High", "Medium", "Low"]);
+
+const CONFLICT_TEXT_REGEX =
+  /\b(war|conflict|invasion|ceasefire|missile|airstrike|drone strike|hostage|military|front line|insurgency|shelling|attack)\b/i;
 
 const TAG_BLACKLIST = new Set([
   "world",
@@ -285,6 +289,58 @@ function clampConfidence(value, fallback = 0.55) {
   return Math.min(1, Math.max(0, parsed));
 }
 
+function normalizePriority(value) {
+  const normalized = String(value ?? "")
+    .trim()
+    .toLowerCase();
+
+  if (!normalized) {
+    return null;
+  }
+
+  if (["high", "critical", "urgent", "severe"].includes(normalized)) {
+    return "High";
+  }
+  if (["medium", "moderate", "important"].includes(normalized)) {
+    return "Medium";
+  }
+  if (["low", "minor", "routine"].includes(normalized)) {
+    return "Low";
+  }
+
+  return null;
+}
+
+function detectConflictSignal(article, tags = []) {
+  const text = `${article.title || ""} ${article.excerpt || ""}`.toLowerCase();
+  if (CONFLICT_TEXT_REGEX.test(text)) {
+    return true;
+  }
+  return tags.some((tag) => /\b(conflict|war|ceasefire|military)\b/i.test(tag));
+}
+
+function inferPriority(article, category, confidence, tags = [], aiPriority = null) {
+  const normalizedAiPriority = normalizePriority(aiPriority);
+  if (normalizedAiPriority) {
+    return normalizedAiPriority;
+  }
+
+  const conflict = detectConflictSignal(article, tags);
+  if (conflict) {
+    return "High";
+  }
+
+  if (category === "Trending" || (article.sourceTier === 1 && hoursSince(article.publishedAt) <= 10)) {
+    return "High";
+  }
+
+  if (confidence < 0.5 || category === "WorthReading") {
+    return "Low";
+  }
+
+  return "Medium";
+}
+
 function normalizeTag(value) {
   const cleaned = String(value ?? "")
     .toLowerCase()
@@ -476,11 +532,17 @@ function mockGeotag(article) {
   const confidence = geotag.country === "UNK" ? 0.45 : 0.62;
   const category = fallbackCategory(article, geotag.country, confidence);
   const tags = extractFallbackTags(article, geotag.country, geotag.city);
+  const priority = inferPriority(article, category, confidence, tags);
+  const conflict = detectConflictSignal(article, tags);
 
   return {
     ...article,
     geotag: geotag,
     category,
+    priority,
+    signals: {
+      conflict
+    },
     geotagConfidence: confidence,
     geotagKeywords: tags,
     tags,
@@ -557,6 +619,8 @@ function buildGeotagPrompt(batch) {
     "- country (ISO 3166-1 alpha-3, e.g. USA, IND, GBR; return UNK only if truly unclear)",
     "- city (string or null, specific city when present in article)",
     "- category (World | National | Trending | WorthReading)",
+    "- priority (High | Medium | Low, based on global impact and urgency)",
+    "- conflictSignal (boolean, true when article clearly relates to active conflict/war/security escalation)",
     "- confidence (0.0 to 1.0)",
     "- tags (array of 3-8 specific display-ready tags; use Title Case when possible)",
     "",
@@ -712,6 +776,8 @@ function sanitizeSingleResult(result) {
     country: normalizeCountry(result.country),
     city: cityValue,
     category: VALID_CATEGORIES.has(result.category) ? result.category : null,
+    priority: normalizePriority(result.priority),
+    conflictSignal: Boolean(result.conflictSignal),
     confidence: clampConfidence(result.confidence),
     tags: sanitizeTagList(
       Array.isArray(result.tags)
@@ -745,11 +811,17 @@ function applyResultOrFallback(article, result, modeLabel) {
   const tags = sanitizeTagList(
     result.tags && result.tags.length > 0 ? result.tags : fallbackTags
   );
+  const priority = inferPriority(article, category, result.confidence, tags, result.priority);
+  const conflict = Boolean(result.conflictSignal) || detectConflictSignal(article, tags);
 
   return {
     ...article,
     geotag,
     category,
+    priority,
+    signals: {
+      conflict
+    },
     geotagConfidence: result.confidence,
     geotagKeywords: tags,
     tags,

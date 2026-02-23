@@ -10,7 +10,7 @@ RSS News Hub (GitHub Actions + Gemini + GitHub Pages)
 
 ## Status Snapshot
 Current Phase: `Maintenance`
-Last Completed Phase: `Maintenance - Refresh UX, Limits, and Source Strategy`
+Last Completed Phase: `Maintenance - Priority Map and Interaction Improvements`
 Next Phase: `Maintenance`
 Blockers: `None`
 
@@ -452,6 +452,47 @@ Exact Next Start Point:
 1. Add `KIMI_CODE_API` secret in repo and test live refresh from UI (workflow dispatch + poll + snapshot update).
 2. Trigger one workflow run on GitHub and verify updated data appears after clicking Refresh in deployed Pages UI.
 3. Monitor run time and tune `MAX_ARTICLES_PER_SOURCE`/`CURATION_MIN_WORD_COUNT` for desired freshness vs. runtime.
+
+### 2026-02-23T00:43:04Z - Priority Map and Interaction Improvements
+Owner: Codex agent
+
+Completed:
+1. Added priority/conflict enrichment in geotag pipeline:
+   1. Kimi prompt now requests `priority` and `conflictSignal`.
+   2. Added fallback inference for priority/conflict in `/Users/jaybharti/Documents/RSS Feed/src/geotagger.js`.
+   3. Persisted `priority` and `signals` fields in `/Users/jaybharti/Documents/RSS Feed/src/persistence.js`.
+2. Updated map behavior in `/Users/jaybharti/Documents/RSS Feed/assets/map.js`:
+   1. Nations are now colored by priority (not article count/category).
+   2. Conflict-signaled countries get stronger border emphasis.
+   3. Clicking blank map/ocean now clears selected country.
+   4. Marker popup now includes priority and conflict info.
+3. Added UI support for high-priority workflow:
+   1. `High Priority` stat in top bar.
+   2. `High-Priority Briefing` strip in feed area.
+   3. Map fullscreen button in panel header.
+   4. Improved filter layout labels (`Global Lens` and `Topic Tags`).
+4. Adjusted default article limits for safer steady-state operation:
+   1. `MAX_ARTICLES_PER_SOURCE=20`
+   2. `CURATION_MAX_ARTICLES=120`
+5. Regenerated artifacts to include new fields and heuristics:
+   1. `/Users/jaybharti/Documents/RSS Feed/articles.json`
+   2. `/Users/jaybharti/Documents/RSS Feed/lastUpdated.txt`
+
+Validation:
+1. `npm test` passed (13/13).
+2. `npm run qa` passed.
+3. Updated artifacts contain:
+   1. `178` articles
+   2. Priority distribution: `High=29`, `Medium=47`, `Low=102`
+   3. Conflict-flagged articles: `29`
+
+Deferred:
+1. Run full live Kimi geotag pass after secret is set to improve priority/conflict precision further.
+
+Exact Next Start Point:
+1. Add `KIMI_CODE_API` in GitHub secrets.
+2. Trigger workflow and validate live `priority` and `conflictSignal` values on map.
+3. If needed, tune conflict keyword rules and priority thresholds for better hotspot fidelity.
 
 ## Handoff Checklist (Must Be Updated Per Session)
 1. `Current Phase` updated.

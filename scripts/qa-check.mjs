@@ -119,6 +119,8 @@ async function run() {
       "publishedAt",
       "geotag",
       "category",
+      "priority",
+      "signals",
       "metrics"
     ];
 

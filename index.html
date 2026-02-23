@@ -58,7 +58,10 @@
       <section id="map-panel" class="panel map-panel">
         <div class="panel-header">
           <h2>World Map</h2>
-          <button id="clear-country-filter" class="ghost-btn">Clear Country</button>
+          <div class="panel-actions">
+            <button id="map-fullscreen" class="ghost-btn">Full Map</button>
+            <button id="clear-country-filter" class="ghost-btn">Clear Country</button>
+          </div>
         </div>
         <p id="selected-country-label" class="subtle">Country filter: All countries</p>
         <div id="world-map" class="world-map"></div>
@@ -67,13 +70,20 @@
       <section class="panel feed-panel">
         <div class="controls">
           <input id="search-input" type="search" placeholder="Search headline, excerpt, source..." />
-          <div id="category-filters" class="chips"></div>
-          <div id="tag-filters" class="chips chips-tags"></div>
+          <div class="filter-group">
+            <p class="filter-label">Global Lens</p>
+            <div id="category-filters" class="chips"></div>
+          </div>
+          <div class="filter-group">
+            <p class="filter-label">Topic Tags</p>
+            <div id="tag-filters" class="chips chips-tags"></div>
+          </div>
           <label class="saved-only">
             <input id="read-later-only" type="checkbox" />
             Saved only
           </label>
         </div>
+        <section id="priority-strip" class="priority-strip"></section>
         <section id="articles-grid" class="articles-grid"></section>
       </section>
     </main>
