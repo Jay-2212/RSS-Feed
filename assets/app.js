@@ -597,30 +597,8 @@ function getStoredGitHubToken() {
   }
 }
 
-function storeGitHubToken(token) {
-  try {
-    localStorage.setItem(GITHUB_TOKEN_KEY, token);
-  } catch {
-    // Ignore localStorage failures.
-  }
-}
-
 async function ensureGitHubToken() {
-  const stored = getStoredGitHubToken();
-  if (stored) {
-    return stored;
-  }
-
-  const entered = window.prompt(
-    "Enter a GitHub token with workflow access to trigger refresh runs (stored locally in this browser)."
-  );
-  const token = String(entered || "").trim();
-  if (!token) {
-    return "";
-  }
-
-  storeGitHubToken(token);
-  return token;
+  return getStoredGitHubToken();
 }
 
 async function githubRequest(path, token, options = {}) {
@@ -765,7 +743,7 @@ async function runRefresh(mapController) {
         await waitForWorkflowCompletion(token, runId);
         workflowTriggered = true;
       } else {
-        setRefreshStatus("No GitHub token set. Reloading current snapshot only.");
+        setRefreshStatus("No GitHub token saved in this browser. Reloading current snapshot only.");
       }
     }
 
