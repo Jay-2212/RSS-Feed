@@ -17,6 +17,7 @@ const DEFAULTS = {
   extractionConcurrency: 3,
   curationMaxArticles: 120,
   curationMinWordCount: 120,
+  articleRetentionDays: 21,
   kimiModel: "kimi-k2-0905-preview",
   kimiFallbackModels: ["kimi-k2-turbo-preview", "kimi-for-coding"],
   kimiBaseUrl: "https://api.kimi.com/coding/v1",
@@ -74,6 +75,10 @@ export function getRuntimeConfig(options = {}) {
     curationMinWordCount: parseInteger(
       process.env.CURATION_MIN_WORD_COUNT,
       DEFAULTS.curationMinWordCount
+    ),
+    articleRetentionDays: parseInteger(
+      process.env.ARTICLE_RETENTION_DAYS,
+      DEFAULTS.articleRetentionDays
     ),
     geotagMode: process.env.GEOTAG_MODE || DEFAULTS.geotagMode,
     kimiFallbackModels:

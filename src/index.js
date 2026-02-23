@@ -3,6 +3,12 @@ import { curateArticles } from "./curator.js";
 import { extractArticles } from "./extractor.js";
 import { fetchArticles } from "./fetcher.js";
 import { geotagArticles } from "./geotagger.js";
+import {
+  buildExistingIndex,
+  loadPersistedSnapshot,
+  mergeIncrementalArticles,
+  splitArticlesByDifference
+} from "./incremental.js";
 import { buildPersistedOutput, writePersistedArtifacts } from "./persistence.js";
 import { createLogger } from "./utils.js";
 
@@ -16,11 +22,19 @@ export async function runPhaseOneToThree() {
   const config = getRuntimeConfig();
   const loadedSources = await loadSourcesFile();
   const sources = applySourceLimit(loadedSources, config.maxSources);
+  const sourceMap = new Map(sources.map((source) => [source.id, source]));
 
   logger.info("Pipeline start", {
     sourcesConfigured: loadedSources.length,
     sourcesUsed: sources.length
   });
+
+  const existingSnapshot = await loadPersistedSnapshot(config.outputArticlesFile, {
+    sourceMap,
+    logger
+  });
+  const existingArticles = existingSnapshot.articles;
+  const existingIndex = buildExistingIndex(existingArticles);
 
   const fetched = await fetchArticles(sources, {
     maxPerSource: config.maxArticlesPerSource,
@@ -28,33 +42,50 @@ export async function runPhaseOneToThree() {
     logger
   });
 
-  const extracted = await extractArticles(fetched, {
-    attemptTimeoutMs: config.extractionAttemptTimeoutMs,
-    totalTimeoutMs: config.extractionTotalTimeoutMs,
-    maxMarkdownChars: config.extractionMarkdownMaxChars,
-    maxExcerptChars: config.extractionExcerptMaxChars,
-    concurrency: config.extractionConcurrency,
-    logger
-  });
+  const delta = splitArticlesByDifference(fetched, existingIndex);
 
-  const curated = curateArticles(extracted, {
-    maxArticles: config.curationMaxArticles,
+  let extracted = [];
+  if (delta.newArticles.length > 0) {
+    extracted = await extractArticles(delta.newArticles, {
+      attemptTimeoutMs: config.extractionAttemptTimeoutMs,
+      totalTimeoutMs: config.extractionTotalTimeoutMs,
+      maxMarkdownChars: config.extractionMarkdownMaxChars,
+      maxExcerptChars: config.extractionExcerptMaxChars,
+      concurrency: config.extractionConcurrency,
+      logger
+    });
+  } else {
+    logger.info("No unseen URLs detected. Skipping extraction phase.");
+  }
+
+  const curatedNew = curateArticles(extracted, {
+    maxArticles: 0,
     minWordCount: config.curationMinWordCount
   });
 
   logger.info("Pipeline completed through Phase 3", {
     fetched: fetched.length,
+    duplicateByUrl: delta.duplicateUrlCount,
+    duplicateByTitle: delta.duplicateTitleCount,
+    newForExtraction: delta.newArticles.length,
     extracted: extracted.length,
-    curated: curated.length
+    curatedNew: curatedNew.length,
+    cachedExisting: existingArticles.length
   });
 
   return {
     metadata: {
       lastRun: new Date().toISOString(),
       sources: sources.map((source) => source.id),
-      phase: "phase_3_complete"
+      phase: "phase_3_complete",
+      existingCount: existingArticles.length,
+      newCount: curatedNew.length,
+      duplicateByUrl: delta.duplicateUrlCount,
+      duplicateByTitle: delta.duplicateTitleCount,
+      previousGeotagModeResolved: existingSnapshot.metadata?.geotagModeResolved ?? "unknown"
     },
-    articles: curated
+    articles: curatedNew,
+    existingArticles
   };
 }
 
@@ -62,27 +93,50 @@ export async function runPhaseOneToFour() {
   const config = getRuntimeConfig();
   const phaseThreeOutput = await runPhaseOneToThree();
 
-  const geotaggedArticles = await geotagArticles(phaseThreeOutput.articles, {
-    mode: config.geotagMode,
-    model: config.kimiModel,
-    fallbackModels: config.kimiFallbackModels,
-    kimiBaseUrl: config.kimiBaseUrl,
-    kimiApiKey: config.kimiApiKey,
-    batchSize: config.geotagBatchSize,
-    maxApiBatches: config.geotagMaxApiBatches,
-    timeoutMs: config.geotagTimeoutMs,
-    maxRetries: config.geotagMaxRetries,
-    retryBaseDelayMs: config.geotagRetryBaseDelayMs,
-    retryMaxDelayMs: config.geotagRetryMaxDelayMs,
-    logger
-  });
+  let geotaggedArticles = [];
+  if (phaseThreeOutput.articles.length > 0) {
+    geotaggedArticles = await geotagArticles(phaseThreeOutput.articles, {
+      mode: config.geotagMode,
+      model: config.kimiModel,
+      fallbackModels: config.kimiFallbackModels,
+      kimiBaseUrl: config.kimiBaseUrl,
+      kimiApiKey: config.kimiApiKey,
+      batchSize: config.geotagBatchSize,
+      maxApiBatches: config.geotagMaxApiBatches,
+      timeoutMs: config.geotagTimeoutMs,
+      maxRetries: config.geotagMaxRetries,
+      retryBaseDelayMs: config.geotagRetryBaseDelayMs,
+      retryMaxDelayMs: config.geotagRetryMaxDelayMs,
+      logger
+    });
+  } else {
+    logger.info("No new curated articles. Skipping geotag API phase.");
+  }
 
-  const statusSet = new Set(geotaggedArticles.map((article) => article.geotagStatus));
+  const mergedArticles = mergeIncrementalArticles(
+    phaseThreeOutput.existingArticles,
+    geotaggedArticles,
+    {
+      maxArticles: config.curationMaxArticles,
+      retentionDays: config.articleRetentionDays
+    }
+  );
+
+  const statusSet = new Set(
+    geotaggedArticles.map((article) => article.geotagStatus).filter(Boolean)
+  );
   const resolvedGeotagMode =
-    statusSet.size === 1 ? Array.from(statusSet)[0] : statusSet.size === 0 ? "none" : "mixed";
+    geotaggedArticles.length === 0
+      ? phaseThreeOutput.metadata?.previousGeotagModeResolved ?? "cached"
+      : statusSet.size === 1
+        ? Array.from(statusSet)[0]
+        : statusSet.size === 0
+          ? "none"
+          : "mixed";
 
   logger.info("Pipeline completed through Phase 4", {
-    geotagged: geotaggedArticles.length,
+    geotaggedNew: geotaggedArticles.length,
+    retainedArticles: mergedArticles.length,
     geotagModeConfigured: config.geotagMode,
     geotagModeResolved: resolvedGeotagMode,
     hasKimiKey: Boolean(config.kimiApiKey)
@@ -96,7 +150,7 @@ export async function runPhaseOneToFour() {
       geotagModeResolved: resolvedGeotagMode,
       geotagModel: config.kimiModel
     },
-    articles: geotaggedArticles
+    articles: mergedArticles
   };
 }
 

@@ -1,7 +1,7 @@
 # Agent Progress Log
 
 ## Project
-RSS News Hub (GitHub Actions + Gemini + GitHub Pages)
+RSS News Hub (GitHub Actions + Kimi + GitHub Pages)
 
 ## How To Use This File
 1. Append a new entry after every meaningful session.
@@ -10,7 +10,7 @@ RSS News Hub (GitHub Actions + Gemini + GitHub Pages)
 
 ## Status Snapshot
 Current Phase: `Maintenance`
-Last Completed Phase: `Maintenance - Priority Map and Interaction Improvements`
+Last Completed Phase: `Maintenance - Incremental Diff Fetch and Source Quality Updates`
 Next Phase: `Maintenance`
 Blockers: `None`
 
@@ -499,3 +499,42 @@ Exact Next Start Point:
 2. `Last Completed Phase` updated.
 3. `Next Phase` updated.
 4. New session entry appended with done/deferred/next-start.
+
+### 2026-02-23T02:07:10Z - Incremental Diff Fetch + Tech Source Expansion
+Owner: Codex agent
+
+Completed:
+1. Implemented incremental/diff pipeline in `/Users/jaybharti/Documents/RSS Feed/src/incremental.js` and wired it into `/Users/jaybharti/Documents/RSS Feed/src/index.js`.
+2. Pipeline now loads existing `articles.json`, detects known URLs/title-near-duplicates, and only extracts/geotags unseen articles.
+3. Added merge/prune logic:
+   1. New + cached articles are merged.
+   2. URL/title duplicates are collapsed.
+   3. Old records are pruned using `ARTICLE_RETENTION_DAYS`.
+   4. Final output is capped by `CURATION_MAX_ARTICLES`.
+4. Added new sources in `/Users/jaybharti/Documents/RSS Feed/config/sources.json`:
+   1. `hacker-news` (`https://hnrss.org/frontpage`)
+   2. `ars-technica` (`https://feeds.arstechnica.com/arstechnica/index`)
+5. Added tests for incremental behavior in `/Users/jaybharti/Documents/RSS Feed/tests/incremental.test.js`.
+6. Added config/docs updates:
+   1. `ARTICLE_RETENTION_DAYS` in `/Users/jaybharti/Documents/RSS Feed/src/config.js` and `/Users/jaybharti/Documents/RSS Feed/.env.example`
+   2. Incremental behavior notes in `/Users/jaybharti/Documents/RSS Feed/README.md`
+
+Validation:
+1. `npm test` passed (16/16).
+2. `npm run qa` passed.
+3. Full `npm run run:pipeline` completed with delta stats:
+   1. `fetched=230`
+   2. `duplicateByUrl=96`
+   3. `newForExtraction=134`
+   4. `curatedNew=43`
+   5. `retainedArticles=120`
+4. Persisted artifacts updated:
+   1. `/Users/jaybharti/Documents/RSS Feed/articles.json`
+   2. `/Users/jaybharti/Documents/RSS Feed/lastUpdated.txt`
+
+Deferred:
+1. Optional feed-level ETag/Last-Modified caching (conditional HTTP requests) for additional bandwidth optimization.
+
+Exact Next Start Point:
+1. If needed, tune `ARTICLE_RETENTION_DAYS`, `MAX_ARTICLES_PER_SOURCE`, and `CURATION_MAX_ARTICLES` for your desired freshness window.
+2. Trigger GitHub Actions run and verify similar delta behavior in remote logs.

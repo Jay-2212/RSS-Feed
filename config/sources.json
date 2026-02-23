@@ -73,6 +73,22 @@
       "paywall": false
     },
     {
+      "id": "ars-technica",
+      "name": "Ars Technica",
+      "url": "https://feeds.arstechnica.com/arstechnica/index",
+      "tier": 2,
+      "region": "global",
+      "paywall": false
+    },
+    {
+      "id": "hacker-news",
+      "name": "Hacker News",
+      "url": "https://hnrss.org/frontpage",
+      "tier": 3,
+      "region": "global",
+      "paywall": false
+    },
+    {
       "id": "atlantic",
       "name": "The Atlantic",
       "url": "https://www.theatlantic.com/feed/all/",

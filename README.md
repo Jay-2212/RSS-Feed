@@ -48,6 +48,12 @@ By default this runs Phase 1-5. Geotag behavior:
 6. Article volume defaults are now capped to balance freshness and safety:
    1. `CURATION_MAX_ARTICLES=120`
    2. `MAX_ARTICLES_PER_SOURCE=20`
+   3. `ARTICLE_RETENTION_DAYS=21`
+7. Incremental fetch mode is enabled:
+   1. Existing `articles.json` is used as a cache/index.
+   2. Already-seen URLs are skipped before extraction/geotagging.
+   3. Near-duplicate titles from the same source are skipped to avoid refetching similar stories.
+   4. Final output is merged and pruned by recency + `CURATION_MAX_ARTICLES`.
 
 6. Run final QA gate:
 
