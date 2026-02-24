@@ -2,6 +2,8 @@ name: Curate News
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "0 */6 * * *"  # Auto-refresh every 6 hours
 
 permissions:
   contents: write

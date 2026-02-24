@@ -2,6 +2,30 @@
 
 A phased implementation of a personal RSS news aggregator that runs on GitHub Actions and serves a static dashboard through GitHub Pages.
 
+## Quick Links
+
+[![View Live Dashboard](https://img.shields.io/badge/View-Live%20Dashboard-blue?style=for-the-badge)](https://jay-2212.github.io/RSS-Feed/)
+[![Trigger Manual Refresh](https://img.shields.io/badge/Trigger-Manual%20Refresh-green?style=for-the-badge)](https://github.com/Jay-2212/RSS-Feed/actions/workflows/curate.yml)
+
+## How to Refresh
+
+The pipeline runs **automatically every 6 hours** via a scheduled GitHub Actions workflow — no action needed on your part.
+
+To trigger an **immediate manual refresh**:
+
+1. Click the **"Trigger Manual Refresh"** badge above (or go to [Actions → Curate News](https://github.com/Jay-2212/RSS-Feed/actions/workflows/curate.yml)).
+2. Click **"Run workflow"** → **"Run workflow"** on the GitHub Actions page.
+3. Wait ~2–3 minutes for the run to complete, then reload the dashboard.
+
+### Refreshing from the Dashboard UI (Refresh button)
+
+The dashboard has a **Refresh** button that can trigger the pipeline directly from the browser. It needs a GitHub Personal Access Token (PAT) *one time only*:
+
+- A PAT is a GitHub-issued token (like a password for the API) that lets the browser trigger the GitHub Actions workflow on your behalf.
+- You only need to enter it **once** — it is saved in your browser's localStorage and reused automatically on future clicks.
+- To create one: **GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) → Generate new token** — grant the **`workflow`** scope.
+- If you ever need to update or remove the saved token, use the **"Manage Token"** button next to Refresh on the dashboard.
+
 ## Current Build Status
 
 - Completed phases: 0, 1, 2, 3, 4, 5, 6, 7

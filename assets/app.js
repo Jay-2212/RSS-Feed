@@ -31,6 +31,7 @@ const elements = {
   lastUpdated: document.querySelector("#last-updated"),
   topStats: document.querySelector("#top-stats"),
   refreshButton: document.querySelector("#refresh-button"),
+  manageTokenButton: document.querySelector("#manage-token-button"),
   refreshStatus: document.querySelector("#refresh-status"),
   searchInput: document.querySelector("#search-input"),
   categoryFilters: document.querySelector("#category-filters"),
@@ -257,6 +258,45 @@ function updateRefreshButton() {
 
   elements.refreshButton.disabled = state.refreshing;
   elements.refreshButton.textContent = state.refreshing ? "Refreshing..." : "Refresh";
+}
+
+function updateManageTokenButton() {
+  if (!elements.manageTokenButton) {
+    return;
+  }
+
+  const hasToken = Boolean(getStoredGitHubToken());
+  elements.manageTokenButton.textContent = hasToken ? "Token ✓" : "Set Token";
+  elements.manageTokenButton.title = hasToken
+    ? "GitHub PAT is saved in this browser. Click to update or remove it."
+    : "Enter a GitHub PAT so the Refresh button can trigger the pipeline.";
+}
+
+function handleManageToken() {
+  const current = getStoredGitHubToken();
+  const action = current
+    ? window.prompt(
+        "A GitHub token (PAT) is already saved.\n\nEnter a new token to replace it, type CLEAR to remove it, or leave blank to keep the current one."
+      )
+    : window.prompt(
+        "Enter your GitHub Personal Access Token (PAT) with the 'workflow' scope.\n\nYou only need to do this once — it will be saved in this browser and reused automatically.\n\nTo create one: GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) → Generate new token → tick 'workflow'."
+      );
+
+  if (action === null) {
+    return; // User cancelled
+  }
+
+  const trimmed = action.trim();
+  if (trimmed.toUpperCase() === "CLEAR") {
+    clearGitHubToken();
+    setRefreshStatus("Token removed.");
+  } else if (trimmed !== "") {
+    storeGitHubToken(trimmed);
+    setRefreshStatus("Token saved.");
+  }
+  // Empty string: leave token unchanged (user chose to keep current one)
+
+  updateManageTokenButton();
 }
 
 function toggleReadLater(id, mapController) {
@@ -797,6 +837,7 @@ async function runRefresh(mapController) {
   } catch (error) {
     if (/GitHub API 401|GitHub API 403/i.test(String(error?.message || ""))) {
       clearGitHubToken();
+      updateManageTokenButton();
     }
     setRefreshStatus(error.message || "Refresh failed.", true);
   } finally {
@@ -889,6 +930,10 @@ function setupEvents(mapController) {
     await runRefresh(mapController);
   });
 
+  elements.manageTokenButton?.addEventListener("click", () => {
+    handleManageToken();
+  });
+
   elements.readerClose.addEventListener("click", () => {
     closeReader();
   });
@@ -938,6 +983,7 @@ function render(mapController) {
 async function bootstrap() {
   state.readLaterIds = loadReadLater();
   updateRefreshButton();
+  updateManageTokenButton();
 
   const mapController = initializeMap({
     elementId: "world-map",
