@@ -678,37 +678,37 @@ async function triggerWorkflowDispatch(token) {
       })
     }
   );
-
-  return new Date().toISOString();
 }
 
-async function findDispatchedRunId(token, startedAtIso) {
-  const startedAtMs = new Date(startedAtIso).getTime();
+async function getLatestDispatchedWorkflowRun(token) {
+  const runsResponse = await githubRequest(
+    `/repos/${encodeURIComponent(workflowConfig.owner)}/${encodeURIComponent(
+      workflowConfig.repo
+    )}/actions/workflows/${encodeURIComponent(workflowConfig.workflow)}/runs?event=workflow_dispatch&branch=${encodeURIComponent(
+      workflowConfig.ref
+    )}&per_page=1`,
+    token
+  );
 
-  for (let attempt = 0; attempt < 15; attempt += 1) {
-    const runsResponse = await githubRequest(
-      `/repos/${encodeURIComponent(workflowConfig.owner)}/${encodeURIComponent(
-        workflowConfig.repo
-      )}/actions/workflows/${encodeURIComponent(workflowConfig.workflow)}/runs?event=workflow_dispatch&branch=${encodeURIComponent(
-        workflowConfig.ref
-      )}&per_page=20`,
-      token
-    );
+  const runs = Array.isArray(runsResponse?.workflow_runs) ? runsResponse.workflow_runs : [];
+  return runs.length > 0 ? runs[0] : null;
+}
 
-    const runs = Array.isArray(runsResponse?.workflow_runs) ? runsResponse.workflow_runs : [];
-    const matched = runs.find((run) => {
-      const createdAtMs = new Date(run.created_at || "").getTime();
-      return Number.isFinite(createdAtMs) && createdAtMs >= startedAtMs - 20_000;
-    });
+async function findDispatchedRunId(token, previousRunId = null) {
+  const maxAttempts = 40;
 
-    if (matched) {
-      return matched.id;
+  for (let attempt = 0; attempt < maxAttempts; attempt += 1) {
+    const latestRun = await getLatestDispatchedWorkflowRun(token);
+    if (latestRun?.id && String(latestRun.id) !== String(previousRunId || "")) {
+      return latestRun.id;
     }
 
     await sleep(3_000);
   }
 
-  throw new Error("Workflow dispatch accepted, but no run was found yet.");
+  throw new Error(
+    "Workflow dispatch was accepted, but a new run was not visible yet. Please retry in a few seconds."
+  );
 }
 
 async function waitForWorkflowCompletion(token, runId) {
@@ -771,8 +771,9 @@ async function runRefresh(mapController) {
       const token = await ensureGitHubToken({ interactive: true });
       if (token) {
         setRefreshStatus("Starting workflow run...");
-        const startedAt = await triggerWorkflowDispatch(token);
-        const runId = await findDispatchedRunId(token, startedAt);
+        const previousRun = await getLatestDispatchedWorkflowRun(token);
+        await triggerWorkflowDispatch(token);
+        const runId = await findDispatchedRunId(token, previousRun?.id ?? null);
         setRefreshStatus(`Workflow run #${runId} started.`);
         await waitForWorkflowCompletion(token, runId);
         workflowTriggered = true;
