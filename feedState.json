@@ -1,99 +1,99 @@
 {
-  "updatedAt": "2026-02-24T12:17:47.520Z",
+  "updatedAt": "2026-02-25T03:58:46.938Z",
   "sources": {
     "nyt-world": {
       "etag": null,
       "lastModified": null,
-      "lastCheckedAt": "2026-02-24T12:17:43.717Z",
-      "lastFetchedAt": "2026-02-24T12:17:43.717Z",
+      "lastCheckedAt": "2026-02-25T03:58:44.089Z",
+      "lastFetchedAt": "2026-02-25T03:58:44.089Z",
       "lastStatus": 200,
-      "lastItemCount": 57
+      "lastItemCount": 55
     },
     "hindu": {
       "etag": null,
-      "lastModified": "Tue, 24 Feb 2026 12:10:07 GMT",
-      "lastCheckedAt": "2026-02-24T12:17:44.703Z",
-      "lastFetchedAt": "2026-02-24T12:17:44.703Z",
+      "lastModified": "Wed, 25 Feb 2026 03:53:11 GMT",
+      "lastCheckedAt": "2026-02-25T03:58:44.191Z",
+      "lastFetchedAt": "2026-02-25T03:58:44.191Z",
       "lastStatus": 200,
       "lastItemCount": 100
     },
     "bbc-world": {
       "etag": null,
       "lastModified": null,
-      "lastCheckedAt": "2026-02-24T12:17:45.089Z",
-      "lastFetchedAt": "2026-02-24T12:17:45.089Z",
+      "lastCheckedAt": "2026-02-25T03:58:44.338Z",
+      "lastFetchedAt": "2026-02-25T03:58:44.338Z",
       "lastStatus": 200,
-      "lastItemCount": 40
+      "lastItemCount": 45
     },
     "guardian-world": {
-      "etag": "W/\"hash632641002082107014\"",
+      "etag": "W/\"hash-4321144291875369027\"",
       "lastModified": null,
-      "lastCheckedAt": "2026-02-24T12:17:45.255Z",
-      "lastFetchedAt": "2026-02-24T12:17:45.255Z",
+      "lastCheckedAt": "2026-02-25T03:58:44.434Z",
+      "lastFetchedAt": "2026-02-25T03:58:44.434Z",
       "lastStatus": 200,
       "lastItemCount": 45
     },
     "reuters-world": {
       "etag": null,
       "lastModified": null,
-      "lastCheckedAt": "2026-02-24T12:17:45.825Z",
-      "lastFetchedAt": "2026-02-24T12:17:45.825Z",
+      "lastCheckedAt": "2026-02-25T03:58:45.163Z",
+      "lastFetchedAt": "2026-02-25T03:58:45.163Z",
       "lastStatus": 200,
       "lastItemCount": 100
     },
     "npr-world": {
       "etag": null,
       "lastModified": null,
-      "lastCheckedAt": "2026-02-24T12:17:45.983Z",
-      "lastFetchedAt": "2026-02-24T12:17:45.983Z",
+      "lastCheckedAt": "2026-02-25T03:58:45.445Z",
+      "lastFetchedAt": "2026-02-25T03:58:45.445Z",
       "lastStatus": 200,
       "lastItemCount": 10
     },
     "indian-express-world": {
-      "etag": "W/\"4557b1ea5bbfa47d8da55c3dd23779b6\"",
-      "lastModified": "Tue, 24 Feb 2026 12:04:11 GMT",
-      "lastCheckedAt": "2026-02-24T12:17:46.261Z",
-      "lastFetchedAt": "2026-02-24T12:17:46.261Z",
+      "etag": "W/\"d85262001bdf458d2c1537bd564f57c6\"",
+      "lastModified": "Wed, 25 Feb 2026 03:54:52 GMT",
+      "lastCheckedAt": "2026-02-25T03:58:45.614Z",
+      "lastFetchedAt": "2026-02-25T03:58:45.614Z",
       "lastStatus": 200,
       "lastItemCount": 200
     },
     "ap-news": {
       "etag": null,
       "lastModified": null,
-      "lastCheckedAt": "2026-02-24T12:17:46.706Z",
-      "lastFetchedAt": "2026-02-24T12:17:46.706Z",
+      "lastCheckedAt": "2026-02-25T03:58:46.098Z",
+      "lastFetchedAt": "2026-02-25T03:58:46.098Z",
       "lastStatus": 200,
       "lastItemCount": 100
     },
     "quartz": {
       "etag": null,
-      "lastModified": "Tue, 24 Feb 2026 11:18:33 GMT",
-      "lastCheckedAt": "2026-02-24T12:17:46.823Z",
-      "lastFetchedAt": "2026-02-24T12:17:46.823Z",
+      "lastModified": "Wed, 25 Feb 2026 03:35:42 GMT",
+      "lastCheckedAt": "2026-02-25T03:58:46.236Z",
+      "lastFetchedAt": "2026-02-25T03:58:46.236Z",
       "lastStatus": 200,
       "lastItemCount": 50
     },
     "ars-technica": {
       "etag": null,
-      "lastModified": "Mon, 23 Feb 2026 23:38:12 GMT",
-      "lastCheckedAt": "2026-02-24T12:17:46.918Z",
-      "lastFetchedAt": "2026-02-24T04:31:17.544Z",
-      "lastStatus": 304,
+      "lastModified": "Wed, 25 Feb 2026 01:33:20 GMT",
+      "lastCheckedAt": "2026-02-25T03:58:46.289Z",
+      "lastFetchedAt": "2026-02-25T03:58:46.289Z",
+      "lastStatus": 200,
       "lastItemCount": 20
     },
     "hacker-news": {
       "etag": null,
-      "lastModified": "Tue, 24 Feb 2026 09:15:56 GMT",
-      "lastCheckedAt": "2026-02-24T12:17:47.215Z",
-      "lastFetchedAt": "2026-02-24T12:17:47.215Z",
+      "lastModified": "Wed, 25 Feb 2026 01:45:15 GMT",
+      "lastCheckedAt": "2026-02-25T03:58:46.626Z",
+      "lastFetchedAt": "2026-02-25T03:58:46.626Z",
       "lastStatus": 200,
       "lastItemCount": 20
     },
     "atlantic": {
       "etag": null,
-      "lastModified": "Tue, 24 Feb 2026 12:08:47 GMT",
-      "lastCheckedAt": "2026-02-24T12:17:47.515Z",
-      "lastFetchedAt": "2026-02-24T12:17:47.515Z",
+      "lastModified": "Tue, 24 Feb 2026 22:17:56 GMT",
+      "lastCheckedAt": "2026-02-25T03:58:46.933Z",
+      "lastFetchedAt": "2026-02-25T03:58:46.933Z",
       "lastStatus": 200,
       "lastItemCount": 25
     }
