@@ -143,10 +143,10 @@ export async function runPhaseOneToFour() {
   if (phaseThreeOutput.articles.length > 0) {
     geotaggedArticles = await geotagArticles(phaseThreeOutput.articles, {
       mode: config.geotagMode,
-      model: config.kimiModel,
-      fallbackModels: config.kimiFallbackModels,
-      kimiBaseUrl: config.kimiBaseUrl,
-      kimiApiKey: config.kimiApiKey,
+      model: config.inceptionModel,
+      fallbackModels: config.inceptionFallbackModels,
+      inceptionBaseUrl: config.inceptionBaseUrl,
+      inceptionApiKey: config.inceptionApiKey,
       batchSize: config.geotagBatchSize,
       maxApiBatches: config.geotagMaxApiBatches,
       timeoutMs: config.geotagTimeoutMs,
@@ -185,7 +185,7 @@ export async function runPhaseOneToFour() {
     retainedArticles: mergedArticles.length,
     geotagModeConfigured: config.geotagMode,
     geotagModeResolved: resolvedGeotagMode,
-    hasKimiKey: Boolean(config.kimiApiKey)
+    hasInceptionKey: Boolean(config.inceptionApiKey)
   });
 
   return {
@@ -194,7 +194,7 @@ export async function runPhaseOneToFour() {
       phase: "phase_4_complete",
       geotagModeConfigured: config.geotagMode,
       geotagModeResolved: resolvedGeotagMode,
-      geotagModel: config.kimiModel
+      geotagModel: config.inceptionModel
     },
     articles: mergedArticles
   };

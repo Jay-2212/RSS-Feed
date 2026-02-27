@@ -18,7 +18,7 @@ test("geotagArticles uses mock mode when no key is present", async () => {
   const articles = [sampleArticle()];
   const result = await geotagArticles(articles, {
     mode: "auto",
-    kimiApiKey: ""
+    inceptionApiKey: ""
   });
 
   assert.equal(result.length, 1);
@@ -63,8 +63,8 @@ test("geotagArticles parses live-mode Kimi JSON response", async () => {
 
   const result = await geotagArticles(articles, {
     mode: "live",
-    model: "kimi-test",
-    kimiApiKey: "test-key",
+    model: "mercury-2",
+    inceptionApiKey: "test-key",
     httpClient
   });
 
@@ -83,7 +83,7 @@ test("geotagArticles falls back to secondary model after 429", async () => {
   const articles = [sampleArticle({ id: "a2", title: "Policy talks in Berlin" })];
   const httpClient = {
     async post(_url, payload) {
-      if (payload?.model === "kimi-primary") {
+      if (payload?.model === "mercury-primary") {
         const error = new Error("Rate limit");
         error.response = {
           status: 429,
@@ -131,9 +131,9 @@ test("geotagArticles falls back to secondary model after 429", async () => {
 
   const result = await geotagArticles(articles, {
     mode: "live",
-    model: "kimi-primary",
-    fallbackModels: ["kimi-secondary"],
-    kimiApiKey: "test-key",
+    model: "mercury-primary",
+    fallbackModels: ["mercury-secondary"],
+    inceptionApiKey: "test-key",
     httpClient,
     maxRetries: 1
   });
@@ -183,8 +183,8 @@ test("geotagArticles enforces maxApiBatches guard to control spend", async () =>
 
   const result = await geotagArticles(articles, {
     mode: "live",
-    model: "kimi-test",
-    kimiApiKey: "test-key",
+    model: "mercury-2",
+    inceptionApiKey: "test-key",
     httpClient,
     batchSize: 1,
     maxApiBatches: 1,
