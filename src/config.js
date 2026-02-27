@@ -19,9 +19,9 @@ const DEFAULTS = {
   curationMaxArticles: 120,
   curationMinWordCount: 120,
   articleRetentionDays: 21,
-  kimiModel: "kimi-k2-0905-preview",
-  kimiFallbackModels: ["kimi-k2-turbo-preview", "kimi-for-coding"],
-  kimiBaseUrl: "https://api.kimi.com/coding/v1",
+  kimiModel: "mercury-2",
+  kimiFallbackModels: [],
+  kimiBaseUrl: "https://api.inceptionlabs.ai/v1",
   geotagMode: "auto",
   geotagBatchSize: 60,
   geotagMaxApiBatches: 0,
@@ -59,7 +59,7 @@ function parseBoolean(value, fallback) {
 }
 
 export function getRuntimeConfig(options = {}) {
-  const requireKimi = options.requireKimi ?? options.requireGemini ?? false;
+  const requireInception = options.requireInception ?? options.requireKimi ?? false;
 
   const config = {
     maxSources: parseInteger(process.env.MAX_SOURCES, DEFAULTS.maxSources),
@@ -104,9 +104,12 @@ export function getRuntimeConfig(options = {}) {
       DEFAULTS.articleRetentionDays
     ),
     geotagMode: process.env.GEOTAG_MODE || DEFAULTS.geotagMode,
-    kimiFallbackModels:
-      parseCsv(process.env.KIMI_FALLBACK_MODELS).length > 0
-        ? parseCsv(process.env.KIMI_FALLBACK_MODELS)
+    inceptionModel: process.env.INCEPTION_MODEL || DEFAULTS.kimiModel,
+    inceptionBaseUrl: process.env.INCEPTION_BASE_URL || DEFAULTS.kimiBaseUrl,
+    inceptionApiKey: process.env.INCEPTION_API_KEY || "",
+    inceptionFallbackModels:
+      parseCsv(process.env.INCEPTION_FALLBACK_MODELS).length > 0
+        ? parseCsv(process.env.INCEPTION_FALLBACK_MODELS)
         : DEFAULTS.kimiFallbackModels,
     geotagBatchSize: parseInteger(
       process.env.GEOTAG_BATCH_SIZE,
@@ -139,16 +142,13 @@ export function getRuntimeConfig(options = {}) {
     feedConditionalFetch: parseBoolean(
       process.env.FEED_CONDITIONAL_FETCH,
       DEFAULTS.feedConditionalFetch
-    ),
-    kimiModel: process.env.KIMI_MODEL || DEFAULTS.kimiModel,
-    kimiBaseUrl: process.env.KIMI_BASE_URL || DEFAULTS.kimiBaseUrl,
-    kimiApiKey: process.env.KIMI_CODE_API || process.env.KIMI_API_KEY || ""
+    )
   };
 
-  if (requireKimi && !config.kimiApiKey) {
+  if (requireInception && !config.inceptionApiKey) {
     throw new AppError(
-      "KIMI_CODE_API is required for geotagging phases but is not set.",
-      { code: "CONFIG_MISSING_KIMI_KEY" }
+      "INCEPTION_API_KEY is required for geotagging phases but is not set.",
+      { code: "CONFIG_MISSING_INCEPTION_KEY" }
     );
   }
 

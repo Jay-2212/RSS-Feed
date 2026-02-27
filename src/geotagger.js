@@ -4,9 +4,9 @@ import { createLogger } from "./utils.js";
 
 const DEFAULTS = {
   mode: "auto",
-  model: "kimi-k2-0905-preview",
-  fallbackModels: ["kimi-k2-turbo-preview", "kimi-for-coding"],
-  kimiBaseUrl: "https://api.kimi.com/coding/v1",
+  model: "mercury-2",
+  fallbackModels: [],
+  inceptionBaseUrl: "https://api.inceptionlabs.ai/v1",
   timeoutMs: 20_000,
   maxRetries: 4,
   retryBaseDelayMs: 2_000,
@@ -671,8 +671,8 @@ function computeBackoffMs(details, attempt, options) {
   return Math.min(exponential, options.retryMaxDelayMs);
 }
 
-async function callKimiChatCompletions(prompt, options) {
-  const baseUrl = String(options.kimiBaseUrl || DEFAULTS.kimiBaseUrl).replace(/\/+$/, "");
+async function callInceptionChatCompletions(prompt, options) {
+  const baseUrl = String(options.inceptionBaseUrl || DEFAULTS.inceptionBaseUrl).replace(/\/+$/, "");
   const endpoint = `${baseUrl}/chat/completions`;
   const payload = {
     model: options.model,
@@ -698,7 +698,7 @@ async function callKimiChatCompletions(prompt, options) {
         timeout: options.timeoutMs,
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${options.kimiApiKey}`
+          Authorization: `Bearer ${options.inceptionApiKey}`
         }
       });
       return response.data;
@@ -720,7 +720,7 @@ async function callKimiChatCompletions(prompt, options) {
   return {};
 }
 
-async function callKimiWithModelFallback(prompt, options, logger) {
+async function callInceptionWithModelFallback(prompt, options, logger) {
   const models = [options.model, ...(options.fallbackModels ?? [])]
     .map((model) => String(model || "").trim())
     .filter(Boolean)
@@ -730,7 +730,7 @@ async function callKimiWithModelFallback(prompt, options, logger) {
 
   for (const model of models) {
     try {
-      const data = await callKimiChatCompletions(prompt, {
+      const data = await callInceptionChatCompletions(prompt, {
         ...options,
         model
       });
@@ -740,7 +740,7 @@ async function callKimiWithModelFallback(prompt, options, logger) {
       };
     } catch (error) {
       const details = extractApiErrorDetails(error);
-      logger.warn("Kimi model request failed", {
+      logger.warn("Inception model request failed", {
         model,
         status: details.status,
         apiStatus: details.apiStatus,
@@ -836,7 +836,7 @@ function resolveMode(options) {
   if (options.mode === "live") {
     return "live";
   }
-  return options.kimiApiKey ? "live" : "mock";
+  return options.inceptionApiKey ? "live" : "mock";
 }
 
 function chunkArticles(articles, size) {
@@ -882,21 +882,21 @@ export async function geotagArticles(articles, rawOptions = {}) {
 
     if (batchIndex < effectiveMaxApiBatches) {
       try {
-        const response = await callKimiWithModelFallback(prompt, options, logger);
+        const response = await callInceptionWithModelFallback(prompt, options, logger);
         modelUsedForBatch = response.modelUsed;
         parsedResults = parseModelResponsePayload(response.data);
         if (modelUsedForBatch) {
           modelUsageCounts[modelUsedForBatch] = (modelUsageCounts[modelUsedForBatch] ?? 0) + 1;
         }
         if (parsedResults.length === 0) {
-          logger.warn("Kimi response parsed but returned no usable geotag rows", {
+          logger.warn("Inception response parsed but returned no usable geotag rows", {
             modelUsed: modelUsedForBatch,
             batchSize: batch.length
           });
         }
       } catch (error) {
         const details = extractApiErrorDetails(error);
-        logger.warn("Kimi geotag batch failed; using fallback for batch", {
+        logger.warn("Inception geotag batch failed; using fallback for batch", {
           status: details.status,
           apiStatus: details.apiStatus,
           message: details.message,
@@ -907,7 +907,7 @@ export async function geotagArticles(articles, rawOptions = {}) {
         });
       }
     } else {
-      logger.warn("Skipping Kimi batch due API cost guard", {
+      logger.warn("Skipping Inception batch due API cost guard", {
         batchIndex,
         batchSize: batch.length,
         maxApiBatches: options.maxApiBatches

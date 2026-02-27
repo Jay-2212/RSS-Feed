@@ -10,11 +10,10 @@ jobs:
   curate:
     runs-on: ubuntu-latest
     env:
-      # Put KIMI_CODE_API in GitHub repo secrets. Pipeline will auto-fallback to mock mode if empty.
-      KIMI_CODE_API: ${{ secrets.KIMI_CODE_API }}
-      KIMI_BASE_URL: ${{ vars.KIMI_BASE_URL || 'https://api.kimi.com/coding/v1' }}
-      KIMI_MODEL: ${{ vars.KIMI_MODEL || 'kimi-k2-0905-preview' }}
-      KIMI_FALLBACK_MODELS: ${{ vars.KIMI_FALLBACK_MODELS || 'kimi-k2-turbo-preview,kimi-for-coding' }}
+      # Put INCEPTION_API_KEY in GitHub repo secrets. Pipeline will auto-fallback to mock mode if empty.
+      INCEPTION_API_KEY: ${{ secrets.INCEPTION_API_KEY }}
+      INCEPTION_BASE_URL: ${{ vars.INCEPTION_BASE_URL || 'https://api.inceptionlabs.ai/v1' }}
+      INCEPTION_MODEL: ${{ vars.INCEPTION_MODEL || 'mercury-2' }}
       GEOTAG_MODE: ${{ vars.GEOTAG_MODE || 'auto' }}
       GEOTAG_BATCH_SIZE: ${{ vars.GEOTAG_BATCH_SIZE || '60' }}
       GEOTAG_MAX_API_BATCHES: ${{ vars.GEOTAG_MAX_API_BATCHES || '0' }}
@@ -33,10 +32,10 @@ jobs:
 
       - name: Validate secret wiring
         run: |
-          if [ -n "${KIMI_CODE_API}" ]; then
-            echo "KIMI_CODE_API detected in environment."
+          if [ -n "${INCEPTION_API_KEY}" ]; then
+            echo "INCEPTION_API_KEY detected in environment."
           else
-            echo "KIMI_CODE_API is not set. Geotagger will use mock mode."
+            echo "INCEPTION_API_KEY is not set. Geotagger will use mock mode."
           fi
 
       - name: Run pipeline (Phase 1-5)
