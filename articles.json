@@ -1,13 +1,13 @@
 {
   "metadata": {
-    "lastUpdated": "2026-02-27T05:45:02.483Z",
+    "lastUpdated": "2026-02-27T06:23:26.541Z",
     "count": 120,
     "sources": [
       "hindu",
-      "indian-express-world",
       "guardian-world",
-      "bbc-world",
+      "indian-express-world",
       "hacker-news",
+      "bbc-world",
       "npr-world",
       "atlantic",
       "ars-technica"
@@ -18,6 +18,403 @@
     "geotagModel": "mercury-2"
   },
   "articles": [
+    {
+      "id": "d894e71682dc6951",
+      "sourceId": "hindu",
+      "sourceName": "The Hindu",
+      "title": "KSU leader’s house in Kozhikode attacked with country bomb amid political tensions in Kerala",
+      "excerpt": "KSU leader's house in Kozhikode attacked with a country bomb, allegedly by CPI(M) workers amid ongoing political tensions.",
+      "content": "A Kerala Students Union (KSU) leader’s house was allegedly attacked using a country bomb at Thiruvallur, near Vadakara, in Kozhikode district of Kerala early on Friday. The attack, allegedly by Communist Party of India (Marxist) workers, took place around 2.30 a.m. at the house of KSU Kozhikode district secretary Bithul Balan.\n\nPolice sources said the KSU leader who was allegedly involved in [attacking Health Minister Veena George](https://www.thehindu.com/news/national/kerala/kerala-health-minister-veena-george-discharged-from-kannur-hospital-further-treatment-in-thiruvananthapuram/article70682443.ece) had been remanded in judicial custody. The latest incident could be a retaliation as part of the Statewide agitation flaying the attack on the Minister, they said.\n\nAs part of the continuing investigation, the police recovered the CCTV visuals of the incident. Police said efforts were on to identify the suspects. They said altogether 36 cases were registered in Kozhikode district in connection with various clashes between Congress and CPI(M) workers in the last two days.\n\nSenior Congress leaders who flayed the latest incident alleged that the CPI(M) and its youth organisations were trying to “spread violence across the State in the name of an unreal incident.” They said they would visit the house of the KSU leader to review the situation. \n\nPublished \\- February 27, 2026 11:49 am IST",
+      "url": "https://www.thehindu.com/news/national/kerala/ksu-leaders-house-in-kozhikode-attacked-with-country-bomb-amid-political-tensions-in-kerala/article70682843.ece",
+      "imageUrl": "https://www.thehindu.com/theme/images/th-online/thehindu-logo.svg",
+      "publishedAt": "2026-02-27T06:19:33.000Z",
+      "geotag": {
+        "country": "UNK",
+        "city": null,
+        "lat": 0,
+        "lng": 0
+      },
+      "category": "Trending",
+      "priority": "High",
+      "signals": {
+        "conflict": false
+      },
+      "tags": [],
+      "metrics": {
+        "wordCount": 197,
+        "readTime": 1
+      }
+    },
+    {
+      "id": "f06613ff18f59323",
+      "sourceId": "hindu",
+      "sourceName": "The Hindu",
+      "title": "Excise policy case: Delhi court discharges Kejriwal, Sisodia, rejects CBI charge",
+      "excerpt": "Delhi court discharges Kejriwal and Sisodia in excise corruption case, dismissing CBI charges against them and 21 others.",
+      "content": "![Former Delhi Chief Minister Arvind Kejriwal and former Deputy Chief Minister Manish Sisodia. File photo: X/@msisodia via ANI](https://www.thehindu.com/theme/images/th-online/1x1_spacer.png \"Former Delhi Chief Minister Arvind Kejriwal and former Deputy Chief Minister Manish Sisodia. File photo: X/@msisodia via ANI\")\n\nFormer Delhi Chief Minister Arvind Kejriwal and former Deputy Chief Minister Manish Sisodia. File photo: X/@msisodia via ANI\n\nA Delhi court on Friday (February 27, 2026) discharged former Delhi Chief Minister Arvind Kejriwal and former deputy Chief Minister Manish Sisodia in an excise police-related corruption case, refusing to take cognisance of the CBI charge.\n\nSpecial Judge Jitendra Singh said that the charge sheet had several lacunae not supported by evidence, as he discharged 21 more besides the two Aam Aadmi Party leaders in the matter.\n\nPublished \\- February 27, 2026 11:37 am IST",
+      "url": "https://www.thehindu.com/news/cities/Delhi/excise-corruption-liquor-policy-case-kejriwal-sisodia-discharged/article70682814.ece",
+      "imageUrl": "https://th-i.thgim.com/public/incoming/dzmq5w/article70682860.ece/alternates/LANDSCAPE_1200/nd22-PB-HEALTH-GRQFFND4O.4.jpg.jpg",
+      "publishedAt": "2026-02-27T06:15:01.000Z",
+      "geotag": {
+        "country": "IND",
+        "city": "delhi",
+        "lat": 28.7041,
+        "lng": 77.1025
+      },
+      "category": "National",
+      "priority": "High",
+      "signals": {
+        "conflict": false
+      },
+      "tags": [
+        "Law and Justice",
+        "IND",
+        "Delhi"
+      ],
+      "metrics": {
+        "wordCount": 129,
+        "readTime": 1
+      }
+    },
+    {
+      "id": "6739b05a02f20a0e",
+      "sourceId": "hindu",
+      "sourceName": "The Hindu",
+      "title": "Telangana Govt releases ₹745 crore to clear pending bills of Govt employees",
+      "excerpt": "Telangana government released ₹745 crore to clear pending bills for state employees on February 27, 2026",
+      "content": "![Funds to clear pending bills of Telangana government employees were released by the State government on February 27, 2026](https://www.thehindu.com/theme/images/th-online/1x1_spacer.png \"Funds to clear pending bills of Telangana government employees were released by the State government on February 27, 2026\")\n\nFunds to clear pending bills of Telangana government employees were released by the State government on February 27, 2026 | Photo Credit: BY ARRANGEMENT\n\nThe [Telangana government released](https://www.thehindu.com/news/national/telangana/telangana-govt-releases-713-crore-towards-pending-bills-of-employees/article70456475.ece) ₹745 crores for clearing the pending bills of the State government employees on Friday (February 27, 2026).\n\nDeputy Chief Minister Mallu Bhatti Vikramarka asked the officials to release the money immediately. This disbursement comes as part of the assurance given to employee unions that ₹700 crore would be sanctioned every month to clear their pending bills.\n\nThe government has been releasing ₹700 crores every month since last June. Meanwhile, the Finance Department also released ₹389 crore to gram panchayats.\n\nPublished \\- February 27, 2026 11:44 am IST",
+      "url": "https://www.thehindu.com/news/national/telangana/telangana-govt-releases-745-crore-to-clear-pending-bills-of-govt-employees/article70682774.ece",
+      "imageUrl": "https://th-i.thgim.com/public/news/cities/Hyderabad/ilxb93/article70682865.ece/alternates/LANDSCAPE_1200/Telangana%20finances%20M%20Venkat%20Rao.jpg",
+      "publishedAt": "2026-02-27T06:14:15.000Z",
+      "geotag": {
+        "country": "UNK",
+        "city": null,
+        "lat": 0,
+        "lng": 0
+      },
+      "category": "Trending",
+      "priority": "High",
+      "signals": {
+        "conflict": false
+      },
+      "tags": [],
+      "metrics": {
+        "wordCount": 153,
+        "readTime": 1
+      }
+    },
+    {
+      "id": "0ac5e7433b349670",
+      "sourceId": "hindu",
+      "sourceName": "The Hindu",
+      "title": "Former DMK MLA, six others get life imprisonment for farmer’s murder in Tiruvannamalai",
+      "excerpt": "Former DMK MLA and six others sentenced to life imprisonment for the 2014 murder of a farmer over a land dispute.",
+      "content": "![The Principal District and Sessions Court at the Combined Court Complex in Tiruvannamalai has convicted a former DMK MLA and six others in a murder case.](https://www.thehindu.com/theme/images/th-online/1x1_spacer.png \"The Principal District and Sessions Court at the Combined Court Complex in Tiruvannamalai has convicted a former DMK MLA and six others in a murder case.\")\n\nThe Principal District and Sessions Court at the Combined Court Complex in Tiruvannamalai has convicted a former DMK MLA and six others in a murder case. | Photo Credit: Special Arrangement\n\nThe Principal District and Sessions Court at the Combined Court Complex in Tiruvannamalai has convicted a former DMK MLA and six others and sentenced them to life imprisonment in connection with the murder of a farmer over a land dispute near Vandavasi town in May 2014.\n\nJudge P. Mathusuthanan delivered the verdict, sentencing the seven persons to life imprisonment, with a fine of ₹8,000. The convicted persons are Kamalakannan (37), the former MLA who represented the Vandavasi Assembly constituency, Mathiyazhagan (35), Nandagopal (29), Irusappan (51), Perumal (45), Sudhakaran (35), and Duraimurugan (30).\n\nThe judge examined 20 witnesses before finding the accused guilty. The court order also said that if the fine amount is not paid, the convicted persons would have to serve an additional three months of imprisonment.\n\nThe police said that the victim, Munusamy (40), was a farmer in Sengadu village which falls under the Cheyyar taluk in the district. Along with his wife Ponni, Munusamy had been cultivating his farmland for many years. He reportedly had a land dispute with his relative Perumal and Irusappan, both of whom were convicted.\n\nThe police said that in favour of Perumal and Irusappan, former MLA Kamalakannan and the others reportedly intervened in the dispute on May 15, 2014, when the victim Munusamy was heading to his farmland. As heated arguments went out of control, both parties exchanged blows, in which Munusamy was severely injured.\n\nMunusamy was rushed to the Government Taluk Hospital in Vandavasi and later to a government hospital in Chennai where he succumbed to his injuries. Based on a complaint by Munusamy’s wife Ponni, a case was registered by the Anakavoor police.\n\n#### Trial of case\n\nThe trial of the case was held at the District Principal Sessions Court at the Tiruvannamalai District Combined Court complex. Following the verdict, the convicted persons were lodged in the Central Prison in Vellore. \n\nThe police said Kamalakannan was the son of former DMK MLA Jayaraman, who served as the Vandavasi MLA from 2006. After Jayaraman’s sudden death, Kamalakannan contested as a DMK candidate and won in the by-election held in 2009.\n\nPublished \\- February 27, 2026 11:43 am IST",
+      "url": "https://www.thehindu.com/news/national/tamil-nadu/former-dmk-mla-six-others-get-life-imprisonment-for-farmers-murder-in-tiruvannamalai/article70682599.ece",
+      "imageUrl": "https://th-i.thgim.com/public/news/national/tamil-nadu/5c6my0/article70682872.ece/alternates/LANDSCAPE_1200/WhatsApp%20Image%202026-02-27%20at%2010.09.04.jpeg",
+      "publishedAt": "2026-02-27T06:13:48.000Z",
+      "geotag": {
+        "country": "UNK",
+        "city": null,
+        "lat": 0,
+        "lng": 0
+      },
+      "category": "Trending",
+      "priority": "High",
+      "signals": {
+        "conflict": false
+      },
+      "tags": [
+        "Agriculture"
+      ],
+      "metrics": {
+        "wordCount": 440,
+        "readTime": 2
+      }
+    },
+    {
+      "id": "c41ca8e72919b1ba",
+      "sourceId": "hindu",
+      "sourceName": "The Hindu",
+      "title": "JSS Polytechnic to offer diploma courses for physically challenged persons in Mysuru",
+      "excerpt": "JSS Polytechnic in Mysuru offers diploma courses for physically challenged students, with admissions open from May 10 to June 20.",
+      "content": "![JSS Polytechnic for the Differently Abled (JSSPDA), Mysuru.](https://www.thehindu.com/theme/images/th-online/1x1_spacer.png \"JSS Polytechnic for the Differently Abled (JSSPDA), Mysuru.\")\n\nJSS Polytechnic for the Differently Abled (JSSPDA), Mysuru. | Photo Credit: M A Sriram\n\nJSS Polytechnic for the Differently Abled will be offering various diploma courses exclusively for physically challenged students in Mysuru.\n\nAddressing presspersons in Hubballi on February 26, JSS Polytechnic for the Differently Abled Vice-Principal N. M. Shivkumar said that the programmes had been designed for students with physical disabilities, hearing and visual impairment who have successfully passed the SSLC examination.\n\nHe said the institution currently offers eight three-year diploma courses in Architecture Assistantship, Commercial Practice, Computer Science & Engineering, Jewellery Design & Technology, Electronics & Communication Engineering, Computer Applications, Apparel Design & Fabrication Technology, and Electrical Engineering & Electric Vehicle Technology.\n\nProfessor Raghu M. B. said that the institution used English and American Sign Language as a medium to ensure effective learning for hearing-impaired students. Students with a family income of less than ₹8 lakh per annum would receive a scholarship of ₹50,000. A Unique Disability ID (UDID) is mandatory, he said.\n\nAdmissions for the academic year 2026–27 will be open from May 10 to June 20. Eligible candidates are invited to apply. A total of 398 seats are available in eight streams.\n\nOffice Administrator Dr. Palaniswamy said that JSS University of Science and Technology had announced the launch of a new engineering programme in Computer Science and Technology exclusively for students with disabilities.\n\nPublished \\- February 27, 2026 11:40 am IST",
+      "url": "https://www.thehindu.com/news/national/karnataka/jss-polytechnic-to-offer-diploma-courses-for-physically-challenged-persons-in-mysuru/article70679448.ece",
+      "imageUrl": "https://th-i.thgim.com/public/incoming/l14xxm/article70682875.ece/alternates/LANDSCAPE_1200/2303_28_1_2026_19_12_13_2_JSSSPECIALPOLYTECHNIC.JPG",
+      "publishedAt": "2026-02-27T06:10:49.000Z",
+      "geotag": {
+        "country": "UNK",
+        "city": null,
+        "lat": 0,
+        "lng": 0
+      },
+      "category": "Trending",
+      "priority": "High",
+      "signals": {
+        "conflict": false
+      },
+      "tags": [],
+      "metrics": {
+        "wordCount": 251,
+        "readTime": 1
+      }
+    },
+    {
+      "id": "9e0a362ae1eb2180",
+      "sourceId": "hindu",
+      "sourceName": "The Hindu",
+      "title": "JNU protest march: Delhi Police arrests 14 for clash",
+      "excerpt": "Delhi Police arrested 14 JNU protesters, including student leaders, following clashes during a demonstration against university administration.",
+      "content": "![Students of Jawaharlal Nehru University Students' Union (JNUSU) staging a protest rally towards the Ministry of Education for stronger implementation of University Grants Commission regulations and enactment of the \"Rohith Vemula Act\", in New Delhi on February 26, 2026.](https://www.thehindu.com/theme/images/th-online/1x1_spacer.png \"Students of Jawaharlal Nehru University Students' Union (JNUSU) staging a protest rally towards the Ministry of Education for stronger implementation of University Grants Commission regulations and enactment of the \"Rohith Vemula Act\", in New Delhi on February 26, 2026.\")\n\nStudents of Jawaharlal Nehru University Students' Union (JNUSU) staging a protest rally towards the Ministry of Education for stronger implementation of University Grants Commission regulations and enactment of the \"Rohith Vemula Act\", in New Delhi on February 26, 2026. | Photo Credit: Shiv Kumar Pushpakar\n\nFourteen protesters were arrested in connection with a demonstration at Jawaharlal Nehru University (JNU) here on Thursday (February 26, 2026) evening, police said.\n\nThose held JNU Students' Union (JNUSU) president Aditi Mishra, vice-president Gopika Babu, former president Nitish Kumar, and joint secretary Danish Ali, among others, they said.\n\nPolice said an FIR has been registered under sections 132/3(5) (assault or criminal force), 221 (obstructing public servant) and 121(1) (voluntarily causing hurt) of the Bharatiya Nyaya Sanhita (BNS) at the Vasant Kunj North Police Station.\n\nPublished \\- February 27, 2026 11:37 am IST",
+      "url": "https://www.thehindu.com/news/cities/Delhi/jnu-protest-march-delhi-police-arrests-14-for-clash/article70682838.ece",
+      "imageUrl": "https://th-i.thgim.com/public/incoming/ezch3z/article70682864.ece/alternates/LANDSCAPE_1200/JNU-PROTEST_GIFGIFFL5GIF.3.jpg.jpg",
+      "publishedAt": "2026-02-27T06:07:56.000Z",
+      "geotag": {
+        "country": "IND",
+        "city": "delhi",
+        "lat": 28.7041,
+        "lng": 77.1025
+      },
+      "category": "National",
+      "priority": "High",
+      "signals": {
+        "conflict": false
+      },
+      "tags": [
+        "Education",
+        "Protests",
+        "Crime",
+        "IND",
+        "Delhi"
+      ],
+      "metrics": {
+        "wordCount": 215,
+        "readTime": 1
+      }
+    },
+    {
+      "id": "f42a27d6a64406be",
+      "sourceId": "hindu",
+      "sourceName": "The Hindu",
+      "title": "Ramesh Chennithala seeks Kerala CM’s resignation alleging data leak of 1 crore citizens",
+      "excerpt": "Ramesh Chennithala demands Kerala CM's resignation over alleged illegal data leakage of 1 crore citizens for electoral use.",
+      "content": "![Senior Congress leader Ramesh Chennithala](https://www.thehindu.com/theme/images/th-online/1x1_spacer.png \"Senior Congress leader Ramesh Chennithala\")\n\nSenior Congress leader Ramesh Chennithala | Photo Credit: K K Mustafah\n\nSenior Congress leader Ramesh Chennithala has demanded the resignation of Kerala Chief Minister Pinarayi Vijayan, [accusing him of unlawfully seizing the personal data of more than 1 crore citizens without their knowledge or consent, handing it over to private companies, and using it for election purposes.](https://www.thehindu.com/news/national/kerala/ramesh-chennithala-releases-official-letter-on-alleged-spark-data-leak-questions-kerala-cms-role/article70674258.ece)\n\nAddressing a press conference in Kochi on Friday, Mr. Chennithala also demanded criminal proceedings against the Chief Minister and all officials who were part of this alleged “illegal transaction.”\n\n“When the highest executive office in the State is accused of engaging in such unauthorised data handling, it raises serious constitutional concerns and threatens citizens’ rights to privacy and self-governance, Mr. Chennithala said.\n\nPersonal information of lakhs of women above 35 years of age who registered under the women’s safety scheme were allegedly illegally accessed and extracted based on a letter issued by Sreeram Sambasiva Rao, Officer on Special Duty (OSD) in the Chief Minister’s Office, said Mr. Chennithala while releasing a copy of the letter.\n\nPersonal data belonging to lakhs of people, including economically vulnerable women, were allegedly transferred to private agencies without adequate safeguards and used for electoral objectives. There is no clarity or guarantee regarding the extent to which these agencies may misuse such information, Mr. Chennithala said.\n\nThe data pool includes around 8 lakh State government employees, 72 lakh welfare pensioners, 3 lakh small-scale entrepreneurs, and beneficiaries of the women’s safety scheme – amounting to more than 1 crore individuals. Government-verified personal information such as phone numbers, names, age, gender, district, taluk, ward, and local body details — all of high commercial value — were allegedly shared with private firms, he claimed.\n\nThe exposure of such sensitive personal information could pave the way for serious criminal activities, including cyber fraud. If this data, especially of poor women, falls into the hands of cybercrime networks, repercussions could be severe and far-reaching, Mr. Chennithala said.\n\nBased on the data thus obtained, nearly 1 crore WhatsApp messages were reportedly sent between February 19 and 21 from the Chief Minister’s Office business account. This mass messaging exercise is alleged to have been conducted without authorisation and in violation of legal norms.\n\nBesides, a government order was issued under the name of the Chief Minister’s OSD to empanel around ten private agencies under the pretext of expanding IT Department activities. The urgency in empanelling multiple private agencies raises serious questions, Mr. Chennithala said.\n\nPublished \\- February 27, 2026 11:34 am IST",
+      "url": "https://www.thehindu.com/news/national/kerala/ramesh-chennithala-seeks-kerala-cms-resignation-alleging-data-leak-of-1-crore-citizens/article70682766.ece",
+      "imageUrl": "https://th-i.thgim.com/public/incoming/oufapv/article70682839.ece/alternates/LANDSCAPE_1200/People-eager-foGVMFK6T34.2.jpg.jpg",
+      "publishedAt": "2026-02-27T06:04:31.000Z",
+      "geotag": {
+        "country": "UNK",
+        "city": null,
+        "lat": 0,
+        "lng": 0
+      },
+      "category": "Trending",
+      "priority": "High",
+      "signals": {
+        "conflict": false
+      },
+      "tags": [],
+      "metrics": {
+        "wordCount": 426,
+        "readTime": 2
+      }
+    },
+    {
+      "id": "e89b662e9a58469b",
+      "sourceId": "hindu",
+      "sourceName": "The Hindu",
+      "title": "Officials on Bengal SIR work enter Odisha village by 'mistake', assaulted by locals, 72 arrested",
+      "excerpt": "Two electoral officials mistakenly entered an Odisha village, were assaulted, and 72 locals arrested amid suspicions of child-lifting.",
+      "content": "![Image used for representational purposes only. File](https://www.thehindu.com/theme/images/th-online/1x1_spacer.png \"Image used for representational purposes only. File\")\n\nImage used for representational purposes only. File | Photo Credit: PTI\n\nTwo officials deputed for Special Intensive Revision (SIR) of electoral rolls in [West Bengal](https://www.thehindu.com/news/national/west-bengal/) by mistake had entered a village in neighbouring Odisha's Balasore district and were assaulted by locals over suspicion of being members of a child-lifting gang, police said on Friday (February 27, 2026).\n\nThe incident took place on Wednesday (February 26, 2026) when the two officials entered a village in Raibania police station area in Balasore district, which shares a border with West Bengal, the police said.\n\nAccording to the police, the two officials were deputed as micro-observers for SIR work and were supposed to visit a village in Nayagram block in West Bengal, but had entered the bordering village in Odisha by 'mistake' as their hired auto-rickshaw could not locate the exact destination village where they were supposed to go.\n\nThe local people suspected them of being members of a child-lifting gang and assaulted them, the police said. Getting information, the local police rushed to the spot, but the mob obstructed them from doing their duty and even manhandled the police team. After some time, the police rescued the two officials from the mob.\n\nBalasore Additional Superintendent of Police (ASP) Niranjan Behera told _PTI_ over the phone on Friday (February 27, 2026) that two cases have been registered against the law violators and 72 people have been arrested so far, while a search is underway to nab others involved in the incident.\n\nInspector in charge of Raibania police station, Champabati Soren, said the two SIR officials were admitted to Raibania hospital and discharged from the hospital the same day.\n\nPublished \\- February 27, 2026 11:33 am IST",
+      "url": "https://www.thehindu.com/news/national/odisha/officials-on-bengal-sir-work-enter-odisha-village-by-mistake-assaulted-by-locals-72-arrested/article70682816.ece",
+      "imageUrl": "https://th-i.thgim.com/public/incoming/pfdqh8/article70682856.ece/alternates/LANDSCAPE_1200/PTI12_30_2025_000263B.jpg",
+      "publishedAt": "2026-02-27T06:04:01.000Z",
+      "geotag": {
+        "country": "UNK",
+        "city": null,
+        "lat": 0,
+        "lng": 0
+      },
+      "category": "Trending",
+      "priority": "High",
+      "signals": {
+        "conflict": false
+      },
+      "tags": [],
+      "metrics": {
+        "wordCount": 296,
+        "readTime": 1
+      }
+    },
+    {
+      "id": "d77d9ddad3336b8b",
+      "sourceId": "hindu",
+      "sourceName": "The Hindu",
+      "title": "8 cheetahs from Africa to arrive at M.P.'s Kuno National Park on Saturday",
+      "excerpt": "Eight cheetahs from Africa will arrive at Kuno National Park in Madhya Pradesh on February 28, 2026, for revival efforts.",
+      "content": "![A cheetah rests at the Kuno National Park, in Sheopur district, Madhya Pradesh. Eight more cheetahs will be airlifted from Africa and brought to the KNP in on Saturday (February 28, 2026).](https://www.thehindu.com/theme/images/th-online/1x1_spacer.png \"A cheetah rests at the Kuno National Park, in Sheopur district, Madhya Pradesh. Eight more cheetahs will be airlifted from Africa and brought to the KNP in on Saturday (February 28, 2026).\")\n\nA cheetah rests at the Kuno National Park, in Sheopur district, Madhya Pradesh. Eight more cheetahs will be airlifted from Africa and brought to the KNP in on Saturday (February 28, 2026). | Photo Credit: PTI\n\nEight more cheetahs will be airlifted from Africa and brought to Kuno National Park (KNP) in Madhya Pradesh on Saturday (February 28, 2026) morning, an official said on Friday (February 27, 2026).\n\nMadhya Pradesh Chief Minister Mohan Yadav and Union Environment, Forest and Climate Change Minister Bhupender Yadav will release the big cats into enclosures readied at the park under the ongoing cheetah revival programme in India via intercontinental translocations, he added.\n\nThe batch from Botswana, comprising six females and two males, will fly to Gwalior between 9 p.m. and 10 p.m. on an Indian Air Force aircraft, Cheetah Project Director Uttam Sharma told _PTI._\n\nFrom Gwalior, two IAF helicopters will transport the cheetahs to Kuno National Park, where they are expected to arrive between 9 a.m. and 10 a.m. on Saturday (February 28, 2026). The flight duration from Botswana to Gwalior will be around nine to 10 hours, he said.\n\nThis will be the third batch of cheetahs arriving from Africa, following earlier introductions from Namibia and South Africa, he added.\n\nWith this, the number of cheetahs in India will rise to 46.\n\nMr. Sharma said enclosures have been prepared at the park, where the cheetahs will remain in quarantine for about a month.\n\nThe park has five helipads to facilitate their safe landing, he added.\n\nLike the last time, the IAF will assist the cheetah revival programme by bringing them from Africa, just as it did when transporting the cursorial animal from SA in February 2023, Mr. Sharma said.\n\nEarlier, eight cheetahs were brought from Namibia to Gwalior on a private jet in September 2022, after which IAF helicopters transported them to the park, he said.\n\n\"The arrival of more cheetahs will strengthen India's cheetah revival programme. With the support of the central government, we aim to increase the population to 50 as soon as possible,\" Mr. Sharma said.\n\nThree big cats were later relocated to Gandhi Sagar Wildlife Sanctuary, while 35 remain at Kuno National Park, he said.\n\nAccording to officials, endangered animals are not kept in a single habitat due to the risk of disease outbreaks that can wipe out their entire population at one go.\n\nThe cheetah, the world's fastest land animal, became extinct in India nearly seven decades ago.\n\nLast year, India saw the birth of 12 cubs, though six, including three cubs, did not survive. This year, between February 7 and February 18, eight cubs were born in two litters.\n\nIn all, 39 cubs have been born at KNP since 2023, of which 27 have survived.\n\nNamibia-born Jwala and Aasha, South Africa-born Gamini, Veera and Nirva, and India-born Mukhi have all produced litters at KNP, officials said.\n\nThree cheetahs have been moved to Gandhi Sagar Wildlife Sanctuary in Mandsaur district, while 35 remain at KNP, they added.\n\nPublished \\- February 27, 2026 11:29 am IST",
+      "url": "https://www.thehindu.com/news/national/madhya-pradesh/8-cheetahs-from-africa-to-arrive-at-mps-kuno-national-park-on-saturday/article70682827.ece",
+      "imageUrl": "https://th-i.thgim.com/public/incoming/h07e26/article70682835.ece/alternates/LANDSCAPE_1200/PTI12_31_2025_000425B.jpg",
+      "publishedAt": "2026-02-27T05:59:18.000Z",
+      "geotag": {
+        "country": "UNK",
+        "city": null,
+        "lat": 0,
+        "lng": 0
+      },
+      "category": "Trending",
+      "priority": "High",
+      "signals": {
+        "conflict": false
+      },
+      "tags": [],
+      "metrics": {
+        "wordCount": 572,
+        "readTime": 3
+      }
+    },
+    {
+      "id": "67830d0d234b1a9d",
+      "sourceId": "hindu",
+      "sourceName": "The Hindu",
+      "title": "Bill Clinton to face grilling on significant Epstein ties",
+      "excerpt": "Bill Clinton faces questioning over his connections to Jeffrey Epstein amid ongoing Congressional investigations and political tensions.",
+      "content": "![Former President Bill Clinton. File](https://www.thehindu.com/theme/images/th-online/1x1_spacer.png \"Former President Bill Clinton. File\")\n\nFormer President Bill Clinton. File | Photo Credit: AP\n\nFormer U.S. President Bill Clinton will be grilled by a Congressional panel on Friday (February 27, 2026) on his well-documented [links to Jeffrey Epstein,](https://www.thehindu.com/news/international/photos-of-bill-clinton-included-in-newly-released-epstein-files/article70418515.ece) as Democrats seek to shift focus onto Donald Trump's own ties to the [convicted sex offender](https://www.thehindu.com/news/international/a-timeline-of-the-jeffrey-epstein-investigation-and-the-fight-to-make-the-governments-files-public/article70418575.ece).\n\nMr. Clinton features prominently throughout the [latest Epstein files disclosures](https://www.thehindu.com/news/international/trump-elon-musk-bill-gates-new-epstein-file-dump/article70572956.ece), with the former President insisting that he broke ties with him well before the disgraced billionaire's 2008 conviction for sex offenses.\n\nMere mention in the files released by the U.S. Department of Justice does not imply wrongdoing, and Mr. Clinton has not been accused of a crime or formally investigated.\n\n![](https://th-i.thgim.com/public/incoming/a0s6a6/article70681231.ece/alternates/SQUARE_80/Epstein_Congress_Clintons_53350.jpg)\n\nHe follows his wife, former Secretary of State Ms. Hillary Clinton, who testified Thursday (February 26, 2026), defiantly calling for President Trump — who like Mr. Bill Clinton had ties with Epstein — to appear before the panel.\n\n\"If this committee is serious about learning the truth about [Epstein's trafficking crimes](https://www.thehindu.com/news/international/fbi-concluded-jeffrey-epstein-wasnt-running-a-sex-trafficking-ring-for-powerful-men-files-show/article70608675.ece). It would ask \\[Mr. Trump\\] directly under oath about the tens of thousands of times he shows up in the Epstein files,\" she said in an opening statement published online.\n\nThe depositions are being held behind closed doors even though the Clintons called for them to be open and televised, a move Mr. Bill Clinton denounced as akin to a \"kangaroo court.\"\n\nThe grilling comes with greater peril for the former President than for his wife, as he has acknowledged extensive interactions with Epstein, but said he never visited the shady financier's private Caribbean island.\n\nEpstein was associated with the world's rich, famous, and powerful, and was convicted in 2008 for soliciting sex from girls as young as 14. [He died in a New York jail cell in 2019](https://www.thehindu.com/news/international/jeffrey-epsteins-death-jail-staff-failed-to-follow-protocols-report/article28986928.ece) while facing trial on sex trafficking charges.\n\n![](https://th-i.thgim.com/public/incoming/u9zlcl/article70585850.ece/alternates/LANDSCAPE_1200/2026-01-21T212828Z_244718123_RC2NDCA1C0Y9_RTRMADP_3_USA-TRUMP-EPSTEIN-CLINTONS.JPG)\n\nThe Republican-led House Oversight Committee is probing those who were linked to Epstein, particularly in light of the Justice Department's disclosures of millions of new documents related to its investigation of him. Ms. Hillary Clinton insisted that she had neither flown on Epstein's plane nor visited his island.\n\nThe Clintons had initially rejected subpoenas ordering them to testify in the panel's probe, but the Democratic power couple agreed to do so after House Republicans threatened to hold them in contempt of Congress.\n\n#### Newly released pictures\n\nMs. Hillary Clinton said in her opening statement to the panel that it \"justified its subpoena to me based on its assumption that I have information regarding the investigations into the criminal activities of [Jeffrey Epstein and Ghislaine Maxwell.\"](https://www.thehindu.com/news/international/ghislaine-maxwell-fights-release-of-more-epstein-documents-calling-disclosure-law-unconstitutional/article70661292.ece)\n\n\"Let me be as clear as I can. I do not.\" Democrats say the investigation is being weaponized to attack Mr. Trump's political opponents rather than to conduct legitimate oversight.\n\n![](https://th-i.thgim.com/public/incoming/afxta6/article70432279.ece/alternates/LANDSCAPE_1200/2025-12-23T163207Z_456590441_RC29MIA16M4V_RTRMADP_3_USA-TRUMP-EPSTEIN-FILES.JPG)\n\nMr. Bill Clinton features prominently in the trove of investigative files related to Epstein released by the Justice Department, but has not been accused of any wrongdoing. Previously unseen photographs from the files include one showing the former President reclining in a hot tub, part of the image obscured by a stark black rectangle.\n\nIn another, Mr. Clinton is pictured swimming alongside a dark-haired woman who appears to be Epstein's accomplice, [Ghislaine Maxwell](https://www.thehindu.com/videos/watch-epstein-case-ghislaine-maxwell-criticised-for-refusing-to-testify-before-us-congress/article70615889.ece). Mr. Clinton has acknowledged flying on Epstein's private plan",
+      "url": "https://www.thehindu.com/news/international/bill-clinton-to-face-grilling-on-significant-epstein-ties/article70682703.ece",
+      "imageUrl": "https://th-i.thgim.com/public/incoming/a0s6a6/article70681231.ece/alternates/LANDSCAPE_1200/Epstein_Congress_Clintons_53350.jpg",
+      "publishedAt": "2026-02-27T05:58:15.000Z",
+      "geotag": {
+        "country": "UNK",
+        "city": null,
+        "lat": 0,
+        "lng": 0
+      },
+      "category": "Trending",
+      "priority": "High",
+      "signals": {
+        "conflict": false
+      },
+      "tags": [],
+      "metrics": {
+        "wordCount": 546,
+        "readTime": 2
+      }
+    },
+    {
+      "id": "812461a13ce04926",
+      "sourceId": "hindu",
+      "sourceName": "The Hindu",
+      "title": "Inter-caste row: Bridegroom stoned to death by bride’s family members, hours after wedding",
+      "excerpt": "Bridegroom stoned to death by bride's family hours after their inter-caste marriage in East Godavari, police investigating.",
+      "content": "![East Godavari Superintendent of Police D. Narasimha Kishore said in a release that the family members of the bride have reportedly stoned the groom to death at around 11:30 p.m. on February 26. File photo: Special Arrangement](https://www.thehindu.com/theme/images/th-online/1x1_spacer.png \"East Godavari Superintendent of Police D. Narasimha Kishore said in a release that the family members of the bride have reportedly stoned the groom to death at around 11:30 p.m. on February 26. File photo: Special Arrangement\")\n\nEast Godavari Superintendent of Police D. Narasimha Kishore said in a release that the family members of the bride have reportedly stoned the groom to death at around 11:30 p.m. on February 26. File photo: Special Arrangement\n\nPolipalli Surya Prakash (41) was stoned to death by the family members of the bride at the former’s residence on the midnight of Thursday (February 26, 2026) at Dwarapudi village in Mandapeta Mandal in East Godavari district, hours after the duo entered into a wedlock.\n\nThe apparent reason for the incident is reportedly an inter-caste marriage. \n\nOn February 26, Mr. Surya Prakash and 40-year-old Ayanavalli Sandhya, who is serving as Deputy Collector, entered into wedlock on the Annavaram temple campus. Later, the duo arrived at the house of Mr. Surya Prakash at night. The duo had been in love for over two years. \n\n**Also read | **[Telangana speeds up inter-caste marriage incentive clearances; ₹15 crore released in December](https://www.thehindu.com/news/national/telangana/telangana-speeds-up-inter-caste-marriage-incentive-clearances-15-crore-released-in-december/article70505273.ece)****\n\nIn an official release issued by East Godavari Superintendent of Police D. Narasimha Kishore, the family members of the bride have reportedly stoned the groom to death at around 11:30 p.m. on Thursday (February 26). Rajamahendravaram East Zone DSP Ms. Vidhya rushed to the spot.\n\nThe dead body has been sent to the Government General Hospital, Rajamahendravaram, for post-mortem. The police registered a case and the investigation is on.\n\nPublished \\- February 27, 2026 11:17 am IST",
+      "url": "https://www.thehindu.com/news/national/andhra-pradesh/inter-caste-row-bridegroom-stoned-death-by-brides-family-members-hours-after-wedding/article70682686.ece",
+      "imageUrl": "https://th-i.thgim.com/public/incoming/ff02jf/article70682803.ece/alternates/LANDSCAPE_1200/WhatsApp%20Image%202025-03-29%20at%2017.57.44.jpeg",
+      "publishedAt": "2026-02-27T05:57:29.000Z",
+      "geotag": {
+        "country": "UNK",
+        "city": null,
+        "lat": 0,
+        "lng": 0
+      },
+      "category": "Trending",
+      "priority": "High",
+      "signals": {
+        "conflict": false
+      },
+      "tags": [
+        "Crime"
+      ],
+      "metrics": {
+        "wordCount": 306,
+        "readTime": 1
+      }
+    },
+    {
+      "id": "0a34af050a87ca17",
+      "sourceId": "hindu",
+      "sourceName": "The Hindu",
+      "title": "President Murmu flies sortie in LCH 'Prachand' near India-Pakistan border in Jaisalmer",
+      "excerpt": "President Murmu flies in LCH 'Prachand' near the India-Pakistan border, showcasing India's indigenous combat helicopter capabilities.",
+      "content": "![President Droupadi Murmu flies sortie in LCH ‘Prachand’ near India-Pakistan border in Jaisalmer on Friday (February 27, 2026). Photo Credit: X@PTI_News](https://www.thehindu.com/theme/images/th-online/1x1_spacer.png \"President Droupadi Murmu flies sortie in LCH ‘Prachand’ near India-Pakistan border in Jaisalmer on Friday (February 27, 2026). Photo Credit: X@PTI_News\")\n\nPresident Droupadi Murmu flies sortie in LCH ‘Prachand’ near India-Pakistan border in Jaisalmer on Friday (February 27, 2026). Photo Credit: X@PTI\\_News\n\n[President Droupadi Murmu](https://www.thehindu.com/news/national/profile-the-importance-of-being-draupadi-murmu/article65550479.ece) on Friday (February 27, 2026) took a sortie as co-pilot in Light Combat Helicopter 'Prachand' near the India-Pakistan border in Rajasthan's Jaisalmer district.\n\nThe LCH took off from the Jaisalmer Indian Air Force (IAF) station. Before the sortie, the captain briefed the President. Dressed in an olive green uniform and helmet, she waved from the cockpit before departing.\n\nLCH 'Prachand' is India's first indigenously designed and developed combat helicopter, built by Hindustan Aeronautics Limited.\n\nPublished \\- February 27, 2026 11:11 am IST",
+      "url": "https://www.thehindu.com/news/national/president-murmu-flies-sortie-in-lch-prachand-near-india-pakistan-border-in-jaisalmer/article70682778.ece",
+      "imageUrl": "https://th-i.thgim.com/public/incoming/o5xs4n/article70682785.ece/alternates/LANDSCAPE_1200/HCI7QkwbMAAhUeX.png",
+      "publishedAt": "2026-02-27T05:55:03.000Z",
+      "geotag": {
+        "country": "IND",
+        "city": null,
+        "lat": 20.5937,
+        "lng": 78.9629
+      },
+      "category": "National",
+      "priority": "High",
+      "signals": {
+        "conflict": false
+      },
+      "tags": [
+        "IND"
+      ],
+      "metrics": {
+        "wordCount": 148,
+        "readTime": 1
+      }
+    },
+    {
+      "id": "1a20858e2047cce9",
+      "sourceId": "guardian-world",
+      "sourceName": "The Guardian World",
+      "title": "North Korea’s ‘most beloved’ child: what the key congress revealed about Kim Jong-un’s succession plans",
+      "excerpt": "Many observers believe North Korean leader has decided daughter Kim Ju-ae will succeed him, but others say gender politics could block her path to power",
+      "content": "When North Korea’s ruling party held a top-level meeting this month there were predictable boasts of unstoppable nuclear development and, more unexpectedly, a suggestion by [Kim Jong-un](https://www.theguardian.com/world/kim-jong-un) that his country and the US “could get along” – provided that Washington recognised North Korea as a legitimate nuclear power.\n\nBut for many [North Korea](https://www.theguardian.com/world/north-korea) watchers, the Workers’ party congress – held over several days just once every five years – was a rare opportunity to speculate over the identity of the country’s future leader.\n\nThe received wisdom is that Kim has already decided that his daughter, [Kim Ju-ae](https://www.theguardian.com/world/2025/sep/03/north-korea-kim-jong-uns-daughter-makes-international-debut-fuelling-succession-speculation), will succeed him to become the fourth-generation leader of the dynasty that has ruled the country with an iron fist since it was founded in 1948.\n\nBut dissenting voices have emerged in recent weeks among experts who say that North Korea’s immutable gender politics could yet block Kim Ju-ae’s path to power.\n\n![Kim Jong-un walks with his daughter, Kim Ju-ae](https://i.guim.co.uk/img/media/b3997e8f635c92efaf85376d4a2cde15dfe05aa7/0_0_2960_1960/master/2960.jpg?width=1200&dpr=1&s=none&crop=none)\n\nThe North Korean leader, Kim Jong-un, and his daughter, Kim Ju-ae, touring a new housing district dedicated to the families of fallen soldiers in Pyongyang in February. Photograph: KCNA/EPA\n\n“The most immediate and insurmountable barricade for Kim Ju-ae is the deeply ingrained patriarchal nature of North Korea,” Mitch Shin, who covers the Korean peninsula for the Diplomat, [wrote this month](https://thediplomat.com/2026/02/why-kim-ju-aes-path-to-power-is-structurally-blocked/), adding that North Korea functioned “more as a Neo-Confucian monarchy” than as a socialist state.\n\nThere is little to suggest that the country’s ranks of ageing generals would accept a woman as “supreme leader”, Shin said. “For these men, many in their 60s and 70s, the concept of swearing absolute and life-and-death loyalty to a young woman is more than a cultural shift. It is a structural anomaly that threatens the internal logic of the regime.”\n\nInstead, Kim may be using his daughter as a “human shield” for the actual successor, Kim Jong-un’s long-rumoured oldest child. “In this way, his son can be shielded from the prying eyes of international intelligence.”\n\nOther experts, though, argue that the patriarchy permeating North Korean society will always be superseded by the non-negotiable principle that a successor must be a direct-line descendant of the [Mount Paektu bloodline](https://www.theguardian.com/world/gallery/2019/dec/04/kim-jong-un-rides-to-sacred-peak-on-white-horse-in-pictures) – a reference to the sacred North Korean peak used to confer legitimacy on the Kim dynasty.\n\nShreyas Reddy, a correspondent for NK News, also cast doubt on the notion that Kim Ju-ae’s future role as leader was fait accompli, describing her prominence as more performative than political. “State media’s portrayal of Kim’s affection toward his daughter aligns with a growing push to depict him as a loving ‘father’ figure to the entire nation,” Reddy [wrote](https://www.nknews.org/2026/02/hype-over-kim-jong-un-naming-his-daughter-as-heir-runs-ahead-of-the-facts/).\n\n![Kim Jong-un; his daughter, Kim Ju-ae; and his wife, Ri Sol-ju sat at a table while clapping](https://i.guim.co.uk/img/media/e12a0f2145e9504004bba6762c4878e8ef32b823/0_0_3907_2592/master/3907.jpg?width=1200&dpr=1&s=none&crop=none)\n\nKim Jong-un; his daughter, Kim Ju-ae; and his wife, Ri Sol-ju, celebrating the new year at the May Day stadium in Pyongyang. Photograph: KCNA/EPA\n\n“For now, the best course appears to be waiting and watching, rather than declaring North Korea’s next leader before the regime is ready to do so.”\n\nIn the absence of official statements confirming Kim Ju-ae’s status as leader-in-waiting, a consensus has formed about her future based on her public profile and proximity to her father, and even her wardrobe.\n\nDespite her increased visibility, North Korean state media have never published her name, referring to her only as the leader’s “respected” or “most beloved” child. There are also disagreements about how to pronounce her given name.\n\nMuch of the momentum behind Kiim Ju-ae’s presumed ascension has come from South Korea’s national intelligence service, which this month [claimed](https://www.theguardian.com/world/2026/feb/12/kim-jong-un-daughter-future-leader-north-korea-south) that Kim Jong-un was close to naming her as the country’s future leader.\n\nEven if that may one day be the case, for now Kim Ju-ae’s main role is as a daughter, according to Leif-Eric Easley, a professor at Ewha University in Seoul. “She is probably not yet old enough to participate in the congress with an official party title,” he said.\n\nThere is nothing about mood music coming from the",
+      "url": "https://www.theguardian.com/world/2026/feb/27/north-korea-kim-jong-un-daughter-ju-ae-succession",
+      "imageUrl": "https://i.guim.co.uk/img/media/b3997e8f635c92efaf85376d4a2cde15dfe05aa7/0_0_2960_1960/master/2960.jpg?width=1200&dpr=1&s=none&crop=none",
+      "publishedAt": "2026-02-27T05:53:53.000Z",
+      "geotag": {
+        "country": "KOR",
+        "city": null,
+        "lat": 35.9078,
+        "lng": 127.7669
+      },
+      "category": "World",
+      "priority": "Medium",
+      "signals": {
+        "conflict": false
+      },
+      "tags": [
+        "Legislature",
+        "KOR"
+      ],
+      "metrics": {
+        "wordCount": 664,
+        "readTime": 3
+      }
+    },
+    {
+      "id": "660a6c64e91795ba",
+      "sourceId": "hindu",
+      "sourceName": "The Hindu",
+      "title": "Festschrift for khadi-wearing economist M.V. Nadkarni released in Bengaluru",
+      "excerpt": "Explore 'Quest for Planetary Well-Being,' a festschrift honoring M.V. Nadkarni, addressing ethics and interconnectedness in economics.",
+      "content": "![A file photo of Professor M. V. Nadkarni, former vice-chancellor of Gulbarga University and author of the book Vacanamrtam – Nectar of Sayings, Selected Vacanas of Devotees of Siva.](https://www.thehindu.com/theme/images/th-online/1x1_spacer.png \"A file photo of Professor M. V. Nadkarni, former vice-chancellor of Gulbarga University and author of the book Vacanamrtam – Nectar of Sayings, Selected Vacanas of Devotees of Siva.\")\n\nA file photo of Professor M. V. Nadkarni, former vice-chancellor of Gulbarga University and author of the book _Vacanamrtam – Nectar of Sayings, Selected Vacanas of Devotees of Siva_.\n\nAs nations across the globe grapple with wars, ecological destruction, and a market-centric approach to garner more profits and achieve dominance, _Quest for Planetary Well-Being: Essays in Honour of M. V. Nadkarni_, a volume published by Palgrave Macmillan, emphasises that human well-being is inseparable from the vitality of the planet itself, and provides ethical dimensions to curb human greed.\n\nThe book, edited by two social scientists — Professors Ananta Giri and R.S. Deshpande — is a festschrift to economist M.V. Nadkarni (MVN), whose academic work spans economics, sociology, political economy, environment, ethics, religion, and Gandhian thought. His signature clothing is a khadi kurta.\n\nPublished \\- February 27, 2026 11:20 am IST",
+      "url": "https://www.thehindu.com/news/cities/bangalore/festschrift-for-khadi-wearing-economist-mv-nadkarni-released-in-bengaluru/article70678692.ece",
+      "imageUrl": "https://th-i.thgim.com/public/incoming/nqzfud/article70679801.ece/alternates/LANDSCAPE_1200/M%20V%20Nadakarni.jpg",
+      "publishedAt": "2026-02-27T05:50:12.000Z",
+      "geotag": {
+        "country": "UNK",
+        "city": null,
+        "lat": 0,
+        "lng": 0
+      },
+      "category": "Trending",
+      "priority": "High",
+      "signals": {
+        "conflict": false
+      },
+      "tags": [],
+      "metrics": {
+        "wordCount": 198,
+        "readTime": 1
+      }
+    },
     {
       "id": "3e602e26a7a3304a",
       "sourceId": "hindu",
@@ -333,6 +730,33 @@
       }
     },
     {
+      "id": "69546effc3a0d19f",
+      "sourceId": "hacker-news",
+      "sourceName": "Hacker News",
+      "title": "Dear Time Lords: Freeze Computers in 1993",
+      "excerpt": "This is a semi-satirical / joking-not-joking post (spun out of a private mastodon post) that I will be taking absolutely no questions or comments about. If it does not amuse you please do not tell me in gruesome well-actually detail why it is a bad idea.<br /><br />My proposal: Computers should have",
+      "content": "[![graydon2: (Default)](https://v2.dreamwidth.org/709628/684470 \"graydon2: (Default)\")](https://graydon2.dreamwidth.org/icons)\n\n[![[personal profile] ](https://www.dreamwidth.org/img/silk/identity/user.png)](https://graydon2.dreamwidth.org/profile)[**graydon2**](https://graydon2.dreamwidth.org/)\n\nThis is a semi-satirical / joking-not-joking post (spun out of a private mastodon post) that I will be taking absolutely no questions or comments about. If it does not amuse you please do not tell me in gruesome well-actually detail why it is a bad idea.\n\nMy proposal: Computers should have stopped in 1993.\n\nOne might argue that I was an impressionable teenager in 1993 and so probably this is \"just nostalgia speaking\" but I think it is not true: the technologies I had access to at the time were not, mainly, those I will be discussing here. Instead, I claim that as an adult with more fluency in computers and computing history, I can make the recommendation here on the basis of that broader and more-objective view.\n\n1\\. CPUs and Systems\n\nThe [MIPS R4000](https://en.wikipedia.org/wiki/R4000) existed in 1993 and at 1.2 million transistors, this is about as complex as chips should ever have got. It's got an MMU and FPU, is RISC, is 64 bit, in-order scalar superpipelined. It is predictable and simple and just right. There was a consortium ([ACE](https://en.wikipedia.org/wiki/Advanced_Computing_Environment)) that shipped a spec ([ARC](https://en.wikipedia.org/wiki/ARC_\\(specification\\))) for open systems built on MIPS and several vendors were using it as their vision of the future. They should have been right!\n\n(If you needed a portable computer you could have the R4000-based [IBM WorkPad Z50](https://en.wikipedia.org/wiki/IBM_WorkPad_Z50) or, if you are a sicko, a [Newton MessagePad](https://en.wikipedia.org/wiki/MessagePad) which was not R4000 but we can allow 1993's pleasantly small ARM6 chips as well, or 1992's charming [SH-2](https://en.wikipedia.org/wiki/SuperH). Also you can even have some videogames: the PlayStation was R3000-based and the Nintendo 64 R4000-based, and the Sega Saturn was SH-2. If you really really hate MIPS, ARM _and_ SuperH you can throw in the [Alpha 21064](https://en.wikipedia.org/wiki/Alpha_21064) -- the first Alpha, when it was still in-order and 1.6 million transistors -- and I will allow that it doesn't break the mold too much. The Pentium was also in-order but at 3 million I think it's too big.)\n\n2\\. Distributed Operating Systems\n\nIn 1993 we had [OSF/1](https://en.wikipedia.org/wiki/OSF/1) with [DCE](https://en.wikipedia.org/wiki/Distributed_Computing_Environment). This was not the best OS one can imagine, but it had qualities and capabilities that have in retrospect not been meaningfully eclipsed in the years since. A DCE installation had a real distributed filesystem, RPC, locking and time services, single-sign-on (Kerberos) and directory service. Stuff you still can't get reliably in our modern cloud/k8s nightmare. One might argue that [Windows NT](https://en.wikipedia.org/wiki/Windows_NT) also got there, but .. sure, fine, you can have that too! Windows NT also came out in 1993, running on R4000. And [Plan 9](https://en.wikipedia.org/wiki/Plan_9_from_Bell_Labs) was released in 1992. So we really were firmly in the \"stuff better than we were ever going to get\" future.\n\n3\\. Languages\n\nIn 1993 we had [Modula 3](https://en.wikipedia.org/wiki/Modula-3), [Sather](https://en.wikipedia.org/wiki/Sather) and [Dylan](https://en.wikipedia.org/wiki/Dylan_\\(programming_language\\)); but we had not yet been subjected to Java, PHP or JavaScript. The former are all safe, native-compiled and expressive. The latter are .. not. We should have stopped here, or taken a different path at least, but the web came along.\n\n4\\. The Web Was Still Niche\n\n1994 was the year of the first WWW conference, the founding of the W3C, the year Netscape was released .. it was the year \"everyone got the web\". I believe this was a mistake, and we all would have been better off doing something else instead. So 1993 it is. [Gopher](https://en.wikipedia.org/wiki/Gopher_\\(protocol\\)) existed then too, along with IRC, FTP, NNTP and [WAIS](https://en.wikipedia.org/wiki/Wide_area_information_server); things were fine.",
+      "url": "https://graydon2.dreamwidth.org/322461.html",
+      "imageUrl": "https://v2.dreamwidth.org/709628/684470",
+      "publishedAt": "2026-02-27T04:38:46.000Z",
+      "geotag": {
+        "country": "UNK",
+        "city": null,
+        "lat": 0,
+        "lng": 0
+      },
+      "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
+      "tags": [],
+      "metrics": {
+        "wordCount": 578,
+        "readTime": 3
+      }
+    },
+    {
       "id": "3eb339b9160cc342",
       "sourceId": "guardian-world",
       "sourceName": "The Guardian World",
@@ -604,7 +1028,7 @@
       "sourceName": "The Hindu",
       "title": "Former Tamil Nadu CM O. Panneerselvam to join DMK today, supporters throng Anna Arivalayam | LIVE updates",
       "excerpt": "Panneerselvam in DMK LIVE: Follow the Hindu's Live updates as three-time Tamil Nadu Chief Minister O. Panneerselvam joins the DMK today",
-      "content": "![](https://sb.scorecardresearch.com/p?c1=2&c2=11398210&cs_ucfr=1&cv=4.4.0&cj=1)\n\n1.  [Home](https://www.thehindu.com/) \n2.  [News](https://www.thehindu.com/news/) \n3.  [India](https://www.thehindu.com/news/national/) \n4.  [Tamil Nadu](https://www.thehindu.com/news/national/tamil-nadu/) \n\n## I have joined the 'thaai kazhagam' founded by Annadurai, says O. Panneerselvam\n\nUpdated \\- February 27, 2026 11:09 am IST\n\n![Screengrab shows former Tamil Nadu Chief Minister O. Panneerselvam joins the DMK in the presence of DMK chief and TN Chief Minister M.K. Stalin in Chennai on February 27, 2026](https://www.thehindu.com/theme/images/th-online/1x1_spacer.png)\n\nScreengrab shows former Tamil Nadu Chief Minister O. Panneerselvam joins the DMK in the presence of DMK chief and TN Chief Minister M.K. Stalin in Chennai on February 27, 2026 | Photo Credit: The Hindu\n\nIn a seismic realignment of Tamil Nadu political landscape just a few months ahead of Legislative Assembly elections [O. Panneerselvam](https://www.thehindu.com/news/national/tamil-nadu/o-panneerselvam-friendless-in-dravidian-politics/article69887986.ece), three times former Chief Minister and a staunch loyalist former AIADMK supremo Jayalalithaa, joined the DMK in the presence of party president and Chief Minister M.K Stalin on February 27, 2026.\n\nOn February 20, the last sitting of the 16th Tamil Nadu Legislative Assembly, [Mr. Pannerselvam had called on Mr. Stalin on the premises of the House](https://www.thehindu.com/news/national/tamil-nadu/ops-calls-on-cm-says-dmk-stands-a-chance-of-retaining-power/article70656393.ece) and said the ruling DMK has a chance of retaining power.\n\n**Also read:** [**Amit Shah told me that strong DMK-led alliance will win against divided AIADMK, says Panneerselvam**](https://www.thehindu.com/news/cities/Madurai/amit-shah-told-me-that-strongdmk-led-alliance-will-win-against-dividedaiadmk-says-panneerselvam/article70671803.ece)\n\nMr. Panneerselvam and his supporters were expelled from the AIADMK in July 2022. He unsuccessfully contested Ramanathapuram Lok Sabha seat as an Independent candidate backed by the BJP-led NDA in 2024 Lok Sabha polls.\n\nTamil Nadu Assembly elections are slated to be held in 2026. \n\n**_Follow our live updates_**\n\n##### Expelled AIADMK leader and former TN CM O. Panneerselvam set to join DMK\n\n-   February 27, 2026 10:53\n    \n    AIADMK IT wing slams Panneerselvam for joining DMK\n    \n    The AIADMK’s IT wing has strongly reacted to Mr. Panneerselvam’s entry to the DMK.\n    \n    In a long X post in Tamil, the party’s AIADMK IT wing handled called Mr. Panneerselvam a “chameleon”. The post also ridicules his ‘dharma yuddham’, a revolt he undertook against Sasikala and Edappadi K. Palaniswami. \n    \n-   February 27, 2026 10:41\n    \n    Stalin delivered growth across all sectors, says Panneerselvam\n    \n    Addressing a press conference after joining the DMK, Mr. Panneerselvam said “The entire country is closely watching the leadership of Mr. Stalin. He has set the grammar for how to run a political party. Over the last five years, Mr. Stalin, as Chief Minister, has delivered growth across all sectors and has been providing an efficient and commendable administration to the people of Tamil Nadu.” -- _N. Sai Charan_\n    \n-   February 27, 2026 10:36\n    \n    Lakhs of AIADMK cadre joined DMK after Jayalalithaa's death, says Panneerselvam\n    \n    Former Tamil Nadu Chief Minister O. Panneerselvam said “After Amma’s \\[Jayalalithaa\\] death, lakhs of AIADMK cadre have joined the DMK under Thalapathi’s \\[Mr. Stalin\\] leadership.” -- _N. Sai Charan_\n    \n-   February 27, 2026 10:34\n    \n    Palaniswami conducts himself like an autocrat, says Panneerselvam\n    \n    While speaking to reporters after joining the DMK, Mr. Panneerselvam said “Edappadi. K. Palaniswami is conducting himself in politics like an autocrat, with an arrogant approach.”\n    \n    He added “Palaniswami has created a situation in which the AIADMK may never be able to achieve success in politics.” -- _N. Sai Charan_\n    \n-   February 27, 2026 10:32\n    \n    Stalin is leading party and government by example, says Panneerselvam\n    \n    Mr. Panneerselvam said “In the path and political culture of embracing everyone shown by Anna \\[C. N. Annadurai\\] and Kalaignar \\[M. Karunanidhi\\], Thalapathy \\[M.K. Stalin\\] is leading the party and the government.” -- _N. Sai Charan_\n    \n-   February 27, 2026 10:28\n    \n    Happy to return to 'Thaai Kazhagam', says Panneerselvam\n    \n    After joining the DMK, former TN Chief Minister O. Panneerselvam said “It gives me immense happiness that I have joined the ‘Thaai Kazhagam’ (parent party), the DMK, founded by Perarignar Anna \\[Former Chief Minister C. N. Annadurai\\].”\n    \n    While addressing the media, Mr. Panneerselvam said “I thank DMK president and Chief Minister M.K. Stalin by referring to him as ‘Thalapathy’.” -- _N. Sai Charan_\n    \n-   February 27, 2026 10:24\n    \n    OPS meeting with Stalin\n    \n    In August l",
+      "content": "![](https://sb.scorecardresearch.com/p?c1=2&c2=11398210&cs_ucfr=1&cv=4.4.0&cj=1)\n\n1.  [Home](https://www.thehindu.com/) \n2.  [News](https://www.thehindu.com/news/) \n3.  [India](https://www.thehindu.com/news/national/) \n4.  [Tamil Nadu](https://www.thehindu.com/news/national/tamil-nadu/) \n\n## I have joined the 'thaai kazhagam' founded by Annadurai, says O. Panneerselvam\n\nUpdated \\- February 27, 2026 11:41 am IST\n\n![Former Tamil Nadu CM O. Panneerselvam joins the DMK in the presence of Tamil Nadu Chief Minister M.K. Stalin at Anna Arivalayam, in Chennai on February 27, 2026](https://www.thehindu.com/theme/images/th-online/1x1_spacer.png)\n\nFormer Tamil Nadu CM O. Panneerselvam joins the DMK in the presence of Tamil Nadu Chief Minister M.K. Stalin at Anna Arivalayam, in Chennai on February 27, 2026 | Photo Credit: Special Arrangement\n\nIn a seismic realignment of Tamil Nadu political landscape just a few months ahead of Legislative Assembly elections [O. Panneerselvam](https://www.thehindu.com/news/national/tamil-nadu/o-panneerselvam-friendless-in-dravidian-politics/article69887986.ece), three times former Chief Minister and a staunch loyalist former AIADMK supremo Jayalalithaa, joined the DMK in the presence of party president and Chief Minister M.K Stalin on February 27, 2026.\n\nOn February 20, the last sitting of the 16th Tamil Nadu Legislative Assembly, [Mr. Pannerselvam had called on Mr. Stalin on the premises of the House](https://www.thehindu.com/news/national/tamil-nadu/ops-calls-on-cm-says-dmk-stands-a-chance-of-retaining-power/article70656393.ece) and said the ruling DMK has a chance of retaining power.\n\n**Also read:** [**Amit Shah told me that strong DMK-led alliance will win against divided AIADMK, says Panneerselvam**](https://www.thehindu.com/news/cities/Madurai/amit-shah-told-me-that-strongdmk-led-alliance-will-win-against-dividedaiadmk-says-panneerselvam/article70671803.ece)\n\nMr. Panneerselvam and his supporters were expelled from the AIADMK in July 2022. He unsuccessfully contested Ramanathapuram Lok Sabha seat as an Independent candidate backed by the BJP-led NDA in 2024 Lok Sabha polls.\n\nTamil Nadu Assembly elections are slated to be held in 2026. \n\n**_Follow our live updates_**\n\n##### Expelled AIADMK leader and former TN CM O. Panneerselvam set to join DMK\n\n-   February 27, 2026 11:14\n    \n    Panneerselvam and Ayyappan resign MLA post\n    \n    Former Chief Minister O. Panneerselvam, who joined the DMK on February 27, 2026, resigned his MLA post. He was representing Bodinayakkanur Assembly segment as AIADMK MLA. Mr. Panneerselvam’s supporter and Usilampatti MLA P. Ayyappan also resigned his MLA post. -- _N. Sai Charan_\n    \n-   February 27, 2026 10:53\n    \n    AIADMK IT wing slams Panneerselvam for joining DMK\n    \n    The AIADMK’s IT wing has strongly reacted to Mr. Panneerselvam’s entry to the DMK.\n    \n    In a long X post in Tamil, the party’s AIADMK IT wing handled called Mr. Panneerselvam a “chameleon”. The post also ridicules his ‘dharma yuddham’, a revolt he undertook against Sasikala and Edappadi K. Palaniswami. \n    \n-   February 27, 2026 10:41\n    \n    Stalin delivered growth across all sectors, says Panneerselvam\n    \n    Addressing a press conference after joining the DMK, Mr. Panneerselvam said “The entire country is closely watching the leadership of Mr. Stalin. He has set the grammar for how to run a political party. Over the last five years, Mr. Stalin, as Chief Minister, has delivered growth across all sectors and has been providing an efficient and commendable administration to the people of Tamil Nadu.” -- _N. Sai Charan_\n    \n-   February 27, 2026 10:36\n    \n    Lakhs of AIADMK cadre joined DMK after Jayalalithaa's death, says Panneerselvam\n    \n    Former Tamil Nadu Chief Minister O. Panneerselvam said “After Amma’s \\[Jayalalithaa\\] death, lakhs of AIADMK cadre have joined the DMK under Thalapathi’s \\[Mr. Stalin\\] leadership.” -- _N. Sai Charan_\n    \n-   February 27, 2026 10:34\n    \n    Palaniswami conducts himself like an autocrat, says Panneerselvam\n    \n    While speaking to reporters after joining the DMK, Mr. Panneerselvam said “Edappadi. K. Palaniswami is conducting himself in politics like an autocrat, with an arrogant approach.”\n    \n    He added “Palaniswami has created a situation in which the AIADMK may never be able to achieve success in politics.” -- _N. Sai Charan_\n    \n-   February 27, 2026 10:32\n    \n    Stalin is leading party and government by example, says Panneerselvam\n    \n    Mr. Panneerselvam said “In the path and political culture of embracing everyone shown by Anna \\[C. N. Annadurai\\] and Kalaignar \\[M. Karunanidhi\\], Thalapathy \\[M.K. Stalin\\] is leading the party and the government.” -- _N. Sai Charan_\n    \n-   February 27, 2026 10:28\n    \n    Happy to return to 'Thaai Kazhagam', says Panneerselvam\n    \n    After joining the DMK, former TN Chief Minister O. Panneerselvam said “It gives me immense happiness that I have joined the ‘Thaai Kazhagam’",
       "url": "https://www.thehindu.com/news/national/tamil-nadu/former-tamil-nadu-cm-o-panneerselvam-to-join-dmk-the-hindu-live-updates/article70682462.ece",
       "imageUrl": "https://th-i.thgim.com/public/books/books-authors/mkh8r9/article70682536.ece/alternates/LANDSCAPE_1200/OPSsupporters.jpg",
       "publishedAt": "2026-02-27T03:51:37.000Z",
@@ -621,7 +1045,7 @@
       },
       "tags": [],
       "metrics": {
-        "wordCount": 655,
+        "wordCount": 653,
         "readTime": 3
       }
     },
@@ -650,6 +1074,33 @@
       "metrics": {
         "wordCount": 721,
         "readTime": 3
+      }
+    },
+    {
+      "id": "32fc8166c6c6f5cc",
+      "sourceId": "hacker-news",
+      "sourceName": "Hacker News",
+      "title": "Parakeet.cpp – Parakeet ASR inference in pure C++ with Metal GPU acceleration",
+      "excerpt": "Ultra fast and portable Parakeet implementation for on-device inference in C++ using Axiom with MPS+Unified Memory and Cuda support - Frikallo/parakeet.cpp",
+      "content": "## parakeet.cpp\n\n[](#parakeetcpp)\n\nFast speech recognition with NVIDIA's [Parakeet](https://huggingface.co/collections/nvidia/parakeet-702d03111484ef) models in pure C++.\n\nBuilt on [axiom](https://github.com/noahkay13/axiom) — a lightweight tensor library with automatic Metal GPU acceleration. No ONNX runtime, no Python runtime, no heavyweight dependencies. Just C++ and one tensor library that outruns PyTorch MPS.\n\n**~27ms encoder inference on Apple Silicon GPU** for 10s audio (110M model) — 96x faster than CPU.\n\n## Supported Models\n\n[](#supported-models)\n\nModel\n\nClass\n\nSize\n\nType\n\nDescription\n\n`tdt-ctc-110m`\n\n`ParakeetTDTCTC`\n\n110M\n\nOffline\n\nEnglish, dual CTC/TDT decoder heads\n\n`tdt-600m`\n\n`ParakeetTDT`\n\n600M\n\nOffline\n\nMultilingual, TDT decoder\n\n`eou-120m`\n\n`ParakeetEOU`\n\n120M\n\nStreaming\n\nEnglish, RNNT with end-of-utterance detection\n\n`nemotron-600m`\n\n`ParakeetNemotron`\n\n600M\n\nStreaming\n\nMultilingual, configurable latency (80ms–1120ms)\n\n`sortformer`\n\n`Sortformer`\n\n117M\n\nStreaming\n\nSpeaker diarization (up to 4 speakers)\n\nAll ASR models share the same audio pipeline: 16kHz mono WAV → 80-bin Mel spectrogram → FastConformer encoder.\n\n## Quick Start\n\n[](#quick-start)\n\n#include <parakeet/parakeet.hpp\\>\n\nparakeet::Transcriber t(\"model.safetensors\", \"vocab.txt\");\nt.to\\_gpu();  // optional — Metal acceleration\n\nauto result = t.transcribe(\"audio.wav\");\nstd::cout << result.text << std::endl;\n\nChoose decoder at call site:\n\nauto result = t.transcribe(\"audio.wav\", parakeet::Decoder::CTC);  // fast greedy\nauto result = t.transcribe(\"audio.wav\", parakeet::Decoder::TDT);  // better accuracy (default)\n\nWord-level timestamps:\n\nauto result = t.transcribe(\"audio.wav\", parakeet::Decoder::TDT, /\\*timestamps=\\*/true);\nfor (const auto &w : result.word\\_timestamps) {\n    std::cout << \"\\[\" << w.start << \"s - \" << w.end << \"s\\] \" << w.word << std::endl;\n}\n\n## High-Level API\n\n[](#high-level-api)\n\n### Offline Transcription (TDT-CTC 110M)\n\n[](#offline-transcription-tdt-ctc-110m)\n\nparakeet::Transcriber t(\"model.safetensors\", \"vocab.txt\");\nt.to\\_gpu();\nauto result = t.transcribe(\"audio.wav\");\n\n### Offline Transcription (TDT 600M Multilingual)\n\n[](#offline-transcription-tdt-600m-multilingual)\n\nparakeet::TDTTranscriber t(\"model.safetensors\", \"vocab.txt\",\n                            parakeet::make\\_tdt\\_600m\\_config());\nauto result = t.transcribe(\"audio.wav\");\n\n### Streaming Transcription (EOU 120M)\n\n[](#streaming-transcription-eou-120m)\n\nparakeet::StreamingTranscriber t(\"model.safetensors\", \"vocab.txt\",\n                                  parakeet::make\\_eou\\_120m\\_config());\n\n// Feed audio chunks (e.g., from microphone)\nwhile (auto chunk = get\\_audio\\_chunk()) {\n    auto text = t.transcribe\\_chunk(chunk);\n    if (!text.empty()) std::cout << text << std::flush;\n}\nstd::cout << t.get\\_text() << std::endl;\n\n### Streaming Transcription (Nemotron 600M)\n\n[](#streaming-transcription-nemotron-600m)\n\n// Latency modes: 0=80ms, 1=160ms, 6=560ms, 13=1120ms\nauto cfg = parakeet::make\\_nemotron\\_600m\\_config(/\\*latency\\_frames=\\*/1);\nparakeet::NemotronTranscriber t(\"model.safetensors\", \"vocab.txt\", cfg);\n\nwhile (auto chunk = get\\_audio\\_chunk()) {\n    auto text = t.transcribe\\_chunk(chunk);\n    if (!text.empty()) std::cout << text << std::flush;\n}\n\n### Speaker Diarization (Sortformer 117M)\n\n[](#speaker-diarization-sortformer-117m)\n\nIdentify who spoke when — detects up to 4 speakers with per-frame activity probabilities:\n\nparakeet::Sortformer model(parakeet::make\\_sortformer\\_117m\\_config());\nmodel.load\\_state\\_dict(axiom::io::safetensors::load(\"sortformer.safetensors\"));\n\nauto wav = parakeet::read\\_wav(\"meeting.wav\");\nauto features = parakeet::preprocess\\_audio(wav.samples, {.normalize = false});\nauto segments = model.diarize(features);\n\nfor (const auto &seg : segments) {\n    std::cout << \"Speaker \" << seg.speaker\\_id\n              << \": \\[\" << seg.start << \"s - \" << seg.end << \"s\\]\" << std::endl;\n}\n// Speaker 0: \\[0.56s - 2.96s\\]\n// Speaker 0: \\[3.36s - 4.40s\\]\n// Speaker 1: \\[4.80s - 6.24s\\]\n\nStreaming diarization with arrival-order speaker tracking:\n\nparakeet::Sortformer model(parakeet::make\\_sortformer\\_117m\\_config());\nmodel.load\\_state\\_dict(axiom::io::safetensors::load(\"sortformer.safetensors\"));\n\nparakeet::EncoderCache enc\\_cache;\nparakeet::AOSCCache aosc\\_cache(4);  // max 4 speakers\n\nwhile (auto chunk = get\\_audio\\_chunk()) {\n    auto features = parakeet::preprocess\\_audio(chunk, {.normalize = false});\n    auto segments = model.diarize\\_chunk(features, enc\\_cache, aosc\\_cache);\n    for (const auto &seg : segments) {\n        std::cout << \"Speaker \" << seg.speaker\\_id\n                  << \": \\[\" << seg.start << \"s - \" << seg.end << \"s\\]\" << std::endl;\n    }\n}\n\n## Low-Level API\n\n[](#low-level-api)\n\nFor full control over the pipeline:\n\n**CTC** (English, punctuation & capitalization):\n\nauto cfg = parakeet::make\\_110m\\_config();\nparakeet::ParakeetTDTCTC model(cfg);\nmodel.load\\_state\\_dict(axiom::io::safetensors::load(\"model.safetensors\"));\n\nauto wav = p",
+      "url": "https://github.com/Frikallo/parakeet.cpp",
+      "imageUrl": "https://opengraph.githubassets.com/692623f2a3ce9730c115adeac87765a4a14743f14a36464678086e670b5b9d74/Frikallo/parakeet.cpp",
+      "publishedAt": "2026-02-27T03:48:05.000Z",
+      "geotag": {
+        "country": "UNK",
+        "city": null,
+        "lat": 0,
+        "lng": 0
+      },
+      "category": "WorthReading",
+      "priority": "Low",
+      "signals": {
+        "conflict": false
+      },
+      "tags": [],
+      "metrics": {
+        "wordCount": 501,
+        "readTime": 2
       }
     },
     {
@@ -2978,466 +3429,6 @@
       "metrics": {
         "wordCount": 757,
         "readTime": 3
-      }
-    },
-    {
-      "id": "bfb77c7a9a14ea1f",
-      "sourceId": "atlantic",
-      "sourceName": "The Atlantic",
-      "title": "Enough With the Bros",
-      "excerpt": "For a decade, the trope has been a reliable—and lazy—way to elevate pet peeves into trends.",
-      "content": "David Foster Wallace’s famously long novel, _Infinite Jest_, [turned 30](https://www.theatlantic.com/newsletters/2026/01/infinite-jest-hyperion-sans-soleil-culture-recs/685650/) this month, and an old specter came back with the anniversary: the lit bro, annoying and probably sexist, smugly reading a book that you didn’t. “The book has become shorthand for a certain kind of pretentious, performative, male-coded lit bro,” Lit Hub’s Literary History [newsletter observed](https://lithub.com/this-week-in-literary-history-david-foster-wallaces-infinite-jest-was-published/). “It’s no longer cool, and might even be a red flag.” Has there ever been a cleaner distillation of the type? Pretentious: The lit bro thinks he is smart. Performative: The lit bro reads to impress others. Male-coded: The lit bro is not a woman. Red flag: You thought you might want to date him, but you do not.\n\nThe lit bro is one in a series of types that have proliferated over the past decade; attaching _bro_ has become a reliable trope, a way to elevate pet peeves to trends. Think of something that annoys you, connect it to masculinity by adding _bro_, and proceed as though that bro were a category of person. Robinson Meyer produced a seminal early example with “[Here Comes the Berniebro](https://www.theatlantic.com/politics/archive/2015/10/here-comes-the-berniebro-bernie-sanders/411070/),” a funny essay that, like Rage Against the Machine, [was tarnished](https://www.theatlantic.com/politics/archive/2016/02/berniebro-revisited/460212/) when it became a genre. The tech bro, the gym bro, the film bro—these archetypes have given people a way to complain about innocuous things by imagining people who make those things their whole identity.\n\nDon’t get me wrong: I love to complain about things that might actually be fine, and I love to make up people and then get mad at them. But the _bro_ construction robs us of the pleasure of these activities by keeping us from thinking deeply about _why_ we don’t like innocuous things and imaginary people. It is an obstacle to clarity in hating. I want Instagram posts about why going to the gym is a waste of time, essays about how the tech sector has spent billions to make cities boring, and TikTok videos about _Marty Supreme_ having nine Oscar nominations and three unfinished plots. I want to be intoxicated by negativity in its undiluted form, but instead I get watered-down descriptions of what kind of people like things that the user of _bro_ does not. After more than a decade of bro-ing our resentments into demographics, the time has come to bury the construction, maybe forever.\n\n[Read: Social media broke slang. Now we all speak phone.](https://www.theatlantic.com/family/archive/2024/06/social-media-american-slang-crisis/678754/)\n\nFirst, the autopsy: _Bro_ has obvious roots in _brother_, but not every brother is a bro. _Brother_ can mean sibling, or it can be an honorific title for members of fraternal and religious organizations, and it can be used as a term of address—all predate the specific usage of _bro_ that I am talking about here. This usage is strictly for the third person; bros are other people, and they are bad. Can _bro_ in the third person ever be positive? Not yet. There have been no viral posts about charity bros or listening bros.\n\nThe bro is someone who conforms to a type to an irritating degree, but he is also similar to his critics in many ways. Consider the lit bro, defined by his zealous advocacy for certain male authors—Wallace, Jonathan Franzen, Cormac McCarthy—whom he condescendingly tries to get women to read. To recognize the significance of this behavior, you have to know those authors and their valence within the charged field of contemporary literature. In other words, you have to be a lit person yourself. Thus the _bro_ suffix enables the narcissism of small differences: The problem is not literature—or movies, or going to the gym, or Bernie Sanders, or working with computers, which plenty of people like—but the guys who like those things and are bros about it.\n\nAnd they are guys. While the concept of the female bro is tenable in theory, in practice people are talking about men when they talk about bros, because an essential function of _bro_ is to connect a pet peeve to a feminist critique. On the internet, that critique is often reduced to the idea that men are problematic—see _manspreading_, a concept that introduced a feminist interpretation of a previously gender-neutral annoyance by connecting it to men. Andrea Dworkin they ain’t, but these memes took advantage of the fact that everybody except trad bros agrees the feminist critique is good, and that people generally get the gist of it, even if they haven’t exactly done the reading.\n\n[Read: Why is everyone talking about getting ‘oneshotted’?](https://www.theatlantic.com/culture/archive/2025/02/oneshotted-going-online/681774/)\n\nThis gap in specifics is where _bro_ comes in. Let’s say that I find craft beer annoying, which",
-      "url": "https://www.theatlantic.com/culture/2026/02/bro-meme-lit-bro-tech-bro/686143/",
-      "imageUrl": "https://cdn.theatlantic.com/thumbor/pRG6K6DCnKlJemyPeFoP2Xej04k=/0x81:1952x1098/1200x625/media/img/mt/2026/02/BroPainting_V2/original.png",
-      "publishedAt": "2026-02-26T14:00:00.000Z",
-      "geotag": {
-        "country": "UNK",
-        "city": null,
-        "lat": 0,
-        "lng": 0
-      },
-      "category": "WorthReading",
-      "priority": "Low",
-      "signals": {
-        "conflict": false
-      },
-      "tags": [],
-      "metrics": {
-        "wordCount": 761,
-        "readTime": 3
-      }
-    },
-    {
-      "id": "bff57ed1da9339ca",
-      "sourceId": "atlantic",
-      "sourceName": "The Atlantic",
-      "title": "The Reckless Women Who Changed Journalism",
-      "excerpt": "Two new books demonstrate how Martha Gellhorn, Janet Flanner, and other reporters took journalism in directions that men could not.",
-      "content": "This is a dangerous season for journalism. Legendary newspapers are being gutted by careless owners, foreign correspondents fired while still in war zones, local papers shut down entirely. Into the tumult come two new books that focus on some of the most pathbreaking journalists of the 1930s and ’40s. These reporters, all women, broke social norms to chronicle the seismic years they were living through. When read together, Mark Braude’s [_The Typewriter and the Guillotine_](https://bookshop.org/a/12476/9781538767115) and Julia Cooke’s _[Starry and Restless](https://bookshop.org/a/12476/9780374609788)_ prompt an obvious question: Why women? In other words, what is the value of looking at the history of journalism through this gendered prism?\n\nFor starters: Women were handed nothing. In many cases, when they were interested in doing serious, international stories—say, reporting on a war—they had to tell editors that they happened to be going anyway, Cooke writes, and ask: Should they send some articles? These women’s lack of access led to a resourcefulness that animated their subjects as well as their style. They also avoided the insularity of the boys’ club from which they were excluded, an inner circle whose chumminess helped breed dangerous misinformation. From 1917 to 1920, for instance, _The New York Times_ proclaimed the imminent collapse of [Communism](https://www.theatlantic.com/magazine/archive/1931/04/the-religion-of-communism/650866/) in the newly formed Soviet Union more than 90 times. “Over drinks as often as in briefing rooms, reporters (mostly men) had taken other men’s word for it,” Cooke writes in _Starry and Restless_.\n\nAnd because female reporters were banned from battlefields, they had to get creative in finding an angle that could illuminate the larger conflict. If they couldn’t go to the front lines, they would write about the hospital, or the home front. They had to use their voice, their style, to make the most of those subjects, establishing, Cooke argues, a precedent for the “[New Journalism](https://www.theatlantic.com/magazine/archive/1972/05/notes-on-the-new-journalism/376276/)” that men such as [Tom Wolfe](https://www.theatlantic.com/entertainment/archive/2018/05/the-lexicon-of-tom-wolfe/560459/) were credited with having invented in the ’60s and ’70s.\n\n[![](https://cdn.theatlantic.com/thumbor/9me1Y6SdaDpkcH6ejk52guhC5Ic=/0x0:331x500/79x120/media/img/book_reviews/2026/02/25/51ovsbMid8L._SL500_/original.jpg)](https://bookshop.org/a/12476/9781538767115)\n\nBraude, in his sharply honed new history_,_ singles out one of these writers in particular. [Janet Flanner](https://www.theatlantic.com/magazine/archive/1972/10/the-peripatetic-reviewer/662583/), also known as Genêt, was the subject of a [1989 biography by Brenda Wineapple](https://bookshop.org/a/12476/9780803297401); here she is seen through a tighter lens, focused on the years leading up to World War II. Braude grounds his narrative in the persistent dilemmas of journalism, especially the question of how to tell the story of a bewildering moment without the benefit of hindsight.\n\n![In a black and white photograph an elderly woman smokes a cigarette](https://cdn.theatlantic.com/thumbor/PWVwr9e1fGLFu3wWUYWM1G5PqaY=/media/img/posts/2026/02/2026_02_26_flanner/original.jpg)\n\nJanet Flanner photographed in 1975 (Jill Krementz)\n\nFlanner had escaped from a Midwest upbringing—and her husband. In 1922, she moved to Paris with her lover, Solita Solano. Both women hoped to become novelists. They lived in adjoining rooms at the Hotel Bonaparte, sharing a toilet with everyone else on the hall. Flanner wrote colorful letters about Paris to a friend back home, Jane Grant, who happened to be launching a magazine, called _The New Yorker_, with her husband, [Harold Ross](https://www.theatlantic.com/magazine/archive/1958/02/the-years-with-ross/641508/). They encouraged Flanner to keep sending her lively notes from Paris. Ross wanted, his wife wrote to Flanner, “dope on fields of the arts” and “a little on fashion,” all with “a definite personality injected.”\n\n[Read: When Freud meets fMRI](https://www.theatlantic.com/health/archive/2015/08/neuroscience-psychoanalysis-casey-schwartz-mind-fields/401999/)\n\nFlanner became _The New Yorker_’s first Paris correspondent, but she wrestled with insecurities in her new role. She was, after all, a woman from Indianapolis, the daughter of a mortician. Could she rise to this beat and capture this majestic capital that represented, as she put it, “Beauty, with a capital B”? She read 10 French newspapers a day. Some of her best sources were the waiters at the Brasserie Lipp, who saved their stories to whisper in her ear. In the early years of her Letter From Paris, her subjects included masked balls, gallery openings, and new additions to the cocktail menu at the Ritz. She evoked a country that many of her readers back home were hungry to hear about.\n\nBut as the mood in Europe began to turn, she struggled with how to",
-      "url": "https://www.theatlantic.com/books/2026/02/women-who-reinvented-journalism/686146/",
-      "imageUrl": "https://cdn.theatlantic.com/thumbor/9me1Y6SdaDpkcH6ejk52guhC5Ic=/0x0:331x500/79x120/media/img/book_reviews/2026/02/25/51ovsbMid8L._SL500_/original.jpg",
-      "publishedAt": "2026-02-26T14:00:00.000Z",
-      "geotag": {
-        "country": "UNK",
-        "city": null,
-        "lat": 0,
-        "lng": 0
-      },
-      "category": "WorthReading",
-      "priority": "Low",
-      "signals": {
-        "conflict": false
-      },
-      "tags": [],
-      "metrics": {
-        "wordCount": 665,
-        "readTime": 3
-      }
-    },
-    {
-      "id": "37bc308c69f65518",
-      "sourceId": "bbc-world",
-      "sourceName": "BBC World",
-      "title": "Danish PM calls snap election with Greenland issue centre-stage",
-      "excerpt": "The issue of Greenland, which Donald Trump wants to annex, is likely to dominate the election campaign.",
-      "content": "![](https://static.files.bbci.co.uk/bbcdotcom/web/20260220-084609-e0c5de56b9-web-2.40.1-3/grey-placeholder.png)![EPA Mette Frederiksen speaking in parliament, wearing a beige jacket over a white top](https://ichef.bbci.co.uk/news/1536/cpsprodpb/490b/live/75f78830-131a-11f1-b513-7d8d8ff19957.jpg.webp)EPA\n\nTrump's plans to seize control of Greenland have dominated Danish politics\n\nDanish Prime Minister Mette Frederiksen has announced early elections - hailing the next four years as \"decisive\" for her country.\n\n\"We as Danes and as Europeans will really have to stand on our own feet,\" Frederiksen told parliament. \"We need to define our relationship with the United States,\" she added.\n\nThe past few months of Danish politics have been dominated by US President Donald Trump's [threats to annex Greenland](https://www.bbc.co.uk/news/articles/cvgr19m642zo) - a semi-autonomous Danish territory.\n\nLast month, Trump dropped threats to use force against the fellow Nato ally to seize the Arctic island he argues is necessary to defend against possible attacks from Russia and China.\n\nAnnouncing the decision to call early elections on 24 March, Prime Minister Frederiksen told parliament that security \"is and will remain the very foundation of Danish politics for many, many years to come\".\n\n\"We must rearm to ensure peace on our continent,\" she said. \"We must stick together in Europe, and we must secure the future of the Danish Commonwealth\" - Denmark, Greenland and the Faroe Islands.\n\n\"Whether I will continue to be your prime minister depends on how strong a mandate you give the Social Democrats,\" Frederiksen said mentioning her party, the lead partner in the current Danish coalition.\n\nTrump has claimed without evidence that it is \"covered with Russian and Chinese ships all over the place\".\n\nMore than 100 US military personnel are permanently stationed at a US base in Greenland's north-western tip - a facility that has been operated by the US since World War Two.\n\nUnder existing agreements with Denmark, the US has the power to bring as many troops as it wants to Greenland.\n\nBut Trump has not abandoned his plans - he has said previously that the US needs to own Greenland to properly defend it - and talks continue over ways of establishing US control over the entire island.\n\nBoth Denmark and Greenland have said they will not agree to cede sovereignty to the US. Their European allies have rallied to their support.\n\nThe latest confrontation may come in the next few days if Trump follows through with an announcement that the US plans to send a boat filled with medical supplies to Greenland, alleging \"many people\" on the island are sick and \"not being taken care of\".\n\nGreenlandic Prime Minister Jens-Frederik Nielsen [rejected the proposal](https://www.bbc.co.uk/news/articles/cy7jnvdzpr7o), telling Trump that Greenland provides free healthcare for all citizens, unlike the US.",
-      "url": "https://www.bbc.com/news/articles/ckg3e63jwj8o?at_medium=RSS&at_campaign=rss",
-      "imageUrl": "https://ichef.bbci.co.uk/news/1536/cpsprodpb/490b/live/75f78830-131a-11f1-b513-7d8d8ff19957.jpg.webp",
-      "publishedAt": "2026-02-26T13:56:39.000Z",
-      "geotag": {
-        "country": "UNK",
-        "city": null,
-        "lat": 0,
-        "lng": 0
-      },
-      "category": "WorthReading",
-      "priority": "Low",
-      "signals": {
-        "conflict": false
-      },
-      "tags": [
-        "Elections"
-      ],
-      "metrics": {
-        "wordCount": 426,
-        "readTime": 2
-      }
-    },
-    {
-      "id": "fc1942052c0f31f3",
-      "sourceId": "ars-technica",
-      "sourceName": "Ars Technica",
-      "title": "ULA isn't making the Space Force's GPS interference problem any easier",
-      "excerpt": "Officials expect the investigation into a booster anomaly on ULA's Vulcan rocket to last multiple months.",
-      "content": "Officials expect the investigation into a booster anomaly on ULA’s Vulcan rocket to last multiple months.\n\nFour solid rocket boosters and two BE-4 main engines power United Launch Alliance's Vulcan rocket off its launch pad at Cape Canaveral Space Force Station, Florida, on February 12, 2026. Credit: United Launch Alliance\n\nDENVER—The Global Positioning System is one of the few space programs that touches nearly every human life, and the stewards of the satellite navigation network are eager to populate the fleet with the latest and greatest spacecraft.\n\nThe US Space Force owns and operates the GPS constellation, providing civilian and military-grade positioning, navigation, and timing signals to cell phones, airliners, naval ships, precision munitions, and a whole lot more.\n\nOne reason for routinely launching GPS satellites is simply “constellation replenishment,” said Col. Andrew Menschner, deputy commander of the Space Force’s Space Systems Command. Old satellites degrade and die, and new ones need to go up and replace them. At least 24 GPS satellites are needed for global coverage, and having additional satellites in the fleet can improve navigation precision. Today, there are 31 GPS satellites in operational service, flying more than 12,000 miles (20,000 kilometers) above the Earth.\n\nAnother motivation is to replace the oldest active GPS satellites, some of which have been in space since the late 1990s, with newer satellites better suited for the modern world. Beginning in 2005, the military has deployed GPS spacecraft with additional civilian signals for aviation and interoperability with Europe’s Galileo navigation satellites. At the same time, the military introduced a new military-grade signal called M-code, designed for warfare.\n\nM-code is more resistant to jamming, and its encryption makes it more difficult to spoof, a kind of attack that makes receivers trust fake navigation signals over real ones. The upgrade also allows the military to deny an adversary access to GPS during conflict, while maintaining the ability for US and allied forces to use M-code.\n\nInterference with navigation signals is on the rise, especially in the Middle East, the eastern Mediterranean, and around Russia and Ukraine. US officials attribute much of the interference to Russia as its military struggles to defend against drone attacks.\n\nRecent high-profile examples of GPS interference include an [incident in 2024](https://en.wikipedia.org/wiki/Azerbaijan_Airlines_Flight_8243) that resulted in a fatal airline crash, killing 38 people. The International Air Transport Association reported a [500 percent increase](https://www.iata.org/en/pressroom/2025-releases/2025-02-26-01/) in GPS spoofing incidents in 2024.\n\nFor these reasons, the Space Force is prioritizing the launch of new GPS satellites better equipped to repel all of this jamming and spoofing. Currently, 26 of the 31 operational GPS satellites carry M-code capability, enough for global coverage with little margin. But just 19 of the 31 satellites broadcast the higher-power civilian L5 signal, which is [more resistant to interference](https://spacenews.com/gps-startup-bets-on-advanced-signal-to-counter-jamming-threats/) than the civilian signals onboard satellites launched before 2010.\n\n[![](https://cdn.arstechnica.net/wp-content/uploads/2026/02/44448277670_ce30c683fa_b.jpg)](https://cdn.arstechnica.net/wp-content/uploads/2026/02/44448277670_ce30c683fa_b.jpg)\n\nArtist’s concept of a GPS III satellite in orbit.\n\nCredit: Lockheed Martin\n\nArtist’s concept of a GPS III satellite in orbit. Credit: Lockheed Martin\n\n## Not delivering\n\nThe road toward GPS modernization hasn’t been easy. RTX, formerly known as Raytheon, was years late and billions of dollars over budget in [delivering new control software](https://www.bloomberg.com/news/articles/2025-07-17/rtx-delivers-gps-ground-control-network-after-years-of-delay) to operate the newest GPS satellites. And the rocket the Space Force planned to use for launches of the last few GPS satellites had delays of its own.\n\nThis would be United Launch Alliance’s Vulcan rocket. It has launched four times, all successfully, but has twice had to overcome serious anomalies with its solid rocket boosters.\n\nOne of the rocket’s strap-on rocket motors, supplied by Northrop Grumman, flew off its exhaust nozzle shortly after liftoff on the second Vulcan launch in 2024. The problem kept the rocket from launching again for 10 months as industry and military officials investigated the malfunction. The third Vulcan launch went off without a hitch last August, but the most recent flight on February 12 suffered a [remarkably similar problem](https://arstechnica.com/space/2026/02/ulas-vulcan-launcher-still-has-a-solid-rocket-booster-problem/) with one of its solid rocket boosters.\n\nThe rocket compensated for the booster anomaly and continued the climb into orbit with multiple payloads for the Space Force. Several hours later, Vulcan’s upper stage relea",
-      "url": "https://arstechnica.com/space/2026/02/ula-isnt-making-the-space-forces-gps-interference-problem-any-easier/",
-      "imageUrl": "https://cdn.arstechnica.net/wp-content/uploads/2026/02/44448277670_ce30c683fa_b.jpg",
-      "publishedAt": "2026-02-26T13:31:18.000Z",
-      "geotag": {
-        "country": "UNK",
-        "city": null,
-        "lat": 0,
-        "lng": 0
-      },
-      "category": "WorthReading",
-      "priority": "Low",
-      "signals": {
-        "conflict": false
-      },
-      "tags": [
-        "Crime"
-      ],
-      "metrics": {
-        "wordCount": 682,
-        "readTime": 3
-      }
-    },
-    {
-      "id": "6f5507451c4bf488",
-      "sourceId": "guardian-world",
-      "sourceName": "The Guardian World",
-      "title": "Cuba says it killed heavily armed exiles who attacked from US-registered speedboat",
-      "excerpt": "Rare clash off island’s coast took place amid US oil embargo and heightened tensions between two countries",
-      "content": "Cuban forces killed four exiles and wounded six others who sailed into its waters onboard a Florida-registered speedboat and opened fire on a Cuban patrol, the country’s government said, at [a time of heightened tensions with the US](https://www.theguardian.com/world/2026/feb/25/caricom-summit-2026-caribbean-leaders-us-military-strikes).\n\nCuba’s interior ministry said the group comprised anti-government Cubans, some of whom were previously wanted for plotting attacks. They came from the US dressed in camouflage and armed with assault rifles, handguns, homemade explosives, ballistic vests and telescopic sights, it said.\n\nThe wounded were evacuated and receiving medical attention, while a Cuban patrol commander was also wounded, the ministry said.\n\n![Cuban coast guard ships docked at the port of Havana on Wednesday.](https://i.guim.co.uk/img/media/573ae675acc484b76b63407589616df4b8efdb97/0_0_3832_2555/master/3832.jpg?width=1200&dpr=1&s=none&crop=none)\n\nCuban coast guard ships docked at the port of Havana on Wednesday. Photograph: Adalberto Roque/AFP/Getty Images\n\nThe US secretary of state, Marco Rubio, told reporters it was not a US operation and that no US government personnel were involved. The Cuban authorities made the US aware of the incident, but the US embassy in Havana would attempt to independently verify what happened, he said.\n\n“We’re not going to base our conclusions on what they’ve \\[Cuba\\] told us, and I’m very, very confident that we will know the full story of what happened here,” Rubio told reporters while on a trip to the [Caribbean](https://www.theguardian.com/world/caribbean) nation of St Kitts and Nevis.\n\n“As we gather more information, then we’ll be prepared to respond accordingly,” he said. “Suffice to say it is highly unusual to see shootouts in open sea like that.”\n\nFlorida’s attorney general said he had ordered an investigation into the incident. “The Cuban government cannot be trusted, and we will do everything in our power to hold these communists accountable,” said James Uthmeier.\n\nCuba said it had identified the six detainees from the boat, two of whom, Amijail Sánchez González and Leordan Enrique Cruz Gómez, it claimed were previously wanted in Cuba on suspicion of planning terrorist acts.\n\nThe other four were identified as Conrado Galindo Sariol, José Manuel Rodríguez Castello, Cristián Ernesto Acosta Guevara and Roberto Azcorra Consuegra.\n\nIn addition, Cuba said it detained another Cuban man in Cuban territory, Duniel Hernández Santos, who it claimed had come from the US to the island in order to receive the infiltrators.\n\nOne of the dead was identified as Michel Ortega Casanova. The other three dead had yet to be identified, Cuba said.\n\n[Cuba map](https://interactive.guim.co.uk/uploader/embed/2026/02/cuba-boatattackmap/giv-32554bqH7UVelkrSy/)\n\nThe confrontation happened in an area where gentle farmland gives way to the Florida Straits in bleached beaches under swaying palms.\n\nThe scattered keys offshore are highly militarised as it is a common spot for Cubans seeking to escape to the US to launch their rafts, and also for people smugglers to land in fast boats.\n\nThere were several incidents in 2022, at the height of Cuba’s migration crisis. In June of that year, off Bahía Honda to Havana’s west, Cuban officials said they returned fire against a trafficking boat, killing one. That October, survivors said their boat was rammed by the coast guard nearby. Seven migrants died, including a two-year-old girl, Elizabeth Meizoso.\n\n![Mexican navy ship departs with humanitarian aid bound for Cuba.](https://i.guim.co.uk/img/media/218a40f462a48a7f6c8f949550c0f0ffb7abadeb/310_0_4582_3666/master/4582.jpg?width=1200&dpr=1&s=none&crop=none)\n\nMexican navy ship departs with humanitarian aid bound for Cuba. Photograph: Yahir Ceballos/Reuters\n\nIt is almost exactly 30 years to the day since the Cuban air force killed four people when it shot down two small planes belonging to Brothers to the Rescue, a Cuban exile group who were dropping leaflets on Havana. They claimed they were helping people flee the island.\n\nThat event, in which Carlos Alejandre, 45, Armando Costa, 29, Mario De la Peña, 24, and Pablo Morales, 29, died, ended a thaw between the US and Cuba.\n\nThe US soon increased its sanctions on the island through the Helms Burton Act that allows US companies that had property confiscated during the 1959 revolution to sue foreign companies using those properties.\n\nIt is one of the stickiest issues between the countries now, and two such cases are now being heard by the US supreme court. There are also moves in the US to bring charges against the former Cuban president Raúl Castro for the Brothers to the Rescue killings, in the hope of creating a similar pretext for intervention used for the abduction of [Nicolás](https://www.theguardian.com/world/2026/jan/04/venezuela-us-capture-nicolas-maduro-anxiety-cuba) Maduro in Venezuela.\n\nThe shooting came as the Trump administration moderately eased its",
-      "url": "https://www.theguardian.com/world/2026/feb/25/cuba-says-border-guards-killed-four-gunmen-on-us-registered-speedboat",
-      "imageUrl": "https://i.guim.co.uk/img/media/573ae675acc484b76b63407589616df4b8efdb97/0_0_3832_2555/master/3832.jpg?width=1200&dpr=1&s=none&crop=none",
-      "publishedAt": "2026-02-26T13:12:15.000Z",
-      "geotag": {
-        "country": "USA",
-        "city": null,
-        "lat": 39.8283,
-        "lng": -98.5795
-      },
-      "category": "WorthReading",
-      "priority": "Low",
-      "signals": {
-        "conflict": false
-      },
-      "tags": [
-        "Energy",
-        "USA"
-      ],
-      "metrics": {
-        "wordCount": 717,
-        "readTime": 3
-      }
-    },
-    {
-      "id": "dd1c2bc2d7319b2d",
-      "sourceId": "bbc-world",
-      "sourceName": "BBC World",
-      "title": "Singer D4vd confirmed as 'target' of investigation into murder of teen",
-      "excerpt": "The remains of 14-year-old Celeste Rivas Hernandez were found in the singer's car last year.",
-      "content": "![](https://static.files.bbci.co.uk/bbcdotcom/web/20260220-084609-e0c5de56b9-web-2.40.1-3/grey-placeholder.png)![Getty Images D4vd holds a microphone stand close to him while performing onstage during a music festival in 2024. He has a black and gold headscarf on and a cream top.](https://ichef.bbci.co.uk/news/1536/cpsprodpb/9d68/live/950fc610-1301-11f1-8b4b-dbf73cd2a780.jpg.webp)Getty Images\n\nD4vd has not been charged or officially named as a suspect in the case\n\nNewly unsealed court filings have revealed that US singer D4vd - real name David Anthony Burke - is the target of a grand jury investigation into the apparent murder of a 14-year-old girl, whose remains were found in his car in September.\n\nThe filings were released after D4vd's family were summoned by a California court to testify before the grand jury.\n\nDawud Burke, D4vd's father, fought against the summons in a Texas court, and in doing so included portions of material from the California case that had not been previously available to the public.\n\nThe filings confirm that D4vd has been identified as a \"target\" of a grand jury investigation in Los Angeles and that he may be subject to proceedings for one count of murder.\n\nHe has not been charged or officially named as a suspect in the case and an indictment has not been announced. Grand jury proceedings remain ongoing, according to US media.\n\nD4vd has not commented on the case, but his representatives previously said he was cooperating with police.\n\nA lawyer for the singer did not immediately respond to the BBC's request for comment.\n\n_**Warning - this story contains content that some may find distressing**_\n\nThe unsealed court filings mark the latest chapter in a case which has been dissected by internet sleuths for months.\n\nOn 8 September 2025, investigators found the decomposed head and torso of 14-year-old Celeste Rivas Hernandez in a cadaver bag in the front boot of a Tesla car [registered to D4vd's address in Texas](https://www.bbc.co.uk/news/articles/cp98npjkje2o), the court documents said.\n\nWhen they removed the bag, they discovered severed arms and legs in a black bag, the documents said.\n\nD4vd - who released his debut album in April - was on tour when the remains were discovered.\n\n![](https://static.files.bbci.co.uk/bbcdotcom/web/20260220-084609-e0c5de56b9-web-2.40.1-3/grey-placeholder.png)![Los Angeles Times via Getty Images A photograph of Celeste Rivas Hernandez - who is smiling and has long, black hair - is stuck on a board alongside intimate notes and flowers.](https://ichef.bbci.co.uk/news/1536/cpsprodpb/76c5/live/d0d70f00-1298-11f1-b048-c9424b2cf5fd.jpg.webp)Los Angeles Times via Getty Images\n\nCeleste Rivas Hernandez, of Lake Elsinore, California, was reported missing before she was found dead and dismembered\n\nPolice had previously said that they discovered Rivas Hernandez's remains inside the boot of the impounded car after responding to reports of a foul odour at the Hollywood tow yard.\n\nRivas Hernandez, from Lake Elsinore in California, had been missing and was last seen in April 2024, according to a missing person flyer cited by CBS, the BBC's US news partner.\n\nThe decomposition of her body indicated that she had already been \"deceased for several weeks\", investigators have said.\n\nA police spokesperson previously said that the case was being investigated by its robbery-homicide division.\n\nAs the grand jury proceedings got under way last year, the court filings said that prosecutors believed the testimony of D4vd's family was \"material and necessary\" to the investigation.\n\nBut Dawud Burke, along with his wife Colleen and son Caleb, have argued that the summons violates their right to due process because the notice they received from the California court contained redacted information, according to Texas court transcripts included in the filings.\n\n\"The Court ordered Mr. Burke to travel across the country to appear before a California grand jury without ever allowing him to see the full documents that justified the extraordinary compulsion,\" Dawud Burke's attorney said in the filing.\n\nHe challenged the California court's out-of-state subpoena, which he believed was compelling him to travel against his will.\n\nLos Angeles Police Department detectives travelled to Texas to bring the singer's family to California to appear before the grand jury, whose proceedings are secret, court records said.\n\nThe related documents have provided the biggest tranche of information about the case thus far, delineating key details in the ongoing investigation, which has been shrouded in secrecy.\n\nIn November, the Los Angeles County medical examiner's office said it received a court order imposing a security hold on the case, and that no details about Rivas Hernandez's death could be released or posted on its website.\n\nThe police department said it requested the order to ensure officers \"receive information from the Medical Examiner before the public\".\n\nChief Medical Examiner Dr Odey Ukpo said the pra",
-      "url": "https://www.bbc.com/news/articles/cwy9d57q09zo?at_medium=RSS&at_campaign=rss",
-      "imageUrl": "https://ichef.bbci.co.uk/news/1536/cpsprodpb/9d68/live/950fc610-1301-11f1-8b4b-dbf73cd2a780.jpg.webp",
-      "publishedAt": "2026-02-26T13:06:54.000Z",
-      "geotag": {
-        "country": "UNK",
-        "city": null,
-        "lat": 0,
-        "lng": 0
-      },
-      "category": "WorthReading",
-      "priority": "Low",
-      "signals": {
-        "conflict": false
-      },
-      "tags": [
-        "Crime"
-      ],
-      "metrics": {
-        "wordCount": 738,
-        "readTime": 3
-      }
-    },
-    {
-      "id": "22e09f6be6929b0b",
-      "sourceId": "atlantic",
-      "sourceName": "The Atlantic",
-      "title": "When Did Literature Get Less Dirty?",
-      "excerpt": "A puritan strain is manifesting in realist novels as a marked absence of straight sex.",
-      "content": "When Philip Roth published his novel [_Zuckerman Unbound_](https://bookshop.org/a/12476/9780679748991) 45 years ago, _The New York Times_ [called](https://www.nytimes.com/1981/05/24/books/zuckerman-unbound.html) it an “act of contrition.” The literary critic George Stade read it as an autobiographical account of Roth’s experiences as the author of [_Portnoy’s Complaint_](https://bookshop.org/a/12476/9780679756453), the virtuosically neurotic tale of a nice Jewish boy trying to either shake or embrace his sex obsession, which made Roth famous when it came out, in 1969. _Portnoy_ is a tremendous novel: I’m [on record](https://www.theatlantic.com/books/archive/2024/03/best-books-american-fiction/677479/) in this magazine arguing that it’s a great American one. Upon its release, though, it got decidedly mixed reactions. Readers, rabbis, and reviewers accused Roth of anti-Semitism, misogyny, sexual excess, deviance, and creative gimmickry. In _Commentary_, Irving Howe wittily if wrongly [claimed](https://www.commentary.org/articles/irving-howe/philip-roth-reconsidered/) that the “cruelest thing anyone can do with _Portnoy’s Complaint_ is to read it twice.”\n\nIn _Zuckerman Unbound_, Roth’s recurring stand-in, Nathan Zuckerman, seems to regret having written his version of _Portnoy’s Complaint_ at all. He accuses himself of betraying every woman who has ever been “bound to him by trust, by sex, by love.” His agent urges him to quit “trying to show them up in heaven and over at _Commentary_”—just in case readers weren’t sure this was about Roth and _Portnoy_—that he’s a good guy, but he can’t. He’s so busy self-flagellating, in fact, that he hardly even has sex, which is highly unusual in a Roth novel. Stade considered it not only an apology but also a concession to the reactionary “custodians of our high literary culture.” His review reads as if it were common knowledge, in 1981, that critics and readers were so prudish that Roth had to write a whole other novel wringing his hands over his sex book.\n\nStade was being dramatic, I think, given how much good literary writing about sex came out in the United States around the same time as _Portnoy’s Complaint_. Erica Jong, James Salter, and John Updike all relied heavily on sex scenes to externalize their characters’ inner lives. Nettie Jones’s deliriously sexy [_Fish Tales_](https://bookshop.org/a/12476/9780374608804), which came out in 1984, has recently [won a new generation of readers](https://acloserread.substack.com/p/nettie-jones-and-the-black-erotic), as has Norman Rush’s [_Mating_](https://bookshop.org/a/12476/9780679737094), first published in 1991. But Stade was right that American book culture has a puritan strain, one that showed in _Portnoy_’s reception and that manifests today as a surprising absence of sex—of straight sex, that is—in literature.\n\nI’ve been on the lookout for contemporary _Portnoy_s for years—in particular, ones by and about women. I reread Roth’s book frequently while working on my second novel, [_The End of Romance_](https://bookshop.org/a/12476/9780593835142). In part, I was reacting to the overwhelming maleness of Roth’s work, but mainly, my search was a response to a growing lack of faith in [heterosexuality](https://www.nytimes.com/2025/07/21/magazine/men-heterofatalism-dating-relationships.html) and in [straight romance](https://www.theatlantic.com/family/archive/2024/12/4b-sex-strike-american-dating/680770/)—and my desire for some optimism about both. Sex scenes in literature struck me as a natural place to go, given that intimacy is a powerful motivator for men and women alike to work through the challenges that ingrained misogyny can create. Instead of exploring this possibility, though, many male authors have shied away from writing about women’s bodies, while many female writers have avoided straight sex entirely, or approached it with a mix of shyness, pessimism, and scorn.\n\nThese emotions have dominated cultural postures toward straight relationships since #MeToo, if not since the start of what Lora Kelley has referred to in this magazine as the [era of the swipe](https://www.theatlantic.com/technology/archive/2024/04/dating-apps-are-starting-crack/678022/). The internet, with the maelstrom of options it presents, can make sex and dating so [confusing](https://www.theatlantic.com/family/archive/2025/09/gen-z-sex-dating-language/684357/) and [exhausting](https://www.theatlantic.com/family/archive/2024/08/single-quitting-dating-relationships/679460/) that giving up on them can seem appealing even to people who want to pursue one or both. Novelists’ evasion of sex only adds to that impulse. If literature doesn’t contain realistic, hot sex, it suggests that such encounters are unimaginable. In [_Fear of Flying_](https://bookshop.org/a/12476/9780451209436), Jong writes that women’s “big problem was how to make your feminism jibe with your unappeasable hunger for male bodies.” Surely giving up the unappeasable hunger can’t be the",
-      "url": "https://www.theatlantic.com/books/2026/02/sex-scenes-literature-heterosexual-romance/686148/",
-      "imageUrl": "https://cdn.theatlantic.com/thumbor/6gZ7mlvjdDCiWCEUoNSHbX9dzTc=/0x61:2876x1559/1200x625/media/img/mt/2026/02/2026_02_20_literature/original.jpg",
-      "publishedAt": "2026-02-26T13:00:00.000Z",
-      "geotag": {
-        "country": "UNK",
-        "city": null,
-        "lat": 0,
-        "lng": 0
-      },
-      "category": "WorthReading",
-      "priority": "Low",
-      "signals": {
-        "conflict": false
-      },
-      "tags": [],
-      "metrics": {
-        "wordCount": 654,
-        "readTime": 3
-      }
-    },
-    {
-      "id": "1a45293ba871166d",
-      "sourceId": "npr-world",
-      "sourceName": "NPR World",
-      "title": "U.S. and Iran to hold nuclear talks. And, Harvard professor resigns over Epstein ties",
-      "excerpt": "U.S. and Iranian officials are set to meet today in Geneva to discuss Tehran's nuclear program. And, Harvard professor Larry Summers is resigning over ties to convicted sex offender Jeffrey Epstein.",
-      "content": "#### US-Iran Talks, Summers Resigns Over Epstein Ties, Cuba Kills Four In Boat Strike\n\n_Good morning. You're reading the Up First newsletter._ [Subscribe](https://www.npr.org/newsletter/news) _here to get it delivered to your inbox, and_ [listen](https://www.npr.org/podcasts/510318/up-first/) _to the Up First podcast for all the news you need to start your day._\n\n### Today's top stories\n\n**Officials from the U.S. and Iran are set to meet today in Geneva** to discuss Tehran's nuclear program in what appears to be the last opportunity to avoid war. The development comes after President Trump claimed, without providing evidence, in his State of the Union address that Iran was developing missiles that could reach the U.S. The U.S. military buildup in the Middle East is currently at its highest level since the U.S. invaded Iraq in 2003.\n\n  ![The U.S. Navy aircraft carrier USS Gerald R. Ford departs Souda Bay on the island of Crete on Feb. 26. ](https://npr.brightspotcdn.com/dims3/default/strip/false/crop/4252x2392+0+222/resize/1100/quality/50/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F30%2F61%2F660492f04e528cfc530c243c1e64%2Fgettyimages-2263046518.jpg)\n\nThe U.S. Navy aircraft carrier USS Gerald R. Ford departs Souda Bay on the island of Crete on Feb. 26. **Costas Metaxakis/AFP via Getty Images** ****hide caption****\n\n****toggle caption****\n\nCostas Metaxakis/AFP via Getty Images\n\n-   🎧 **The U.S.' threats against Iran and the possibility of Iranian retaliation have raised the risk of a wider war**, putting the entire region on high alert, NPR's Jane Arraf tells _Up First_. Ahead of the two countries' meeting, Iranian Foreign Minister Abbas Araghchi said that there is a basis for an agreement with the U.S. on the nuclear issue, but made it clear that ballistic missiles are off the table. Arraf says [no breakthroughs are expected](https://one.npr.org/?sharedMediaId=nx-s1-5726991:x) today; however, scheduling more talks would signal progress. Meanwhile, several countries in the Middle East, such as Lebanon, are advising citizens to leave while they still can because of the risk of the conflict widening if Iran is attacked.\n\n**Prominent Harvard professor and economist Larry Summers announced his resignation** from teaching later this year. His statement comes after a new [revelation about Summers' relationship with](https://www.wbur.org/news/2026/02/25/harvard-professor-larry-summers-resigning-after-epstein-revelations?utm_source=npr.org&utm_medium=referral&utm_campaign=national_highlight&utm_content=homepage) the late convicted sex offender Jeffrey Epstein. Summers is one of Harvard's most well-known figures, serving as its president for five years starting in 2001. He was also Treasury secretary under President Bill Clinton. Harvard continues to investigate Summers and others for their ties to Epstein.  \n\n-   🎧 **Summers maintained communication with the late financier** even after Epstein's first conviction in 2008 for soliciting a minor for prostitution, Suevon Lee from NPR's network station WBUR says. The professor's personal correspondence with Epstein continued until 2019, shortly before Epstein's arrest on federal charges of sex trafficking minors. Summers hasn't faced any criminal accusations, but the [emails demonstrate his closeness](https://one.npr.org/?sharedMediaId=nx-s1-5726991:x) to Epstein, Lee says. Lee says that some staff members have applauded Harvard's decision to reopen investigations into Epstein's ties to professors since the emails came to light in November. Harvard is not the only academic institution with ties to Epstein. Lee says among the names in the Epstein files are at least a handful of professors and one college president.\n\n**Cuban border troops engaged in a gunfight late Wednesday** with a boat registered in Florida, according to Cuban officials. The government says soldiers killed four people on board the boat, and six others were injured. Cuba says the boat was carrying \"terrorists trying to infiltrate the island.\" Officials recovered assault rifles, handguns and Molotov cocktails from the vessel, according to Cuba's interior ministry.  \n\n-   🎧 **The government confirms that the men on the boat were known to them.** They were Cubans living in the U.S., and the Cuban government had designated some of them as terrorists, NPR's Eyder Peralta says. Amijail Sanchez Gonzalez, who runs Auto Defensa del Pueblo, or the people's self-defense group, is one of the survivors, according to the Cuban government. Gonzalez's friend Kiki Naranjo told Peralta that they run the organization and have been recruiting Cubans from the island over the past few years to build a clandestine society to sabotage the Cuban government from the inside. Secretary of State Marco Rubio said the U.S. would investigate the matter, but wouldn't jump to any conclusions. Michael Bustamante, who studies Cuba at the University of Miami, tells Peralta that he believes the Trump administration wants",
-      "url": "https://www.npr.org/2026/02/26/g-s1-111619/up-first-newsletter-iran-nuclear-talks-harvard-larry-summers-epstein-cuba-ice-polling-locations",
-      "imageUrl": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/4252x2392+0+222/resize/1100/quality/50/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F30%2F61%2F660492f04e528cfc530c243c1e64%2Fgettyimages-2263046518.jpg",
-      "publishedAt": "2026-02-26T12:19:29.000Z",
-      "geotag": {
-        "country": "USA",
-        "city": null,
-        "lat": 39.8283,
-        "lng": -98.5795
-      },
-      "category": "WorthReading",
-      "priority": "Low",
-      "signals": {
-        "conflict": false
-      },
-      "tags": [
-        "USA"
-      ],
-      "metrics": {
-        "wordCount": 694,
-        "readTime": 3
-      }
-    },
-    {
-      "id": "45efbeb24683cd79",
-      "sourceId": "bbc-world",
-      "sourceName": "BBC World",
-      "title": "First writing may be 40,000 years earlier than thought",
-      "excerpt": "Scientists believe they have found evidence of written thoughts of Stone Age people on ancient objects.",
-      "content": "## First writing may be 40,000 years earlier than thought\n\nGeorgina RannardScience reporter\n\n![](https://static.files.bbci.co.uk/bbcdotcom/web/20260220-084609-e0c5de56b9-web-2.40.1-3/grey-placeholder.png)![University of Tübingen / Hildegard Jensen A figurine shaped like a mammoth. It is ivory colour with dark grey patches, and has deeply-engraved lines of crosses and dots](https://ichef.bbci.co.uk/news/1536/cpsprodpb/d0dd/live/475473f0-1304-11f1-856c-c723805bc628.jpg.webp)University of Tübingen / Hildegard Jensen\n\nA 40,000-year-old mammoth figurine with engraved rows of crosses and dots\n\nThe history of writing down thoughts and feelings could be tens of thousands of years older than previously believed, surprising archaeologists who made the discovery.\n\nThe researchers discerned patterns of meaning in lines, notches, dots, and crosses on objects like mammoth tusks as old as 45,000 years in caves in Germany.\n\nTraditionally historians date the first written words to proto-cuneiform scripts made around 5,000 years ago in ancient Iraq, or Mesopotamia.\n\nThe precise meaning of the symbols in Germany remains a mystery.\n\nThe objects are from just before Homo sapiens moved to Europe from Africa where they interacted with Neanderthals.\n\nUntil now it was thought that writing developed in Mesopotamia around 3,000 BCE, followed by hieroglyphics in Egypt and later in China and Mesoamerica.\n\n\"The Stone Age sign sequences are an early alternative to writing,\" says Prof Christian Bentz from Saarland University, an author of the new research.\n\nThe work suggests that Stone Age people were as clever as modern-day humans, according to researcher Ewa Dutkiewicz from Berlin's Museum of Prehistory and Early History.\n\n\"So far, we've only scratched the surface of what can be found in terms of symbol sequences on a wide variety of artifacts,\" she says.\n\nThe team analysed more than 3,000 characters on 260 objects to uncover what they call the DNA of writing.\n\nSome of the objects are from a 37-km long cave system called the Lonetal in Baden-Württemberg, southern Germany.\n\n![](https://static.files.bbci.co.uk/bbcdotcom/web/20260220-084609-e0c5de56b9-web-2.40.1-3/grey-placeholder.png)![Landesmuseum Württemberg / Hendrik Zwietasch Small ivory plaque with an anthropomorphic figure and several rows of notches and dots. Front and back view of the same plaque.](https://ichef.bbci.co.uk/news/1536/cpsprodpb/ff1f/live/f0631be0-1304-11f1-856c-c723805bc628.jpg.webp)Landesmuseum Württemberg / Hendrik Zwietasch\n\nThe so-called \"adorant\" has a human-like figure and several rows of notches and dots.\n\nOn a small mammoth carved from tusk, the researchers analysed carefully engraved rows of crosses and dots.\n\nAnd on an artefact called \"adorant\" from the Geißenklösterle cave in the Achtal valley, they identified rows of dots and notches on an ivory plaque showing a lion-human creature.\n\nThey believe the arrangement of the marks, in particular the dots on the back, show the patterns acted as communication.\n\nThe researchers believe that Stone Age people deliberately carved these symbols to communicate messages, meaning, and convey thoughts.\n\n![](https://static.files.bbci.co.uk/bbcdotcom/web/20260220-084609-e0c5de56b9-web-2.40.1-3/grey-placeholder.png)![Staatliche Museen zu Berlin, Vorderasiatisches Museum / Olaf M. Tesmer A proto-cuneiform tablet from around 3350 years ago, showing numerical symbols on the left side and a variety of ideograms on the right.](https://ichef.bbci.co.uk/news/1536/cpsprodpb/2ae1/live/bdc1e080-1305-11f1-bf20-f10c8e9eb926.jpg.webp)Staatliche Museen zu Berlin, Vorderasiatisches Museum / Olaf M. Tesmer\n\nA proto-cuneiform tablet from around 3350 years ago\n\n\"Our results also show that the hunter-gatherers of the Paleolithic era developed a symbol system with a statistically comparable information density to the earliest proto-cuneiform tablets from ancient Mesopotamia – a full 40,000 years later,\" says Bentz.\n\nThe clue to finding meaning is in the density of the symbols. They found high repetition of the signs and predictability in the subsequent symbols that is \"comparable to much later proto-cuneiform,\" according to Bentz.\n\nThey found denser patterns on figurines than on tools.\n\nThe team say that it shows that communicating information was very important for Paleolithic people.\n\n\"They were skilled craftspeople. You can tell they carried the objects with them. Many of them fit very well in the hand, just the right size to fit in the palm,\" says Dutkiewicz.\n\nThe research is published in the journal PNAS.",
-      "url": "https://www.bbc.com/news/articles/cvgknj7yyv2o?at_medium=RSS&at_campaign=rss",
-      "imageUrl": "https://ichef.bbci.co.uk/news/1536/cpsprodpb/d0dd/live/475473f0-1304-11f1-856c-c723805bc628.jpg.webp",
-      "publishedAt": "2026-02-26T12:02:06.000Z",
-      "geotag": {
-        "country": "UNK",
-        "city": null,
-        "lat": 0,
-        "lng": 0
-      },
-      "category": "WorthReading",
-      "priority": "Low",
-      "signals": {
-        "conflict": false
-      },
-      "tags": [],
-      "metrics": {
-        "wordCount": 609,
-        "readTime": 3
-      }
-    },
-    {
-      "id": "d93ba92e479f24e1",
-      "sourceId": "atlantic",
-      "sourceName": "The Atlantic",
-      "title": "Trump’s Favorite Voter-ID Bill Would Probably Backfire",
-      "excerpt": "<span>Congressional Republicans are trying to pass a strict “election integrity” law that seems almost custom-designed to disenfranchise their own supporters.</span>",
-      "content": "On the surface, the debate over the SAVE America Act is familiar, even predictable. At Donald Trump’s urging, Republicans are pushing yet another voter-ID bill, ostensibly to prevent fraud and noncitizen voting. Democrats are opposing the bill on the grounds that voter fraud is negligible and that the law is really meant to disenfranchise their supporters.\n\nBut upon closer inspection, something very strange is going on. For decades, the politics of voter-ID battles were based on a simple premise: The voters most likely to be screened out by such restrictions were probably Democrats. In 2024, however, that fact stopped being true. Trump beat Kamala Harris among voters who didn’t regularly participate in elections. In the low-turnout, off-cycle elections that have happened since then, Democrats have overperformed dramatically, suggesting that their advantage with the most educated, plugged-in voters remains strong. In other words, the politics of voter ID have not caught up to its new partisan implications. Making voting more difficult would most likely hurt Republicans’ chances, yet they’re pushing hard to make that happen; meanwhile, Democrats, who insist that Trump and a MAGA Congress are existential threats to American democracy, refuse on principle to help Republicans sabotage themselves.\n\nThe world is different from how it used to be, and the electorate is different too. The debate over the SAVE America Act suggests that some of the last people to realize that fact are the people whose job most depends on it.\n\nIn the fall of 1998, Democratic volunteers greeted Black churchgoers in New York as they headed into prayer, handing each congregant a leaflet that read, “When We Vote, We Win.” The slogan crystallized what had become conventional wisdom: Higher turnout helps Democrats, the party of the downtrodden. The Democratic coalition was disproportionately young, lower-income, less educated, and nonwhite—all demographics that were less likely to vote and more likely to be prevented from doing so if friction was added to the voting process. Republican voters were whiter, older, and richer, and thus more likely to vote and to jump through hoops to do so. This reality motivated Democratic get-out-the-vote efforts for decades. If you were a Democrat, you wanted to get people to vote; it was a civic good that featured a nice bonus of helping your team win.\n\nRepublicans, rather than take the position that voting is bad, found a countervailing civic good of their own: election integrity. In 2005, Indiana passed a restrictive voter-ID law, which was upheld by the Supreme Court in 2008. More states soon followed. By all indications, these laws were addressing a fake problem: Voter fraud, in which one person casts a vote on behalf of someone else, almost never happens. Republican officials occasionally let slip that their motivations were not wholly pure. In 2012, for example, a state lawmaker [boasted](https://www.post-gazette.com/state/2012/06/26/Turzai-s-voter-ID-remark-draws-criticism/stories/201206260143) that Pennsylvania’s new voter-ID requirements would allow Mitt Romney to win the state. (The law was blocked from taking effect that year and eventually ruled unconstitutional. Pennsylvania went for Barack Obama.)\n\nThe basic trend held up year after year. In 2016, according to the Democratic-aligned data firm Catalist, Trump won a majority of voters who had voted in the previous four cycles, but lost with everyone else. He repeated that performance in 2020, although the difference between frequent and infrequent voters became less stark. Kamala Harris, accordingly, held “When we vote, we win” rallies in 2024.\n\n[Rogé Karma: The strategist who predicted Trump’s multiracial coalition](https://www.theatlantic.com/politics/archive/2024/11/trump-black-latino-voters-interview/680588/)\n\nBut that November, the pattern flipped. Trump won the popular vote for the first time and, according to [multiple](https://catalist.us/whathappened2024/) [analyses](https://www.pewresearch.org/politics/2025/06/26/voter-turnout-2020-2024/), did better with sporadic voters than with consistent voters. Harris won educated voters, rich voters, and well-informed voters, and her coalition was whiter than Joe Biden’s had been. Trump got the downtrodden. Some of the biggest shifts in his direction were among young people, Latinos, and immigrants. The Democratic analyst David Shor has found that Democrats [dominated](https://x.com/davidshor/status/1963694100869156901?s=20) in 2024 with voters whose political identity was very important to them. If every eligible voter had voted, Shor concluded, Trump would have won by five points instead of one and a half.\n\nSince 2024, Democrats have run up the score in special elections, when highly engaged voters dominate the electorate. Savvy politics-watchers have started to take note. In August, the liberal Substack author Matt Yglesias [wrote a post titled](https://www.slowboring.com/p/when-people-dont-vot",
-      "url": "https://www.theatlantic.com/politics/2026/02/save-america-act-turnout/686145/",
-      "imageUrl": "https://cdn.theatlantic.com/thumbor/sZEqUn8CZLq5U1MsqDvGbG0HU0w=/0x43:2000x1085/1200x625/media/img/mt/2026/02/VoterIdLaws/original.png",
-      "publishedAt": "2026-02-26T12:00:00.000Z",
-      "geotag": {
-        "country": "UNK",
-        "city": null,
-        "lat": 0,
-        "lng": 0
-      },
-      "category": "WorthReading",
-      "priority": "Low",
-      "signals": {
-        "conflict": false
-      },
-      "tags": [
-        "Elections"
-      ],
-      "metrics": {
-        "wordCount": 719,
-        "readTime": 3
-      }
-    },
-    {
-      "id": "19ab8d44a9a0ff08",
-      "sourceId": "bbc-world",
-      "sourceName": "BBC World",
-      "title": "Orban steps up oil accusations against Ukraine after vetoing EU loan to Kyiv",
-      "excerpt": "Hungary's prime minister accuses Ukraine of imposing an \"oil blockade\" after Kyiv says a critical pipeline was closed following Russian strikes.",
-      "content": "Harry Sekulichand\n\nPaul Kirby,Europe digital editor\n\n![](https://static.files.bbci.co.uk/bbcdotcom/web/20260220-084609-e0c5de56b9-web-2.40.1-3/grey-placeholder.png)![Getty Images Viktor Orban, Hungary's prime minister, delivers a speech in January. He has short, grey hair and is wearing a shirt, suit and tie.](https://ichef.bbci.co.uk/news/1536/cpsprodpb/c381/live/4025d9f0-1306-11f1-bf20-f10c8e9eb926.jpg.webp)Getty Images\n\nHungarian Prime Minister Viktor Orban says he has stationed soldiers at key energy facilities across the country after he blamed Ukraine for disrupting energy supplies.\n\nOrban, who is trailing in opinion polls ahead of pivotal elections next month, has accused Kyiv of imposing an \"oil blockade\" on Hungary by deliberately delaying the reopening of the Druzhba pipeline.\n\nUkraine says the pipeline was damaged by Russian strikes last month and its repair crews have been injured by further attacks.\n\nDruzhba is the main route for delivering Russian oil to Hungary and Slovakia and shipments of Russian oil to both countries have been cut off since 27 January.\n\nThe Hungarian leader, who is seen as Russia's closest partner in the EU, argues the suspension of the critical oil flow is purely political and has accused Ukraine of \"preparing further actions\", including sabotage, four years into Russia's full-scale war.\n\nHowever, Orban's critics say he has been stepping up the war of words with Ukraine in order to convince the public that Hungary is under attack in the run-up to the 12 April vote. Most opinion polls suggest his Fidesz party is at risk of losing power after 16 years.\n\nThis week he vetoed a €90bn (£78bn) EU loan to Ukraine and blocked the 20th package of sanctions on Moscow.\n\nIn an open letter on social media on Thursday, he accused Ukraine, the EU and opposition parties of \"co-ordinating efforts to bring a pro-Ukraine government to power in Hungary\".\n\nThe EU has urged Kyiv to speed up reopening the pipeline, but Ukraine's Volodymyr Zelensky said \"they advise us to repair it, but they know that there have already been attacks on Druzhba\".\n\n![](https://static.files.bbci.co.uk/bbcdotcom/web/20260220-084609-e0c5de56b9-web-2.40.1-3/grey-placeholder.png)![Map showing two strands of a pipeline from Russia into Europe in red. One strand goes through Hungary into Ukraine before connecting to another strand going into Russia.](https://ichef.bbci.co.uk/news/1536/cpsprodpb/58f9/live/f626a670-12fd-11f1-801d-ed3cff6bf876.png.webp)\n\nSlovakia's leader Robert Fico, also seen as one of Russia's closest European partners, has accused Zelensky of stalling. On Monday, his government said it would stop providing emergency power supplies to Ukraine until oil supplies resumed through the pipeline.\n\nUkraine has had to increase imports from its European neighbours because of acute power shortages throughout the winter caused by intensified Russian attacks on its electricity and gas networks.\n\nThe European Commission made clear on Wednesday that while Hungary and Slovakia had begun using their emergency oil supplies there was no risk of a shortages and there were alternative sources for both countries.\n\n\"Croatia confirmed... that non-Russian crude oil is being transported through the Adria pipeline to Hungary and Slovakia,\" European Commission spokesperson Anna-Kaisa Itkonen said after experts met to discuss the situation.\n\n\"It remains the main alternative pipeline for Hungary and Slovakia to cover their needs, and the pipeline has sufficient capacity to increase volumes to fully cover the Hungarian Slovakian requirements,\" she said.\n\nUkraine's military has repeatedly attacked Russian oil facilities inside Russia itself, and a Ukrainian drone strike hit an oil pumping station in Tatarstan earlier this week.\n\nThe attacks forced Russia's oil operator to reduce the amount of crude oil it takes into its system by about 250,000 barrels a day, according to Reuters news agency.\n\nIn his message on Thursday, Orban accused Zelensky of blocking the Druzhba pipeline as an \"anti-Hungarian policy\", a day after he accused Kyiv of \"preparing further actions to disrupt Hungary's energy system\".\n\nFollowing a meeting of the Hungarian Defence Council on Wednesday, he said soldiers had been deployed to energy stations, police would patrol power stations, and drones were banned in Hungary's north-east border region with Ukraine.\n\nThere is no indication that Ukraine is planning any kind of attack, and its armed forces are already severely stretched in a four-year full-scale Russian invasion along a front line of about 1,200km (750 miles).\n\nZelensky did not immediately respond to the accusation, however Orban has long sought to portray Kyiv as trying to drag Hungary into the war, and he has repeatedly tried to block financial aid to Ukraine.",
-      "url": "https://www.bbc.com/news/articles/c5ykq0vqn5go?at_medium=RSS&at_campaign=rss",
-      "imageUrl": "https://ichef.bbci.co.uk/news/1536/cpsprodpb/c381/live/4025d9f0-1306-11f1-bf20-f10c8e9eb926.jpg.webp",
-      "publishedAt": "2026-02-26T11:52:08.000Z",
-      "geotag": {
-        "country": "UKR",
-        "city": "kyiv",
-        "lat": 50.4501,
-        "lng": 30.5234
-      },
-      "category": "World",
-      "priority": "Medium",
-      "signals": {
-        "conflict": false
-      },
-      "tags": [
-        "Energy",
-        "UKR",
-        "Kyiv"
-      ],
-      "metrics": {
-        "wordCount": 694,
-        "readTime": 3
-      }
-    },
-    {
-      "id": "6220a27dde19d61f",
-      "sourceId": "npr-world",
-      "sourceName": "NPR World",
-      "title": "Former national security adviser John Bolton discusses risks of Iran regime change",
-      "excerpt": "NPR's Steve Inskeep talks with John Bolton, a national security advisor in President Trump's first term, about the prospect and risks of pursuing regime change in Iran.",
-      "content": "NPR's Steve Inskeep talks with John Bolton, a national security advisor in President Trump's first term, about the prospect and risks of pursuing regime change in Iran.\n\nA MARTÍNEZ, HOST:\n\nPresident Trump did not make a case for a war with Iran in his State of the Union speech. Yet the U.S. seems close to war, so what is that case? Our cohost Steve Inskeep called an advocate for regime change. John Bolton is Trump's former national security adviser and also a Trump critic who was indicted by the administration for his handling of classified information.\n\nSTEVE INSKEEP, BYLINE: I want to begin with the events on the day of the State of the Union speech. Secretary of State Rubio briefed congressional leaders about something. Democrats came out of that meeting saying the president needs to make his case to the nation. And then the president gave his speech and did not really make a case for regime change or anything else in Iran, although he mentioned the topic. What do you read out of all of that?\n\nJOHN BOLTON: Well, I don't think Trump has necessarily made up his mind, either what his objective is in a possible use of military force or what the quantum of that force would be. I think decisions could come fairly quickly if the talks in Geneva between the U.S. and Iran on discussions about their nuclear program don't produce anything, which is what I expect will happen. Then you could get a final Trump decision pretty soon.\n\nINSKEEP: That is why you think he would not have made the case for war, because he's not sure he wants one?\n\nBOLTON: Well, I don't think he really understands what the case is. I'm not sure he appreciates the significance of what he's about to do. I mean, I'm totally in favor of regime change. But I think you can't just announce it in one speech and then expect that everybody will line up behind you. I think this is a political mistake he may be about to make, but it's typical of the way he proceeds.\n\nINSKEEP: What do you mean by that? Do you think he doesn't understand the need to get the country behind him?\n\nBOLTON: Well, I think his fundamental mode of operating is everything is a deal. It's transactional. It's not based on national security considerations or policy, as we normally describe that term. So, you know, deal, a strike to vindicate his red line against the ayatollahs for killing their - 32,000 of their fellow citizens who were protesting, overthrow the regime. They're just all kind of fungible cards in his mind. And I say that as somebody who has supported regime change in Iran for a long time. This takes preparation. I think there are a number of things we could do militarily to help destabilize the regime, and I hope that's what he's thinking.\n\nINSKEEP: Let's put on the table, as you said, that you have advocated regime change for a long time. Do you think it would be easy to do?\n\nBOLTON: Well, I don't necessarily think it would be easy. But I do think the regime is at its weakest point since it took power in 1979. And if there were ever a moment to try and help exacerbate the instability in the regime, destabilize it and help bring it down, I do think it would be now. There's no question here of U.S. boots on the ground. There may be some special operators in country. We may do this together with Israel. But the fact is the Iranian regime is a threat to the United States. This is a regime that needs to be overthrown.\n\nINSKEEP: Is this something that really can be done without boots on the ground by an external force?\n\nBOLTON: Well, I think the role that military force from the U.S. and perhaps from Israel itself could accomplish is to cause the regime to fragment at the top. We could do that by destroying the instruments of state power in Iran - the Revolutionary Guard, the Basij militia. I think it's pretty clear that the 12-day war, waged primarily by Israel but with one day of participation by the U.S. against Iran's nuclear program last year, destabilized the regime.\n\nThe reaction of the Iranian people was quite interesting. Their conclusion was that if the regime couldn't even protect its crown jewels, the nuclear and ballistic missile programs, it couldn't protect itself. And if it can't protect itself, its days are numbered.\n\nINSKEEP: How could an operation like this go wrong from the U.S. perspective?\n\nBOLTON: Well, it could be that Iran has more air defenses than we think. I don't believe that's the case. But I also think that with Israel involved, that would go a long way toward making sure that there are no air defenses. And we don't have unlimited time. There's reporting by Reuters and other news sources that Iran is very close to signing a deal with China to get anti-ship missiles from China. The Iranians are not sitting around waiting to be targets.\n\nINSKEEP: I'm thinking of a couple of other ways it might go wrong. The United States drops a lot of bombs, fires a lot of missiles, blows up a lot of things, but the government is still there at the end. Another",
-      "url": "https://www.npr.org/2026/02/26/nx-s1-5726317/former-national-security-adviser-john-bolton-discusses-risks-of-iran-regime-change",
-      "imageUrl": "https://media.npr.org/include/images/facebook-default-wide-s1400-c85.jpg",
-      "publishedAt": "2026-02-26T11:42:58.000Z",
-      "geotag": {
-        "country": "IRN",
-        "city": null,
-        "lat": 32.4279,
-        "lng": 53.688
-      },
-      "category": "World",
-      "priority": "Medium",
-      "signals": {
-        "conflict": false
-      },
-      "tags": [
-        "IRN"
-      ],
-      "metrics": {
-        "wordCount": 901,
-        "readTime": 4
-      }
-    },
-    {
-      "id": "ba8f5d0d016691af",
-      "sourceId": "indian-express-world",
-      "sourceName": "Indian Express World",
-      "title": "World Economic Forum CEO Borge Brende quits after sex offender Jeffrey Epstein ties scrutinised",
-      "excerpt": "WEF CEO Borge Brende resigns after scrutiny over his past interactions with Jeffrey Epstein, with the Forum appointing an interim successor.",
-      "content": "Borge Brende, president and CEO of the World Economic Forum, said Thursday he was resigning, a few weeks after the forum launched an independent investigation into his relationship with sex offender Jeffrey Epstein.\n\nBrende, who became president of the WEF in 2017, announced his decision in a statement following disclosures from the US Justice Department that showed the Norwegian had three business dinners with Epstein and had also communicated with the disgraced financier via email and text message, news agency Reuters reported.\n\nThe co-chairs said the WEF’s Alois Zwinggi will serve as interim president and CEO, and that the forum’s Board of Trustees will oversee the leadership transition, including a plan to drive a process to identify a permanent successor.\n\n ![WFF CEO, WFF CEO resigns, WFF CEO quits](https://images.indianexpress.com/2026/02/WFF-CEO.jpeg?resize=600,349) Brende was Norway’s foreign minister from 2013-2017 and is one of several prominent Norwegians who have faced scrutiny following the latest release of Epstein files. (AI-generated graphic)\n\n“After careful consideration, I have decided to step down as President and CEO of the World Economic Forum. My time here, spanning 8-1/2 years, has been profoundly rewarding,” he said.\n\n“I am grateful for the incredible collaboration with my colleagues, partners, and constituents, and I believe now is the right moment for the Forum to continue its important work without distractions,” added Brende, a former Norwegian foreign minister. Brende made no mention of Epstein.\n\nIn a separate statement, Andre Hoffmann and Larry Fink, co-chairs of the Geneva-based forum that organises the annual Davos summit, said the independent review conducted by outside counsel into Brende’s ties with Epstein had concluded.\n\nThe findings stated there were no additional concerns beyond what had been previously disclosed, it added.\n\n## US DoJ released over 3 million pages of documents relating to Epstein\n\nThe US Justice Department has released more than 3 million pages of documents relating to Epstein, who died by suicide in jail in 2019 while awaiting trial on federal sex-trafficking charges.\n\nHis ties to a long list of business and political leaders, including US President [Donald Trump](https://indianexpress.com/about/donald-trump/), former President Bill Clinton and Tesla CEO Elon Musk are under close scrutiny. Overseas, the revelations have prompted criminal investigations of Britain’s Andrew Mountbatten-Windsor, the former Duke of York, and other prominent figures.",
-      "url": "https://indianexpress.com/article/world/us-news/world-economic-forum-ceo-borge-brende-quits-after-sex-offender-jeffrey-epstein-ties-scrutinised-10553767/",
-      "imageUrl": "https://images.indianexpress.com/2026/02/WFF-CEO.jpeg?resize=1200%2C698",
-      "publishedAt": "2026-02-26T11:37:12.000Z",
-      "geotag": {
-        "country": "UNK",
-        "city": null,
-        "lat": 0,
-        "lng": 0
-      },
-      "category": "WorthReading",
-      "priority": "Low",
-      "signals": {
-        "conflict": false
-      },
-      "tags": [],
-      "metrics": {
-        "wordCount": 373,
-        "readTime": 2
-      }
-    },
-    {
-      "id": "92ece5f841e7f1e5",
-      "sourceId": "indian-express-world",
-      "sourceName": "Indian Express World",
-      "title": "US-Iran tensions: Crucial third round of nuclear talks held in Geneva as more American forces deploy to Middle East",
-      "excerpt": "US-Iran nuclear talks in Geneva see Trump envoys Steve Witkoff and Jared Kushner pressing Tehran amid a major US military deployment and rising tensions.",
-      "content": "## US-Iran nuclear talks in Geneva see Trump envoys Steve Witkoff and Jared Kushner pressing Tehran amid a major US military deployment and rising tensions.\n\n![iran us nuclear talks, geneva talks,](https://images.indianexpress.com/2026/02/iran-us-talks.jpeg?w=1600)A man shows a newspaper with a front-page photo depicting US President Donald Trump delivering the State of the Union address, in Tehran, Iran. (Reuters photo)\n\nThe United States and Iran held a high-stakes third round of nuclear negotiations in Geneva Thursday, February 26, as President Donald Trump intensified pressure by deploying aircraft carriers and warplanes across the Middle East, raising fears that diplomacy could give way to conflict.\n\nThe talks, mediated by Oman, come at a delicate moment, with Washington seeking curbs on Tehran’s nuclear ambitions, while Iran insists it will not abandon uranium enrichment, even after recent military strikes damaged parts of its programme.\n\nUS special Mideast envoy Steve Witkoff met Iranian Foreign Minister Abbas Araghchi through Omani intermediaries in what both sides describe as indirect negotiations aimed at preventing a wider regional war.\n\n## Oman shuttles proposals as indirect diplomacy continues\n\nOman said it presented Iran’s proposals to US officials during the Geneva meeting, describing the discussions as “constructive”. The sultanate’s Foreign Minister Badr al-Busaidi was seen meeting Witkoff and Jared Kushner at the Omani diplomatic residence along Lake Geneva.\n\nThe Omani Foreign Ministry said al-Busaidi reviewed US “inquiries and requests regarding Iran’s nuclear programme and the necessary guarantees to achieve a deal,” while also consulting Rafael Mariano Grossi, head of the UN’s nuclear watchdog, on technical aspects of the negotiations.\n\nAn Associated Press journalist reported convoys believed to be carrying American and Iranian diplomats arriving at the compound, underscoring the secrecy and tension surrounding the talks.\n\n## Iran’s red lines\n\nIran signalled it would not compromise on what it calls peaceful nuclear development. Foreign Ministry spokesman Esmail Baghaei told state television, “Our positions are clear: the lifting of sanctions and the peaceful use of nuclear energy.”\n\nIranian President Masoud Pezeshkian also insisted the country would not build nuclear weapons, stating, “The religious leader of a society can’t lie. When he announces that we won’t have nuclear weapons, it means we won’t.”\n\nPezeshkian said Iran’s Supreme Leader Ayatollah Ali Khamenei has banned weapons of mass destruction, which “clearly means Tehran won’t develop nuclear weapons”.\n\nKhamenei, who has the last say on Tehran’s nuclear programme, banned the development of nuclear weapons in a fatwa, or religious decree, in the early 2000s\n\n## US military pressure and political divisions\n\nEven as diplomats met, the US projected military strength. The supercarrier USS Gerald R. Ford left Souda Bay in Crete en route to the Middle East, part of what officials describe as the largest American deployment in the region in decades.\n\nUS Secretary of State Marco Rubio warned Tehran was “always trying to rebuild elements” of its nuclear programme and accused it of seeking intercontinental ballistic missile capability.\n\nIn Washington, Republican Senator Lindsey Graham took a hardline stance, saying, “If media reports are true that there is a consideration of allowing Iran to have very small enrichment of uranium for face-saving purposes: screw that.” He added he would “like to see the people of Iran change the regime – it’s long overdue.”\n\n## Iran nuclear crisis timeline\n\n_Key moments shaping the current crisis:_\n\n-   1967: Iran receives the Tehran Research Reactor under the US “Atoms for Peace” programme.\n-   2002: Secret Natanz enrichment facility exposed.\n-   2015: Landmark nuclear deal limits enrichment in exchange for sanctions relief.\n-   2018: Trump withdraws from agreement, calling it the “worst deal ever”.\n-   2020: US drone strike kills General Qassem Soleimani.\n-   2021–2024: Enrichment rises to 60%; regional proxy conflicts escalate.\n-   2025: Israel-Iran war and US strikes on nuclear sites.\n-   2026: Renewed diplomacy amid sanctions, protests and military brinkmanship.\n\n## High stakes for diplomacy\n\nAnalysts view the Geneva negotiations as a potential last opportunity to prevent another Middle East conflict after last year’s Israel-Iran war and the US attack on Iranian nuclear facilities.\n\nAn AP-NORC poll released this week showed Americans remain concerned about Iran’s nuclear programme but have limited trust in Trump’s judgment on the use of military force abroad.\n\n## Here are some details about Iran’s missiles:\n\n![us iran talks, iran us nuclear talks](https://images.indianexpress.com/2026/02/iran-missiles.jpeg?resize=697,405)\n\nIran holds a new round of nuclear talks with the United States in Geneva Thursday. Its arsenal of missiles has been a sticking point in negotiations. (AI-generated graphic)",
-      "url": "https://indianexpress.com/article/world/us-news/us-iran-nuclear-talks-geneva-trump-military-deployment-kushner-witkoff-10553663/",
-      "imageUrl": "https://images.indianexpress.com/2026/02/iran-us-talks.jpeg?w=1600",
-      "publishedAt": "2026-02-26T11:14:57.000Z",
-      "geotag": {
-        "country": "USA",
-        "city": null,
-        "lat": 39.8283,
-        "lng": -98.5795
-      },
-      "category": "WorthReading",
-      "priority": "High",
-      "signals": {
-        "conflict": true
-      },
-      "tags": [
-        "Conflict",
-        "USA"
-      ],
-      "metrics": {
-        "wordCount": 733,
-        "readTime": 3
-      }
-    },
-    {
-      "id": "698261ef99f3e680",
-      "sourceId": "bbc-world",
-      "sourceName": "BBC World",
-      "title": "Nigeria to hold inquest into death of Chimamanda Ngozi Adichie's toddler",
-      "excerpt": "The internationally acclaimed writer has accused Nigerian hospital Euracare of negligence, which it denies.",
-      "content": "Chris EwokorBBC Africa, Abuja\n\n![](https://static.files.bbci.co.uk/bbcdotcom/web/20260220-084609-e0c5de56b9-web-2.40.1-3/grey-placeholder.png)![Getty Images Chimamanda Ngozi Adichie talks into a microphone. She wears an orange top and long braids.](https://ichef.bbci.co.uk/news/1536/cpsprodpb/ea23/live/d211c560-12fa-11f1-b048-c9424b2cf5fd.jpg.webp)Getty Images\n\nChimamanda Ngozi Adichie had twin boys, via a surrogate, in 2024\n\nAn inquest into the death of Nigerian novelist Chimamanda Ngozi Adichie's 21-month-old son will formally begin on 14 April.\n\nThe date was set during a preliminary hearing at the Yaba Magistrate Court in Lagos, roughly seven weeks after Nkanu Nnamdi Esege died at a Euracare hospital.\n\nAdiche and her family have accused Euracare of negligence, saying medics denied Nkanu oxygen and gave him too much sedation, causing a cardiac arrest.\n\nThe hospital expressed its \"deepest sympathies\" over the death but denied wrongdoing, saying its care had been in line with international standards.\n\nDuring the preliminary hearing on Wednesday, Magistrate Atinuke Adetunji directed all parties to file witness statements ahead of the inquest.\n\nThe court is expected to hear evidence from medical experts and hospital representatives as the coroner seeks to establish the circumstances and cause of Nkanu's death.\n\nAccording to submissions made to the court by Adichie's legal team, Nkanu had initially been admitted to Atlantis Hospital in Lagos with what was described as a worsening but mild illness.\n\nPlans had been made to transfer him to the United States for further treatment at Baltimore's Johns Hopkins Hospital.\n\nBut first, Atlantis Hospital referred the toddler to Euracare for pre-flight investigations, including an MRI and a spinal tap, or lumbar puncture.\n\nHe died on 7 January after undergoing these procedures.\n\nIn a legal notice three days later, lawyers for Adichie and her husband, Dr Ivara Esege, accused Euracare of breaching the duty of care owed to the child.\n\nThe hospital denied this allegation.\n\nAdichie, 48, is an award-winning writer known for a string of internationally successful novels, such as Half of a Yellow Sun and Americanah.\n\nShe was born and raised in Nigeria but is now based in the US.\n\nAdichie had her first child, a daughter, in 2016. Nkanu was one of twin boys born in 2024, using a surrogate.\n\n## More about Nigeria from the BBC:\n\n![](https://static.files.bbci.co.uk/bbcdotcom/web/20260220-084609-e0c5de56b9-web-2.40.1-3/grey-placeholder.png)![Getty Images/BBC A woman looking at her mobile phone and the graphic BBC News Africa](https://ichef.bbci.co.uk/news/1536/cpsprodpb/0a19/live/7c722dc0-089d-11ef-b9d8-4f52aebe147d.jpg.webp)Getty Images/BBC",
-      "url": "https://www.bbc.com/news/articles/cwygr2nzdp9o?at_medium=RSS&at_campaign=rss",
-      "imageUrl": "https://ichef.bbci.co.uk/news/1536/cpsprodpb/ea23/live/d211c560-12fa-11f1-b048-c9424b2cf5fd.jpg.webp",
-      "publishedAt": "2026-02-26T11:10:08.000Z",
-      "geotag": {
-        "country": "NGA",
-        "city": null,
-        "lat": 0,
-        "lng": 0
-      },
-      "category": "World",
-      "priority": "Medium",
-      "signals": {
-        "conflict": false
-      },
-      "tags": [
-        "Health",
-        "NGA"
-      ],
-      "metrics": {
-        "wordCount": 366,
-        "readTime": 2
-      }
-    },
-    {
-      "id": "6f6c8d4f13b0aca0",
-      "sourceId": "atlantic",
-      "sourceName": "The Atlantic",
-      "title": "What the Pentagon Fears in Iran",
-      "excerpt": "How can the military build a strategy without an end goal?",
-      "content": "_Subscribe here: [Apple Podcasts](https://podcasts.apple.com/us/podcast/radio-atlantic/id1258635512) | [Spotify](https://open.spotify.com/show/4vlgAVfHGyzoHYVmY67yFL) | [YouTube](https://www.youtube.com/@TheAtlantic/podcasts) | [Overcast](https://overcast.fm/itunes1258635512) | [Pocket Casts](https://pca.st/ccxU)_\n\nToday, U.S. Special Envoy Steve Witkoff and President Trump’s son-in-law Jared Kushner are sitting down with Iran’s top negotiator, Abbas Araghchi, for talks in Geneva. Iran arrives knowing that the United States has positioned dozens of warships and military aircraft in the region, evidently ready to strike. The U.S. arrives presumably knowing that although Iran has said it wants a diplomatic end to the stalemate, its leadership is not eager to compromise with the West.\n\nWhen the U.S. last launched strikes against Iran, in June 2025, the goal was apparent: destroy the country’s nuclear facilities. This time around, Trump has named shifting objectives. Is it to go back and really destroy the country’s nuclear capacity, which experts say were not in fact obliterated the first time? Is it to protect Iranian protesters? Force a regime change? Earlier this week, even Pentagon leaders began dropping hints that the lack of a clear objective was concerning them. In this episode, we talk to _Atlantic_ staff writer Tom Nichols about the Pentagon’s response to that lack of clarity and to _Atlantic_ staff writer Nancy Youssef, who has been tracking the military buildup in the region.\n\n_The following is a transcript of the episode:_\n\n**\\[_Music_\\]**\n\n**Hanna Rosin:** Today we’re talking about a potential war with Iran, which is a fast-shifting situation. We’re recording this episode on Wednesday afternoon, a day before the U.S. and Iran are scheduled to hold talks in Geneva.\n\nAhead of the negotiation, Iranian officials are giving mixed messages, calling \\[President Donald\\] Trump’s remarks about Iran “big lies,” but also saying they hope the two sides can come to an agreement through diplomacy.\n\nU.S. Special Envoy Steve Witkoff and the president’s son-in-law Jared Kushner are meeting with Iran’s top negotiator, Abbas Araghchi, along with a mediator from Oman.\n\nThe backdrop of these talks, meanwhile, includes dozens of U.S. warships and military aircraft recently moved to the region and aimed at Iran, which are possibly a tool to put pressure on Iranian leaders to yield in negotiations, but also, it’s a bigger buildup than you would typically use for just that purpose.\n\n**\\[_Music_\\]**\n\n**Rosin:** I’m Hanna Rosin. This is _Radio Atlantic_. President Trump has given many signals lately that he’s prepared to go to war with Iran, but very little clarity about what the goal of that war would be.\n\n> **[President Donald Trump:](https://www.youtube.com/watch?v=pjGvA-D0Fcs)** (_Applause_.) My preference is to solve this problem through diplomacy.\n\n**Rosin:** His State of the Union this week was just a repeat of what he’s said before.\n\n> **Trump:** But one thing is certain, I will never allow the world’s No. 1 sponsor of terror, which they are by far, to have a nuclear weapon. Can’t let that happen. (_Applause_.)\n\n**Rosin:** Earlier this week, there were reports that General Dan Caine, the chairman of the Joint Chiefs of Staff, had raised concerns to the president about the scale and risks of the operation in Iran.\n\n**\\[_Music_\\]**\n\n**Rosin:** Today, we talk to staff writer Tom Nichols about what military leadership might be thinking right now. But first—\n\n> **Rosin:** Ready?\n> \n> **Nancy Youssef:** I’m ready.\n\n**Rosin:** —staff writer Nancy Youssef, who’s been tracking the military buildup in the region.\n\nNancy, welcome to the show.\n\n**Youssef:** Great to be with you.\n\n**Rosin:** What conversations have already happened? What do we know is up for negotiation? What do we expect at the talks?\n\n**Youssef:** So it kind of depends on who you ask. If you talk to the Americans, they would say that they want the talks to include several sort of categories: first, the future of Iran’s nuclear program; second, the future of its ballistic-missile capability; third, the use of its proxies across the region. The Iranians would say that the talks have to focus strictly on their nuclear program, that asking them to limit their ballistic-missile capability goes against their sovereignty and their ability for self-defense. So it depends on who you ask in terms of what specifically has been outlined. The overlap on that Venn diagram, though, is the future of its nuclear program.\n\nHaving said that, the U.S. has called for a complete disarmament, which the Iranians have rejected, saying that that would be a threat to them and that they would maintain their program. And so even though we know that they agree that nuclear program is part of the talks, what is an acceptable outcome? We haven’t heard publicly, at least, an agreement on what that would look like.\n\nIf, for example, the United States agreed to the Iranians limiting their progr",
-      "url": "https://www.theatlantic.com/podcasts/2026/02/why-pick-a-fight-with-iran-now/686140/",
-      "imageUrl": "https://cdn.theatlantic.com/thumbor/yg4t20YAjwOXDe32tL3B5mx1zuw=/280x200:4000x2138/1200x625/media/img/mt/2026/02/Radio_Atlantic_Vertical_Iran_War_Watch/original.png",
-      "publishedAt": "2026-02-26T11:00:00.000Z",
-      "geotag": {
-        "country": "IRN",
-        "city": null,
-        "lat": 32.4279,
-        "lng": 53.688
-      },
-      "category": "World",
-      "priority": "High",
-      "signals": {
-        "conflict": true
-      },
-      "tags": [
-        "Conflict",
-        "IRN"
-      ],
-      "metrics": {
-        "wordCount": 771,
-        "readTime": 4
       }
     }
   ]
