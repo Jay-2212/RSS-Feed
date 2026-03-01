@@ -65,6 +65,9 @@ function renderHistory(history) {
 
   const rows = history.map((entry) => {
     const modeClass = `badge-${String(entry.geotagModeResolved || "unknown").toLowerCase()}`;
+    const errorsList = Array.isArray(entry.errors) && entry.errors.length > 0
+      ? `<div style="font-size:0.75rem; color:#b91c1c; margin-top:4px;">${entry.errors.map(e => `• ${e}`).join("<br>")}</div>`
+      : "";
     
     return `
       <tr>
@@ -101,6 +104,7 @@ function renderHistory(history) {
             </div>
           </div>
         </td>
+        <td>${errorsList || `<span style="font-size:0.75rem; color:var(--muted)">None</span>`}</td>
       </tr>
     `;
   }).join("");
@@ -114,6 +118,7 @@ function renderHistory(history) {
             <th>Geotag Mode</th>
             <th>Article Stats</th>
             <th>Feed Stats</th>
+            <th>Diagnostics</th>
           </tr>
         </thead>
         <tbody>

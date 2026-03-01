@@ -922,6 +922,7 @@ export async function geotagArticles(articles, rawOptions = {}) {
   const chunks = chunkArticles(articles, Math.max(1, options.batchSize));
   const combined = [];
   const modelUsageCounts = {};
+  const errorSummaries = [];
   const effectiveMaxApiBatches =
     Number.isFinite(options.maxApiBatches) && options.maxApiBatches > 0
       ? options.maxApiBatches
@@ -939,6 +940,9 @@ export async function geotagArticles(articles, rawOptions = {}) {
         parsedResults = parseModelResponsePayload(response.data);
       } catch (error) {
         const details = extractApiErrorDetails(error);
+        const inceptionErr = `Inception ${details.status || "Error"}: ${details.message || "Unknown"}`;
+        if (!errorSummaries.includes(inceptionErr)) errorSummaries.push(inceptionErr);
+
         logger.warn("Inception geotag batch failed; trying Gemini", {
           status: details.status,
           message: details.message,
@@ -952,6 +956,9 @@ export async function geotagArticles(articles, rawOptions = {}) {
             parsedResults = parseModelResponsePayload(geminiResponse);
           } catch (geminiError) {
             const geminiDetails = extractApiErrorDetails(geminiError);
+            const geminiErr = `Gemini ${geminiDetails.status || "Error"}: ${geminiDetails.message || "Unknown"}`;
+            if (!errorSummaries.includes(geminiErr)) errorSummaries.push(geminiErr);
+
             logger.warn("Gemini fallback also failed; using mock", {
               status: geminiDetails.status,
               apiStatus: geminiDetails.apiStatus,
@@ -960,6 +967,8 @@ export async function geotagArticles(articles, rawOptions = {}) {
             });
           }
         } else {
+          const noGeminiErr = "Gemini: No API key provided";
+          if (!errorSummaries.includes(noGeminiErr)) errorSummaries.push(noGeminiErr);
           logger.warn("No Gemini API key available for fallback; using mock");
         }
       }
@@ -1002,6 +1011,7 @@ export async function geotagArticles(articles, rawOptions = {}) {
 
   return {
     articles: combined,
-    modelUsageCounts
+    modelUsageCounts,
+    errorSummaries
   };
 }

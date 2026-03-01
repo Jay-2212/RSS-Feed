@@ -141,6 +141,7 @@ export async function runPhaseOneToFour() {
 
   let geotaggedArticles = [];
   let modelUsageCounts = {};
+  let errorSummaries = [];
 
   if (phaseThreeOutput.articles.length > 0) {
     const result = await geotagArticles(phaseThreeOutput.articles, {
@@ -162,6 +163,7 @@ export async function runPhaseOneToFour() {
     });
     geotaggedArticles = result.articles;
     modelUsageCounts = result.modelUsageCounts;
+    errorSummaries = result.errorSummaries || [];
   } else {
     logger.info("No new curated articles. Skipping geotag API phase.");
   }
@@ -211,7 +213,8 @@ export async function runPhaseOneToFour() {
       phase: "phase_4_complete",
       geotagModeConfigured: config.geotagMode,
       geotagModeResolved: resolvedGeotagMode,
-      geotagModel: primaryModelUsed
+      geotagModel: primaryModelUsed,
+      errorSummaries
     },
     articles: mergedArticles
   };
@@ -242,7 +245,8 @@ export async function runPhaseOneToFive() {
     fetched: phaseFourOutput.metadata.newCount + (phaseFourOutput.metadata.duplicateByUrl || 0),
     unchangedSources: phaseFourOutput.metadata.unchangedSources,
     failedSources: phaseFourOutput.metadata.failedSources,
-    refreshedExistingMedia: phaseFourOutput.metadata.refreshedExistingMedia
+    refreshedExistingMedia: phaseFourOutput.metadata.refreshedExistingMedia,
+    errors: phaseFourOutput.metadata.errorSummaries || []
   };
 
   await appendRunHistory(runMetrics, {
