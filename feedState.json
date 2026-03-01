@@ -1,82 +1,82 @@
 {
-  "updatedAt": "2026-03-01T04:30:55.829Z",
+  "updatedAt": "2026-03-01T04:46:45.303Z",
   "sources": {
     "nyt-world": {
       "etag": null,
       "lastModified": null,
-      "lastCheckedAt": "2026-03-01T04:30:49.532Z",
-      "lastFetchedAt": "2026-03-01T04:30:49.532Z",
+      "lastCheckedAt": "2026-03-01T04:46:41.238Z",
+      "lastFetchedAt": "2026-03-01T04:46:41.238Z",
       "lastStatus": 200,
       "lastItemCount": 58
     },
     "hindu": {
       "etag": null,
-      "lastModified": "Sun, 01 Mar 2026 04:16:43 GMT",
-      "lastCheckedAt": "2026-03-01T04:30:50.475Z",
-      "lastFetchedAt": "2026-03-01T04:30:50.475Z",
+      "lastModified": "Sun, 01 Mar 2026 04:37:12 GMT",
+      "lastCheckedAt": "2026-03-01T04:46:41.385Z",
+      "lastFetchedAt": "2026-03-01T04:46:41.385Z",
       "lastStatus": 200,
       "lastItemCount": 100
     },
     "bbc-world": {
       "etag": null,
       "lastModified": null,
-      "lastCheckedAt": "2026-03-01T04:30:50.788Z",
-      "lastFetchedAt": "2026-03-01T04:30:50.788Z",
+      "lastCheckedAt": "2026-03-01T04:46:41.855Z",
+      "lastFetchedAt": "2026-03-01T04:46:41.855Z",
       "lastStatus": 200,
       "lastItemCount": 28
     },
     "guardian-world": {
-      "etag": "W/\"hash3889680422587117086\"",
+      "etag": "W/\"hash666705342146327683\"",
       "lastModified": null,
-      "lastCheckedAt": "2026-03-01T04:30:51.002Z",
-      "lastFetchedAt": "2026-03-01T04:30:51.002Z",
+      "lastCheckedAt": "2026-03-01T04:46:42.110Z",
+      "lastFetchedAt": "2026-03-01T04:46:42.110Z",
       "lastStatus": 200,
       "lastItemCount": 45
     },
     "reuters-world": {
       "etag": null,
       "lastModified": null,
-      "lastCheckedAt": "2026-03-01T04:30:51.589Z",
-      "lastFetchedAt": "2026-03-01T04:30:51.589Z",
+      "lastCheckedAt": "2026-03-01T04:46:42.649Z",
+      "lastFetchedAt": "2026-03-01T04:46:42.649Z",
       "lastStatus": 200,
       "lastItemCount": 100
     },
     "npr-world": {
       "etag": null,
       "lastModified": null,
-      "lastCheckedAt": "2026-03-01T04:30:51.818Z",
-      "lastFetchedAt": "2026-03-01T04:30:51.818Z",
+      "lastCheckedAt": "2026-03-01T04:46:42.878Z",
+      "lastFetchedAt": "2026-03-01T04:46:42.878Z",
       "lastStatus": 200,
       "lastItemCount": 10
     },
     "indian-express-world": {
-      "etag": "W/\"a23e19760ee52c321a6c6f07a5e9686a\"",
-      "lastModified": "Sun, 01 Mar 2026 04:29:07 GMT",
-      "lastCheckedAt": "2026-03-01T04:30:52.173Z",
-      "lastFetchedAt": "2026-03-01T04:30:52.173Z",
+      "etag": "W/\"b67c92a48488984887166cbac6107270\"",
+      "lastModified": "Sun, 01 Mar 2026 04:39:37 GMT",
+      "lastCheckedAt": "2026-03-01T04:46:43.104Z",
+      "lastFetchedAt": "2026-03-01T04:46:43.104Z",
       "lastStatus": 200,
       "lastItemCount": 200
     },
     "ap-news": {
       "etag": null,
       "lastModified": null,
-      "lastCheckedAt": "2026-03-01T04:30:52.750Z",
-      "lastFetchedAt": "2026-03-01T04:30:52.750Z",
+      "lastCheckedAt": "2026-03-01T04:46:43.638Z",
+      "lastFetchedAt": "2026-03-01T04:46:43.638Z",
       "lastStatus": 200,
       "lastItemCount": 100
     },
     "quartz": {
       "etag": null,
       "lastModified": "Sun, 01 Mar 2026 04:23:34 GMT",
-      "lastCheckedAt": "2026-03-01T04:30:52.901Z",
+      "lastCheckedAt": "2026-03-01T04:46:43.763Z",
       "lastFetchedAt": "2026-03-01T04:30:52.901Z",
-      "lastStatus": 200,
+      "lastStatus": 304,
       "lastItemCount": 50
     },
     "ars-technica": {
       "etag": null,
       "lastModified": "Sat, 28 Feb 2026 20:55:57 GMT",
-      "lastCheckedAt": "2026-03-01T04:30:53.035Z",
+      "lastCheckedAt": "2026-03-01T04:46:43.901Z",
       "lastFetchedAt": "2026-03-01T03:31:46.861Z",
       "lastStatus": 304,
       "lastItemCount": 20
@@ -84,7 +84,7 @@
     "hacker-news": {
       "etag": null,
       "lastModified": "Sun, 01 Mar 2026 01:59:00 GMT",
-      "lastCheckedAt": "2026-03-01T04:30:55.383Z",
+      "lastCheckedAt": "2026-03-01T04:46:45.151Z",
       "lastFetchedAt": "2026-03-01T03:31:47.083Z",
       "lastStatus": 304,
       "lastItemCount": 20
@@ -92,9 +92,9 @@
     "atlantic": {
       "etag": null,
       "lastModified": "Sun, 01 Mar 2026 03:57:12 GMT",
-      "lastCheckedAt": "2026-03-01T04:30:55.825Z",
+      "lastCheckedAt": "2026-03-01T04:46:45.301Z",
       "lastFetchedAt": "2026-03-01T04:30:55.825Z",
-      "lastStatus": 200,
+      "lastStatus": 304,
       "lastItemCount": 25
     }
   }
