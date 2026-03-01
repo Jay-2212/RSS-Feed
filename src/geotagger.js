@@ -954,9 +954,13 @@ export async function geotagArticles(articles, rawOptions = {}) {
             const geminiDetails = extractApiErrorDetails(geminiError);
             logger.warn("Gemini fallback also failed; using mock", {
               status: geminiDetails.status,
-              message: geminiDetails.message
+              apiStatus: geminiDetails.apiStatus,
+              message: geminiDetails.message,
+              batchSize: batch.length
             });
           }
+        } else {
+          logger.warn("No Gemini API key available for fallback; using mock");
         }
       }
 

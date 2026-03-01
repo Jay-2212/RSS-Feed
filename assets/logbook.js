@@ -7,7 +7,7 @@ const elements = {
   btnHistory: document.querySelector("#nav-history")
 };
 
-let currentTab = "progress";
+let currentTab = "history";
 
 function formatDate(value, full = true) {
   if (!value) {
@@ -152,4 +152,4 @@ elements.btnProgress.addEventListener("click", () => updateView("progress"));
 elements.btnHistory.addEventListener("click", () => updateView("history"));
 
 // Initial load
-updateView("progress");
+updateView("history");

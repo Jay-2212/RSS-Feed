@@ -189,7 +189,11 @@ export async function runPhaseOneToFour() {
 
   const actuallyUsedModels = Object.keys(modelUsageCounts);
   const primaryModelUsed =
-    actuallyUsedModels.length > 0 ? actuallyUsedModels.join(", ") : config.inceptionModel;
+    actuallyUsedModels.length > 0
+      ? actuallyUsedModels.join(", ")
+      : resolvedGeotagMode === "mock"
+        ? "mock"
+        : config.inceptionModel;
 
   logger.info("Pipeline completed through Phase 4", {
     geotaggedNew: geotaggedArticles.length,
