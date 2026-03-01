@@ -32,6 +32,7 @@ const DEFAULTS = {
   outputArticlesFile: "articles.json",
   outputLastUpdatedFile: "lastUpdated.txt",
   outputFeedStateFile: "feedState.json",
+  outputRunHistoryFile: "runHistory.json",
   feedConditionalFetch: true
 };
 
@@ -139,6 +140,7 @@ export function getRuntimeConfig(options = {}) {
     outputLastUpdatedFile:
       process.env.OUTPUT_LAST_UPDATED_FILE || DEFAULTS.outputLastUpdatedFile,
     outputFeedStateFile: process.env.OUTPUT_FEED_STATE_FILE || DEFAULTS.outputFeedStateFile,
+    outputRunHistoryFile: process.env.OUTPUT_RUN_HISTORY_FILE || DEFAULTS.outputRunHistoryFile,
     feedConditionalFetch: parseBoolean(
       process.env.FEED_CONDITIONAL_FETCH,
       DEFAULTS.feedConditionalFetch

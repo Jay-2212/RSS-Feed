@@ -17,9 +17,9 @@
       <header class="logbook-header">
         <div>
           <p class="eyebrow">Project Journal</p>
-          <h1>Agent Progress Log</h1>
+          <h1>Logbook</h1>
           <p class="subtle">
-            Clean static reader for <code>AGENT_PROGRESS_LOG.md</code>
+            Tracking agent progress and pipeline execution history.
           </p>
         </div>
         <div class="header-actions">
@@ -27,8 +27,14 @@
           <span id="logbook-meta" class="meta">Loading...</span>
         </div>
       </header>
+
+      <section class="logbook-nav">
+        <button id="nav-progress" class="btn small active">Agent Progress</button>
+        <button id="nav-history" class="btn small">Run History</button>
+      </section>
+
       <article id="logbook-content" class="logbook-content">
-        <p>Loading logbook...</p>
+        <p>Loading...</p>
       </article>
     </main>
     <script type="module" src="assets/logbook.js"></script>

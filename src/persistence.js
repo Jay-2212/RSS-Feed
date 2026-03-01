@@ -249,6 +249,37 @@ export function buildPersistedOutput(phaseFourOutput, options = {}) {
   };
 }
 
+export async function appendRunHistory(runData, options = {}) {
+  const rootDir = options.rootDir ?? process.cwd();
+  const historyFilePath = options.runHistoryFilePath ?? "runHistory.json";
+  const historyPath = path.resolve(rootDir, historyFilePath);
+
+  let history = [];
+  try {
+    const raw = await fs.readFile(historyPath, "utf8");
+    history = JSON.parse(raw);
+  } catch {
+    // New file
+  }
+
+  if (!Array.isArray(history)) {
+    history = [];
+  }
+
+  const entry = {
+    timestamp: new Date().toISOString(),
+    ...runData
+  };
+
+  history.unshift(entry);
+  
+  // Keep last 100 runs
+  const limited = history.slice(0, 100);
+
+  await fs.writeFile(historyPath, `${JSON.stringify(limited, null, 2)}\n`, "utf8");
+  return historyPath;
+}
+
 export async function writePersistedArtifacts(output, options = {}) {
   const rootDir = options.rootDir ?? process.cwd();
   const articlesFilePath = options.articlesFilePath ?? "articles.json";

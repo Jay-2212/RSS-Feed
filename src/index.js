@@ -9,7 +9,7 @@ import {
   mergeIncrementalArticles,
   splitArticlesByDifference
 } from "./incremental.js";
-import { buildPersistedOutput, writePersistedArtifacts } from "./persistence.js";
+import { buildPersistedOutput, writePersistedArtifacts, appendRunHistory } from "./persistence.js";
 import { createLogger } from "./utils.js";
 
 const logger = createLogger("pipeline");
@@ -203,8 +203,10 @@ export async function runPhaseOneToFour() {
 export async function runPhaseOneToFive() {
   const config = getRuntimeConfig();
   const phaseFourOutput = await runPhaseOneToFour();
+  const timestamp = new Date().toISOString();
+
   const persistedOutput = buildPersistedOutput(phaseFourOutput, {
-    timestamp: new Date().toISOString()
+    timestamp
   });
 
   const paths = await writePersistedArtifacts(persistedOutput, {
@@ -212,8 +214,26 @@ export async function runPhaseOneToFive() {
     lastUpdatedFilePath: config.outputLastUpdatedFile
   });
 
-  logger.info("Pipeline completed through Phase 5", {
+  const runMetrics = {
+    timestamp,
+    phase: phaseFourOutput.metadata.phase,
     articlesPersisted: persistedOutput.metadata.count,
+    geotaggedNew: phaseFourOutput.metadata.newCount,
+    geotagModeConfigured: phaseFourOutput.metadata.geotagModeConfigured,
+    geotagModeResolved: phaseFourOutput.metadata.geotagModeResolved,
+    geotagModel: phaseFourOutput.metadata.geotagModel,
+    fetched: phaseFourOutput.metadata.newCount + (phaseFourOutput.metadata.duplicateByUrl || 0),
+    unchangedSources: phaseFourOutput.metadata.unchangedSources,
+    failedSources: phaseFourOutput.metadata.failedSources,
+    refreshedExistingMedia: phaseFourOutput.metadata.refreshedExistingMedia
+  };
+
+  await appendRunHistory(runMetrics, {
+    runHistoryFilePath: config.outputRunHistoryFile
+  });
+
+  logger.info("Pipeline completed through Phase 5", {
+    ...runMetrics,
     articlesPath: paths.articlesPath,
     lastUpdatedPath: paths.lastUpdatedPath
   });
