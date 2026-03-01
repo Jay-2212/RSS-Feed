@@ -686,11 +686,15 @@ async function callInceptionChatCompletions(prompt, options) {
         content: prompt
       }
     ],
-    temperature: 0.1,
-    max_tokens: 4096
+    temperature: 1.0,
+    max_tokens: 4096,
+    reasoning_effort: "medium",
+    reasoning_summary: true
   };
 
   const client = options.httpClient || axios;
+  const rawKey = String(options.inceptionApiKey || "").trim();
+  const authHeader = rawKey.toLowerCase().startsWith("bearer ") ? rawKey : `Bearer ${rawKey}`;
 
   for (let attempt = 1; attempt <= options.maxRetries; attempt += 1) {
     try {
@@ -698,7 +702,7 @@ async function callInceptionChatCompletions(prompt, options) {
         timeout: options.timeoutMs,
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${options.inceptionApiKey}`
+          Authorization: authHeader
         }
       });
       return response.data;
