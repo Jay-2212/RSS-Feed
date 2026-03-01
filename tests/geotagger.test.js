@@ -16,7 +16,7 @@ function sampleArticle(overrides = {}) {
 
 test("geotagArticles uses mock mode when no key is present", async () => {
   const articles = [sampleArticle()];
-  const result = await geotagArticles(articles, {
+  const { articles: result } = await geotagArticles(articles, {
     mode: "auto",
     inceptionApiKey: ""
   });
@@ -61,7 +61,7 @@ test("geotagArticles parses live-mode Kimi JSON response", async () => {
     }
   };
 
-  const result = await geotagArticles(articles, {
+  const { articles: result } = await geotagArticles(articles, {
     mode: "live",
     model: "mercury-2",
     inceptionApiKey: "test-key",
@@ -129,7 +129,7 @@ test("geotagArticles falls back to secondary model after 429", async () => {
     }
   };
 
-  const result = await geotagArticles(articles, {
+  const { articles: result } = await geotagArticles(articles, {
     mode: "live",
     model: "mercury-primary",
     fallbackModels: ["mercury-secondary"],
@@ -181,7 +181,7 @@ test("geotagArticles enforces maxApiBatches guard to control spend", async () =>
     }
   };
 
-  const result = await geotagArticles(articles, {
+  const { articles: result } = await geotagArticles(articles, {
     mode: "live",
     model: "mercury-2",
     inceptionApiKey: "test-key",
@@ -198,7 +198,7 @@ test("geotagArticles enforces maxApiBatches guard to control spend", async () =>
 });
 
 test("geotagArticles mock fallback infers country from broader aliases", async () => {
-  const result = await geotagArticles(
+  const { articles: result } = await geotagArticles(
     [
       sampleArticle({
         id: "fallback-pak",

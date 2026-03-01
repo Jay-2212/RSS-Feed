@@ -996,5 +996,8 @@ export async function geotagArticles(articles, rawOptions = {}) {
       : "unlimited"
   });
 
-  return combined;
+  return {
+    articles: combined,
+    modelUsageCounts
+  };
 }

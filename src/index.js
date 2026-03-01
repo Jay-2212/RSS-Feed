@@ -140,8 +140,10 @@ export async function runPhaseOneToFour() {
   const phaseThreeOutput = await runPhaseOneToThree();
 
   let geotaggedArticles = [];
+  let modelUsageCounts = {};
+
   if (phaseThreeOutput.articles.length > 0) {
-    geotaggedArticles = await geotagArticles(phaseThreeOutput.articles, {
+    const result = await geotagArticles(phaseThreeOutput.articles, {
       mode: config.geotagMode,
       model: config.inceptionModel,
       fallbackModels: config.inceptionFallbackModels,
@@ -158,6 +160,8 @@ export async function runPhaseOneToFour() {
       retryMaxDelayMs: config.geotagRetryMaxDelayMs,
       logger
     });
+    geotaggedArticles = result.articles;
+    modelUsageCounts = result.modelUsageCounts;
   } else {
     logger.info("No new curated articles. Skipping geotag API phase.");
   }
@@ -183,11 +187,16 @@ export async function runPhaseOneToFour() {
           ? "none"
           : "mixed";
 
+  const actuallyUsedModels = Object.keys(modelUsageCounts);
+  const primaryModelUsed =
+    actuallyUsedModels.length > 0 ? actuallyUsedModels.join(", ") : config.inceptionModel;
+
   logger.info("Pipeline completed through Phase 4", {
     geotaggedNew: geotaggedArticles.length,
     retainedArticles: mergedArticles.length,
     geotagModeConfigured: config.geotagMode,
     geotagModeResolved: resolvedGeotagMode,
+    modelUsed: primaryModelUsed,
     hasInceptionKey: Boolean(config.inceptionApiKey),
     hasGeminiKey: Boolean(config.geminiApiKey)
   });
@@ -198,7 +207,7 @@ export async function runPhaseOneToFour() {
       phase: "phase_4_complete",
       geotagModeConfigured: config.geotagMode,
       geotagModeResolved: resolvedGeotagMode,
-      geotagModel: config.inceptionModel
+      geotagModel: primaryModelUsed
     },
     articles: mergedArticles
   };
