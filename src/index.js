@@ -147,6 +147,9 @@ export async function runPhaseOneToFour() {
       fallbackModels: config.inceptionFallbackModels,
       inceptionBaseUrl: config.inceptionBaseUrl,
       inceptionApiKey: config.inceptionApiKey,
+      geminiApiKey: config.geminiApiKey,
+      geminiModel: config.geminiModel,
+      geminiBaseUrl: config.geminiBaseUrl,
       batchSize: config.geotagBatchSize,
       maxApiBatches: config.geotagMaxApiBatches,
       timeoutMs: config.geotagTimeoutMs,
@@ -185,7 +188,8 @@ export async function runPhaseOneToFour() {
     retainedArticles: mergedArticles.length,
     geotagModeConfigured: config.geotagMode,
     geotagModeResolved: resolvedGeotagMode,
-    hasInceptionKey: Boolean(config.inceptionApiKey)
+    hasInceptionKey: Boolean(config.inceptionApiKey),
+    hasGeminiKey: Boolean(config.geminiApiKey)
   });
 
   return {

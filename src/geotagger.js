@@ -724,6 +724,54 @@ async function callInceptionChatCompletions(prompt, options) {
   return {};
 }
 
+async function callGeminiApi(prompt, options) {
+  const baseUrl = String(options.geminiBaseUrl || "https://generativelanguage.googleapis.com/v1beta/models").replace(/\/+$/, "");
+  const model = options.geminiModel || "gemini-1.5-flash";
+  const endpoint = `${baseUrl}/${model}:generateContent?key=${options.geminiApiKey}`;
+
+  const payload = {
+    contents: [
+      {
+        parts: [
+          { text: "You are a strict geotagging and topical tagging engine. Return JSON only." },
+          { text: prompt }
+        ]
+      }
+    ],
+    generationConfig: {
+      temperature: 0.1,
+      maxOutputTokens: 4096,
+      responseMimeType: "application/json"
+    }
+  };
+
+  const client = options.httpClient || axios;
+
+  for (let attempt = 1; attempt <= options.maxRetries; attempt += 1) {
+    try {
+      const response = await client.post(endpoint, payload, {
+        timeout: options.timeoutMs,
+        headers: { "Content-Type": "application/json" }
+      });
+      return response.data;
+    } catch (error) {
+      const details = extractApiErrorDetails(error);
+      const status = details.status;
+      const retryable = status === 429 || (status >= 500 && status <= 599);
+      const exhausted = attempt === options.maxRetries;
+
+      if (!retryable || exhausted) {
+        throw error;
+      }
+
+      const backoffMs = computeBackoffMs(details, attempt, options);
+      await sleep(backoffMs);
+    }
+  }
+
+  return {};
+}
+
 async function callInceptionWithModelFallback(prompt, options, logger) {
   const models = [options.model, ...(options.fallbackModels ?? [])]
     .map((model) => String(model || "").trim())
@@ -840,7 +888,7 @@ function resolveMode(options) {
   if (options.mode === "live") {
     return "live";
   }
-  return options.inceptionApiKey ? "live" : "mock";
+  return options.inceptionApiKey || options.geminiApiKey ? "live" : "mock";
 }
 
 function chunkArticles(articles, size) {
@@ -889,25 +937,37 @@ export async function geotagArticles(articles, rawOptions = {}) {
         const response = await callInceptionWithModelFallback(prompt, options, logger);
         modelUsedForBatch = response.modelUsed;
         parsedResults = parseModelResponsePayload(response.data);
-        if (modelUsedForBatch) {
-          modelUsageCounts[modelUsedForBatch] = (modelUsageCounts[modelUsedForBatch] ?? 0) + 1;
-        }
-        if (parsedResults.length === 0) {
-          logger.warn("Inception response parsed but returned no usable geotag rows", {
-            modelUsed: modelUsedForBatch,
-            batchSize: batch.length
-          });
-        }
       } catch (error) {
         const details = extractApiErrorDetails(error);
-        logger.warn("Inception geotag batch failed; using fallback for batch", {
+        logger.warn("Inception geotag batch failed; trying Gemini", {
           status: details.status,
-          apiStatus: details.apiStatus,
           message: details.message,
-          quotaViolations: details.quotaViolations,
-          batchSize: batch.length,
-          configuredModel: options.model,
-          fallbackModels: options.fallbackModels
+          batchSize: batch.length
+        });
+
+        if (options.geminiApiKey) {
+          try {
+            const geminiResponse = await callGeminiApi(prompt, options);
+            modelUsedForBatch = options.geminiModel || "gemini-1.5-flash";
+            parsedResults = parseModelResponsePayload(geminiResponse);
+          } catch (geminiError) {
+            const geminiDetails = extractApiErrorDetails(geminiError);
+            logger.warn("Gemini fallback also failed; using mock", {
+              status: geminiDetails.status,
+              message: geminiDetails.message
+            });
+          }
+        }
+      }
+
+      if (modelUsedForBatch) {
+        modelUsageCounts[modelUsedForBatch] = (modelUsageCounts[modelUsedForBatch] ?? 0) + 1;
+      }
+
+      if (parsedResults.length === 0 && modelUsedForBatch) {
+        logger.warn("API response parsed but returned no usable geotag rows", {
+          modelUsed: modelUsedForBatch,
+          batchSize: batch.length
         });
       }
     } else {

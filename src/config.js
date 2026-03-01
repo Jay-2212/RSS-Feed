@@ -22,6 +22,8 @@ const DEFAULTS = {
   kimiModel: "mercury-2",
   kimiFallbackModels: [],
   kimiBaseUrl: "https://api.inceptionlabs.ai/v1",
+  geminiModel: "gemini-1.5-flash",
+  geminiBaseUrl: "https://generativelanguage.googleapis.com/v1beta/models",
   geotagMode: "auto",
   geotagBatchSize: 60,
   geotagMaxApiBatches: 0,
@@ -112,6 +114,9 @@ export function getRuntimeConfig(options = {}) {
       parseCsv(process.env.INCEPTION_FALLBACK_MODELS).length > 0
         ? parseCsv(process.env.INCEPTION_FALLBACK_MODELS)
         : DEFAULTS.kimiFallbackModels,
+    geminiModel: process.env.GEMINI_MODEL || DEFAULTS.geminiModel,
+    geminiBaseUrl: process.env.GEMINI_BASE_URL || DEFAULTS.geminiBaseUrl,
+    geminiApiKey: process.env.GEMINI_API_KEY || "",
     geotagBatchSize: parseInteger(
       process.env.GEOTAG_BATCH_SIZE,
       DEFAULTS.geotagBatchSize

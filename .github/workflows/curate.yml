@@ -14,6 +14,8 @@ jobs:
       INCEPTION_API_KEY: ${{ secrets.INCEPTION_API_KEY }}
       INCEPTION_BASE_URL: ${{ vars.INCEPTION_BASE_URL || 'https://api.inceptionlabs.ai/v1' }}
       INCEPTION_MODEL: ${{ vars.INCEPTION_MODEL || 'mercury-2' }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-1.5-flash' }}
       GEOTAG_MODE: ${{ vars.GEOTAG_MODE || 'auto' }}
       GEOTAG_BATCH_SIZE: ${{ vars.GEOTAG_BATCH_SIZE || '60' }}
       GEOTAG_MAX_API_BATCHES: ${{ vars.GEOTAG_MAX_API_BATCHES || '0' }}
@@ -34,8 +36,12 @@ jobs:
         run: |
           if [ -n "${INCEPTION_API_KEY}" ]; then
             echo "INCEPTION_API_KEY detected in environment."
-          else
-            echo "INCEPTION_API_KEY is not set. Geotagger will use mock mode."
+          fi
+          if [ -n "${GEMINI_API_KEY}" ]; then
+            echo "GEMINI_API_KEY detected in environment."
+          fi
+          if [ -z "${INCEPTION_API_KEY}" ] && [ -z "${GEMINI_API_KEY}" ]; then
+            echo "No AI API keys detected. Geotagger will use mock mode."
           fi
 
       - name: Run pipeline (Phase 1-5)
