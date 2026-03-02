@@ -686,10 +686,7 @@ async function callInceptionChatCompletions(prompt, options) {
         content: prompt
       }
     ],
-    temperature: 1.0,
-    max_tokens: 4096,
-    reasoning_effort: "medium",
-    reasoning_summary: true
+    max_tokens: 4096
   };
 
   const client = options.httpClient || axios;
