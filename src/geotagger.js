@@ -543,6 +543,10 @@ function mockGeotag(article) {
     signals: {
       conflict
     },
+    intelligence: {
+      tensionScore: conflict ? 7 : 2,
+      narrativeCluster: category
+    },
     geotagConfidence: confidence,
     geotagKeywords: tags,
     tags,
@@ -603,12 +607,13 @@ function parseModelResponsePayload(data) {
   }
 }
 
-function buildGeotagPrompt(batch) {
+function buildGeotagPrompt(batch, options = {}) {
+  const truncateLimit = options.geotagTruncateChars || 500;
   const articles = batch.map((article) => ({
     id: article.id,
     source: article.sourceName,
     title: article.title,
-    excerpt: article.excerpt
+    excerpt: String(article.excerpt || "").slice(0, truncateLimit)
   }));
 
   return [
@@ -621,6 +626,8 @@ function buildGeotagPrompt(batch) {
     "- category (World | National | Trending | WorthReading)",
     "- priority (High | Medium | Low, based on global impact and urgency)",
     "- conflictSignal (boolean, true when article clearly relates to active conflict/war/security escalation)",
+    "- tensionScore (0 to 10 integer, 10 being extreme conflict/volatility, 0 being routine/soft news)",
+    "- narrativeCluster (short string, 1-3 words identifying the main story thread, e.g. 'Red Sea Crisis', 'Election 2024', 'AI Regulation')",
     "- confidence (0.0 to 1.0)",
     "- tags (array of 3-8 specific display-ready tags; use Title Case when possible)",
     "",
@@ -871,6 +878,10 @@ function applyResultOrFallback(article, result, modeLabel) {
     signals: {
       conflict
     },
+    intelligence: {
+      tensionScore: Number.isFinite(result.tensionScore) ? result.tensionScore : (conflict ? 7 : 2),
+      narrativeCluster: result.narrativeCluster || category
+    },
     geotagConfidence: result.confidence,
     geotagKeywords: tags,
     tags,
@@ -926,7 +937,7 @@ export async function geotagArticles(articles, rawOptions = {}) {
       : Number.POSITIVE_INFINITY;
 
   for (const [batchIndex, batch] of chunks.entries()) {
-    const prompt = buildGeotagPrompt(batch);
+    const prompt = buildGeotagPrompt(batch, options);
     let parsedResults = [];
     let modelUsedForBatch = null;
 

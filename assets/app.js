@@ -372,12 +372,11 @@ function renderStats(filteredCount) {
   ).length;
 
   elements.topStats.innerHTML = `
-    <div class="stat"><span class="label">Total</span><span class="value">${total}</span></div>
-    <div class="stat"><span class="label">Visible</span><span class="value">${filteredCount}</span></div>
-    <div class="stat"><span class="label">Tagged</span><span class="value">${tagged}</span></div>
-    <div class="stat"><span class="label">High Priority</span><span class="value">${highPriorityCount}</span></div>
-    <div class="stat"><span class="label">Read Later</span><span class="value">${saved}</span></div>
-    <div class="stat"><span class="label">AI Fallback</span><span class="value">${fallbackMode}</span></div>
+    <div class="stat intel-stat"><span class="label">Total</span><span class="value">${total}</span></div>
+    <div class="stat intel-stat"><span class="label">Visible</span><span class="value">${filteredCount}</span></div>
+    <div class="stat intel-stat"><span class="label">Priority</span><span class="value">${highPriorityCount}</span></div>
+    <div class="stat intel-stat"><span class="label">Read Later</span><span class="value">${saved}</span></div>
+    <div class="stat intel-stat"><span class="label">AI Fallback</span><span class="value">${fallbackMode}</span></div>
   `;
 }
 
@@ -456,6 +455,8 @@ function renderArticles(articles) {
       const saved = state.readLaterIds.has(article.id);
       const city = article.geotag?.city ? `, ${article.geotag.city}` : "";
       const tags = articleTags(article);
+      const intel = article.intelligence || {};
+      const cluster = intel.narrativeCluster;
 
       return `
         <article class="news-card" style="--delay:${Math.min(index * 18, 220)}ms">
@@ -466,9 +467,6 @@ function renderArticles(articles) {
                 <span class="priority-badge priority-${escapeHtml(normalizePriority(article.priority))}">
                   ${escapeHtml(normalizePriority(article.priority))}
                 </span>
-                <span class="category category-${escapeHtml(article.category)}">${escapeHtml(
-                  article.category
-                )}</span>
               </div>
             </div>
             <h3>
@@ -478,14 +476,17 @@ function renderArticles(articles) {
             </h3>
           </header>
           <p>${escapeHtml(article.excerpt)}</p>
-          ${renderArticleTags(tags)}
+          <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 10px;">
+            ${cluster ? `<span class="article-tag narrative-tag">${escapeHtml(cluster)}</span>` : ""}
+            ${renderArticleTags(tags)}
+          </div>
           <footer>
             <span>${escapeHtml(article.geotag?.country || "UNK")}${escapeHtml(city)}</span>
             <span>${formatDate(article.publishedAt)}</span>
             <div class="card-actions">
-              <button class="open-btn" data-open-id="${escapeHtml(article.id)}">Read Here</button>
+              <button class="open-btn" data-open-id="${escapeHtml(article.id)}">Analyze</button>
               <button class="save-btn ${saved ? "saved" : ""}" data-save-id="${escapeHtml(article.id)}">
-                ${saved ? "Saved" : "Read Later"}
+                ${saved ? "Pinned" : "Pin"}
               </button>
             </div>
           </footer>
@@ -516,6 +517,10 @@ function openReader(articleId) {
   state.activeArticleId = article.id;
   const city = article.geotag?.city ? `, ${article.geotag.city}` : "";
   const tags = articleTags(article);
+  const intel = article.intelligence || {};
+  const tension = intel.tensionScore || 0;
+  const cluster = intel.narrativeCluster;
+
   const heroUrl = resolveHttpUrl(upgradeImageUrlForDisplay(article.imageUrl), article.url);
   const heroImage = heroUrl
     ? `<figure><img src="${escapeHtml(heroUrl)}" alt="${escapeHtml(
@@ -527,13 +532,34 @@ function openReader(articleId) {
     : `<p>${escapeHtml(article.excerpt || "No extracted content available.")}</p>`;
 
   elements.readerTitle.textContent = article.title;
+  
+  const intelHtml = `
+    <div class="reader-intel">
+      <div class="intel-item">
+        <span class="intel-label">Narrative Cluster</span>
+        <span class="intel-value">${escapeHtml(cluster || "General News")}</span>
+      </div>
+      <div class="intel-item">
+        <span class="intel-label">Geopolitical Tension</span>
+        <div class="tension-bar-container">
+          <div class="tension-bar-fill tension-bg-${tension >= 7 ? "high" : tension >= 4 ? "med" : "low"}" style="width: ${tension * 10}%"></div>
+        </div>
+        <span style="font-size: 0.7rem; color: #94a3b8; margin-top: 2px;">Score: ${tension}/10</span>
+      </div>
+      <div class="intel-item">
+        <span class="intel-label">Source Credibility</span>
+        <span class="intel-value">${article.sourceTier === 1 ? "Tier 1 (High)" : "Tier 2 (Standard)"}</span>
+      </div>
+    </div>
+  `;
+
   elements.readerMeta.innerHTML = `
     <span>${escapeHtml(article.sourceName)}</span>
     <span>${formatDate(article.publishedAt)}</span>
     <span>${escapeHtml(article.geotag?.country || "UNK")}${escapeHtml(city)}</span>
-    ${tags.length > 0 ? `<span>${escapeHtml(tags.join(" • "))}</span>` : ""}
   `;
-  elements.readerContent.innerHTML = `${heroImage}${readerBody}`;
+  
+  elements.readerContent.innerHTML = `${intelHtml}${heroImage}${readerBody}`;
   elements.readerOverlay.classList.add("visible");
   elements.readerOverlay.setAttribute("aria-hidden", "false");
   document.body.classList.add("reader-open");

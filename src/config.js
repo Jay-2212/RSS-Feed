@@ -19,6 +19,8 @@ const DEFAULTS = {
   curationMaxArticles: 120,
   curationMinWordCount: 120,
   articleRetentionDays: 21,
+  geotagAiThreshold: 10,
+  geotagTruncateChars: 500,
   kimiModel: "mercury-2",
   kimiFallbackModels: [],
   kimiBaseUrl: "https://api.inceptionlabs.ai/v1",
@@ -105,6 +107,14 @@ export function getRuntimeConfig(options = {}) {
     articleRetentionDays: parseInteger(
       process.env.ARTICLE_RETENTION_DAYS,
       DEFAULTS.articleRetentionDays
+    ),
+    geotagAiThreshold: parseInteger(
+      process.env.GEOTAG_AI_THRESHOLD,
+      DEFAULTS.geotagAiThreshold
+    ),
+    geotagTruncateChars: parseInteger(
+      process.env.GEOTAG_TRUNCATE_CHARS,
+      DEFAULTS.geotagTruncateChars
     ),
     geotagMode: process.env.GEOTAG_MODE || DEFAULTS.geotagMode,
     inceptionModel: process.env.INCEPTION_MODEL || DEFAULTS.kimiModel,

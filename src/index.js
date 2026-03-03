@@ -144,8 +144,16 @@ export async function runPhaseOneToFour() {
   let errorSummaries = [];
 
   if (phaseThreeOutput.articles.length > 0) {
+    let effectiveGeotagMode = config.geotagMode;
+    if (effectiveGeotagMode !== "mock") {
+      if (phaseThreeOutput.articles.length < config.geotagAiThreshold) {
+        logger.info(`New articles (${phaseThreeOutput.articles.length}) below AI threshold (${config.geotagAiThreshold}). Using mock geotagging.`);
+        effectiveGeotagMode = "mock";
+      }
+    }
+
     const result = await geotagArticles(phaseThreeOutput.articles, {
-      mode: config.geotagMode,
+      mode: effectiveGeotagMode,
       model: config.inceptionModel,
       fallbackModels: config.inceptionFallbackModels,
       inceptionBaseUrl: config.inceptionBaseUrl,
@@ -153,8 +161,9 @@ export async function runPhaseOneToFour() {
       geminiApiKey: config.geminiApiKey,
       geminiModel: config.geminiModel,
       geminiBaseUrl: config.geminiBaseUrl,
-      batchSize: config.geotagBatchSize,
+      batchSize: config.geotagBatchSize || config.curationMaxArticles || 120,
       maxApiBatches: config.geotagMaxApiBatches,
+      geotagTruncateChars: config.geotagTruncateChars,
       timeoutMs: config.geotagTimeoutMs,
       maxRetries: config.geotagMaxRetries,
       retryBaseDelayMs: config.geotagRetryBaseDelayMs,

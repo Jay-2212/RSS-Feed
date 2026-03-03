@@ -187,6 +187,13 @@ function sanitizeSignals(signals) {
   };
 }
 
+function sanitizeIntelligence(intel) {
+  return {
+    tensionScore: toNumber(intel?.tensionScore, 0),
+    narrativeCluster: intel?.narrativeCluster ? String(intel.narrativeCluster).trim() : null
+  };
+}
+
 function sanitizeMetrics(article) {
   const contentWordCount = calculateWordCount(article.content || article.excerpt || "");
   const wordCount = Number.isFinite(article.wordCount) ? article.wordCount : contentWordCount;
@@ -222,6 +229,7 @@ function sanitizeArticle(article, timestamp) {
     category: sanitizeCategory(article.category),
     priority: sanitizePriority(article.priority),
     signals: sanitizeSignals(article.signals),
+    intelligence: sanitizeIntelligence(article.intelligence),
     tags: sanitizeTags(tagsFromSource),
     metrics: sanitizeMetrics(article)
   };

@@ -131,8 +131,14 @@ function normalizePriority(value) {
   return "Low";
 }
 
+function getTensionClass(score) {
+  if (score >= 7) return "tension-high";
+  if (score >= 4) return "tension-med";
+  return "tension-low";
+}
+
 function hasConflictSignal(article) {
-  if (article?.signals?.conflict) {
+  if (article?.signals?.conflict || (article?.intelligence?.tensionScore >= 7)) {
     return true;
   }
   const tags = Array.isArray(article?.tags) ? article.tags : [];
@@ -485,6 +491,8 @@ export function initializeMap(options = {}) {
     borderOverlays.clearLayers();
 
     const bounds = [];
+    const narrativeClusters = new Map();
+
     for (const article of lastArticles) {
       const geotag = article?.geotag || {};
       const country = String(geotag.country || "UNK").toUpperCase();
@@ -497,24 +505,54 @@ export function initializeMap(options = {}) {
       const priority = normalizePriority(article?.priority);
       const conflict = hasConflictSignal(article);
       const color = PRIORITY_COLORS[priority] || PRIORITY_COLORS.Low;
+      
+      const intel = article.intelligence || {};
+      const tension = intel.tensionScore || 0;
+      const cluster = intel.narrativeCluster || "General";
 
-      const marker = L.circleMarker([lat, lng], {
-        radius: conflict ? 8 : 7,
-        color: conflict ? "#7f1d1d" : color,
-        weight: conflict ? 1.8 : 1.2,
-        fillColor: color,
-        fillOpacity: 0.86
+      if (cluster !== "General") {
+        const existing = narrativeClusters.get(cluster) || [];
+        existing.push(point);
+        narrativeClusters.set(cluster, existing);
+      }
+
+      const tensionClass = getTensionClass(tension);
+      const markerHtml = `
+        <div class="custom-intel-marker ${tensionClass}" style="position: relative; width: 12px; height: 12px;">
+          <div style="background: ${color}; width: 100%; height: 100%; border-radius: 50%; border: 1px solid white;"></div>
+          ${tension >= 7 ? '<div class="tension-pulse"></div>' : ""}
+        </div>
+      `;
+
+      const marker = L.marker([lat, lng], {
+        icon: L.divIcon({
+          html: markerHtml,
+          className: "intel-marker-container",
+          iconSize: [12, 12],
+          iconAnchor: [6, 6]
+        })
       });
 
-      marker.bindPopup(
-        [
-          `<strong>${escapeHtml(article.title)}</strong>`,
-          `<div>${escapeHtml(article.sourceName)}</div>`,
-          `<div>Country: ${escapeHtml(country)}</div>`,
-          `<div>Priority: ${escapeHtml(priority)}</div>`,
-          `<div>Conflict Signal: ${conflict ? "Yes" : "No"}</div>`
-        ].join("")
-      );
+      const popupContent = `
+        <div style="min-width: 200px;">
+          <div style="font-size: 0.65rem; color: #94a3b8; text-transform: uppercase; margin-bottom: 2px;">Intelligence Report</div>
+          <strong style="display: block; margin-bottom: 5px; font-size: 0.9rem;">${escapeHtml(article.title)}</strong>
+          <div style="font-size: 0.75rem; margin-bottom: 8px; color: #cbd5e1;">Source: ${escapeHtml(article.sourceName)}</div>
+          
+          <div class="reader-intel" style="padding: 8px; margin-bottom: 0; background: #0f172a; border-radius: 6px; border: 1px solid #334155;">
+            <div class="intel-item" style="margin-bottom: 6px;">
+              <span class="intel-label" style="font-size: 0.6rem;">Geopolitical Tension</span>
+              <div class="tension-bar-container" style="height: 4px; background: #1e293b; border-radius: 2px; overflow: hidden; margin: 2px 0;">
+                <div class="tension-bar-fill tension-bg-${tension >= 7 ? "high" : tension >= 4 ? "med" : "low"}" style="width: ${tension * 10}%; height: 100%;"></div>
+              </div>
+              <span style="font-size: 0.65rem; color: #94a3b8;">Score: ${tension}/10</span>
+            </div>
+            ${cluster ? `<div class="intel-item"><span class="intel-label" style="font-size: 0.6rem;">Narrative</span><span class="intel-value" style="font-size: 0.7rem; color: #c4b5fd;">${escapeHtml(cluster)}</span></div>` : ""}
+          </div>
+        </div>
+      `;
+
+      marker.bindPopup(popupContent);
 
       marker.on("click", (event) => {
         if (event?.originalEvent) {
@@ -530,6 +568,20 @@ export function initializeMap(options = {}) {
 
       markers.addLayer(marker);
       bounds.push([lat, lng]);
+    }
+
+    // Visualize Narrative Clusters
+    for (const [name, points] of narrativeClusters.entries()) {
+      if (points.length < 2) continue;
+      
+      const line = L.polyline(points, {
+        color: "#7c3aed",
+        weight: 1,
+        dashArray: "4 4",
+        opacity: 0.3
+      }).addTo(borderOverlays);
+      
+      line.bindTooltip(`Narrative: ${escapeHtml(name)}`, { sticky: true });
     }
 
     for (const signal of borderSignals) {
