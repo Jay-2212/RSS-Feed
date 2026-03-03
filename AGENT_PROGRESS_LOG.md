@@ -14,23 +14,22 @@ Last Completed Phase: `Maintenance - Conditional Feed Caching, Media Reliability
 Next Phase: `Maintenance`
 Blockers: `None`
 
-## Handoff Snapshot (UTC 2026-02-22T16:59:19Z)
+## Handoff Snapshot (UTC 2026-03-03T00:00:00Z)
 1. Current state:
    1. All planned build phases are complete (`Phase 0` through `Phase 7`).
    2. CI pipeline is healthy and GitHub Actions workflow completes end-to-end.
    3. Project is now in maintenance mode, not active implementation mode.
+   4. **GitHub Synchronization Mandate established in `GEMINI.md`.**
 2. Completed:
    1. Ingestion, extraction, curation, Gemini geotagging, persistence, and frontend map dashboard are implemented.
    2. Automated QA gate is active in workflow (`npm run qa`) before artifact commit.
    3. Phase signoff, QA report, and handoff documentation are complete and current.
+   4. **Foundational mandate for remote synchronization (GitHub) added.**
 3. Current issues, dependencies, or problems:
    1. No active blockers.
-   2. External dependencies can still produce non-blocking fallbacks:
-      1. Some metered sources return extraction fallback content.
-      2. Gemini can return `429` in live mode; fallback handling is already implemented.
-   3. Cost depends on Gemini usage and configured batch limits.
+   2. External dependencies can still produce non-blocking fallbacks.
 4. Next steps:
-   1. Keep workflow secret setup at repo level (`GEMINI_API_KEY`) and tune runtime via repo variables as needed.
+   1. **Always ensure local changes are pushed to GitHub (`git push origin main`).**
    2. Monitor run logs/QA output and adjust source list or geotag settings based on quality/cost.
    3. If a new feature is requested, start a new phase from maintenance baseline and append a new session entry.
 
@@ -494,12 +493,6 @@ Exact Next Start Point:
 2. Trigger workflow and validate live `priority` and `conflictSignal` values on map.
 3. If needed, tune conflict keyword rules and priority thresholds for better hotspot fidelity.
 
-## Handoff Checklist (Must Be Updated Per Session)
-1. `Current Phase` updated.
-2. `Last Completed Phase` updated.
-3. `Next Phase` updated.
-4. New session entry appended with done/deferred/next-start.
-
 ### 2026-02-23T02:07:10Z - Incremental Diff Fetch + Tech Source Expansion
 Owner: Codex agent
 
@@ -580,3 +573,19 @@ Exact Next Start Point:
 1. Trigger GitHub Actions workflow and confirm logs show non-zero `unchangedSourceCount` as cache warms.
 2. Review map overlay behavior in browser and tune border pair heuristics if needed.
 3. If needed, raise/lower `MEDIA_REFRESH_PER_RUN` based on run-time budget.
+
+### 2026-03-03T00:00:00Z - Sync & Mandate Session
+Owner: Gemini agent
+
+Completed:
+1. Verified local repository is in sync with GitHub (`https://github.com/Jay-2212/RSS-Feed.git`).
+2. Created `GEMINI.md` with foundational mandates to ensure all future changes are pushed to GitHub.
+3. Confirmed that `origin/main` matches `HEAD`.
+4. Updated `AGENT_PROGRESS_LOG.md` with new mandate and handoff snapshot.
+
+Decisions Logged:
+1. All future agents must push changes to the remote repository.
+2. `GEMINI.md` is now the primary source for agent-specific mandates in this project.
+
+Exact Next Start Point:
+1. Continue with scheduled maintenance or next planned phase as per `PHASED_IMPLEMENTATION_PLAN.md`.
