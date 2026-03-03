@@ -834,6 +834,8 @@ function sanitizeSingleResult(result) {
     category: VALID_CATEGORIES.has(result.category) ? result.category : null,
     priority: normalizePriority(result.priority),
     conflictSignal: Boolean(result.conflictSignal),
+    tensionScore: Number.isFinite(result.tensionScore) ? result.tensionScore : null,
+    narrativeCluster: result.narrativeCluster ? String(result.narrativeCluster).trim() : null,
     confidence: clampConfidence(result.confidence),
     tags: sanitizeTagList(
       Array.isArray(result.tags)
@@ -946,6 +948,7 @@ export async function geotagArticles(articles, rawOptions = {}) {
         const response = await callInceptionWithModelFallback(prompt, options, logger);
         modelUsedForBatch = response.modelUsed;
         parsedResults = parseModelResponsePayload(response.data);
+        logger.info(`AI returned ${parsedResults.length} results for batch of ${batch.length}`);
       } catch (error) {
         const details = extractApiErrorDetails(error);
         const inceptionErr = `Inception ${details.status || "Error"}: ${details.message || "Unknown"}`;
@@ -1002,6 +1005,9 @@ export async function geotagArticles(articles, rawOptions = {}) {
     const lookup = toResultLookup(parsedResults);
     for (const article of batch) {
       const result = lookup.get(article.id);
+      if (!result && modelUsedForBatch) {
+        logger.warn(`Article ID ${article.id} missing from AI response, using mock fallback`);
+      }
       combined.push(applyResultOrFallback(article, result, "live"));
     }
   }
