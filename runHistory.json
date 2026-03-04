@@ -1,5 +1,19 @@
 [
   {
+    "timestamp": "2026-03-04T23:59:08.538Z",
+    "phase": "phase_4_complete",
+    "articlesPersisted": 120,
+    "geotaggedNew": 132,
+    "geotagModeConfigured": "auto",
+    "geotagModeResolved": "mixed",
+    "geotagModel": "mercury-2",
+    "fetched": 137,
+    "unchangedSources": 0,
+    "failedSources": 0,
+    "refreshedExistingMedia": 20,
+    "errors": []
+  },
+  {
     "timestamp": "2026-03-03T14:27:12.065Z",
     "phase": "phase_4_complete",
     "articlesPersisted": 120,
