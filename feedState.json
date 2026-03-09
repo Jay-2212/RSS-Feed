@@ -1,99 +1,99 @@
 {
-  "updatedAt": "2026-03-04T23:57:45.253Z",
+  "updatedAt": "2026-03-09T00:22:23.825Z",
   "sources": {
     "nyt-world": {
       "etag": null,
       "lastModified": null,
-      "lastCheckedAt": "2026-03-04T23:57:41.758Z",
-      "lastFetchedAt": "2026-03-04T23:57:41.758Z",
+      "lastCheckedAt": "2026-03-09T00:22:18.879Z",
+      "lastFetchedAt": "2026-03-09T00:22:18.879Z",
       "lastStatus": 200,
-      "lastItemCount": 61
+      "lastItemCount": 60
     },
     "hindu": {
       "etag": null,
-      "lastModified": "Wed, 04 Mar 2026 23:53:31 GMT",
-      "lastCheckedAt": "2026-03-04T23:57:41.875Z",
-      "lastFetchedAt": "2026-03-04T23:57:41.875Z",
+      "lastModified": "Sun, 08 Mar 2026 22:39:16 GMT",
+      "lastCheckedAt": "2026-03-09T00:22:19.830Z",
+      "lastFetchedAt": "2026-03-09T00:22:19.830Z",
       "lastStatus": 200,
       "lastItemCount": 100
     },
     "bbc-world": {
       "etag": null,
       "lastModified": null,
-      "lastCheckedAt": "2026-03-04T23:57:42.089Z",
-      "lastFetchedAt": "2026-03-04T23:57:42.089Z",
+      "lastCheckedAt": "2026-03-09T00:22:20.351Z",
+      "lastFetchedAt": "2026-03-09T00:22:20.351Z",
       "lastStatus": 200,
-      "lastItemCount": 33
+      "lastItemCount": 25
     },
     "guardian-world": {
-      "etag": "W/\"hash9222141842448391052\"",
+      "etag": "W/\"hash8491644455499347381\"",
       "lastModified": null,
-      "lastCheckedAt": "2026-03-04T23:57:42.275Z",
-      "lastFetchedAt": "2026-03-04T23:57:42.275Z",
+      "lastCheckedAt": "2026-03-09T00:22:20.552Z",
+      "lastFetchedAt": "2026-03-09T00:22:20.552Z",
       "lastStatus": 200,
       "lastItemCount": 45
     },
     "reuters-world": {
       "etag": null,
       "lastModified": null,
-      "lastCheckedAt": "2026-03-04T23:57:42.774Z",
-      "lastFetchedAt": "2026-03-04T23:57:42.774Z",
+      "lastCheckedAt": "2026-03-09T00:22:21.069Z",
+      "lastFetchedAt": "2026-03-09T00:22:21.069Z",
       "lastStatus": 200,
       "lastItemCount": 100
     },
     "npr-world": {
       "etag": null,
       "lastModified": null,
-      "lastCheckedAt": "2026-03-04T23:57:42.855Z",
-      "lastFetchedAt": "2026-03-04T23:57:42.855Z",
+      "lastCheckedAt": "2026-03-09T00:22:21.128Z",
+      "lastFetchedAt": "2026-03-09T00:22:21.128Z",
       "lastStatus": 200,
       "lastItemCount": 10
     },
     "indian-express-world": {
-      "etag": "W/\"dc3496399a99f18df4ac9a26d079ac59\"",
-      "lastModified": "Wed, 04 Mar 2026 23:48:31 GMT",
-      "lastCheckedAt": "2026-03-04T23:57:43.043Z",
-      "lastFetchedAt": "2026-03-04T23:57:43.043Z",
+      "etag": "W/\"7eab9224ef4e6c64607ea1fdb7912742\"",
+      "lastModified": "Mon, 09 Mar 2026 00:18:05 GMT",
+      "lastCheckedAt": "2026-03-09T00:22:21.720Z",
+      "lastFetchedAt": "2026-03-09T00:22:21.720Z",
       "lastStatus": 200,
       "lastItemCount": 200
     },
     "ap-news": {
       "etag": null,
       "lastModified": null,
-      "lastCheckedAt": "2026-03-04T23:57:43.483Z",
-      "lastFetchedAt": "2026-03-04T23:57:43.483Z",
+      "lastCheckedAt": "2026-03-09T00:22:21.764Z",
+      "lastFetchedAt": "2026-03-09T00:22:21.764Z",
       "lastStatus": 200,
       "lastItemCount": 100
     },
     "quartz": {
       "etag": null,
-      "lastModified": "Wed, 04 Mar 2026 23:23:00 GMT",
-      "lastCheckedAt": "2026-03-04T23:57:43.608Z",
-      "lastFetchedAt": "2026-03-04T23:57:43.608Z",
+      "lastModified": "Sun, 08 Mar 2026 23:47:26 GMT",
+      "lastCheckedAt": "2026-03-09T00:22:21.915Z",
+      "lastFetchedAt": "2026-03-09T00:22:21.915Z",
       "lastStatus": 200,
       "lastItemCount": 50
     },
     "ars-technica": {
       "etag": null,
-      "lastModified": "Wed, 4 Mar 2026 23:23:28 GMT",
-      "lastCheckedAt": "2026-03-04T23:57:43.757Z",
-      "lastFetchedAt": "2026-03-04T23:57:43.757Z",
+      "lastModified": "Sun, 8 Mar 2026 14:38:30 GMT",
+      "lastCheckedAt": "2026-03-09T00:22:22.018Z",
+      "lastFetchedAt": "2026-03-09T00:22:22.018Z",
       "lastStatus": 200,
       "lastItemCount": 20
     },
     "hacker-news": {
       "etag": null,
-      "lastModified": "Wed, 04 Mar 2026 21:56:20 GMT",
-      "lastCheckedAt": "2026-03-04T23:57:44.958Z",
-      "lastFetchedAt": "2026-03-04T23:57:44.958Z",
+      "lastModified": "Sun, 08 Mar 2026 22:50:55 GMT",
+      "lastCheckedAt": "2026-03-09T00:22:23.367Z",
+      "lastFetchedAt": "2026-03-09T00:22:23.367Z",
       "lastStatus": 200,
       "lastItemCount": 20
     },
     "atlantic": {
       "etag": null,
-      "lastModified": "Wed, 04 Mar 2026 23:55:58 GMT",
-      "lastCheckedAt": "2026-03-04T23:57:45.248Z",
-      "lastFetchedAt": "2026-03-04T23:57:45.248Z",
+      "lastModified": "Sun, 08 Mar 2026 18:31:44 GMT",
+      "lastCheckedAt": "2026-03-09T00:22:23.821Z",
+      "lastFetchedAt": "2026-03-09T00:22:23.821Z",
       "lastStatus": 200,
       "lastItemCount": 25
     }
